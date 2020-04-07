@@ -9,6 +9,7 @@
     "mongodb": "^3.5.5"
   },
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
@@ -30,8 +31,9 @@
   },
   "scripts": {
     "client": "cd client && npm start",
-    "build": "cd client && npm run build",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build && npm run build-storybook",
+    "storybook": "cd client && npm run storybook",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\" \"npm run storybook\"",
     "dev:server": "npm run build && cd .. && npm start",
     "server": "nodemon index.js",
     "start": "node index.js"
