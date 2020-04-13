@@ -1,6 +1,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-//import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Rubik&display=swap');
+import QuicksandLight from '../assets/QuicksandLight.otf';
+import QuicksandBook from '../assets/QuicksandBook.otf';
+import Rubik from '../assets/Rubik.ttf';
 
 function GlobalStyles() {
   return (
@@ -11,10 +13,20 @@ function GlobalStyles() {
         *:after {
           box-sizing: border-box;
         }
+        @font-face {
+            font-family: 'Quicksand Light';
+            src: url('${QuicksandLight}') format('opentype');
+          }
+          @font-face {
+            font-family: 'Quicksand Book';
+            src: url('${QuicksandBook}') format('opentype');
+          }
+          @font-face {
+            font-family: 'Rubik';
+            src: url('${Rubik}') format('truetype');
+          }
         body {
           height: 100vh;
-          font-size: 34;
-          font-family: 'Quicksand', sans-serif;
           color: ${theme.color.text};
           background: ${theme.colors.background};
           margin: 0;
