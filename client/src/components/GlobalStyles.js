@@ -7,7 +7,7 @@ import Rubik from '../assets/Rubik.ttf';
 function GlobalStyles() {
   return (
     <Global
-      styles={(theme) => css`
+      styles={css`
         *,
         *:before,
         *:after {
@@ -27,8 +27,8 @@ function GlobalStyles() {
           }
         body {
           height: 100vh;
-          color: ${theme.color.text};
-          background: ${theme.colors.background};
+          color: black;
+          background: rgba(249, 249, 249, 1);
           margin: 0;
         }
       `}
@@ -36,3 +36,7 @@ function GlobalStyles() {
   );
 }
 export default GlobalStyles;
+
+/* (theme) => hinzufügen vor css, wenn themes hinzugefügt werden
+${theme.color.text} einfügen, wenn themes hinzugefügt werden
+${theme.colors.background} einfügen, wenn themes hinzugefügt werden */
