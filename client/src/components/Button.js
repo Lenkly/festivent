@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 const Button = styled.button`
   cursor: pointer;
+  font-family: 'Quicksand Book', sans-serif;
   padding: ${(props) => setPadding(props.size)};
   fontsize: ${(props) => setFontsize(props.size)};
   width: ${(props) => setWidth(props.size)};
