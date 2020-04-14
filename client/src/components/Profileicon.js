@@ -8,21 +8,21 @@ const Profileicon = styled.div`
   border-radius: 50%;
 `;
 
-const Iconsize = {
+const iconSize = {
   Nav: { height: '21px', width: '21px', border: '1px' },
   Profile: { height: '90px', width: '90px', border: '1px' },
 };
 
 function setHeight(size) {
-  return Iconsize[size].height;
+  return iconSize[size].height;
 }
 
 function setWidth(size) {
-  return Iconsize[size].width;
+  return iconSize[size].width;
 }
 
 function setBorder(size) {
-  return Iconsize[size].border;
+  return iconSize[size].border;
 }
 
 export default Profileicon;
