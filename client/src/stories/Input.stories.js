@@ -1,5 +1,5 @@
 import React from 'react';
-//import { actions } from '@storybook/addon-actions';
+//import { action } from '@storybook/addon-actions';
 import Input from '../components/Input';
 
 export default {
@@ -9,7 +9,12 @@ export default {
 export const Name = () => <Input type="text" size="Name" />;
 
 export const Username = () => (
-  <Input type="text" size="User" placeholder="Username" />
+  <Input
+    type="text"
+    size="User"
+    placeholder="Username"
+    onFocus="props.placeholder=''"
+  />
 );
 
 export const Email = () => (
