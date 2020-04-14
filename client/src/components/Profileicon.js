@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const Profileicon = styled.div`
+const ProfileIcon = styled.div`
   height: ${(props) => setHeight(props.size)};
   width: ${(props) => setWidth(props.size)};
   $border: ${(props) => setBorder(props.size)};
@@ -25,4 +25,4 @@ function setBorder(size) {
   return iconSize[size].border;
 }
 
-export default Profileicon;
+export default ProfileIcon;

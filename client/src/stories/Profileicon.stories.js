@@ -1,10 +1,10 @@
 import React from 'react';
-import Profileicon from '../components/Profileicon';
+import ProfileIcon from '../components/Profileicon';
 
 export default {
-  title: Profileicon,
+  title: 'Profileicon',
 };
 
-export const ProfileIcon = () => <Profileicon size="Profile" />;
+export const Picture = () => <ProfileIcon size="Profile" />;
 
-export const NavigationIcon = () => <Profileicon size="Nav" />;
+export const Navigation = () => <ProfileIcon size="Nav" />;
