@@ -5,14 +5,13 @@ const Button = styled.button`
   font-family: 'Quicksand Book', sans-serif;
   padding: ${(props) => setPadding(props.size)};
   fontsize: ${(props) => setFontsize(props.size)};
-  width: ${(props) => setWidth(props.size)};
+  width: 100%;
   text-transform: uppercase;
 
-  $border: 2px;
   color: #fff;
-  background: #1D1D1D;
+  background: #1d1d1d;
   background-clip: padding-box;
-  border: solid $border transparent;
+  border: solid 2px transparent;
   border-radius: 1em;
 
   &:before {
@@ -23,16 +22,29 @@ const Button = styled.button`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -$border;
-    border-radius: inherit;
-    background: linear-gradient(to right, rgba(255,247,0,1) 0%, rgba(255,145,0,1) 10%, rgba(255,0,132,1) 20%, rgba(255,0,242,1) 30%, rgba(187,0,255,1) 40%, rgba(85,0,255,1) 50%, rgba(0,106,255,1) 60%, rgba(0,204,255,1) 70%, rgba(0,255,106,1) 80%, rgba(89,255,0,1) 90%, rgba(255,247,0,1) 100%));
+    margin: 0;
+    border-radius: 1em;
+    background: linear-gradient(
+      to right,
+      #fff700,
+      #ff9100,
+      #ff0084,
+      #ff00f2,
+      #bb00ff,
+      #7700ff,
+      #006aff,
+      #00ccff,
+      #00ff6a,
+      #59ff00,
+      #fff700
+    );
   }
 `;
 
 const buttonSize = {
-  Small: { padding: '5px', fontSize: '20px', width: '219px' },
-  Medium: { padding: '7px', fontSize: '25px', width: '284px' },
-  Large: { padding: '9px', fontSize: '34px', width: '284px' },
+  Small: { padding: '10px 0 7px 0', fontSize: '1em' },
+  Medium: { padding: '11px 0 8px 0', fontSize: '1.25em' },
+  Large: { padding: '13px 0 9px 0', fontSize: '1.75em' },
 };
 
 function setPadding(size) {
@@ -41,10 +53,6 @@ function setPadding(size) {
 
 function setFontsize(size) {
   return buttonSize[size].fontSize;
-}
-
-function setWidth(size) {
-  return buttonSize[size].width;
 }
 
 export default Button;

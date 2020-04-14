@@ -7,13 +7,13 @@ export default {
 };
 
 export const Signup = () => (
-  <Button size="Small" onClick={action('clicked')}>
+  <Button size="Small" type="submit" onClick={action('clicked')}>
     Sign Up
   </Button>
 );
 
 export const Login = () => (
-  <Button size="Small" onClick={action('clicked')}>
+  <Button size="Small" type="submit" onClick={action('clicked')}>
     Log In
   </Button>
 );
@@ -43,7 +43,7 @@ export const Again = () => (
 );
 
 export const Match = () => (
-  <Button size="Large" onClick={action('clicked')}>
+  <Button size="Large" type="submit" onClick={action('clicked')}>
     Match Me
   </Button>
 );
