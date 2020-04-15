@@ -12,17 +12,17 @@ const Input = styled.input`
   border-bottom: 1px solid #707070;
   cursor: text;
   padding: ${(props) => inputText[props.size].padding};
-  fontsize: ${(props) => inputText[props.size].fontsize};
+  font-size: ${(props) => inputText[props.size].fontsize};
   &::placeholder {
     font-family: 'Quicksand Light', sans-serif;
-    color: white;
+    color: #707070;
     text-align: center;
   }
 `;
 
 const inputText = {
-  Name: { padding: '6px', fontSize: '24px', width: '256px' },
-  User: { padding: '5px', fontSize: '20px', width: '305px' },
+  Name: { padding: '6px', fontsize: '24px', width: '256px' },
+  User: { padding: '5px', fontsize: '20px', width: '305px' },
 };
 
 export default Input;
