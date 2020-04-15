@@ -7,11 +7,12 @@ const Input = styled.input`
   font-family: 'Quicksand Book', sans-serif;
   text-transform: uppercase;
   background: #1d1d1d;
-  width: 100%;
+  width: ${(props) => inputText[props.size].width};
+  border: none;
   border-bottom: 1px solid #707070;
   cursor: text;
-  padding: ${(props) => setPadding(props.size)};
-  fontsize: ${(props) => setFontsize(props.size)};
+  padding: ${(props) => inputText[props.size].padding};
+  fontsize: ${(props) => inputText[props.size].fontsize};
   &::placeholder {
     font-family: 'Quicksand Light', sans-serif;
     color: white;
@@ -20,16 +21,8 @@ const Input = styled.input`
 `;
 
 const inputText = {
-  Name: { padding: '6px', fontSize: '24px' },
-  User: { padding: '5px', fontSize: '20px' },
+  Name: { padding: '6px', fontSize: '24px', width: '256px' },
+  User: { padding: '5px', fontSize: '20px', width: '305px' },
 };
-
-function setPadding(size) {
-  return inputText[size].padding;
-}
-
-function setFontsize(size) {
-  return inputText[size].fontSize;
-}
 
 export default Input;
