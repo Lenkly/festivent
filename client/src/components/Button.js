@@ -4,13 +4,13 @@ const Button = styled.button`
   cursor: pointer;
   font-family: 'Quicksand Book', sans-serif;
   padding: ${(props) => setPadding(props.size)};
-  fontsize: ${(props) => setFontsize(props.size)};
+  font-size: ${(props) => setFontsize(props.size)};
   width: ${(props) => setWidth(props.size)};
   text-transform: uppercase;
 
   color: #fff;
   background: #1d1d1d;
-  background-clip: padding-box;
+
   border: solid 2px transparent;
   border-radius: 15px;
 
@@ -44,9 +44,9 @@ const Button = styled.button`
 `;
 
 const buttonSize = {
-  Small: { padding: '10px 0 7px 0', fontSize: '20px', width: '219px' },
-  Medium: { padding: '11px 0 8px 0', fontSize: '25px', width: '284px' },
-  Large: { padding: '13px 0 9px 0', fontSize: '34px', width: '284px' },
+  Small: { padding: '10px 0 7px 0', fontsize: '20px', width: '219px' },
+  Medium: { padding: '11px 0 8px 0', fontsize: '25px', width: '284px' },
+  Large: { padding: '13px 0 9px 0', fontsize: '34px', width: '284px' },
 };
 
 function setPadding(size) {
@@ -54,7 +54,7 @@ function setPadding(size) {
 }
 
 function setFontsize(size) {
-  return buttonSize[size].fontSize;
+  return buttonSize[size].fontsize;
 }
 
 function setWidth(size) {
