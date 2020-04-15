@@ -1,28 +1,16 @@
 import styled from '@emotion/styled';
 
-const ProfileIcon = styled.div`
-  height: ${(props) => setHeight(props.size)};
-  width: ${(props) => setWidth(props.size)};
-  $border: ${(props) => setBorder(props.size)};
-  border: solid $border #707070;
-  border-radius: 50%;
+const ProfileIcon = styled.img`
+  height: ${(props) => iconSize[props.size].height};
+  width: ${(props) => iconSize[props.size].width};
+  border: solid #707070;
+  border-width: ${(props) => iconSize[props.size].border};
+  border-radius: 100%;
 `;
 
 const iconSize = {
   Nav: { height: '21px', width: '21px', border: '1px' },
-  Profile: { height: '90px', width: '90px', border: '1px' },
+  Profile: { height: '90px', width: '90px', border: '3px' },
 };
-
-function setHeight(size) {
-  return iconSize[size].height;
-}
-
-function setWidth(size) {
-  return iconSize[size].width;
-}
-
-function setBorder(size) {
-  return iconSize[size].border;
-}
 
 export default ProfileIcon;

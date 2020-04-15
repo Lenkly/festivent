@@ -9,12 +9,7 @@ export default {
 export const Name = () => <Input type="text" size="Name" />;
 
 export const Username = () => (
-  <Input
-    type="text"
-    size="User"
-    placeholder="Username"
-    onFocus="props.placeholder=''"
-  />
+  <Input type="text" size="User" placeholder="Username" />
 );
 
 export const Email = () => (
