@@ -2,9 +2,9 @@ import React from 'react';
 import ProfileIcon from '../components/Profileicon';
 
 export default {
-  title: 'Profileicon',
+  title: 'Profile Icon',
 };
 
-export const Picture = () => <ProfileIcon size="Profile" />;
+export const Usericon = () => <ProfileIcon size="Profile" />;
 
-export const Navigation = () => <ProfileIcon size="Nav" />;
+export const Navigationicon = () => <ProfileIcon size="Nav" />;
