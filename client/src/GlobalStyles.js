@@ -1,18 +1,31 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
+import QuicksandLight from './assets/QuicksandLight.otf';
+import QuicksandBook from './assets/QuicksandBook.otf';
+import Rubik from './assets/Rubik.ttf';
 
 function GlobalStyles() {
   return (
     <Global
       styles={(theme) => css`
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Rubik&display=swap');
         *,
         *::before,
         *::after {
           box-sizing: border-box;
         }
+        @font-face {
+            font-family: 'Quicksand Light';
+            src: url('${QuicksandLight}') format('opentype');
+          }
+          @font-face {
+            font-family: 'Quicksand Book';
+            src: url('${QuicksandBook}') format('opentype');
+          }
+          @font-face {
+            font-family: 'Rubik';
+            src: url('${Rubik}') format('truetype');
+          }
         body {
-          display: flex;
           height: 100vh;
           color: ${theme.colors.text};
           background: ${theme.colors.background};

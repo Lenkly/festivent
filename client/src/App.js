@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import GlobalStyles from '../src/components/GlobalStyles';
+import GlobalStyles from './GlobalStyles';
 import './App.css';
 
 function App() {
