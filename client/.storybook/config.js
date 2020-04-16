@@ -1,7 +1,7 @@
 import { configure, addDecorator } from '@storybook/react';
-import GlobalStyles from '../src/components/GlobalStyles';
-import themeDecorator from 'themeDecorator';
+import themeDecorator from './themeDecorator';
 import React from 'react';
+import GlobalStyles from '../src/components/GlobalStyles';
 import styled from '@emotion/styled';
 
 const Main = styled.div`
