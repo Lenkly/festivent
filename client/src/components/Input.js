@@ -3,10 +3,10 @@ import styled from '@emotion/styled';
 const Input = styled.input`
   display: flex;
   text-align: center;
-  color: white;
+  color: black;
   font-family: 'Quicksand Book', sans-serif;
   text-transform: uppercase;
-  background: #1d1d1d;
+  background: none;
   width: ${(props) => inputText[props.size].width};
   border: none;
   border-bottom: 1px solid #707070;
