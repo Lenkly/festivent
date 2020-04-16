@@ -27,6 +27,7 @@ function GlobalStyles() {
           }
         body {
           height: 100vh;
+          font-size: 34px;
           color: ${theme.colors.text};
           background: ${theme.colors.background};
           margin: 0;
