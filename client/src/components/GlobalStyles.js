@@ -3,12 +3,11 @@ import { Global, css } from '@emotion/core';
 import QuicksandLight from '../assets/QuicksandLight.otf';
 import QuicksandBook from '../assets/QuicksandBook.otf';
 import Rubik from '../assets/Rubik.ttf';
-import themes from 'emotion-theming';
 
 function GlobalStyles() {
   return (
     <Global
-      styles={css`
+      styles={(theme) => css`
         *,
         *:before,
         *:after {
@@ -28,8 +27,8 @@ function GlobalStyles() {
           }
         body {
           height: 100vh;
-          color: ${themes.colors.text};
-          background: ${themes.colors.background};
+          color: ${theme.colors.text};
+          background: ${theme.colors.background};
           margin: 0;
         }
       `}
