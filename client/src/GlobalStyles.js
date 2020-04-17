@@ -1,16 +1,16 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import QuicksandLight from '../assets/QuicksandLight.otf';
-import QuicksandBook from '../assets/QuicksandBook.otf';
-import Rubik from '../assets/Rubik.ttf';
+import QuicksandLight from './assets/QuicksandLight.otf';
+import QuicksandBook from './assets/QuicksandBook.otf';
+import Rubik from './assets/Rubik.ttf';
 
 function GlobalStyles() {
   return (
     <Global
-      styles={css`
+      styles={(theme) => css`
         *,
-        *:before,
-        *:after {
+        *::before,
+        *::after {
           box-sizing: border-box;
         }
         @font-face {
@@ -27,8 +27,9 @@ function GlobalStyles() {
           }
         body {
           height: 100vh;
-          color: black;
-          background: rgba(249, 249, 249, 1);
+          font-size: 34px;
+          color: ${theme.colors.text};
+          background: ${theme.colors.background};
           margin: 0;
         }
       `}
@@ -36,7 +37,3 @@ function GlobalStyles() {
   );
 }
 export default GlobalStyles;
-
-/* (theme) => hinzufügen vor css, wenn themes hinzugefügt werden
-${theme.color.text} einfügen, wenn themes hinzugefügt werden
-${theme.colors.background} einfügen, wenn themes hinzugefügt werden */
