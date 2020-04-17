@@ -3,12 +3,12 @@ import styled from '@emotion/styled';
 const Button = styled.button`
   cursor: pointer;
   font-family: 'Quicksand Book', sans-serif;
-  padding: 12px 0 7px 0;
-  font-size: 20px;
-  width: 217px;
+  padding: ${(props) => buttonSize[props.size].padding};
+  font-size: ${(props) => buttonSize[props.size].fontsize};
+  width: ${(props) => buttonSize[props.size].width};
   text-transform: uppercase;
-  color: #fff;
-  background: #1d1d1d;
+  color: #000;
+  background: #f9f9f9;
   background-clip: padding-box;
   border: none;
   border-radius: 1rem;
@@ -18,8 +18,8 @@ const Button = styled.button`
     content: '';
     display: block;
     position: absolute;
-    width: 219px;
-    height: 39px;
+    width: ${(props) => buttonSize[props.size].borderWidth};
+    height: ${(props) => buttonSize[props.size].height};
     top: 50%;
     transform: translateY(-50%);
     left: -0.5%;
@@ -42,5 +42,29 @@ const Button = styled.button`
     );
   }
 `;
+
+const buttonSize = {
+  Small: {
+    padding: '11px 0 6px 0',
+    fontsize: '1.25rem',
+    width: '13.56rem',
+    borderWidth: '13.7rem',
+    height: '2.4rem',
+  },
+  Medium: {
+    padding: '15px 0 10px 0',
+    fontsize: '1.56rem',
+    width: '17.5rem',
+    borderWidth: '17.75rem',
+    height: '3.25rem',
+  },
+  Large: {
+    padding: '11px 0 6px 0',
+    fontsize: '2.125rem',
+    width: '17.5rem',
+    borderWidth: '17.75rem',
+    height: '3.25rem',
+  },
+};
 
 export default Button;
