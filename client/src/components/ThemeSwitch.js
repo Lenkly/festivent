@@ -10,7 +10,7 @@ function Themeswitch() {
     <Switch
       onChange={handleChange}
       checked={isToggled}
-      aria-labelledby="neat-label"
+      aria-labelledby="theme-switch-toggle"
       offColor="#FF00F2"
       onColor="#59FF00"
       width={75}
