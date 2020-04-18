@@ -7,7 +7,7 @@ import Rubik from './assets/Rubik.ttf';
 function GlobalStyles() {
   return (
     <Global
-      styles={(theme) => css`
+      styles={css`
         *,
         *::before,
         *::after {
@@ -26,10 +26,12 @@ function GlobalStyles() {
             src: url('${Rubik}') format('truetype');
           }
         body {
+          font-family: 'Quicksand Book';
           height: 100vh;
           font-size: 34px;
-          color: ${theme.colors.text};
-          background: ${theme.colors.background};
+          text-transform: uppercase;
+          color: black;
+          background: #f9f9f9;
           margin: 0;
         }
       `}
@@ -37,3 +39,7 @@ function GlobalStyles() {
   );
 }
 export default GlobalStyles;
+
+/* ${theme.colors.background};
+${theme.colors.text}
+(theme) => */
