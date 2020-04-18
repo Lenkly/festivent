@@ -1,27 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Browserrouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
-import './App.css';
+import Welcome from './pages/Welcome';
+import styled from '@emotion/styled';
+
+const Main = styled.main`
+display: flex:
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 80%;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <GlobalStyles />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Main>
+        <Switch>
+          <Route exact path="/">
+            <Welcome />
+          </Route>
+        </Switch>
+      </Main>
+    </Router>
   );
 }
 

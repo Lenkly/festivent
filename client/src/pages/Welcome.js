@@ -2,15 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Input from '..Input/components/Input';
 
-const Content = styled.div`
-display: flex:
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 80%;
-background: none;
-`;
-
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -35,7 +26,7 @@ function Welcome() {
   const [nameUser, setNameUser] = React.useState('');
 
   return (
-    <Content>
+    <div>
       <Form>
         <WelcomeText>Welcome</WelcomeText>
         <Input
@@ -48,7 +39,7 @@ function Welcome() {
         />
         <NameText>Type Your Name</NameText>
       </Form>
-    </Content>
+    </div>
   );
 }
 
