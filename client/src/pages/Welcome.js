@@ -1,32 +1,59 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Input from '..Input/components/Input';
+import Input from '../components/Input';
+
+const Content = styled.div`
+display: flex:
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 100%;
+padding: 0px 35px;
+`;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
 `;
 
 const WelcomeText = styled.div`
-  color: #fff;
+  padding-top: 255px;
+  font-family: 'Quicksand Light';
   font-size: 34px;
   margin_bottom: 50px;
-  text-transform: uppercase;
 `;
 
 const NameText = styled.div`
-  color: #fff;
+  font-family: 'Quicksand Light';
   font-size: 14px;
-  text-transform: uppercase;
+  margin-top: 8px;
+`;
+
+const LoginLink = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 200px;
+`;
+
+const LoginText = styled.div`
+  font-family: 'Quicksand Light';
+  font-size: 15px;
+  margin-right: 5px;
+`;
+
+const HighlightLink = styled.div`
+  font-size: 15px;
+  color: #bb00ff;
 `;
 
 function Welcome() {
   const [nameUser, setNameUser] = React.useState('');
 
   return (
-    <div>
+    <Content>
       <Form>
         <WelcomeText>Welcome</WelcomeText>
         <Input
@@ -38,8 +65,12 @@ function Welcome() {
           }}
         />
         <NameText>Type Your Name</NameText>
+        <LoginLink>
+          <LoginText>Have An Account?</LoginText>
+          <HighlightLink>Log In</HighlightLink>
+        </LoginLink>
       </Form>
-    </div>
+    </Content>
   );
 }
 
