@@ -7,7 +7,7 @@ const Input = styled.input`
   font-family: 'Quicksand Book', sans-serif;
   text-transform: uppercase;
   background: none;
-  width: 100%;
+  width: ${(props) => inputText[props.size].width};
   border: none;
   border-bottom: 1px solid #707070;
   cursor: text;
@@ -21,8 +21,8 @@ const Input = styled.input`
 `;
 
 const inputText = {
-  Name: { padding: '6px', fontsize: '1.56rem' },
-  User: { padding: '5px', fontsize: '1.25rem' },
+  Name: { padding: '6px', fontsize: '1.56rem', width: '80%' },
+  User: { padding: '5px', fontsize: '1.25rem', width: '100%' },
 };
 
 export default Input;
