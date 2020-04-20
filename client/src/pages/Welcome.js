@@ -50,20 +50,21 @@ const HighlightLink = styled.div`
 `;
 
 function Welcome() {
-  const [nameUser, setNameUser] = React.useState('');
+  const [nameUser, setNameUser] = React.useState(
+    sessionStorage.getItem('Name') || ''
+  );
+
+  React.useEffect(() => {
+    sessionStorage.setItem('Name', nameUser);
+  }, [nameUser]);
+
+  const onChange = (event) => setNameUser(event.target.value);
 
   return (
     <Content>
       <Form>
         <WelcomeText>Welcome</WelcomeText>
-        <Input
-          type="text"
-          size="Name"
-          value={nameUser}
-          onChange={(event) => {
-            setNameUser(event.target.value);
-          }}
-        />
+        <Input type="text" size="Name" value={nameUser} onChange={onChange} />
         <NameText>Type Your Name</NameText>
         <LoginLink>
           <LoginText>Have An Account?</LoginText>
