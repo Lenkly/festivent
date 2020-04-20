@@ -41,14 +41,11 @@ function Welcome() {
     sessionStorage.getItem('Name') || ''
   );
 
-  React.useEffect(() => {
-    sessionStorage.setItem('Name', nameUser);
-  }, [nameUser]);
-
   const onChange = (event) => setNameUser(event.target.value);
 
   const keyboardEnter = (event) => {
     if (event.keyCode === 13) {
+      sessionStorage.setItem('Name', nameUser);
       history.push('/Genres');
     }
   };
