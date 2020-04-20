@@ -22,6 +22,7 @@ const Form = styled.form`
 const Text = styled.div`
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
   font-family: 'Quicksand Light';
   margin-top: 80px;
 `;
@@ -31,7 +32,7 @@ function Genres() {
     <Content>
       <Form>
         <Text>Which Music Do You Like?</Text>
-        <Button size="Match" />
+        <Button size="Large">Match Me</Button>
       </Form>
     </Content>
   );
