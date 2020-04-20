@@ -64,7 +64,13 @@ function Welcome() {
     <Content>
       <Form>
         <WelcomeText>Welcome</WelcomeText>
-        <Input type="text" size="Name" value={nameUser} onChange={onChange} />
+        <Input
+          type="text"
+          size="Name"
+          maxLength={11}
+          value={nameUser}
+          onChange={onChange}
+        />
         <NameText>Type Your Name</NameText>
         <LoginLink>
           <LoginText>Have An Account?</LoginText>

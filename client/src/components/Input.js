@@ -11,7 +11,7 @@ const Input = styled.input`
   border: none;
   border-bottom: 1px solid #707070;
   cursor: text;
-  padding: ${(props) => inputText[props.size].padding};
+  padding-top: ${(props) => inputText[props.size].padding};
   font-size: ${(props) => inputText[props.size].fontsize};
   &::placeholder {
     font-family: 'Quicksand Light', sans-serif;
@@ -21,8 +21,8 @@ const Input = styled.input`
 `;
 
 const inputText = {
-  Name: { padding: '6px', fontsize: '1.56rem', width: '80%' },
-  User: { padding: '5px', fontsize: '1.25rem', width: '100%' },
+  Name: { padding: '30px', fontsize: '34px', width: '80%' },
+  User: { padding: '30px', fontsize: '20px', width: '100%' },
 };
 
 export default Input;
