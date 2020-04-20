@@ -1,23 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Button from '../components/Button';
-
-const Content = styled.div`
-display: flex:
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 100%;
-padding: 0px 35px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`;
+import Content from '../components/layout/Content';
+import Form from '../components/layout/Form';
 
 const Text = styled.div`
   display: flex;
