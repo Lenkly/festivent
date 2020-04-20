@@ -1,23 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Input from '../components/Input';
-
-const Content = styled.div`
-display: flex:
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 100%;
-padding: 0px 35px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`;
+import { useHistory } from 'react-router-dom';
+import Content from '../components/layout/Content';
+import Form from '../components/layout/Form';
 
 const WelcomeText = styled.div`
   padding-top: 255px;
@@ -50,7 +36,19 @@ const HighlightLink = styled.div`
 `;
 
 function Welcome() {
-  const [nameUser, setNameUser] = React.useState('');
+  const history = useHistory();
+  const [nameUser, setNameUser] = React.useState(
+    sessionStorage.getItem('Name') || ''
+  );
+
+  const onChange = (event) => setNameUser(event.target.value);
+
+  const keyboardEnter = (event) => {
+    if (event.keyCode === 13) {
+      sessionStorage.setItem('Name', nameUser);
+      history.push('/Genres');
+    }
+  };
 
   return (
     <Content>
@@ -59,10 +57,10 @@ function Welcome() {
         <Input
           type="text"
           size="Name"
+          maxLength={11}
           value={nameUser}
-          onChange={(event) => {
-            setNameUser(event.target.value);
-          }}
+          onChange={onChange}
+          onKeyDown={(event) => keyboardEnter(event)}
         />
         <NameText>Type Your Name</NameText>
         <LoginLink>
