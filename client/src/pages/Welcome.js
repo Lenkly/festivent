@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Input from '../components/Input';
+import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 
@@ -35,6 +36,7 @@ const HighlightLink = styled.div`
 `;
 
 function Welcome() {
+  const history = useHistory();
   const [nameUser, setNameUser] = React.useState(
     sessionStorage.getItem('Name') || ''
   );
@@ -44,6 +46,12 @@ function Welcome() {
   }, [nameUser]);
 
   const onChange = (event) => setNameUser(event.target.value);
+
+  const keyboardEnter = (event) => {
+    if (event.keyCode === 13) {
+      history.push('/Genres');
+    }
+  };
 
   return (
     <Content>
@@ -55,6 +63,7 @@ function Welcome() {
           maxLength={11}
           value={nameUser}
           onChange={onChange}
+          onKeyDown={(event) => keyboardEnter(event)}
         />
         <NameText>Type Your Name</NameText>
         <LoginLink>
