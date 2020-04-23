@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import styled from '@emotion/styled';
+import Button from './Button';
 
 const Festival = styled.div`
   padding-top: 210px;
@@ -29,6 +30,8 @@ const FestivalIntroduction = styled.div`
 `;
 
 const LineUp = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   font-size: 20px;
   margin-bottom: 20px;
   font-size: 12px;
@@ -64,7 +67,13 @@ function GetFestivals() {
             {festival.date} <br /> {festival.venue}, {festival.place}
           </FestivalDetail>
           <FestivalIntroduction>{festival.description}</FestivalIntroduction>
-          <LineUp>{festival.artists}</LineUp>
+          <LineUp>
+            {festival.artists.map((artist) => (
+              <div key={artist}>
+                <Button size="Small">{artist}</Button>
+              </div>
+            ))}
+          </LineUp>
         </div>
       ))}
     </div>
