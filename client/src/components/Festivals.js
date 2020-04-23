@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import styled from '@emotion/styled';
-import Button from './Button';
+import ArtistButton from './ArtistButton';
 
 const Festival = styled.div`
   padding-top: 210px;
@@ -37,6 +37,20 @@ const LineUp = styled.div`
   font-size: 12px;
   font-family: 'Quicksand Book';
   text-transform: uppercase;
+  background: linear-gradient(
+    145deg,
+    #fff700,
+    #ff9100,
+    #ff0084,
+    #ff00f2,
+    #bb00ff,
+    #7700ff,
+    #006aff,
+    #00ccff,
+    #00ff6a,
+    #59ff00,
+    #fff700
+  );
 `;
 
 async function fetchFestivals() {
@@ -70,7 +84,7 @@ function GetFestivals() {
           <LineUp>
             {festival.artists.map((artist) => (
               <div key={artist}>
-                <Button size="Small">{artist}</Button>
+                <ArtistButton>{artist}</ArtistButton>
               </div>
             ))}
           </LineUp>
