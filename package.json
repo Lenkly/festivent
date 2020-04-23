@@ -38,7 +38,8 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\" \"npm run storybook\"",
     "dev:server": "npm run build && cd .. && npm start",
     "server": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "api": "json-server --watch db.json --port 4000"
   },
   "repository": {
     "type": "git",
