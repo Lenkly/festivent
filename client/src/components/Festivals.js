@@ -49,25 +49,26 @@ const LineUp = styled.div`
   font-size: 12px;
   font-family: 'Quicksand Book';
   text-transform: uppercase;
-
-  background: linear-gradient(
-    145deg,
-    rgba(255, 247, 0, 0.5),
-    rgba(255, 145, 0, 0.5),
-    rgba(255, 0, 132, 0.5),
-    rgba(255, 0, 242, 0.5),
-    rgba(187, 0, 255, 0.5),
-    rgba(85, 0, 255, 0.5),
-    rgba(0, 106, 255, 0.5),
-    rgba(0, 204, 255, 0.5),
-    rgba(0, 255, 106, 0.5),
-    rgba(89, 255, 0, 0.5),
-    rgba(255, 247, 0, 0.5)
-  );
+  > * {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 247, 0, 0.5),
+      rgba(255, 145, 0, 0.5),
+      rgba(255, 0, 132, 0.5),
+      rgba(255, 0, 242, 0.5),
+      rgba(187, 0, 255, 0.5),
+      rgba(85, 0, 255, 0.5),
+      rgba(0, 106, 255, 0.5),
+      rgba(0, 204, 255, 0.5),
+      rgba(0, 255, 106, 0.5),
+      rgba(89, 255, 0, 0.5),
+      rgba(255, 247, 0, 0.5)
+    );
+  }
 `;
 
 async function fetchFestivals() {
-  const response = await fetch('http://localhost:4000/api/festivals');
+  const response = await fetch('/festivals');
   const festivals = await response.json();
   return festivals;
 }
@@ -90,7 +91,7 @@ function GetFestivals() {
       {festivaldata.map((festival) => (
         <div key={festival.id}>
           <Match>
-            <CalcIcon>98.6</CalcIcon>
+            <CalcIcon color="perfect">98.6</CalcIcon>
           </Match>
           <Festival>{festival.name}</Festival>
           <FestivalDetail>

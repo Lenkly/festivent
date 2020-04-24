@@ -5,9 +5,9 @@ const ArtistButton = styled.button`
   background: transparent;
   padding: 9px 8px;
   border-radius: 9px;
+  text-transform: uppercase;
   margin-bottom: 5px;
   margin-right: 2px;
-  text-transform: uppercase;
 `;
 
 export default ArtistButton;
