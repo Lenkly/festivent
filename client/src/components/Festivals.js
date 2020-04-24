@@ -37,19 +37,20 @@ const LineUp = styled.div`
   font-size: 12px;
   font-family: 'Quicksand Book';
   text-transform: uppercase;
+
   background: linear-gradient(
     145deg,
-    #fff700,
-    #ff9100,
-    #ff0084,
-    #ff00f2,
-    #bb00ff,
-    #7700ff,
-    #006aff,
-    #00ccff,
-    #00ff6a,
-    #59ff00,
-    #fff700
+    rgba(255, 247, 0, 0.5),
+    rgba(255, 145, 0, 0.5),
+    rgba(255, 0, 132, 0.5),
+    rgba(255, 0, 242, 0.5),
+    rgba(187, 0, 255, 0.5),
+    rgba(85, 0, 255, 0.5),
+    rgba(0, 106, 255, 0.5),
+    rgba(0, 204, 255, 0.5),
+    rgba(0, 255, 106, 0.5),
+    rgba(89, 255, 0, 0.5),
+    rgba(255, 247, 0, 0.5)
   );
 `;
 
@@ -95,3 +96,6 @@ function GetFestivals() {
 }
 
 export default GetFestivals;
+
+// background: rgb(255,247,0);
+// background: linear-gradient(142deg, rgba(255,247,0,1) 0%, rgba(255,145,0,1) 10%, rgba(255,0,132,1) 20%, rgba(255,0,242,1) 30%, rgba(187,0,255,1) 40%, rgba(85,0,255,1) 50%, rgba(0,106,255,1) 60%, rgba(0,204,255,1) 70%, rgba(0,255,106,1) 80%, rgba(89,255,0,1) 90%, rgba(255,247,0,1) 100%);
