@@ -2,9 +2,16 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
+import CalcIcon from './CalcIcon';
+
+const Match = styled.div`
+  padding-top: 95px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+`;
 
 const Festival = styled.div`
-  padding-top: 210px;
   text-align: center;
   font-size: 34px;
   font-family: 'Quicksand Book';
@@ -25,8 +32,13 @@ const FestivalIntroduction = styled.div`
   font-size: 12px;
   font-family: 'Quicksand Light';
   line-height: 1.3;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-transform: uppercase;
+`;
+
+const LineUpHeader = styled.div`
+  font-size: 20px;
+  margin-bottom: 20px;
 `;
 
 const LineUp = styled.div`
@@ -77,11 +89,15 @@ function GetFestivals() {
     <div>
       {festivaldata.map((festival) => (
         <div key={festival.id}>
-          <Festival> {festival.name} </Festival>
+          <Match>
+            <CalcIcon>98.6</CalcIcon>
+          </Match>
+          <Festival>{festival.name}</Festival>
           <FestivalDetail>
             {festival.date} <br /> {festival.venue}, {festival.place}
           </FestivalDetail>
           <FestivalIntroduction>{festival.description}</FestivalIntroduction>
+          <LineUpHeader>Line-Up</LineUpHeader>
           <LineUp>
             {festival.artists.map((artist) => (
               <div key={artist}>
@@ -96,6 +112,3 @@ function GetFestivals() {
 }
 
 export default GetFestivals;
-
-// background: rgb(255,247,0);
-// background: linear-gradient(142deg, rgba(255,247,0,1) 0%, rgba(255,145,0,1) 10%, rgba(255,0,132,1) 20%, rgba(255,0,242,1) 30%, rgba(187,0,255,1) 40%, rgba(85,0,255,1) 50%, rgba(0,106,255,1) 60%, rgba(0,204,255,1) 70%, rgba(0,255,106,1) 80%, rgba(89,255,0,1) 90%, rgba(255,247,0,1) 100%);
