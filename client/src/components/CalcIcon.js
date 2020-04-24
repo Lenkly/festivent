@@ -17,7 +17,7 @@ const calcColor = {
   perfect: { bordercolor: '#ff0084', textcolor: '#ff0084' },
   veryhigh: { bordercolor: '#ff00f2', textcolor: '#ff00f2' },
   high: { bordercolor: '#ff9100', textcolor: '#ff9100' },
-  moderate: { bordercolor: '#fff700', textcolor: '#fff700' },
+  moderate: { bordercolor: '#FFD800', textcolor: '#FFD800' },
   average: { bordercolor: '#59ff00', textcolor: '#59ff00' },
   okay: { bordercolor: '#00ff6a', textcolor: '#00ff6a' },
   substandard: { bordercolor: '#00ccff', textcolor: '#00ccff' },
