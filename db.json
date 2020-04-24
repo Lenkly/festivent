@@ -81,7 +81,7 @@
         "JEREMIAS",
         "SYMBA"
       ],
-      "genres": "Alternative"
+      "genres": ["Alternative"]
     },
     {
       "id": 3,
@@ -664,7 +664,7 @@
         "Vini Vici",
         "Wehbba"
       ],
-      "genres": "Electronic"
+      "genres": ["Electronic"]
     }
   ]
 }
