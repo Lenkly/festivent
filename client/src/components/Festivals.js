@@ -44,27 +44,28 @@ const LineUpHeader = styled.div`
 const LineUp = styled.div`
   display: flex;
   flex-wrap: wrap;
-  font-size: 20px;
-  margin-bottom: 20px;
-  font-size: 12px;
-  font-family: 'Quicksand Book';
-  text-transform: uppercase;
-  > * {
-    background: linear-gradient(
-      145deg,
-      rgba(255, 247, 0, 0.5),
-      rgba(255, 145, 0, 0.5),
-      rgba(255, 0, 132, 0.5),
-      rgba(255, 0, 242, 0.5),
-      rgba(187, 0, 255, 0.5),
-      rgba(85, 0, 255, 0.5),
-      rgba(0, 106, 255, 0.5),
-      rgba(0, 204, 255, 0.5),
-      rgba(0, 255, 106, 0.5),
-      rgba(89, 255, 0, 0.5),
-      rgba(255, 247, 0, 0.5)
-    );
-  }
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 247, 0, 0.5),
+    rgba(255, 145, 0, 0.5),
+    rgba(255, 0, 132, 0.5),
+    rgba(255, 0, 242, 0.5),
+    rgba(187, 0, 255, 0.5),
+    rgba(85, 0, 255, 0.5),
+    rgba(0, 106, 255, 0.5),
+    rgba(0, 204, 255, 0.5),
+    rgba(0, 255, 106, 0.5),
+    rgba(89, 255, 0, 0.5),
+    rgba(255, 247, 0, 0.5)
+  );
+`;
+const Cell = styled.div`
+  padding: 2px;
+  overflow: hidden;
+`;
+const Fill = styled.div`
+  flex-grow: 1;
+  background: #f9f9f9;
 `;
 
 async function fetchFestivals() {
@@ -102,9 +103,12 @@ function GetFestivals() {
           <LineUp>
             {festival.artists.map((artist) => (
               <div key={artist}>
-                <ArtistButton>{artist}</ArtistButton>
+                <Cell>
+                  <ArtistButton>{artist}</ArtistButton>
+                </Cell>
               </div>
             ))}
+            <Fill />
           </LineUp>
         </div>
       ))}
