@@ -11,15 +11,7 @@ const GenreButton = styled.button`
   background: transparent;
   border-radius: 1rem;
   padding-top: 5px;
-  margin-right: 10px;
   margin-top: 10px;
   box-shadow: 0 0 0px 50px #f9f9f9;
 `;
 export default GenreButton;
-
-// &::active: {
-//     transition: 0.25s linear;
-//     color: #000;
-//     opacity: 100%;
-//     background: none;
-//   }
