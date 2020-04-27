@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Button from '../components/Button';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
+import GetGenres from '../components/ChooseGenres';
 
 const Text = styled.div`
   display: flex;
@@ -17,6 +18,7 @@ function Genres() {
     <Content>
       <Form>
         <Text>Which Music Do You Like?</Text>
+        <GetGenres />
         <Button size="Large">Match Me</Button>
       </Form>
     </Content>
