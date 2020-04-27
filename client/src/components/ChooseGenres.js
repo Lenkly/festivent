@@ -44,7 +44,7 @@ async function fetchGenres() {
   return genreArray;
 }
 
-function GetGenres() {
+function ChooseGenres() {
   const { status, data: genredata, error } = useQuery('festivals', fetchGenres);
   if (status === 'loading') {
     return <span>Loading...</span>;
@@ -70,4 +70,4 @@ function GetGenres() {
   );
 }
 
-export default GetGenres;
+export default ChooseGenres;
