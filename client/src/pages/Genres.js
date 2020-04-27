@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Button from '../components/Button';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
+import ChooseGenres from '../components/ChooseGenres';
 
 const Text = styled.div`
   display: flex;
@@ -10,6 +11,7 @@ const Text = styled.div`
   text-align: center;
   font-family: 'Quicksand Light';
   margin-top: 80px;
+  margin-bottom: 25px;
 `;
 
 function Genres() {
@@ -17,6 +19,7 @@ function Genres() {
     <Content>
       <Form>
         <Text>Which Music Do You Like?</Text>
+        <ChooseGenres />
         <Button size="Large">Match Me</Button>
       </Form>
     </Content>
