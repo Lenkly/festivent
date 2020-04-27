@@ -105,6 +105,7 @@ function GetFestivals() {
               <div key={artist}>
                 <Cell>
                   <ArtistButton>{artist}</ArtistButton>
+                  <Fill />
                 </Cell>
               </div>
             ))}
