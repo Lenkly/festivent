@@ -11,6 +11,7 @@ const Text = styled.div`
   text-align: center;
   font-family: 'Quicksand Light';
   margin-top: 80px;
+  margin-bottom: 25px;
 `;
 
 function Genres() {

@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 const Genrechoice = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   background-image: linear-gradient(
     145deg,
     rgba(255, 247, 0, 0.5),
@@ -23,7 +23,7 @@ const Genrechoice = styled.div`
   );
 `;
 const Cell = styled.div`
-  padding: 2px;
+  padding: 10px;
   overflow: hidden;
 `;
 const Fill = styled.div`
