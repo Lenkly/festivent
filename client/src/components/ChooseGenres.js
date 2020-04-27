@@ -31,7 +31,7 @@ const Fill = styled.div`
 `;
 
 async function fetchGenres() {
-  const response = await fetch('/festivals');
+  const response = await fetch('/api/festivals');
   const festivals = await response.json();
 
   const genreArray = festivals.reduce((newArray, festivalGenres) => {
