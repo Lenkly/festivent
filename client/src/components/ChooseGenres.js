@@ -34,7 +34,7 @@ async function fetchGenres() {
   const response = await fetch('/festivals');
   const festivals = await response.json();
 
-  const genreArray = festivals.reduce(function (newArray, festivalGenres) {
+  const genreArray = festivals.reduce((newArray, festivalGenres) => {
     if (newArray.indexOf(festivalGenres.genres) === -1) {
       newArray.push(festivalGenres.genres);
     }
