@@ -1,10 +1,17 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import styled from '@emotion/styled';
-import Button from './Button';
+import ArtistButton from './ArtistButton';
+import CalcIcon from './CalcIcon';
+
+const Match = styled.div`
+  padding-top: 95px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+`;
 
 const Festival = styled.div`
-  padding-top: 210px;
   text-align: center;
   font-size: 34px;
   font-family: 'Quicksand Book';
@@ -25,22 +32,44 @@ const FestivalIntroduction = styled.div`
   font-size: 12px;
   font-family: 'Quicksand Light';
   line-height: 1.3;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-transform: uppercase;
+`;
+
+const LineUpHeader = styled.div`
+  font-size: 20px;
+  margin-bottom: 20px;
 `;
 
 const LineUp = styled.div`
   display: flex;
   flex-wrap: wrap;
-  font-size: 20px;
-  margin-bottom: 20px;
-  font-size: 12px;
-  font-family: 'Quicksand Book';
-  text-transform: uppercase;
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 247, 0, 0.5),
+    rgba(255, 145, 0, 0.5),
+    rgba(255, 0, 132, 0.5),
+    rgba(255, 0, 242, 0.5),
+    rgba(187, 0, 255, 0.5),
+    rgba(85, 0, 255, 0.5),
+    rgba(0, 106, 255, 0.5),
+    rgba(0, 204, 255, 0.5),
+    rgba(0, 255, 106, 0.5),
+    rgba(89, 255, 0, 0.5),
+    rgba(255, 247, 0, 0.5)
+  );
+`;
+const Cell = styled.div`
+  padding: 2px;
+  overflow: hidden;
+`;
+const Fill = styled.div`
+  flex-grow: 1;
+  background: #f9f9f9;
 `;
 
 async function fetchFestivals() {
-  const response = await fetch('http://localhost:4000/api/festivals');
+  const response = await fetch('/festivals');
   const festivals = await response.json();
   return festivals;
 }
@@ -62,17 +91,25 @@ function GetFestivals() {
     <div>
       {festivaldata.map((festival) => (
         <div key={festival.id}>
-          <Festival> {festival.name} </Festival>
+          <Match>
+            <CalcIcon color="perfect">98.6</CalcIcon>
+          </Match>
+          <Festival>{festival.name}</Festival>
           <FestivalDetail>
             {festival.date} <br /> {festival.venue}, {festival.place}
           </FestivalDetail>
           <FestivalIntroduction>{festival.description}</FestivalIntroduction>
+          <LineUpHeader>Line-Up</LineUpHeader>
           <LineUp>
             {festival.artists.map((artist) => (
               <div key={artist}>
-                <Button size="Small">{artist}</Button>
+                <Cell>
+                  <ArtistButton>{artist}</ArtistButton>
+                  <Fill />
+                </Cell>
               </div>
             ))}
+            <Fill />
           </LineUp>
         </div>
       ))}

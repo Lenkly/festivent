@@ -39,7 +39,7 @@
     "dev:server": "npm run build && cd .. && npm start",
     "server": "nodemon index.js",
     "start": "node index.js",
-    "api": "json-server --watch db.json --port 4000"
+    "api": "json-server --watch db.json"
   },
   "repository": {
     "type": "git",

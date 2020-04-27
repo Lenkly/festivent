@@ -10,20 +10,20 @@ server.use(
 );
 server.use(middlewares);
 server.use(router);
-server.listen(4000, () => {
+server.listen(8080, () => {
   console.log('JSON Server is running');
 });
 
 // const express = require('express');
 // const path = require('path');
-// const app = express();
+// const server = express();
 // const port = process.env.PORT || 8080;
 
-// app.use(express.static(path.join(__dirname, 'client/build')));
-// app.get('*', (require, response) => {
+// server.use(express.static(path.join(__dirname, 'client/build')));
+// server.get('*', (require, response) => {
 //   response.sendFile(path.join(__dirname, 'client/build/index.html'));
 // });
 
-// app.listen(port, () => {
+// server.listen(port, () => {
 //   console.log('Server is running');
 // });
