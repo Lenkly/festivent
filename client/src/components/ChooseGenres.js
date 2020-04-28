@@ -46,7 +46,8 @@ async function fetchGenres() {
 
 function ChooseGenres() {
   const { status, data: genredata, error } = useQuery('festivals', fetchGenres);
-  const selectFestivals = [];
+  const [selectGenres, setSelectGenres] = React.useState([]);
+
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
@@ -57,12 +58,10 @@ function ChooseGenres() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    if (selectFestivals.indexOf(event.target.innerHTML) === -1) {
-      selectFestivals.push(event.target.innerHTML);
-      console.log('Stored:', selectFestivals);
-    } else {
-      selectFestivals.splice(event.target.innerHTML, 1);
-      console.log('Removed:', selectFestivals);
+    if (selectGenres.indexOf(event.target.innerHTML) === -1) {
+      selectGenres.push(event.target.innerHTML);
+      setSelectGenres(selectGenres);
+      console.log('Stored:', selectGenres);
     }
   };
   return (
@@ -82,3 +81,11 @@ function ChooseGenres() {
 }
 
 export default ChooseGenres;
+
+// if (selectFestivals.indexOf(event.target.innerHTML) === -1) {
+//   selectFestivals.push(event.target.innerHTML);
+//   console.log('Stored:', selectFestivals);
+// } else if (event.target.value !== -1) {
+//   selectFestivals.splice(event.target.innerHTML, 1);
+//   console.log('Removed:', selectFestivals);
+// }
