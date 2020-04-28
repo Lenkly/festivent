@@ -59,17 +59,15 @@ function ChooseGenres() {
   const handleClick = (event) => {
     event.preventDefault();
 
-    let tempGenres = [];
-    const tempOutPutGenres = [];
-    tempGenres = selectGenres;
+    const newSelectedGenres = [];
     if (selectGenres.indexOf(event.target.innerHTML) === -1) {
-      tempGenres.push(event.target.innerHTML);
-      setSelectGenres(tempGenres);
+      selectGenres.push(event.target.innerHTML);
+      setSelectGenres(selectGenres);
       console.log('Stored:', selectGenres);
     } else {
-      tempGenres.forEach((selectedGenre) => {
+      selectGenres.forEach((selectedGenre) => {
         if (selectedGenre != event.target.innerHTML) {
-          tempOutPutGenres.push(selectedGenre);
+          newSelectedGenres.push(selectedGenre);
         } else {
           console.log(
             'found the genre ',
@@ -78,12 +76,12 @@ function ChooseGenres() {
           );
         }
       });
-      setSelectGenres(tempOutPutGenres);
+      setSelectGenres(newSelectedGenres);
       console.log(
         'Removed: ',
         event.target.innerHTML,
         ' new: ',
-        tempOutPutGenres
+        newSelectedGenres
       );
     }
   };
