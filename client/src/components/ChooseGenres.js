@@ -56,33 +56,20 @@ function ChooseGenres() {
     return <span>Error: {error.message}</span>;
   }
 
-  const handleClick = (event) => {
+  const handleClick = (event, genre) => {
     event.preventDefault();
 
     const newSelectedGenres = [];
-    if (selectGenres.indexOf(event.target.innerHTML) === -1) {
-      selectGenres.push(event.target.innerHTML);
+    if (selectGenres.indexOf(genre) === -1) {
+      selectGenres.push(genre);
       setSelectGenres(selectGenres);
-      console.log('Stored:', selectGenres);
     } else {
       selectGenres.forEach((selectedGenre) => {
-        if (selectedGenre != event.target.innerHTML) {
+        if (selectedGenre !== genre) {
           newSelectedGenres.push(selectedGenre);
-        } else {
-          console.log(
-            'found the genre ',
-            event.target.innerHTML,
-            ' and removed it'
-          );
         }
       });
       setSelectGenres(newSelectedGenres);
-      console.log(
-        'Removed: ',
-        event.target.innerHTML,
-        ' new: ',
-        newSelectedGenres
-      );
     }
   };
   return (
@@ -91,7 +78,9 @@ function ChooseGenres() {
         {genredata.map((genre) => (
           <div key={genre}>
             <Cell>
-              <GenreButton onClick={handleClick}>{genre}</GenreButton>
+              <GenreButton onClick={(event) => handleClick(event, genre)}>
+                {genre}
+              </GenreButton>
             </Cell>
           </div>
         ))}
@@ -102,21 +91,3 @@ function ChooseGenres() {
 }
 
 export default ChooseGenres;
-
-// Used this with a global const of an empty array
-// if (selectGenres.indexOf(event.target.innerHTML) === -1) {
-//   selectGenres.push(event.target.innerHTML);
-//   console.log('Stored:', selectGenres);
-// } else if (event.target.value !== -1) {
-//   selectGenres.splice(event.target.innerHTML, 1);
-//   console.log('Removed:', selectGenres);
-// }
-// but it only spliced the first element of the array, no matter what button I clicked
-
-// used this with the empty array from the state
-// if (selectGenres.indexOf(event.target.innerHTML) === -1) {
-//   selectGenres.push(event.target.innerHTML);
-//   setSelectGenres(selectGenres);
-//   console.log('Stored:', selectGenres);
-// }
-//same outcome with splice
