@@ -58,10 +58,33 @@ function ChooseGenres() {
 
   const handleClick = (event) => {
     event.preventDefault();
+
+    let tempGenres = [];
+    const tempOutPutGenres = [];
+    tempGenres = selectGenres;
     if (selectGenres.indexOf(event.target.innerHTML) === -1) {
-      selectGenres.push(event.target.innerHTML);
-      setSelectGenres(selectGenres);
+      tempGenres.push(event.target.innerHTML);
+      setSelectGenres(tempGenres);
       console.log('Stored:', selectGenres);
+    } else {
+      tempGenres.forEach((selectedGenre) => {
+        if (selectedGenre != event.target.innerHTML) {
+          tempOutPutGenres.push(selectedGenre);
+        } else {
+          console.log(
+            'found the genre ',
+            event.target.innerHTML,
+            ' and removed it'
+          );
+        }
+      });
+      setSelectGenres(tempOutPutGenres);
+      console.log(
+        'Removed: ',
+        event.target.innerHTML,
+        ' new: ',
+        tempOutPutGenres
+      );
     }
   };
   return (
@@ -82,10 +105,20 @@ function ChooseGenres() {
 
 export default ChooseGenres;
 
-// if (selectFestivals.indexOf(event.target.innerHTML) === -1) {
-//   selectFestivals.push(event.target.innerHTML);
-//   console.log('Stored:', selectFestivals);
+// Used this with a global const of an empty array
+// if (selectGenres.indexOf(event.target.innerHTML) === -1) {
+//   selectGenres.push(event.target.innerHTML);
+//   console.log('Stored:', selectGenres);
 // } else if (event.target.value !== -1) {
-//   selectFestivals.splice(event.target.innerHTML, 1);
-//   console.log('Removed:', selectFestivals);
+//   selectGenres.splice(event.target.innerHTML, 1);
+//   console.log('Removed:', selectGenres);
 // }
+// but it only spliced the first element of the array, no matter what button I clicked
+
+// used this with the empty array from the state
+// if (selectGenres.indexOf(event.target.innerHTML) === -1) {
+//   selectGenres.push(event.target.innerHTML);
+//   setSelectGenres(selectGenres);
+//   console.log('Stored:', selectGenres);
+// }
+//same outcome with splice
