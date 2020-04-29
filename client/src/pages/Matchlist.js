@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
+import FestivalMatch from '../components/FestivalMatch';
 
 const Text = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ function Matchlist() {
           [Name],
           <br /> These are your matches
         </Text>
+        <FestivalMatch />
       </Form>
     </Content>
   );
