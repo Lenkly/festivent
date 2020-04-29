@@ -15,6 +15,7 @@ const Festival = styled.div`
   text-align: center;
   font-size: 34px;
   font-family: 'Quicksand Book';
+  margin-top: 25px;
   margin-bottom: 20px;
   text-transform: uppercase;
 `;
@@ -69,7 +70,7 @@ const Fill = styled.div`
 `;
 
 async function fetchFestivals() {
-  const response = await fetch('/api/festivals');
+  const response = await fetch('/festivals');
   const festivals = await response.json();
   return festivals;
 }
