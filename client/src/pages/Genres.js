@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Button from '../components/Button';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import ChooseGenres from '../components/ChooseGenres';
-import { useHistory } from 'react-router-dom';
 
 const Text = styled.div`
   display: flex;
@@ -16,18 +14,11 @@ const Text = styled.div`
 `;
 
 function Genres() {
-  const history = useHistory();
-  const onMatchButtonClick = () => {
-    history.push('/Matchlist');
-  };
   return (
     <Content>
       <Form>
         <Text>Which Music Do You Like?</Text>
         <ChooseGenres />
-        <Button onClick={onMatchButtonClick} size="Large">
-          Match Me
-        </Button>
       </Form>
     </Content>
   );

@@ -2,6 +2,8 @@ import React from 'react';
 import GenreButton from '../components/GenreButton';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
+import Button from './Button';
+import { useHistory } from 'react-router-dom';
 
 const Genrechoice = styled.div`
   display: grid;
@@ -29,6 +31,10 @@ const Cell = styled.div`
 const Fill = styled.div`
   background: #f9f9f9;
 `;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 async function fetchGenres() {
   const response = await fetch('/festivals');
@@ -47,6 +53,7 @@ async function fetchGenres() {
 function ChooseGenres() {
   const { status, data: genredata, error } = useQuery('festivals', fetchGenres);
   const [selectGenres, setSelectGenres] = React.useState([]);
+  const history = useHistory();
 
   if (status === 'loading') {
     return <span>Loading...</span>;
@@ -63,22 +70,34 @@ function ChooseGenres() {
     if (selectGenres.indexOf(genre) === -1) {
       selectGenres.push(genre);
       setSelectGenres(selectGenres);
+      console.log('Stored:', selectGenres);
     } else {
       selectGenres.forEach((selectedGenre) => {
         if (selectedGenre !== genre) {
           newSelectedGenres.push(selectedGenre);
+        } else {
+          console.log('found the genre:', genre, 'and removed it');
         }
       });
       setSelectGenres(newSelectedGenres);
+      console.log('Removed:', genre, 'new:', newSelectedGenres);
     }
   };
+
+  function onMatchButtonClick(newSelectedGenres) {
+    sessionStorage.setItem('Genres', newSelectedGenres);
+    history.push('/Matchlist');
+  }
   return (
     <div>
       <Genrechoice>
         {genredata.map((genre) => (
           <div key={genre}>
             <Cell>
-              <GenreButton onClick={(event) => handleClick(event, genre)}>
+              <GenreButton
+                type="button"
+                onClick={(event) => handleClick(event, genre)}
+              >
                 {genre}
               </GenreButton>
             </Cell>
@@ -86,6 +105,11 @@ function ChooseGenres() {
         ))}
         <Fill />
       </Genrechoice>
+      <ButtonWrapper>
+        <Button type="Submit" onClick={onMatchButtonClick} size="Large">
+          Match Me
+        </Button>
+      </ButtonWrapper>
     </div>
   );
 }
