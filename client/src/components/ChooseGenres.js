@@ -84,10 +84,12 @@ function ChooseGenres() {
     }
   };
 
-  function onMatchButtonClick(newSelectedGenres) {
-    sessionStorage.setItem('Genres', newSelectedGenres);
+  const onMatchButtonClick = () => {
+    sessionStorage.setItem('Genres', selectGenres);
+    sessionStorage.setItem('AllGenres', genredata);
     history.push('/Matchlist');
-  }
+  };
+
   return (
     <div>
       <Genrechoice>
