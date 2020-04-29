@@ -1,7 +1,28 @@
 import React from 'react';
+import styled from '@emotion/styled';
+import Content from '../components/layout/Content';
+import Form from '../components/layout/Form';
+
+const Text = styled.div`
+  display: flex;
+  line-height: 1.3;
+  flex-wrap: wrap;
+  font-family: 'Quicksand Light';
+  margin-top: 80px;
+  margin-bottom: 25px;
+`;
 
 function Matchlist() {
-  return <h1 className="h1">Hello Hello!</h1>;
+  return (
+    <Content>
+      <Form>
+        <Text>
+          [Name],
+          <br /> These are your matches
+        </Text>
+      </Form>
+    </Content>
+  );
 }
 
 export default Matchlist;
