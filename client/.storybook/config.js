@@ -1,5 +1,6 @@
-import { configure, addDecorator } from '@storybook/react';
-import themeDecorator from './themeDecorator';
+import { configure, addDecorator, addParameters } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+// import themeDecorator from './themeDecorator';
 import React from 'react';
 import GlobalStyles from '../src/GlobalStyles';
 import styled from '@emotion/styled';
@@ -15,5 +16,15 @@ const GlobalStylesDecorator = (storyFn) => (
   </Main>
 );
 addDecorator(GlobalStylesDecorator);
-addDecorator(themeDecorator);
+// addDecorator(themeDecorator);
+addParameters({
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+    defaultViewport: 'iphone6',
+  },
+  backgrounds: [
+    { name: 'brightmode', value: '#f9f9f9', default: true },
+    { name: 'darkmode', value: '#1d1d1d' },
+  ],
+});
 configure(require.context('../src/stories', true, /\.stories\.js$/), module);
