@@ -2,26 +2,27 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
-import ChooseGenres from '../components/ChooseGenres';
 
 const Text = styled.div`
   display: flex;
+  line-height: 1.3;
   flex-wrap: wrap;
-  text-align: center;
   font-family: 'Quicksand Light';
   margin-top: 80px;
   margin-bottom: 25px;
 `;
 
-function Genres() {
+function Matchlist() {
   return (
     <Content>
       <Form>
-        <Text>Which Music Do You Like?</Text>
-        <ChooseGenres />
+        <Text>
+          [Name],
+          <br /> These are your matches
+        </Text>
       </Form>
     </Content>
   );
 }
 
-export default Genres;
+export default Matchlist;

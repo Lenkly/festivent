@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
 
 const Button = styled.button`
-  cursor: pointer;
+${(props) =>
+  props.disabled
+    ? 'background: none; color: #707070; cursor: not-allowed;'
+    : 'cursor: pointer;'}
   font-family: 'Quicksand Book', sans-serif;
   padding: ${(props) => buttonSize[props.size].padding};
   font-size: ${(props) => buttonSize[props.size].fontsize};

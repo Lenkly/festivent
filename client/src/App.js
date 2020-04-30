@@ -4,6 +4,7 @@ import GlobalStyles from './GlobalStyles';
 import Welcome from './pages/Welcome';
 import Genres from './pages/Genres';
 import Details from './pages/Details';
+import Matchlist from './pages/Matchlist';
 
 function App() {
   return (
@@ -14,11 +15,14 @@ function App() {
           <Route exact path="/">
             <Welcome />
           </Route>
-          <Route path="/Genres">
+          <Route exact path="/Genres">
             <Genres />
           </Route>
           <Route path="/Details">
             <Details />
+          </Route>
+          <Route path="/Matchlist">
+            <Matchlist />
           </Route>
         </Switch>
       </Router>

@@ -2,6 +2,8 @@ import React from 'react';
 import GenreButton from '../components/GenreButton';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
+import Button from './Button';
+import { useHistory } from 'react-router-dom';
 
 const Genrechoice = styled.div`
   display: grid;
@@ -29,6 +31,10 @@ const Cell = styled.div`
 const Fill = styled.div`
   background: #f9f9f9;
 `;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 async function fetchGenres() {
   const response = await fetch('/api/festivals');
@@ -45,8 +51,9 @@ async function fetchGenres() {
 }
 
 function ChooseGenres() {
-  const { status, data: genredata, error } = useQuery('festivals', fetchGenres);
+  const { status, data: genredata, error } = useQuery('genres', fetchGenres);
   const [selectGenres, setSelectGenres] = React.useState([]);
+  const history = useHistory();
 
   if (status === 'loading') {
     return <span>Loading...</span>;
@@ -63,29 +70,46 @@ function ChooseGenres() {
     if (selectGenres.indexOf(genre) === -1) {
       selectGenres.push(genre);
       setSelectGenres(selectGenres);
+      console.log('Stored:', selectGenres);
     } else {
       selectGenres.forEach((selectedGenre) => {
         if (selectedGenre !== genre) {
           newSelectedGenres.push(selectedGenre);
+        } else {
+          console.log('found the genre:', genre, 'and removed it');
         }
       });
       setSelectGenres(newSelectedGenres);
+      console.log('Removed:', genre, 'new:', newSelectedGenres);
     }
   };
+
+  const onMatchButtonClick = () => {
+    sessionStorage.setItem('SelectedGenres', selectGenres);
+    sessionStorage.setItem('AllGenres', genredata);
+    history.push('/Matchlist');
+  };
+
   return (
     <div>
       <Genrechoice>
         {genredata.map((genre) => (
-          <div key={genre}>
-            <Cell>
-              <GenreButton onClick={(event) => handleClick(event, genre)}>
-                {genre}
-              </GenreButton>
-            </Cell>
-          </div>
+          <Cell key={genre}>
+            <GenreButton
+              type="button"
+              onClick={(event) => handleClick(event, genre)}
+            >
+              {genre}
+            </GenreButton>
+          </Cell>
         ))}
         <Fill />
       </Genrechoice>
+      <ButtonWrapper>
+        <Button type="Submit" onClick={onMatchButtonClick} size="Large">
+          Match Me
+        </Button>
+      </ButtonWrapper>
     </div>
   );
 }
