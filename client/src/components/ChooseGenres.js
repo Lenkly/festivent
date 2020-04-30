@@ -37,7 +37,7 @@ const ButtonWrapper = styled.div`
 `;
 
 async function fetchGenres() {
-  const response = await fetch('/festivals');
+  const response = await fetch('/api/festivals');
   const festivals = await response.json();
 
   const genreArray = festivals.reduce((newArray, festivalGenres) => {
@@ -99,16 +99,14 @@ function ChooseGenres() {
     <div>
       <Genrechoice>
         {genredata.map((genre) => (
-          <div key={genre}>
-            <Cell>
-              <GenreButton
-                type="button"
-                onClick={(event) => handleClick(event, genre)}
-              >
-                {genre}
-              </GenreButton>
-            </Cell>
-          </div>
+          <Cell key={genre}>
+            <GenreButton
+              type="button"
+              onClick={(event) => handleClick(event, genre)}
+            >
+              {genre}
+            </GenreButton>
+          </Cell>
         ))}
         <Fill />
       </Genrechoice>
