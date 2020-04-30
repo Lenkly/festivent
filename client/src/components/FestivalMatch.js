@@ -4,7 +4,7 @@ import CalcIcon from './CalcIcon';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
-const Festivalcard = styled.div`
+const Card = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   margin-bottom: 35px;
@@ -13,61 +13,70 @@ const Festivalcard = styled.div`
   cursor: pointer;
 `;
 
-const Festivaltext = styled.div`
+const Festival = styled.div`
   align-self: center;
   margin-left: 5px;
 `;
 
-const Festivaltitle = styled.p`
+const FestivalTitle = styled.p`
   font-size: 25px;
   margin: 0px;
   word-wrap: break-word;
   hyphens: auto;
 `;
-const Festivalvenue = styled.p`
+const FestivalInfo = styled.p`
   font-size: 12px;
   line-height: 1.3;
   margin: 3px 0;
 `;
 
-// if (Array.length > 0) {
-// const customGenres = new Array(sessionStorage.getItem('SelectedGenres').split(','));
-// console.log(customGenres);
-// }
-// let selectGenre = '?genres_like' + a.join('&genres_like=');
-
-async function fetchEvents() {
-  const response = await fetch('/api/festivals');
+const selectedGenres = new Array(
+  sessionStorage.getItem('SelectedGenres').split(',')
+);
+async function fetchFestivals() {
+  const response = await fetch(
+    '/api/festivals?genres_like' + selectedGenres.join('&genres_like=')
+  );
   const festivals = await response.json();
   return festivals;
 }
 
 function FestivalMatch() {
   const history = useHistory();
-  const { status, data: eventdata, error } = useQuery('festivals', fetchEvents);
+  const { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
 
   if (status === 'error') {
-    return <span>Error: {error.message}</span>;
+    return (
+      <span>
+        Oh no, something bad happened 😢 <br />
+        Please try again.
+      </span>
+    );
   }
 
-  const detailClick = () => {
+  const sameGenres = festivaldata.genres.filter((genre) =>
+    selectedGenres.includes(genre)
+  );
+  const quote = (sameGenres.length / festivaldata.genres.length) * 100;
+
+  const handleDetailsClick = () => {
     history.push('/Details');
   };
   return (
     <div>
-      {eventdata.map((event) => (
-        <Festivalcard key={event.id} onClick={detailClick}>
-          <CalcIcon color="perfect">98.7</CalcIcon>
-          <Festivaltext>
-            <Festivaltitle>{event.name}</Festivaltitle>
-            <Festivalvenue>
-              {event.venue}, {event.place}
-            </Festivalvenue>
-          </Festivaltext>
-        </Festivalcard>
+      {festivaldata.map((festival) => (
+        <Card key={festival.id} onClick={handleDetailsClick}>
+          <CalcIcon color="perfect">{quote}</CalcIcon>
+          <Festival>
+            <FestivalTitle>{festival.name}</FestivalTitle>
+            <FestivalInfo>
+              {festival.venue}, {festival.place}
+            </FestivalInfo>
+          </Festival>
+        </Card>
       ))}
     </div>
   );

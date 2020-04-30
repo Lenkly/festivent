@@ -76,16 +76,18 @@ async function fetchFestivals() {
 }
 
 function GetFestivals() {
-  const { status, data: festivaldata, error } = useQuery(
-    'festivals',
-    fetchFestivals
-  );
+  const { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
 
   if (status === 'error') {
-    return <span>Error: {error.message}</span>;
+    return (
+      <span>
+        Oh no, something bad happened 😢 <br />
+        Please try again.
+      </span>
+    );
   }
 
   return (
