@@ -1,6 +1,5 @@
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-// import themeDecorator from './themeDecorator';
 import React from 'react';
 import GlobalStyles from '../src/GlobalStyles';
 import styled from '@emotion/styled';
@@ -16,7 +15,6 @@ const GlobalStylesDecorator = (storyFn) => (
   </Main>
 );
 addDecorator(GlobalStylesDecorator);
-// addDecorator(themeDecorator);
 addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS,

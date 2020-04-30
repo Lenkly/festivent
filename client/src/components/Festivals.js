@@ -70,7 +70,7 @@ const Fill = styled.div`
 `;
 
 async function fetchFestivals() {
-  const response = await fetch('/festivals');
+  const response = await fetch('/api/festivals');
   const festivals = await response.json();
   return festivals;
 }
