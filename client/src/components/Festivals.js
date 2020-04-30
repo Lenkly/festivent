@@ -102,14 +102,13 @@ function GetFestivals() {
           <LineUpHeader>Line-Up</LineUpHeader>
           <LineUp>
             {festival.artists.map((artist) => (
-              <div key={artist}>
+              <React.Fragment key={artist}>
                 <Cell>
                   <ArtistButton>{artist}</ArtistButton>
-                  <Fill />
                 </Cell>
-              </div>
+                <Fill />
+              </React.Fragment>
             ))}
-            <Fill />
           </LineUp>
         </div>
       ))}

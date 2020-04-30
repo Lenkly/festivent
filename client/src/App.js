@@ -15,7 +15,7 @@ function App() {
           <Route exact path="/">
             <Welcome />
           </Route>
-          <Route path="/Genres">
+          <Route exact path="/Genres">
             <Genres />
           </Route>
           <Route path="/Details">
