@@ -22,16 +22,22 @@ const AgainText = styled.div`
   font-family: 'Quicksand Light';
   font-size: 25px;
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 25px;
+`;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 45px;
 `;
 
 function Matchlist() {
   const history = useHistory();
 
-  const nameUser = sessionStorage.getItem('Name') || '[Name]';
+  const greetUser = sessionStorage.getItem('Name') || '[Name]';
 
   const handleAgainClick = () => {
-    sessionStorage.removeItem('Genres');
+    sessionStorage.removeItem('SelectedGenres');
     history.push('/Genres');
   };
 
@@ -39,16 +45,18 @@ function Matchlist() {
     <Content>
       <Form>
         <Text>
-          {nameUser},
+          {greetUser},
           <br /> These are your matches
         </Text>
         <FestivalMatch />
         <AgainText>
           Still Haven&apos;t Found What You Were Looking For?
         </AgainText>
-        <Button onClick={handleAgainClick} size="Medium">
-          Match Me Again
-        </Button>
+        <ButtonWrapper>
+          <Button onClick={handleAgainClick} size="Medium">
+            Match Me Again
+          </Button>
+        </ButtonWrapper>
       </Form>
     </Content>
   );
