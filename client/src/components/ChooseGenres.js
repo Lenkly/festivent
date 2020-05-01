@@ -90,7 +90,7 @@ function ChooseGenres() {
   };
 
   const onMatchButtonClick = () => {
-    sessionStorage.setItem('Genres', selectGenres);
+    sessionStorage.setItem('SelectedGenres', selectGenres);
     history.push('/Matchlist');
   };
 
