@@ -30,14 +30,14 @@ const FestivalInfo = styled.p`
   margin: 3px 0;
 `;
 
-let selectedGenres = new Array(
-  sessionStorage.getItem('SelectedGenres').toString().split(',')
-);
+const genres = sessionStorage.getItem('SelectedGenres');
+const selectedGenres = genres.toString().split(',');
 
+const fetchRoute =
+  '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
+console.log(fetchRoute);
 async function fetchFestivals() {
-  const response = await fetch(
-    '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=')
-  );
+  const response = await fetch(fetchRoute);
   const festivals = await response.json();
   return festivals;
 }
@@ -58,11 +58,12 @@ function FestivalMatch() {
     );
   }
 
-  const sameGenres = festivaldata.filter((genre) =>
-    selectedGenres.includes(genre)
-  );
-  console.log(sameGenres);
-  const quote = (sameGenres.length / festivaldata.length) * 100;
+  // const sameGenres = festivaldata.filter((genre) =>
+  //   selectedGenres.includes(genre)
+  // );
+  // console.log(sameGenres);
+  // const quote = (sameGenres.length / festivaldata.length) * 100;
+  const quote = (2 / 4) * 100;
 
   const handleDetailsClick = () => {
     history.push('/Details');
@@ -85,3 +86,5 @@ function FestivalMatch() {
 }
 
 export default FestivalMatch;
+
+// /\S*[,]\S*/
