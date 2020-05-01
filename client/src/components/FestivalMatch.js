@@ -30,8 +30,13 @@ const FestivalInfo = styled.p`
   margin: 3px 0;
 `;
 
-const genres = sessionStorage.getItem('SelectedGenres');
-const selectedGenres = genres.toString().split(',');
+let selectedGenres = [];
+if (sessionStorage.getItem('SelectedGenres') == null) {
+  console.log('Oh no!');
+} else {
+  const genres = sessionStorage.getItem('SelectedGenres');
+  selectedGenres = genres.toString().split(',');
+}
 
 const fetchRoute =
   '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
