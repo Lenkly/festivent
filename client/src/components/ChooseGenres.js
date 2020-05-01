@@ -51,7 +51,7 @@ async function fetchGenres() {
 }
 
 function ChooseGenres() {
-  const { status, data: genredata, error } = useQuery('genres', fetchGenres);
+  const { status, data: genredata } = useQuery('genres', fetchGenres);
   const [selectGenres, setSelectGenres] = React.useState([]);
   const history = useHistory();
 
@@ -60,7 +60,12 @@ function ChooseGenres() {
   }
 
   if (status === 'error') {
-    return <span>Error: {error.message}</span>;
+    return (
+      <span>
+        Oh no, something bad happened 😢 <br />
+        Please try again.
+      </span>
+    );
   }
 
   const handleClick = (event, genre) => {
@@ -85,8 +90,7 @@ function ChooseGenres() {
   };
 
   const onMatchButtonClick = () => {
-    sessionStorage.setItem('SelectedGenres', selectGenres);
-    sessionStorage.setItem('AllGenres', genredata);
+    sessionStorage.setItem('Genres', selectGenres);
     history.push('/Matchlist');
   };
 

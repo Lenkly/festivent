@@ -15,6 +15,7 @@ const Festival = styled.div`
   text-align: center;
   font-size: 34px;
   font-family: 'Quicksand Book';
+  margin-top: 25px;
   margin-bottom: 20px;
   text-transform: uppercase;
 `;
@@ -75,16 +76,18 @@ async function fetchFestivals() {
 }
 
 function GetFestivals() {
-  const { status, data: festivaldata, error } = useQuery(
-    'festivals',
-    fetchFestivals
-  );
+  const { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
 
   if (status === 'error') {
-    return <span>Error: {error.message}</span>;
+    return (
+      <span>
+        Oh no, something bad happened 😢 <br />
+        Please try again.
+      </span>
+    );
   }
 
   return (
