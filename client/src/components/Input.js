@@ -8,6 +8,7 @@ const Input = styled.input`
   text-transform: uppercase;
   background: none;
   width: ${(props) => inputText[props.size].width};
+  max-width: 500px;
   border: none;
   border-bottom: 1px solid #707070;
   cursor: text;
