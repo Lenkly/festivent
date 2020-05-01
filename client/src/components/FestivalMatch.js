@@ -3,6 +3,7 @@ import React from 'react';
 import CalcIcon from './CalcIcon';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
+import quota from '../lib/Quota';
 
 const Card = styled.div`
   display: grid;
@@ -40,7 +41,6 @@ if (sessionStorage.getItem('SelectedGenres') == null) {
 
 const fetchRoute =
   '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
-console.log(fetchRoute);
 async function fetchFestivals() {
   const response = await fetch(fetchRoute);
   const festivals = await response.json();
@@ -63,12 +63,38 @@ function FestivalMatch() {
     );
   }
 
-  // const sameGenres = festivaldata.filter((genre) =>
+  // const festivalGenres = ['Rock', 'Indie', 'Alternative'];
+  const festivalGenres = festivaldata.reduce((newArray, festivalGenres) => {
+    if (newArray.indexOf(festivalGenres.genres) === -1) {
+      newArray.push(festivalGenres.genres);
+    }
+    return newArray;
+  }, []);
+  console.log('festivalGenres', festivalGenres);
+
+  // const sameGenres = festivalGenres.filter((genre) =>
   //   selectedGenres.includes(genre)
   // );
   // console.log(sameGenres);
-  // const quote = (sameGenres.length / festivaldata.length) * 100;
-  const quote = (2 / 4) * 100;
+
+  // const quotes = function quota(festivalGenres, selectedGenres) {
+  //   const calculatedQuotes = new Array();
+  //   festivalGenres.forEach((festivalGenre) => {
+  //     const sameGenres = festivalGenre.filter((genre) =>
+  //       selectedGenres.includes(genre)
+  //     );
+  //     console.log(sameGenres);
+  //     const quote = Math.round(
+  //       (sameGenres.length / festivalGenre.length) * 100
+  //     );
+  //     console.log(quote);
+  //     calculatedQuotes.push(quote);
+  //   });
+  //   return calculatedQuotes;
+  //   // const quote = Math.round((sameGenres.length / festivalGenres.length) * 100);
+  //   // console.log(quote);
+  // };
+  const quotes = quota(festivalGenres, selectedGenres);
 
   const handleDetailsClick = () => {
     history.push('/Details');
@@ -77,7 +103,11 @@ function FestivalMatch() {
     <div>
       {festivaldata.map((festival) => (
         <Card key={festival.id} onClick={handleDetailsClick}>
-          <CalcIcon color="perfect">{quote}</CalcIcon>
+          {quotes.map((quote, index) => (
+            <div key={index}>
+              <CalcIcon color="perfect">{quote}</CalcIcon>
+            </div>
+          ))}
           <Festival>
             <FestivalTitle>{festival.name}</FestivalTitle>
             <FestivalInfo>
