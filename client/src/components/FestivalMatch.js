@@ -62,8 +62,6 @@ function FestivalMatch() {
       </span>
     );
   }
-
-  // const festivalGenres = ['Rock', 'Indie', 'Alternative'];
   const festivalGenres = festivaldata.reduce((newArray, festivalGenres) => {
     if (newArray.indexOf(festivalGenres.genres) === -1) {
       newArray.push(festivalGenres.genres);
@@ -72,28 +70,6 @@ function FestivalMatch() {
   }, []);
   console.log('festivalGenres', festivalGenres);
 
-  // const sameGenres = festivalGenres.filter((genre) =>
-  //   selectedGenres.includes(genre)
-  // );
-  // console.log(sameGenres);
-
-  // const quotes = function quota(festivalGenres, selectedGenres) {
-  //   const calculatedQuotes = new Array();
-  //   festivalGenres.forEach((festivalGenre) => {
-  //     const sameGenres = festivalGenre.filter((genre) =>
-  //       selectedGenres.includes(genre)
-  //     );
-  //     console.log(sameGenres);
-  //     const quote = Math.round(
-  //       (sameGenres.length / festivalGenre.length) * 100
-  //     );
-  //     console.log(quote);
-  //     calculatedQuotes.push(quote);
-  //   });
-  //   return calculatedQuotes;
-  //   // const quote = Math.round((sameGenres.length / festivalGenres.length) * 100);
-  //   // console.log(quote);
-  // };
   const quotes = quota(festivalGenres, selectedGenres);
 
   const handleDetailsClick = () => {
@@ -121,5 +97,3 @@ function FestivalMatch() {
 }
 
 export default FestivalMatch;
-
-// /\S*[,]\S*/
