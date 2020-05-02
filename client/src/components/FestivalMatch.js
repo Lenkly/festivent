@@ -49,7 +49,7 @@ async function fetchFestivals() {
 
 function FestivalMatch() {
   const history = useHistory();
-  const { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
+  let { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
@@ -68,22 +68,26 @@ function FestivalMatch() {
     }
     return newArray;
   }, []);
-  console.log('festivalGenres', festivalGenres);
 
   const quotes = quota(festivalGenres, selectedGenres);
 
   const handleDetailsClick = () => {
     history.push('/Details');
   };
+
+  for (const [index] of quotes.entries()) {
+    Object.defineProperty(festivaldata[index], 'quote', {
+      value: quotes[index],
+      writable: true,
+    });
+  }
+
   return (
     <div>
       {festivaldata.map((festival) => (
         <Card key={festival.id} onClick={handleDetailsClick}>
-          {quotes.map((quote, index) => (
-            <div key={index}>
-              <CalcIcon color="perfect">{quote}</CalcIcon>
-            </div>
-          ))}
+          <CalcIcon color="perfect">{festival.quote}</CalcIcon>
+
           <Festival>
             <FestivalTitle>{festival.name}</FestivalTitle>
             <FestivalInfo>

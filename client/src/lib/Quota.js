@@ -4,9 +4,7 @@ function quota(festivalGenres, selectedGenres) {
     const sameGenres = festivalGenre.filter((genre) =>
       selectedGenres.includes(genre)
     );
-    console.log(sameGenres);
     const quote = Math.round((sameGenres.length / festivalGenre.length) * 100);
-    console.log(quote);
     calculatedQuotes.push(quote);
   });
   return calculatedQuotes;
