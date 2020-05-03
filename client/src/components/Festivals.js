@@ -13,19 +13,16 @@ const Match = styled.div`
 
 const Festival = styled.div`
   text-align: center;
-  font-size: 34px;
-  font-family: 'Quicksand Book';
   margin-top: 25px;
   margin-bottom: 20px;
-  text-transform: uppercase;
+  word-wrap: break-word;
+  hyphens: auto;
 `;
 
 const FestivalDetail = styled.div`
   text-align: center;
   font-size: 20px;
-  font-family: 'Quicksand Book';
   margin-bottom: 30px;
-  text-transform: uppercase;
 `;
 
 const FestivalIntroduction = styled.div`
@@ -34,7 +31,6 @@ const FestivalIntroduction = styled.div`
   font-family: 'Quicksand Light';
   line-height: 1.3;
   margin-bottom: 20px;
-  text-transform: uppercase;
 `;
 
 const LineUpHeader = styled.div`
