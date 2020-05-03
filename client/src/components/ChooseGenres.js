@@ -91,7 +91,7 @@ function ChooseGenres() {
 
   const onMatchButtonClick = () => {
     sessionStorage.setItem('SelectedGenres', selectGenres);
-    history.push('/Matchlist');
+    history.push('/matchlist');
   };
 
   return (

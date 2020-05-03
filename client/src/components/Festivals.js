@@ -70,7 +70,9 @@ const Fill = styled.div`
 `;
 
 async function fetchFestivals() {
-  const response = await fetch('/api/festivals');
+  const response = await fetch(
+    '/api/festivals?id=' + sessionStorage.getItem('selectedFestival')
+  );
   const festivals = await response.json();
   return festivals;
 }
@@ -90,12 +92,23 @@ function GetFestivals() {
     );
   }
 
+  if (festivaldata.length > 0) {
+    Object.defineProperty(festivaldata[0], 'quote', {
+      value: sessionStorage.getItem('selectedFestivalQuote'),
+      writable: true,
+    });
+    Object.defineProperty(festivaldata[0], 'calcIconColor', {
+      value: sessionStorage.getItem('SelectedFestivalIcons'),
+      writable: true,
+    });
+  }
+
   return (
     <div>
       {festivaldata.map((festival) => (
         <div key={festival.id}>
           <Match>
-            <CalcIcon color="perfect">98.6</CalcIcon>
+            <CalcIcon color={festival.calcIconColor}>{festival.quote}</CalcIcon>
           </Match>
           <Festival>{festival.name}</Festival>
           <FestivalDetail>

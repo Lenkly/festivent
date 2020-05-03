@@ -46,7 +46,7 @@ function Welcome() {
   const keyboardEnter = (event) => {
     if (event.keyCode === 13) {
       sessionStorage.setItem('Name', nameUser);
-      history.push('/Genres');
+      history.push('/genres');
     }
   };
 

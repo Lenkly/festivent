@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
-import Welcome from './pages/Welcome';
-import Genres from './pages/Genres';
-import Details from './pages/Details';
-import Matchlist from './pages/Matchlist';
+import Welcome from './pages/welcome';
+import Genres from './pages/genres';
+import Details from './pages/details';
+import Matchlist from './pages/matchlist';
 
 function App() {
   return (
