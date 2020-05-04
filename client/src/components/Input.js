@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const Input = styled.input`
   display: flex;
   text-align: center;
-  color: black;
+  color: white;
   font-family: 'Quicksand Book', sans-serif;
   text-transform: uppercase;
   background: none;
