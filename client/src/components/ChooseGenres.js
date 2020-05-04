@@ -29,7 +29,7 @@ const Cell = styled.div`
   overflow: hidden;
 `;
 const Fill = styled.div`
-  background: #f9f9f9;
+  background: #1d1d1d;
 `;
 const ButtonWrapper = styled.div`
   display: flex;
@@ -90,8 +90,8 @@ function ChooseGenres() {
   };
 
   const onMatchButtonClick = () => {
-    sessionStorage.setItem('Genres', selectGenres);
-    history.push('/Matchlist');
+    sessionStorage.setItem('SelectedGenres', selectGenres);
+    history.push('/matchlist');
   };
 
   return (

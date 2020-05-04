@@ -3,6 +3,7 @@ import React from 'react';
 import CalcIcon from './CalcIcon';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
+import quota from '../lib/Quota';
 
 const Card = styled.div`
   display: grid;
@@ -30,20 +31,25 @@ const FestivalInfo = styled.p`
   margin: 3px 0;
 `;
 
-const selectedGenres = new Array(
-  sessionStorage.getItem('SelectedGenres').split(',')
-);
+let selectedGenres = [];
+if (sessionStorage.getItem('SelectedGenres') == null) {
+  console.log('Oh no!');
+} else {
+  const genres = sessionStorage.getItem('SelectedGenres');
+  selectedGenres = genres.toString().split(',');
+}
+
+const fetchRoute =
+  '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
 async function fetchFestivals() {
-  const response = await fetch(
-    '/api/festivals?genres_like' + selectedGenres.join('&genres_like=')
-  );
+  const response = await fetch(fetchRoute);
   const festivals = await response.json();
   return festivals;
 }
 
 function FestivalMatch() {
   const history = useHistory();
-  const { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
+  let { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
@@ -56,28 +62,99 @@ function FestivalMatch() {
       </span>
     );
   }
+  const festivalGenres = festivaldata.reduce((newArray, festivalGenres) => {
+    if (newArray.indexOf(festivalGenres.genres) === -1) {
+      newArray.push(festivalGenres.genres);
+    }
+    return newArray;
+  }, []);
 
-  const sameGenres = festivaldata.genres.filter((genre) =>
-    selectedGenres.includes(genre)
-  );
-  const quote = (sameGenres.length / festivaldata.genres.length) * 100;
+  const quotes = quota(festivalGenres, selectedGenres);
 
-  const handleDetailsClick = () => {
-    history.push('/Details');
+  const handleDetailsClick = (event, festivalId, index) => {
+    const selectedFestival = festivalId;
+    sessionStorage.setItem('selectedFestival', selectedFestival);
+    sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
+    sessionStorage.setItem(
+      'SelectedFestivalIcons',
+      festivaldata[index].calcIconColor
+    );
+    history.push('/details');
   };
+
+  for (const [index] of quotes.entries()) {
+    Object.defineProperty(festivaldata[index], 'quote', {
+      value: quotes[index],
+      writable: true,
+    });
+  }
+
+  function calculateIconValue(quoteValue) {
+    switch (true) {
+      case quoteValue >= 0 && quoteValue <= 15:
+        return 'almostnone';
+      case quoteValue > 15 && quoteValue <= 25:
+        return 'verylow';
+      case quoteValue > 25 && quoteValue <= 35:
+        return 'low';
+      case quoteValue > 35 && quoteValue <= 45:
+        return 'substandard';
+      case quoteValue > 45 && quoteValue <= 55:
+        return 'okay';
+      case quoteValue > 55 && quoteValue <= 65:
+        return 'average';
+      case quoteValue > 65 && quoteValue <= 75:
+        return 'moderate';
+      case quoteValue > 75 && quoteValue <= 85:
+        return 'high';
+      case quoteValue > 85 && quoteValue <= 95:
+        return 'veryhigh';
+      case quoteValue > 95 && quoteValue <= 100:
+        return 'perfect';
+      default:
+        return '???';
+    }
+  }
+  function calculateIconColor() {
+    for (let index = 0; index < festivaldata.length; index++) {
+      Object.defineProperty(festivaldata[index], 'calcIconColor', {
+        value: calculateIconValue(festivaldata[index].quote),
+        writable: true,
+      });
+    }
+  }
+  calculateIconColor();
+
+  function compare(a, b) {
+    if (a.quote > b.quote) {
+      return -1;
+    }
+    if (a.quote < b.quote) {
+      return 1;
+    }
+
+    return 0;
+  }
+
   return (
     <div>
-      {festivaldata.map((festival) => (
-        <Card key={festival.id} onClick={handleDetailsClick}>
-          <CalcIcon color="perfect">{quote}</CalcIcon>
-          <Festival>
-            <FestivalTitle>{festival.name}</FestivalTitle>
-            <FestivalInfo>
-              {festival.venue}, {festival.place}
-            </FestivalInfo>
-          </Festival>
-        </Card>
-      ))}
+      {festivaldata
+        .sort((a, b) => compare(a, b))
+        .map((festival, index) => (
+          <Card
+            key={festival.id}
+            onClick={(event) => handleDetailsClick(event, festival.id, index)}
+          >
+            <CalcIcon color={festival.calcIconColor}>{festival.quote}</CalcIcon>
+
+            <Festival>
+              <FestivalTitle>{festival.name}</FestivalTitle>
+              <FestivalInfo>
+                {festival.venue}, {festival.place}
+              </FestivalInfo>
+            </Festival>
+          </Card>
+        ))}
     </div>
   );
 }
