@@ -62,7 +62,7 @@ const Cell = styled.div`
 `;
 const Fill = styled.div`
   flex-grow: 1;
-  background: #f9f9f9;
+  background: #1d1d1d;
 `;
 
 async function fetchFestivals() {

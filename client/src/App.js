@@ -12,7 +12,7 @@ function App() {
       <GlobalStyles />
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/welcome">
             <Welcome />
           </Route>
           <Route exact path="/genres">

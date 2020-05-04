@@ -30,8 +30,8 @@ function GlobalStyles() {
           height: 100vh;
           font-size: 34px;
           text-transform: uppercase;
-          color: black;
-          background: #f9f9f9;
+          color: white;
+          background: #1d1d1d;
           margin: 0;
         }
       `}
