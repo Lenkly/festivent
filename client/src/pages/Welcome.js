@@ -62,7 +62,7 @@ function Welcome() {
           onChange={onChange}
           onKeyDown={(event) => keyboardEnter(event)}
         />
-        <NameText>Type Your Name</NameText>
+        <NameText>Enter Your Name</NameText>
         <LoginLink>
           <LoginText>Have An Account?</LoginText>
           <HighlightLink>Log In</HighlightLink>
