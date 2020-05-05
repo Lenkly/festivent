@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
+import Start from './pages/Start';
 import Welcome from './pages/Welcome';
 import Genres from './pages/Genres';
 import Details from './pages/Details';
@@ -14,6 +15,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
+            <Start />
+          </Route>
+          <Route exact path="/Welcome">
             <Welcome />
           </Route>
           <Route exact path="/Genres">
