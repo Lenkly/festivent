@@ -3,9 +3,10 @@ import { useQuery } from 'react-query';
 import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
+import SimpleNavigation from './navigation/SimpleNavigation';
 
 const Match = styled.div`
-  padding-top: 95px;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
@@ -26,7 +27,6 @@ const FestivalDetail = styled.div`
 `;
 
 const FestivalIntroduction = styled.div`
-  max-width: 600px;
   font-size: 12px;
   font-family: 'Quicksand Light';
   line-height: 1.3;
@@ -101,6 +101,7 @@ function GetFestivals() {
 
   return (
     <div>
+      <SimpleNavigation />
       {festivaldata.map((festival) => (
         <div key={festival.id}>
           <Match>
