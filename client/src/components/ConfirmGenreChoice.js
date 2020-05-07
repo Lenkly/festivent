@@ -2,13 +2,13 @@ import React from 'react';
 import Button from '../components/Button';
 import propTypes from 'prop-types';
 
-function ConfirmGenreChoice({ genres, disabled, onGenreChoiceClick }) {
+function ConfirmGenreChoice({ disabled, onGenreChoiceClick }) {
   return (
     <Button
       type="submit"
       size="Large"
       disabled={disabled}
-      onClick={onGenreChoiceClick(genres)}
+      onClick={onGenreChoiceClick}
     >
       Match Me
     </Button>
@@ -16,7 +16,6 @@ function ConfirmGenreChoice({ genres, disabled, onGenreChoiceClick }) {
 }
 
 ConfirmGenreChoice.propTypes = {
-  genres: propTypes.array,
   disabled: propTypes.bool,
   onGenreChoiceClick: propTypes.func,
 };

@@ -76,16 +76,7 @@ function ChooseGenres() {
       </span>
     );
   }
-  function enableMatchButton() {
-    if (sessionStorage.getItem('SelectedGenres') > 0) {
-      setMatchable(true);
-    } else if (
-      sessionStorage.getItem('SelectedGenres') <= 0 ||
-      sessionStorage.getItem('SelectedGenres') == null
-    ) {
-      setMatchable(false);
-    }
-  }
+
   const handleClick = (event, genre) => {
     event.preventDefault();
 
@@ -93,6 +84,7 @@ function ChooseGenres() {
     if (selectGenres.indexOf(genre) === -1) {
       selectGenres.push(genre);
       setSelectGenres(selectGenres);
+      sessionStorage.setItem('SelectedGenres', selectGenres);
       console.log('Stored:', selectGenres);
     } else {
       selectGenres.forEach((selectedGenre) => {
@@ -103,13 +95,20 @@ function ChooseGenres() {
         }
       });
       setSelectGenres(newSelectedGenres);
+      sessionStorage.setItem('SelectedGenres', newSelectedGenres);
       console.log('Removed:', genre, 'new:', newSelectedGenres);
     }
-    enableMatchButton();
+    if (sessionStorage.getItem('SelectedGenres').length > 0) {
+      setMatchable(true);
+    } else if (
+      sessionStorage.getItem('SelectedGenres').length <= 0 ||
+      sessionStorage.getItem('SelectedGenres').length == null
+    ) {
+      setMatchable(false);
+    }
   };
 
   const handleGenreChoiceClick = () => {
-    sessionStorage.setItem('SelectedGenres', selectGenres);
     history.push('/matchlist');
   };
 
@@ -132,7 +131,6 @@ function ChooseGenres() {
       </GenreWrapper>
       <ButtonWrapper>
         <ConfirmGenreChoice
-          genres={selectGenres}
           disabled={!matchable}
           onGenreChoiceClick={handleGenreChoiceClick}
         />
