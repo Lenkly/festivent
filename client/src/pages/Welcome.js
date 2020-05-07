@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import Input from '../components/Input';
 import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
@@ -31,7 +32,7 @@ const SwitchText = styled.div`
   padding-top: 5px;
 `;
 
-function Welcome() {
+function Welcome({ onThemeChange, theme }) {
   const history = useHistory();
   const [nameUser, setNameUser] = React.useState(
     sessionStorage.getItem('Name') || ''
@@ -61,11 +62,16 @@ function Welcome() {
         <NameText>Enter Your Name</NameText>
         <SwitchContainer>
           <SwitchText>Switch to Darkmode</SwitchText>
-          <ThemeSwitch />
+          <ThemeSwitch onChange={onThemeChange} value={theme} />
         </SwitchContainer>
       </Form>
     </Content>
   );
 }
+
+Welcome.propTypes = {
+  onThemeChange: PropTypes.func,
+  theme: PropTypes.object,
+};
 
 export default Welcome;

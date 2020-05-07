@@ -35,13 +35,10 @@ function GlobalStyles() {
           color: ${theme.colors.text};
           background: ${theme.colors.background};
           margin: 0;
+          transition: all 0.25s linear;
         }
       `}
     />
   );
 }
 export default GlobalStyles;
-
-/* ${theme.colors.background};
-${theme.colors.text}
-(theme) => */

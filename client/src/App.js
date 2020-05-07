@@ -9,11 +9,9 @@ import Details from './pages/Details';
 import Matchlist from './pages/Matchlist';
 import Profile from './pages/Profile';
 import brightmode from './themes/brightmode';
-import darkmode from './themes/darkmode';
-
-const theme = brightmode ? brightmode : darkmode;
 
 function App() {
+  const [theme, setTheme] = React.useState(brightmode);
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -24,7 +22,7 @@ function App() {
               <Start />
             </Route>
             <Route exact path="/welcome">
-              <Welcome />
+              <Welcome onThemeChange={setTheme} theme={theme} />
             </Route>
             <Route exact path="/genres">
               <Genres />

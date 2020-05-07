@@ -1,15 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Switch from 'react-switch';
+import brightmode from '../themes/brightmode';
+import darkmode from '../themes/darkmode';
 
-function Themeswitch() {
-  const [isToggled, setToggled] = React.useState(false);
-
-  const handleChange = () => setToggled(!isToggled);
+function ThemeSwitch({ onChange, value }) {
+  const handleChange = () => {
+    if (value === brightmode) {
+      onChange(darkmode);
+    } else {
+      onChange(brightmode);
+    }
+  };
 
   return (
     <Switch
+      type="button"
       onChange={handleChange}
-      checked={isToggled}
+      checked={value === darkmode}
       aria-labelledby="theme-switch-toggle"
       offColor="#FF00F2"
       onColor="#59FF00"
@@ -21,5 +29,9 @@ function Themeswitch() {
     />
   );
 }
+ThemeSwitch.propTypes = {
+  onChange: PropTypes.func,
+  value: PropTypes.object,
+};
 
-export default Themeswitch;
+export default ThemeSwitch;
