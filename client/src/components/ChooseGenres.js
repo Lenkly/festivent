@@ -2,7 +2,7 @@ import React from 'react';
 import GenreButton from '../components/GenreButton';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
-import Button from './Button';
+import ConfirmGenreChoice from '../components/ConfirmGenreChoice';
 import { useHistory } from 'react-router-dom';
 import fadeIn from '../animation/fadein';
 
@@ -61,6 +61,7 @@ async function fetchGenres() {
 function ChooseGenres() {
   const { status, data: genredata } = useQuery('genres', fetchGenres);
   const [selectGenres, setSelectGenres] = React.useState([]);
+  const [matchable, setMatchable] = React.useState(false);
   const history = useHistory();
 
   if (status === 'loading') {
@@ -75,7 +76,16 @@ function ChooseGenres() {
       </span>
     );
   }
-
+  function enableMatchButton() {
+    if (sessionStorage.getItem('SelectedGenres') > 0) {
+      setMatchable(true);
+    } else if (
+      sessionStorage.getItem('SelectedGenres') <= 0 ||
+      sessionStorage.getItem('SelectedGenres') == null
+    ) {
+      setMatchable(false);
+    }
+  }
   const handleClick = (event, genre) => {
     event.preventDefault();
 
@@ -95,9 +105,10 @@ function ChooseGenres() {
       setSelectGenres(newSelectedGenres);
       console.log('Removed:', genre, 'new:', newSelectedGenres);
     }
+    enableMatchButton();
   };
 
-  const onMatchButtonClick = () => {
+  const handleGenreChoiceClick = () => {
     sessionStorage.setItem('SelectedGenres', selectGenres);
     history.push('/matchlist');
   };
@@ -120,12 +131,20 @@ function ChooseGenres() {
         </Genrechoice>
       </GenreWrapper>
       <ButtonWrapper>
-        <Button type="Submit" onClick={onMatchButtonClick} size="Large">
-          Match Me
-        </Button>
+        <ConfirmGenreChoice
+          genres={selectGenres}
+          disabled={!matchable}
+          onGenreChoiceClick={handleGenreChoiceClick}
+        />
       </ButtonWrapper>
     </div>
   );
 }
 
 export default ChooseGenres;
+
+{
+  /* <Button type="Submit" onClick={onMatchButtonClick} size="Large">
+          Match Me
+        </Button> */
+}
