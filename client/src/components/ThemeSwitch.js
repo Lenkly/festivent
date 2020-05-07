@@ -13,9 +13,9 @@ function Themeswitch() {
       aria-labelledby="theme-switch-toggle"
       offColor="#FF00F2"
       onColor="#59FF00"
-      width={75}
-      height={34}
-      handleDiameter={32}
+      width={55}
+      height={25}
+      handleDiameter={23}
       uncheckedIcon={false}
       checkedIcon={false}
     />
