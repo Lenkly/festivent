@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
-import Welcome from './pages/welcome';
-import Genres from './pages/genres';
-import Details from './pages/details';
-import Matchlist from './pages/matchlist';
+import Start from './pages/Start';
+import Welcome from './pages/Welcome';
+import Genres from './pages/Genres';
+import Details from './pages/Details';
+import Matchlist from './pages/Matchlist';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -13,6 +15,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
+            <Start />
+          </Route>
+          <Route exact path="/welcome">
             <Welcome />
           </Route>
           <Route exact path="/genres">
@@ -23,6 +28,9 @@ function App() {
           </Route>
           <Route path="/matchlist">
             <Matchlist />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
         </Switch>
       </Router>

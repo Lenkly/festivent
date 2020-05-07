@@ -28,6 +28,8 @@ function GlobalStyles() {
         body {
           font-family: 'Quicksand Book';
           height: 100vh;
+          display: flex;
+          justify-content: center;
           font-size: 34px;
           text-transform: uppercase;
           color: white;
