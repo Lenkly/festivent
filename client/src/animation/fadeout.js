@@ -1,6 +1,6 @@
 import { keyframes } from '@emotion/core';
 
-const fadeout = keyframes`
+const fadeOut = keyframes`
   0% {
     opacity: 1;
   }
@@ -9,4 +9,4 @@ const fadeout = keyframes`
   }
 `;
 
-export default fadeout;
+export default fadeOut;

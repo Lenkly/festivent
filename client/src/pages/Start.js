@@ -1,13 +1,16 @@
 import React from 'react';
 import StartAnimation from '../components/StartAnimation';
 
-let timeout;
-
 function Start() {
-  clearTimeout(timeout);
-  timeout = setTimeout(function () {
-    window.location = '/Welcome';
-  }, 4000);
+  React.useEffect(() => {
+    const timeoutId = setTimeout(function () {
+      window.location = '/Welcome';
+    }, 3700);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   return <StartAnimation />;
 }

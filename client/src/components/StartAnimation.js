@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import fadeout from '../animation/fadeout';
+import fadeOut from '../animation/fadeout';
 import Heart from '../assets/festivent-start.png';
 
 const AnimationContainer = styled.div`
@@ -16,14 +16,14 @@ const AnimatedHeart = styled.img`
   width: 80%;
   height: 80%;
   opacity: 1;
-  animation: ${fadeout} 3s ease-in-out 1 normal;
+  animation: ${fadeOut} 3s ease-in-out 1 normal;
   animation-delay: 1s;
 `;
 
 const AnimatedTitle = styled.div`
   text-align: center;
   opacity: 1;
-  animation: ${fadeout} 3s ease-in-out 1 normal;
+  animation: ${fadeOut} 3s ease-in-out 1 normal;
   animation-delay: 2s;
 `;
 
