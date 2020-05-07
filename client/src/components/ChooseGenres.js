@@ -29,7 +29,7 @@ const Cell = styled.div`
   overflow: hidden;
 `;
 const Fill = styled.div`
-  background: #1d1d1d;
+  background: ${(props) => props.theme.colors.background};
 `;
 const ButtonWrapper = styled.div`
   display: flex;

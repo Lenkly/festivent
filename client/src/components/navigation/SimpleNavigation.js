@@ -14,7 +14,7 @@ const BackButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: #fff;
+  color: ${(props) => props.theme.colors.text};
   font-family: 'Quicksand Light';
   font-size: 23px;
   justify-content: flex-start;

@@ -7,7 +7,7 @@ import Rubik from './assets/Rubik.ttf';
 function GlobalStyles() {
   return (
     <Global
-      styles={css`
+      styles={(theme) => css`
         *,
         *::before,
         *::after {
@@ -32,8 +32,8 @@ function GlobalStyles() {
           justify-content: center;
           font-size: 34px;
           text-transform: uppercase;
-          color: white;
-          background: #1d1d1d;
+          color: ${theme.colors.text};
+          background: ${theme.colors.background};
           margin: 0;
         }
       `}

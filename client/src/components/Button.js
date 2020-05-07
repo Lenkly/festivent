@@ -10,8 +10,10 @@ ${(props) =>
   font-size: ${(props) => buttonSize[props.size].fontsize};
   width: ${(props) => buttonSize[props.size].width};
   text-transform: uppercase;
-  color: #fff;
-  background-image: linear-gradient(#1d1d1d, #1d1d1d), linear-gradient(
+  color: ${(props) => props.theme.colors.text};
+  background-image: linear-gradient(${(props) =>
+    props.theme.colors.background}, ${(props) =>
+  props.theme.colors.background}), linear-gradient(
     to right,
     #fff700,
     #ff9100,
