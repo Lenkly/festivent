@@ -4,6 +4,14 @@ import CalcIcon from './CalcIcon';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import quota from '../lib/Quota';
+import fadeIn from '../animation/fadein';
+
+const CardContainer = styled.div`
+  :nth-of-type(2) {
+    animation: ${fadeIn} 0.8s ease-in-out normal 0.5s;
+    opacity: 0;
+  }
+`;
 
 const Card = styled.div`
   display: grid;
@@ -138,23 +146,27 @@ function FestivalMatch() {
 
   return (
     <div>
-      {festivaldata
-        .sort((a, b) => compare(a, b))
-        .map((festival, index) => (
-          <Card
-            key={festival.id}
-            onClick={(event) => handleDetailsClick(event, festival.id, index)}
-          >
-            <CalcIcon color={festival.calcIconColor}>{festival.quote}</CalcIcon>
+      <CardContainer>
+        {festivaldata
+          .sort((a, b) => compare(a, b))
+          .map((festival, index) => (
+            <Card
+              key={festival.id}
+              onClick={(event) => handleDetailsClick(event, festival.id, index)}
+            >
+              <CalcIcon color={festival.calcIconColor}>
+                {festival.quote}
+              </CalcIcon>
 
-            <Festival>
-              <FestivalTitle>{festival.name}</FestivalTitle>
-              <FestivalInfo>
-                {festival.venue}, {festival.place}
-              </FestivalInfo>
-            </Festival>
-          </Card>
-        ))}
+              <Festival>
+                <FestivalTitle>{festival.name}</FestivalTitle>
+                <FestivalInfo>
+                  {festival.venue}, {festival.place}
+                </FestivalInfo>
+              </Festival>
+            </Card>
+          ))}
+      </CardContainer>
     </div>
   );
 }
