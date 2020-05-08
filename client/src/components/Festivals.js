@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import getMatchedFestivals from '../api/getMatchedFestivals';
 import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
@@ -7,8 +8,10 @@ import SimpleNavigation from './navigation/SimpleNavigation';
 import fadeIn from '../animation/fadein';
 
 const FestivalContainer = styled.div`
-  animation: ${fadeIn} 1.5s ease-in-out 1 normal;
+  opacity: 0;
+  animation: ${fadeIn} 1s ease-in-out 1 forwards;
   animation-delay: 0.5s;
+  margin-bottom: 50px;
 `;
 
 const Match = styled.div`
@@ -71,16 +74,11 @@ const Fill = styled.div`
   background: #1d1d1d;
 `;
 
-async function fetchFestivals() {
-  const response = await fetch(
-    '/api/festivals?id=' + sessionStorage.getItem('selectedFestival')
-  );
-  const festivals = await response.json();
-  return festivals;
-}
-
 function GetFestivals() {
-  const { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
+  const { status, data: festivaldata } = useQuery(
+    'festivals',
+    getMatchedFestivals
+  );
   if (status === 'loading') {
     return <span>Loading...</span>;
   }

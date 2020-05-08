@@ -5,6 +5,12 @@ import Form from '../components/layout/Form';
 import ChooseGenres from '../components/ChooseGenres';
 import fadeIn from '../animation/fadein';
 
+const GenreWrapper = styled.div`
+  opacity: 0;
+  animation: ${fadeIn} 1s ease-in-out 1 forwards;
+  animation-delay: 0.5s;
+`;
+
 const Text = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -12,16 +18,16 @@ const Text = styled.div`
   font-family: 'Quicksand Light';
   margin-top: 80px;
   margin-bottom: 25px;
-  animation: ${fadeIn} 1.5s ease-in-out 1 normal;
-  animation-delay: 0.5s;
 `;
 
 function Genres() {
   return (
     <Content>
       <Form>
-        <Text>Which Music Do You Like?</Text>
-        <ChooseGenres />
+        <GenreWrapper>
+          <Text>Which Music Do You Like?</Text>
+          <ChooseGenres />
+        </GenreWrapper>
       </Form>
     </Content>
   );

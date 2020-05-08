@@ -4,12 +4,16 @@ import Input from '../components/Input';
 import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
+import fadeIn from '../animation/fadein';
 
 const WelcomeText = styled.div`
   padding-top: 255px;
   font-family: 'Quicksand Light';
   font-size: 34px;
   margin_bottom: 50px;
+  opacity: 0;
+  animation: ${fadeIn} 1s ease-in-out 1 forwards;
+  animation-delay: 0.5s;
 `;
 
 const NameText = styled.div`

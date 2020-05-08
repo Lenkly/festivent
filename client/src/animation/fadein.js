@@ -5,7 +5,7 @@ const fadeIn = keyframes`
     opacity: 0;
   }
   100% {
-    opacity: 100;
+    opacity: 1;
   }
 `;
 

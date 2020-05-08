@@ -2,14 +2,10 @@ import React from 'react';
 import GenreButton from '../components/GenreButton';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
+import getGenres from '../api/getGenres';
 import ConfirmGenreChoice from '../components/ConfirmGenreChoice';
+// import SelectGenreButtons from '../components/SelectGenreButtons';
 import { useHistory } from 'react-router-dom';
-import fadeIn from '../animation/fadein';
-
-const GenreWrapper = styled.div`
-  animation: ${fadeIn} 1.5s ease-in-out 1 normal;
-  animation-delay: 0.5s;
-`;
 
 const Genrechoice = styled.div`
   display: grid;
@@ -40,26 +36,10 @@ const Fill = styled.div`
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  animation: ${fadeIn} 2s ease-in-out 1 normal;
-  animation-delay: 1s;
 `;
 
-async function fetchGenres() {
-  const response = await fetch('/api/festivals');
-  const festivals = await response.json();
-
-  const genreArray = festivals.reduce((newArray, festivalGenres) => {
-    if (newArray.indexOf(festivalGenres.genres) === -1) {
-      newArray.push(festivalGenres.genres);
-    }
-    return [...new Set([].concat(...newArray))].sort();
-  }, []);
-
-  return genreArray;
-}
-
 function ChooseGenres() {
-  const { status, data: genredata } = useQuery('genres', fetchGenres);
+  const { status, data: genredata } = useQuery('genres', getGenres);
   const [selectGenres, setSelectGenres] = React.useState([]);
   const [matchable, setMatchable] = React.useState(false);
   const history = useHistory();
@@ -114,21 +94,19 @@ function ChooseGenres() {
 
   return (
     <div>
-      <GenreWrapper>
-        <Genrechoice>
-          {genredata.map((genre) => (
-            <Cell key={genre}>
-              <GenreButton
-                type="button"
-                onClick={(event) => handleClick(event, genre)}
-              >
-                {genre}
-              </GenreButton>
-            </Cell>
-          ))}
-          <Fill />
-        </Genrechoice>
-      </GenreWrapper>
+      <Genrechoice>
+        {genredata.map((genre) => (
+          <Cell key={genre}>
+            <GenreButton
+              type="button"
+              onClick={(event) => handleClick(event, genre)}
+            >
+              {genre}
+            </GenreButton>
+          </Cell>
+        ))}
+        <Fill />
+      </Genrechoice>
       <ButtonWrapper>
         <ConfirmGenreChoice
           disabled={!matchable}
