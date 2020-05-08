@@ -71,7 +71,7 @@ const Cell = styled.div`
 `;
 const Fill = styled.div`
   flex-grow: 1;
-  background: #1d1d1d;
+  background: ${(props) => props.theme.colors.background};
 `;
 
 function GetFestivals() {

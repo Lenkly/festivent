@@ -10,7 +10,12 @@ const ProfileIcon = styled.img`
 `;
 
 const iconSize = {
-  Nav: { height: '21px', width: '21px', border: '1px', shadowcolor: '#1d1d1d' },
+  Nav: {
+    height: '21px',
+    width: '21px',
+    border: '1px',
+    shadowcolor: '${(props) => props.theme.colors.background}',
+  },
   Profile: {
     height: '90px',
     width: '90px',
