@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
 import getGenres from '../api/getGenres';
 import ConfirmGenreChoice from '../components/ConfirmGenreChoice';
-// import SelectGenreButtons from '../components/SelectGenreButtons';
 import { useHistory } from 'react-router-dom';
 
 const Genrechoice = styled.div`
@@ -115,9 +114,3 @@ function ChooseGenres() {
 }
 
 export default ChooseGenres;
-
-{
-  /* <Button type="Submit" onClick={onMatchButtonClick} size="Large">
-          Match Me
-        </Button> */
-}
