@@ -5,6 +5,7 @@ import Form from '../components/layout/Form';
 import FestivalMatch from '../components/FestivalMatch';
 import Button from '../components/Button';
 import { useHistory } from 'react-router-dom';
+import fadeIn from '../animation/fadein';
 
 const Text = styled.div`
   display: flex;
@@ -13,6 +14,9 @@ const Text = styled.div`
   font-family: 'Quicksand Light';
   margin-top: 80px;
   margin-bottom: 25px;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
 `;
 
 const AgainText = styled.div`
@@ -24,11 +28,17 @@ const AgainText = styled.div`
   text-align: center;
   margin-top: 10px;
   margin-bottom: 25px;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
 `;
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 45px;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
 `;
 
 function Matchlist() {

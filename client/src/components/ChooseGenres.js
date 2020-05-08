@@ -97,10 +97,7 @@ function ChooseGenres() {
       <Genrechoice>
         {genredata.map((genre) => (
           <Cell key={genre}>
-            <GenreButton
-              type="button"
-              onClick={(event) => handleClick(event, genre)}
-            >
+            <GenreButton onClick={(event) => handleClick(event, genre)}>
               {genre}
             </GenreButton>
           </Cell>

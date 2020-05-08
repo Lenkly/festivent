@@ -9,8 +9,8 @@ import fadeIn from '../animation/fadein';
 
 const FestivalContainer = styled.div`
   opacity: 0;
-  animation: ${fadeIn} 1s ease-in-out 1 forwards;
-  animation-delay: 0.5s;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
   margin-bottom: 50px;
 `;
 
