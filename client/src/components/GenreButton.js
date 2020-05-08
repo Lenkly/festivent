@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 const GenreButton = styled.button`
-  ${(props) => (props.selected ? 'border: solid 1px #fff700' : 'border: none;')}
   width: 8.3rem;
   height: 2.75rem;
   border: none;
@@ -9,7 +8,10 @@ const GenreButton = styled.button`
   font-family: 'Quicksand Book', sans-serif;
   font-size: 0.9rem;
   text-transform: uppercase;
-  background: transparent;
+  ${(props) =>
+    props.selected
+      ? 'background: transparent;'
+      : 'background: rgba(249, 249, 249, 0.5);'}
   border-radius: 1rem;
   padding-top: 5px;
   margin-top: 10px;

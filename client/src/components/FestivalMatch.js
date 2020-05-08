@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import quota from '../lib/Quota';
 import fadeIn from '../animation/fadein';
+import usePersistentState from '../hooks/usePersistentState';
 
 const CardContainer = styled.div`
   :nth-of-type(2) {
@@ -39,25 +40,56 @@ const FestivalInfo = styled.p`
   margin: 3px 0;
 `;
 
-let selectedGenres = [];
-if (sessionStorage.getItem('SelectedGenres') == null) {
-  console.log('Oh no!');
-} else {
-  const genres = sessionStorage.getItem('SelectedGenres');
-  selectedGenres = genres.toString().split(',');
+function calculateIconValue(quoteValue) {
+  switch (true) {
+    case quoteValue >= 0 && quoteValue <= 15:
+      return 'almostnone';
+    case quoteValue > 15 && quoteValue <= 25:
+      return 'verylow';
+    case quoteValue > 25 && quoteValue <= 35:
+      return 'low';
+    case quoteValue > 35 && quoteValue <= 45:
+      return 'substandard';
+    case quoteValue > 45 && quoteValue <= 55:
+      return 'okay';
+    case quoteValue > 55 && quoteValue <= 65:
+      return 'average';
+    case quoteValue > 65 && quoteValue <= 75:
+      return 'moderate';
+    case quoteValue > 75 && quoteValue <= 85:
+      return 'high';
+    case quoteValue > 85 && quoteValue <= 95:
+      return 'veryhigh';
+    case quoteValue > 95 && quoteValue <= 100:
+      return 'perfect';
+    default:
+      return '???';
+  }
 }
 
-const fetchRoute =
-  '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
-async function fetchFestivals() {
-  const response = await fetch(fetchRoute);
-  const festivals = await response.json();
-  return festivals;
+function compare(a, b) {
+  if (a.quote > b.quote) {
+    return -1;
+  }
+  if (a.quote < b.quote) {
+    return 1;
+  }
+
+  return 0;
 }
 
 function FestivalMatch() {
   const history = useHistory();
   let { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
+  const [selectedGenres] = usePersistentState('SelectedGenres', []);
+
+  async function fetchFestivals() {
+    const fetchRoute =
+      '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
+    const response = await fetch(fetchRoute);
+    const festivals = await response.json();
+    return festivals;
+  }
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
@@ -97,32 +129,6 @@ function FestivalMatch() {
     });
   }
 
-  function calculateIconValue(quoteValue) {
-    switch (true) {
-      case quoteValue >= 0 && quoteValue <= 15:
-        return 'almostnone';
-      case quoteValue > 15 && quoteValue <= 25:
-        return 'verylow';
-      case quoteValue > 25 && quoteValue <= 35:
-        return 'low';
-      case quoteValue > 35 && quoteValue <= 45:
-        return 'substandard';
-      case quoteValue > 45 && quoteValue <= 55:
-        return 'okay';
-      case quoteValue > 55 && quoteValue <= 65:
-        return 'average';
-      case quoteValue > 65 && quoteValue <= 75:
-        return 'moderate';
-      case quoteValue > 75 && quoteValue <= 85:
-        return 'high';
-      case quoteValue > 85 && quoteValue <= 95:
-        return 'veryhigh';
-      case quoteValue > 95 && quoteValue <= 100:
-        return 'perfect';
-      default:
-        return '???';
-    }
-  }
   function calculateIconColor() {
     for (let index = 0; index < festivaldata.length; index++) {
       Object.defineProperty(festivaldata[index], 'calcIconColor', {
@@ -132,17 +138,6 @@ function FestivalMatch() {
     }
   }
   calculateIconColor();
-
-  function compare(a, b) {
-    if (a.quote > b.quote) {
-      return -1;
-    }
-    if (a.quote < b.quote) {
-      return 1;
-    }
-
-    return 0;
-  }
 
   return (
     <div>
