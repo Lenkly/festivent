@@ -4,7 +4,7 @@ const Input = styled.input`
   display: flex;
   text-align: center;
   color: ${(props) => props.theme.colors.text};
-  font-family: 'Quicksand Book', sans-serif;
+  font-family: 'Quicksand Light', sans-serif;
   text-transform: uppercase;
   background: none;
   width: ${(props) => inputText[props.size].width};

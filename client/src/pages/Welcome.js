@@ -22,17 +22,23 @@ const NameText = styled.div`
   font-family: 'Quicksand Light';
   font-size: 14px;
   margin-top: 8px;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
 `;
 const SwitchContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 200px;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
 `;
 
 const SwitchText = styled.div`
   font-family: 'Quicksand Light';
   font-size: 20px;
-  margin-right: 20px;
+  margin-right: 15px;
   padding-top: 5px;
 `;
 

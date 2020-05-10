@@ -3,15 +3,13 @@ import React from 'react';
 import CalcIcon from './CalcIcon';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import quota from '../lib/Quota';
+import quota from '../lib/quota';
 import fadeIn from '../animation/fadein';
 import usePersistentState from '../hooks/usePersistentState';
 
 const CardContainer = styled.div`
-  :nth-of-type(2) {
-    animation: ${fadeIn} 0.8s ease-in-out normal 0.5s;
-    opacity: 0;
-  }
+  opacity: 0;
+  animation: ${fadeIn} 0.8s ease-in-out forwards 0.5s;
 `;
 
 const Card = styled.div`

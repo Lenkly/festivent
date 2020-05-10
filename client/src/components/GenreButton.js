@@ -11,7 +11,7 @@ const GenreButton = styled.button`
   ${(props) =>
     props.selected
       ? 'background: transparent;'
-      : 'background: rgba(249, 249, 249, 0.5);'}
+      : 'background: rgba(29, 29, 29, 0.5);'}
   border-radius: 1rem;
   padding-top: 5px;
   margin-top: 10px;
