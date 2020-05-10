@@ -9,10 +9,12 @@ import Details from './pages/Details';
 import Matchlist from './pages/Matchlist';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
-import brightmode from './themes/brightmode';
+import UserLogin from './pages/UserLogin';
+import Register from './pages/Register';
+import darkmode from './themes/darkmode';
 
 function App() {
-  const [theme, setTheme] = React.useState(brightmode);
+  const [theme, setTheme] = React.useState(darkmode);
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -39,6 +41,12 @@ function App() {
             </Route>
             <Route path="/settings">
               <Settings />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route exact path="/signin">
+              <UserLogin />
             </Route>
           </Switch>
         </Router>
