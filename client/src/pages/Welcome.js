@@ -12,7 +12,6 @@ const WelcomeText = styled.div`
   padding-top: 255px;
   font-family: 'Quicksand Light';
   font-size: 34px;
-  margin_bottom: 50px;
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
   animation-delay: 0.25s;

@@ -8,6 +8,7 @@ import Genres from './pages/Genres';
 import Details from './pages/Details';
 import Matchlist from './pages/Matchlist';
 import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 import brightmode from './themes/brightmode';
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
             </Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/settings">
+              <Settings />
             </Route>
           </Switch>
         </Router>

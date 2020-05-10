@@ -16,8 +16,6 @@ const UserName = styled.div`
   text-align: center;
   margin-top: 25px;
   margin-bottom: 20px;
-  word-wrap: break-word;
-  hyphens: auto;
 `;
 
 const UserDetail = styled.div`
