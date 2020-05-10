@@ -4,7 +4,7 @@ import fadeOut from '../animation/fadeout';
 import Heart from '../assets/festivent-start.png';
 
 const AnimationContainer = styled.div`
-  margin-top: 80px;
+  margin-top: 110px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,30 +16,25 @@ const AnimatedHeart = styled.img`
   width: 80%;
   height: 80%;
   opacity: 1;
-  animation: ${fadeOut} 3s ease-in-out 1 normal;
+  animation: ${fadeOut} 3s ease-in-out 1 forwards;
   animation-delay: 1s;
 `;
 
-const AnimatedTitle = styled.div`
-  text-align: center;
-  opacity: 1;
-  animation: ${fadeOut} 3s ease-in-out 1 normal;
-  animation-delay: 2s;
-`;
-
-const Title = styled.h1`
+const AnimatedTitle = styled.h1`
   font-family: 'Quicksand Book';
   font-size: 45px;
   letter-spacing: 0.2em;
+  text-align: center;
+  opacity: 1;
+  animation: ${fadeOut} 3s ease-in-out 1 forwards;
+  animation-delay: 2s;
 `;
 
 const StartAnimation = () => {
   return (
     <AnimationContainer>
       <AnimatedHeart src={Heart} />
-      <AnimatedTitle>
-        <Title>FESTIVENT</Title>
-      </AnimatedTitle>
+      <AnimatedTitle>FESTIVENT</AnimatedTitle>
     </AnimationContainer>
   );
 };

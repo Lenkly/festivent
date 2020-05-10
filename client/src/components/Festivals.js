@@ -1,9 +1,18 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import getMatchedFestivals from '../api/getMatchedFestivals';
 import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
 import SimpleNavigation from './navigation/SimpleNavigation';
+import fadeIn from '../animation/fadein';
+
+const FestivalContainer = styled.div`
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
+  margin-bottom: 50px;
+`;
 
 const Match = styled.div`
   padding-top: 20px;
@@ -65,16 +74,11 @@ const Fill = styled.div`
   background: ${(props) => props.theme.colors.background};
 `;
 
-async function fetchFestivals() {
-  const response = await fetch(
-    '/api/festivals?id=' + sessionStorage.getItem('selectedFestival')
-  );
-  const festivals = await response.json();
-  return festivals;
-}
-
 function GetFestivals() {
-  const { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
+  const { status, data: festivaldata } = useQuery(
+    'festivals',
+    getMatchedFestivals
+  );
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
@@ -101,30 +105,34 @@ function GetFestivals() {
 
   return (
     <div>
-      <SimpleNavigation />
-      {festivaldata.map((festival) => (
-        <div key={festival.id}>
-          <Match>
-            <CalcIcon color={festival.calcIconColor}>{festival.quote}</CalcIcon>
-          </Match>
-          <Festival>{festival.name}</Festival>
-          <FestivalDetail>
-            {festival.date} <br /> {festival.venue}, {festival.place}
-          </FestivalDetail>
-          <FestivalIntroduction>{festival.description}</FestivalIntroduction>
-          <LineUpHeader>Line-Up</LineUpHeader>
-          <LineUp>
-            {festival.artists.map((artist) => (
-              <React.Fragment key={artist}>
-                <Cell>
-                  <ArtistButton>{artist}</ArtistButton>
-                </Cell>
-                <Fill />
-              </React.Fragment>
-            ))}
-          </LineUp>
-        </div>
-      ))}
+      <FestivalContainer>
+        <SimpleNavigation />
+        {festivaldata.map((festival) => (
+          <div key={festival.id}>
+            <Match>
+              <CalcIcon color={festival.calcIconColor}>
+                {festival.quote}
+              </CalcIcon>
+            </Match>
+            <Festival>{festival.name}</Festival>
+            <FestivalDetail>
+              {festival.date} <br /> {festival.venue}, {festival.place}
+            </FestivalDetail>
+            <FestivalIntroduction>{festival.description}</FestivalIntroduction>
+            <LineUpHeader>Line-Up</LineUpHeader>
+            <LineUp>
+              {festival.artists.map((artist) => (
+                <React.Fragment key={artist}>
+                  <Cell>
+                    <ArtistButton>{artist}</ArtistButton>
+                  </Cell>
+                  <Fill />
+                </React.Fragment>
+              ))}
+            </LineUp>
+          </div>
+        ))}
+      </FestivalContainer>
     </div>
   );
 }

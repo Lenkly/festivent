@@ -8,10 +8,14 @@ const GenreButton = styled.button`
   font-family: 'Quicksand Book', sans-serif;
   font-size: 0.9rem;
   text-transform: uppercase;
-  background: transparent;
+  ${(props) =>
+    props.selected
+      ? 'background: transparent;'
+      : 'background: rgba(29, 29, 29, 0.5);'}
   border-radius: 1rem;
   padding-top: 5px;
   margin-top: 10px;
   box-shadow: 0 0 0px 50px ${(props) => props.theme.colors.background};
 `;
+
 export default GenreButton;
