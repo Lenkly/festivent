@@ -3,7 +3,7 @@ import React from 'react';
 import CalcIcon from './CalcIcon';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import quota from '../lib/quota';
+import quota from '../lib/Quota';
 import fadeIn from '../animation/fadein';
 import usePersistentState from '../hooks/usePersistentState';
 
