@@ -5,8 +5,9 @@ import Button from '../Button';
 import Input from '../Input';
 import Form from '../layout/Form';
 import LoginButton from '../LoginButton';
-import { useHistory } from 'react-router-dom';
 import Heart from '../../assets/festivent-start.png';
+import { useHistory } from 'react-router-dom';
+import { useMutation } from 'react-query';
 import { addUser } from '../../api/getUser';
 
 const TeaserContainer = styled.div`
@@ -51,16 +52,13 @@ function SignUp() {
   const [userName, setUserName] = React.useState('');
   const [userEmail, setUserEmail] = React.useState('');
   const [userPassword, setUserPassword] = React.useState('');
+  const [newUser, { error }] = useMutation(addUser);
 
-  async function handleSignUpClick(event) {
+  async function handleSignUpSubmit(event) {
     event.preventDefault();
-    const user = {
-      userName: userName,
-      userEmail: userEmail,
-      userPassword: userPassword,
-    };
-    const newUser = await addUser(user);
-    history.push(`/user/${newUser.id}`);
+    await newUser({ userName, userEmail, userPassword });
+    history.push(`/profile/${newUser.id}`);
+    alert('a new User has been created:' + userName);
   }
 
   return (
@@ -72,7 +70,17 @@ function SignUp() {
           signed up!
         </TeaserText>
       </TeaserContainer>
-      <Form>
+      <Form onSubmit={handleSignUpSubmit}>
+        {error && (
+          <span>
+            Oh no, something bad happened
+            <span role="img" aria-label="sadface">
+              😢
+            </span>
+            <br />
+            Please try again.
+          </span>
+        )}
         <Input
           type="text"
           size="User"
@@ -99,7 +107,7 @@ function SignUp() {
           required
         />
         <ButtonContainer>
-          <Button type="submit" size="Small" onSubmit={handleSignUpClick}>
+          <Button type="submit" size="Small">
             Sign Up
           </Button>
         </ButtonContainer>

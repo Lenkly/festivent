@@ -36,7 +36,7 @@ function App() {
             <Route path="/matchlist">
               <Matchlist />
             </Route>
-            <Route path="/profile">
+            <Route path="/profile/:id">
               <Profile />
             </Route>
             <Route path="/settings">

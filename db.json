@@ -1,16 +1,28 @@
 {
   "users": [
     {
-      "id": 1,
       "userName": "Keanefan",
       "userEmail": "keanefan@email.com",
-      "userPassword": "1234"
+      "userPassword": "1234",
+      "id": 1
     },
     {
-      "id": 2,
       "userName": "OldSchoolNoob",
       "userEmail": "doggomacdogface@doge.wuff",
-      "userPassword": "verysafepassworddude"
+      "userPassword": "verysafepassworddude",
+      "id": 2
+    },
+    {
+      "userName": "kittichan",
+      "userEmail": "kittichan@gmx.de",
+      "userPassword": "5678",
+      "id": 3
+    },
+    {
+      "userName": "mama",
+      "userEmail": "mama@eltern.de",
+      "userPassword": "qM72gwu3ju6bAD8",
+      "id": 4
     }
   ],
   "festivals": [
