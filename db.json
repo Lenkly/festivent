@@ -1,4 +1,18 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "userName": "Keanefan",
+      "userEmail": "keanefan@email.com",
+      "userPassword": "1234"
+    },
+    {
+      "id": 2,
+      "userName": "OldSchoolNoob",
+      "userEmail": "doggomacdogface@doge.wuff",
+      "userPassword": "verysafepassworddude"
+    }
+  ],
   "festivals": [
     {
       "id": 1,

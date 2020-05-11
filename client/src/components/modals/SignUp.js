@@ -5,7 +5,9 @@ import Button from '../Button';
 import Input from '../Input';
 import Form from '../layout/Form';
 import LoginButton from '../LoginButton';
+import { useHistory } from 'react-router-dom';
 import Heart from '../../assets/festivent-start.png';
+import { addUser } from '../../api/getUser';
 
 const TeaserContainer = styled.div`
   display: flex;
@@ -45,6 +47,22 @@ const LoginText = styled.p`
 `;
 
 function SignUp() {
+  const history = useHistory();
+  const [userName, setUserName] = React.useState('');
+  const [userEmail, setUserEmail] = React.useState('');
+  const [userPassword, setUserPassword] = React.useState('');
+
+  async function handleSignUpClick(event) {
+    event.preventDefault();
+    const user = {
+      userName: userName,
+      userEmail: userEmail,
+      userPassword: userPassword,
+    };
+    const newUser = await addUser(user);
+    history.push(`/user/${newUser.id}`);
+  }
+
   return (
     <Content>
       <TeaserContainer>
@@ -58,14 +76,32 @@ function SignUp() {
         <Input
           type="text"
           size="User"
+          value={userName}
           placeholder="Username"
+          onChange={(event) => setUserName(event.target.value)}
           maxLength={11}
           required
         />
-        <Input type="email" size="User" placeholder="E-Mail" required />
-        <Input type="password" size="User" placeholder="Password" required />
+        <Input
+          type="email"
+          size="User"
+          value={userEmail}
+          placeholder="E-Mail"
+          onChange={(event) => setUserEmail(event.target.value)}
+          required
+        />
+        <Input
+          type="password"
+          size="User"
+          value={userPassword}
+          placeholder="Password"
+          onChange={(event) => setUserPassword(event.target.value)}
+          required
+        />
         <ButtonContainer>
-          <Button size="Small">Sign Up</Button>
+          <Button type="submit" size="Small" onSubmit={handleSignUpClick}>
+            Sign Up
+          </Button>
         </ButtonContainer>
       </Form>
       <LoginLink>
