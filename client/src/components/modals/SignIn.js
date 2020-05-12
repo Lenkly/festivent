@@ -4,8 +4,8 @@ import Content from '../layout/Content';
 import Button from '../Button';
 import Input from '../Input';
 import Form from '../layout/Form';
-import LoginButton from '../LoginButton';
 import Heart from '../../assets/festivent-start.png';
+import { Link } from 'react-router-dom';
 
 const TeaserContainer = styled.div`
   display: flex;
@@ -37,15 +37,29 @@ const LoginLink = styled.div`
 const LoginText = styled.p`
   font-family: 'Quicksand Light';
   font-size: 15px;
+  margin-right: 10px;
+`;
+
+const LoginToggle = styled(Link)`
+  font-size: 15px;
+  font-family: 'Quicksand Light';
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.texthighlight};
+  cursor: pointer;
 `;
 
 function SignIn() {
+  async function handleSignInSubmit(event) {
+    event.preventDefault();
+    alert('Hello back, handsome!');
+  }
+
   return (
     <Content>
       <TeaserContainer>
         <Logo src={Heart} alt="festivent logo" />
       </TeaserContainer>
-      <Form>
+      <Form onSubmit={handleSignInSubmit}>
         <Input
           type="text"
           size="User"
@@ -60,7 +74,7 @@ function SignIn() {
       </Form>
       <LoginLink>
         <LoginText>Don&apos;t have an Account?</LoginText>
-        <LoginButton>Sign Up</LoginButton>
+        <LoginToggle to="/register">Sign Up</LoginToggle>
       </LoginLink>
     </Content>
   );

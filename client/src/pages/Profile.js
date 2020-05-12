@@ -4,6 +4,7 @@ import Content from '../components/layout/Content';
 import SettingsNavigation from '../components/navigation/SettingsNavigation';
 import ProfileIcon from '../components/ProfileIcon';
 import Icon from '../assets/festivent-profile.svg';
+// import { useParams } from 'react-router-dom';
 
 const ProfilePicture = styled.div`
   padding-top: 20px;
@@ -26,6 +27,7 @@ const UserDetail = styled.div`
 `;
 
 function Profile() {
+  // const { userId } = useParams();
   return (
     <Content>
       <SettingsNavigation />

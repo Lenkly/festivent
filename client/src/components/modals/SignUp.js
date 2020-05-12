@@ -4,9 +4,8 @@ import Content from '../layout/Content';
 import Button from '../Button';
 import Input from '../Input';
 import Form from '../layout/Form';
-import LoginButton from '../LoginButton';
 import Heart from '../../assets/festivent-start.png';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { addUser } from '../../api/getUser';
 
@@ -45,6 +44,15 @@ const LoginLink = styled.div`
 const LoginText = styled.p`
   font-family: 'Quicksand Light';
   font-size: 15px;
+  margin-right: 10px;
+`;
+
+const LoginToggle = styled(Link)`
+  font-size: 15px;
+  font-family: 'Quicksand Light';
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.texthighlight};
+  cursor: pointer;
 `;
 
 function SignUp() {
@@ -114,7 +122,7 @@ function SignUp() {
       </Form>
       <LoginLink>
         <LoginText>Already have an Account?</LoginText>
-        <LoginButton>Log In</LoginButton>
+        <LoginToggle to="/signin">Log In</LoginToggle>
       </LoginLink>
     </Content>
   );
