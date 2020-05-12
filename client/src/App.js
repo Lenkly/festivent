@@ -8,10 +8,13 @@ import Genres from './pages/Genres';
 import Details from './pages/Details';
 import Matchlist from './pages/Matchlist';
 import Profile from './pages/Profile';
-import brightmode from './themes/brightmode';
+import Settings from './pages/Settings';
+import UserLogin from './pages/UserLogin';
+import Register from './pages/Register';
+import darkmode from './themes/darkmode';
 
 function App() {
-  const [theme, setTheme] = React.useState(brightmode);
+  const [theme, setTheme] = React.useState(darkmode);
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -33,8 +36,17 @@ function App() {
             <Route path="/matchlist">
               <Matchlist />
             </Route>
-            <Route path="/profile">
+            <Route path="/profile/:id">
               <Profile />
+            </Route>
+            <Route path="/settings">
+              <Settings />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route exact path="/signin">
+              <UserLogin />
             </Route>
           </Switch>
         </Router>

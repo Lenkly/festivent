@@ -6,6 +6,7 @@ import { useQuery } from 'react-query';
 import quota from '../lib/Quota';
 import fadeIn from '../animation/fadein';
 import usePersistentState from '../hooks/usePersistentState';
+import calculateIconValue from '../lib/calculateIconValue';
 
 const CardContainer = styled.div`
   opacity: 0;
@@ -38,33 +39,6 @@ const FestivalInfo = styled.p`
   margin: 3px 0;
 `;
 
-function calculateIconValue(quoteValue) {
-  switch (true) {
-    case quoteValue >= 0 && quoteValue <= 15:
-      return 'almostnone';
-    case quoteValue > 15 && quoteValue <= 25:
-      return 'verylow';
-    case quoteValue > 25 && quoteValue <= 35:
-      return 'low';
-    case quoteValue > 35 && quoteValue <= 45:
-      return 'substandard';
-    case quoteValue > 45 && quoteValue <= 55:
-      return 'okay';
-    case quoteValue > 55 && quoteValue <= 65:
-      return 'average';
-    case quoteValue > 65 && quoteValue <= 75:
-      return 'moderate';
-    case quoteValue > 75 && quoteValue <= 85:
-      return 'high';
-    case quoteValue > 85 && quoteValue <= 95:
-      return 'veryhigh';
-    case quoteValue > 95 && quoteValue <= 100:
-      return 'perfect';
-    default:
-      return '???';
-  }
-}
-
 function compare(a, b) {
   if (a.quote > b.quote) {
     return -1;
@@ -95,7 +69,11 @@ function FestivalMatch() {
   if (status === 'error') {
     return (
       <span>
-        Oh no, something bad happened 😢 <br />
+        Oh no, something bad happened
+        <span role="img" aria-label="sadface">
+          😢
+        </span>
+        <br />
         Please try again.
       </span>
     );
@@ -113,10 +91,7 @@ function FestivalMatch() {
     const selectedFestival = festivalId;
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
-    sessionStorage.setItem(
-      'SelectedFestivalIcons',
-      festivaldata[index].calcIconColor
-    );
+
     history.push('/details');
   };
 
@@ -126,16 +101,6 @@ function FestivalMatch() {
       writable: true,
     });
   }
-
-  function calculateIconColor() {
-    for (let index = 0; index < festivaldata.length; index++) {
-      Object.defineProperty(festivaldata[index], 'calcIconColor', {
-        value: calculateIconValue(festivaldata[index].quote),
-        writable: true,
-      });
-    }
-  }
-  calculateIconColor();
 
   return (
     <div>
@@ -147,7 +112,7 @@ function FestivalMatch() {
               key={festival.id}
               onClick={(event) => handleDetailsClick(event, festival.id, index)}
             >
-              <CalcIcon color={festival.calcIconColor}>
+              <CalcIcon color={calculateIconValue(festival.quote)}>
                 {festival.quote}
               </CalcIcon>
 

@@ -7,12 +7,12 @@ import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import fadeIn from '../animation/fadein';
 import ThemeSwitch from '../components/ThemeSwitch';
+import LoginButton from '../components/LoginButton';
 
 const WelcomeText = styled.div`
   padding-top: 255px;
   font-family: 'Quicksand Light';
   font-size: 34px;
-  margin_bottom: 50px;
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
   animation-delay: 0.25s;
@@ -40,6 +40,21 @@ const SwitchText = styled.div`
   font-size: 20px;
   margin-right: 15px;
   padding-top: 5px;
+`;
+
+const LoginLink = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
+`;
+
+const LoginText = styled.p`
+  font-family: 'Quicksand Light';
+  font-size: 15px;
+  margin-right: 5px;
 `;
 
 function Welcome({ onThemeChange, theme }) {
@@ -74,6 +89,10 @@ function Welcome({ onThemeChange, theme }) {
           <SwitchText>Switch to Darkmode</SwitchText>
           <ThemeSwitch onChange={onThemeChange} value={theme} />
         </SwitchContainer>
+        <LoginLink>
+          <LoginText>Already have an Account?</LoginText>
+          <LoginButton>Log In</LoginButton>
+        </LoginLink>
       </Form>
     </Content>
   );

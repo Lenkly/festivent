@@ -60,7 +60,11 @@ function ChooseGenres() {
   if (status === 'error') {
     return (
       <span>
-        Oh no, something bad happened 😢 <br />
+        Oh no, something bad happened
+        <span role="img" aria-label="sadface">
+          😢
+        </span>
+        <br />
         Please try again.
       </span>
     );
