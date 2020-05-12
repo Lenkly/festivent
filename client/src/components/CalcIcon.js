@@ -3,7 +3,10 @@ import styled from '@emotion/styled';
 const CalcIcon = styled.button`
   height: 90px;
   width: 90px;
-  border: solid ${(props) => calcColor[props.color].colors};
+  border: solid
+    ${(props) => {
+      return calcColor[props.color].colors;
+    }};
   border-width: 3px;
   border-radius: 100%;
   font-size: 30px;

@@ -6,6 +6,7 @@ import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
 import SimpleNavigation from './navigation/SimpleNavigation';
 import fadeIn from '../animation/fadein';
+import calculateIconValue from '../lib/calculateIconValue';
 
 const FestivalContainer = styled.div`
   opacity: 0;
@@ -101,10 +102,6 @@ function GetFestivals() {
       value: sessionStorage.getItem('selectedFestivalQuote'),
       writable: true,
     });
-    Object.defineProperty(festivaldata[0], 'calcIconColor', {
-      value: sessionStorage.getItem('SelectedFestivalIcons'),
-      writable: true,
-    });
   }
 
   return (
@@ -114,7 +111,7 @@ function GetFestivals() {
         {festivaldata.map((festival) => (
           <div key={festival.id}>
             <Match>
-              <CalcIcon color={festival.calcIconColor}>
+              <CalcIcon color={calculateIconValue(festival.quote)}>
                 {festival.quote}
               </CalcIcon>
             </Match>
