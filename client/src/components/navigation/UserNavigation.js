@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import NavArrow from '../../assets/arrow_white.png';
+import Arrow from '../../assets/Arrow';
 import { Link } from 'react-router-dom';
 import ProfileIcon from '../ProfileIcon';
 import Icon from '../../assets/festivent-profile.svg';
@@ -23,11 +23,6 @@ const BackButton = styled.button`
   justify-content: flex-start;
 `;
 
-const Arrow = styled.img`
-  height: 23px;
-  width: 23px;
-`;
-
 const ProfileButton = styled.button`
   background: none;
   border: none;
@@ -35,16 +30,16 @@ const ProfileButton = styled.button`
   justify-content: flex-end;
 `;
 
-export default function ProfileNavigation() {
+export default function UserNavigation() {
   return (
     <NavHeader>
       <Link to="/">
         <BackButton>
-          <Arrow src={NavArrow} alt="Go Back" />
-          BACK
+          <Arrow />
+          &thinsp;BACK
         </BackButton>
       </Link>
-      <Link to="/Profile">
+      <Link to="/profile">
         <ProfileButton>
           <ProfileIcon size="Nav" src={Icon} />
         </ProfileButton>

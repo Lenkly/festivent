@@ -20,11 +20,11 @@ const calcColor = {
   perfect: { colors: '#ff0084' },
   veryhigh: { colors: '#ff00f2' },
   high: { colors: '#ff9100' },
-  moderate: { colors: '#FFD800' },
+  moderate: { colors: '#ffd800' },
   average: { colors: '#59ff00' },
   okay: { colors: '#00ff6a' },
   substandard: { colors: '#00ccff' },
-  low: { colors: '#006AFF' },
+  low: { colors: '#006aff' },
   verylow: { colors: '#bb00ff' },
   almostnone: { colors: '#7700ff' },
 };

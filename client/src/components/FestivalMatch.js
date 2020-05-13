@@ -52,10 +52,10 @@ function compare(a, b) {
 
 function FestivalMatch() {
   const history = useHistory();
-  let { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
+  let { status, data: festivaldata } = useQuery('festivals', getFestivals);
   const [selectedGenres] = usePersistentState('SelectedGenres', []);
 
-  async function fetchFestivals() {
+  async function getFestivals() {
     const fetchRoute =
       '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
     const response = await fetch(fetchRoute);

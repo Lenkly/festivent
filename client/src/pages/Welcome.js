@@ -1,42 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Input from '../components/Input';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import fadeIn from '../animation/fadein';
 import ThemeSwitch from '../components/ThemeSwitch';
-import LoginButton from '../components/LoginButton';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Quicksand Light';
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
+  animation-delay: 0.25s;
+`;
 
 const WelcomeText = styled.div`
   padding-top: 255px;
-  font-family: 'Quicksand Light';
-  font-size: 34px;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
 
-const NameText = styled.div`
-  font-family: 'Quicksand Light';
+const NameText = styled.span`
   font-size: 14px;
   margin-top: 8px;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
+
 const SwitchContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 200px;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
 
-const SwitchText = styled.div`
-  font-family: 'Quicksand Light';
+const SwitchText = styled.span`
   font-size: 20px;
   margin-right: 15px;
   padding-top: 5px;
@@ -44,22 +41,26 @@ const SwitchText = styled.div`
 
 const LoginLink = styled.div`
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin-top: 20px;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
 
-const LoginText = styled.p`
-  font-family: 'Quicksand Light';
+const LoginText = styled.span`
   font-size: 15px;
-  margin-right: 5px;
+  margin-right: 10px;
+`;
+
+const LoginToggle = styled(Link)`
+  font-size: 15px;
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.texthighlight};
+  cursor: pointer;
 `;
 
 function Welcome({ onThemeChange, theme }) {
   const history = useHistory();
-  const [nameUser, setNameUser] = React.useState(
+  const [nameUser, setNameUser] = useState(
     sessionStorage.getItem('Name') || ''
   );
 
@@ -74,26 +75,28 @@ function Welcome({ onThemeChange, theme }) {
 
   return (
     <Content>
-      <Form>
-        <WelcomeText>Welcome</WelcomeText>
-        <Input
-          type="text"
-          size="Name"
-          maxLength={11}
-          value={nameUser}
-          onChange={onChange}
-          onKeyDown={(event) => keyboardEnter(event)}
-        />
-        <NameText>Enter Your Name</NameText>
+      <Container>
+        <Form>
+          <WelcomeText>Welcome</WelcomeText>
+          <Input
+            type="text"
+            size="Name"
+            maxLength={11}
+            value={nameUser}
+            onChange={onChange}
+            onKeyDown={(event) => keyboardEnter(event)}
+          />
+          <NameText>Enter Your Name</NameText>
+        </Form>
         <SwitchContainer>
           <SwitchText>Switch to Darkmode</SwitchText>
           <ThemeSwitch onChange={onThemeChange} value={theme} />
         </SwitchContainer>
         <LoginLink>
           <LoginText>Already have an Account?</LoginText>
-          <LoginButton>Log In</LoginButton>
+          <LoginToggle to="/signin">Log In</LoginToggle>
         </LoginLink>
-      </Form>
+      </Container>
     </Content>
   );
 }

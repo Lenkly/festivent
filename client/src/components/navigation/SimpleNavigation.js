@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import NavArrow from '../../assets/arrow_white.png';
+import Arrow from '../../assets/Arrow';
 import { Link } from 'react-router-dom';
 
 const NavHeader = styled.nav`
@@ -20,18 +20,13 @@ const BackButton = styled.button`
   justify-content: flex-start;
 `;
 
-const Arrow = styled.img`
-  height: 23px;
-  width: 23px;
-`;
-
 export default function SimpleNavigation() {
   return (
     <NavHeader>
       <Link to="/matchlist">
         <BackButton>
-          <Arrow src={NavArrow} alt="Go Back" />
-          BACK
+          <Arrow />
+          &thinsp;BACK
         </BackButton>
       </Link>
     </NavHeader>

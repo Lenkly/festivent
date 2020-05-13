@@ -1,4 +1,4 @@
-async function getMatchedFestivals() {
+async function getFestival() {
   const response = await fetch(
     '/api/festivals?id=' + sessionStorage.getItem('selectedFestival')
   );
@@ -6,4 +6,4 @@ async function getMatchedFestivals() {
   return festivals;
 }
 
-export default getMatchedFestivals;
+export default getFestival;

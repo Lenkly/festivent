@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import getMatchedFestivals from '../api/getMatchedFestivals';
+import getFestival from '../api/getFestival';
 import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
@@ -76,10 +76,7 @@ const Fill = styled.div`
 `;
 
 function GetFestivals() {
-  const { status, data: festivaldata } = useQuery(
-    'festivals',
-    getMatchedFestivals
-  );
+  const { status, data: festivaldata } = useQuery('festivals', getFestival);
   if (status === 'loading') {
     return <span>Loading...</span>;
   }
