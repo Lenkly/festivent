@@ -1,5 +1,5 @@
 function quota(festivalGenres, selectedGenres) {
-  const calculatedQuotes = new Array();
+  const calculatedQuotes = [];
   festivalGenres.forEach((festivalGenre) => {
     const sameGenres = festivalGenre.filter((genre) =>
       selectedGenres.includes(genre)
