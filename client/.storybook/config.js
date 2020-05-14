@@ -3,6 +3,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import React from 'react';
 import GlobalStyles from '../src/GlobalStyles';
 import styled from '@emotion/styled';
+import themeDecorator from './themeDecorator';
 
 const Main = styled.div`
   margin: 20px;
@@ -15,6 +16,7 @@ const GlobalStylesDecorator = (storyFn) => (
   </Main>
 );
 addDecorator(GlobalStylesDecorator);
+addDecorator(themeDecorator);
 addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS,

@@ -92,7 +92,7 @@ function FestivalMatch() {
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
 
-    history.push('/details');
+    history.push('/festival');
   };
 
   for (const [index] of quotes.entries()) {
