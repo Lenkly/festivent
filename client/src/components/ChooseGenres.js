@@ -6,6 +6,7 @@ import getGenres from '../api/getGenres';
 import GenreButton from '../components/GenreButton';
 import ConfirmGenreChoice from '../components/ConfirmGenreChoice';
 import usePersistentState from '../hooks/usePersistentState';
+import Loading from './Loading';
 
 const Wrapper = styled.div`
   display: flex;
@@ -51,7 +52,7 @@ function ChooseGenres() {
   const history = useHistory();
 
   if (status === 'loading') {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   if (status === 'error') {

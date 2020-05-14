@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
 import calculateIconValue from '../lib/calculateIconValue';
+import Loading from './Loading';
 
 const Match = styled.div`
   padding-top: 20px;
@@ -69,7 +70,7 @@ const Fill = styled.div`
 function Festival() {
   const { status, data: festivaldata } = useQuery('festivals', getFestival);
   if (status === 'loading') {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   if (status === 'error') {

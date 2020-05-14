@@ -7,6 +7,7 @@ import quota from '../lib/Quota';
 import fadeIn from '../animation/fadein';
 import usePersistentState from '../hooks/usePersistentState';
 import calculateIconValue from '../lib/calculateIconValue';
+import Loading from './Loading';
 
 const CardContainer = styled.div`
   opacity: 0;
@@ -63,7 +64,7 @@ function FestivalMatch() {
     return festivals;
   }
   if (status === 'loading') {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   if (status === 'error') {
