@@ -6,6 +6,7 @@ import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
 import calculateIconValue from '../lib/calculateIconValue';
 import Loading from './Loading';
+import { useParams } from 'react-router-dom';
 
 const Match = styled.div`
   padding-top: 20px;
@@ -68,6 +69,7 @@ const Fill = styled.div`
 `;
 
 function Festival() {
+  const festivalId = useParams();
   const { status, data: festivaldata } = useQuery('festivals', getFestival);
   if (status === 'loading') {
     return <Loading />;
@@ -85,6 +87,7 @@ function Festival() {
       </span>
     );
   }
+  console.log(festivalId);
 
   if (festivaldata.length > 0) {
     Object.defineProperty(festivaldata[0], 'quote', {
