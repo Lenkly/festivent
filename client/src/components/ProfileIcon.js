@@ -14,7 +14,7 @@ const iconSize = {
     height: '21px',
     width: '21px',
     border: '1px',
-    shadowcolor: '${(props) => props.theme.colors.background}',
+    shadowcolor: `${(props) => props.theme.colors.background}`,
   },
   Profile: {
     height: '90px',

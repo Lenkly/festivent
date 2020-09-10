@@ -3,6 +3,7 @@ const brightmode = {
     text: '#000',
     texthighlight: '#bb00ff',
     background: '#f9f9f9',
+    buttonBackground: 'rgba(249, 249, 249, 0.5)',
     backgroundSignin: 'rgba(249, 249, 249, 0.97)',
     backgroundLogin: 'rgba(230, 230, 230, 0.97)',
   },

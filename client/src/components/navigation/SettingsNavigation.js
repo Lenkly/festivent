@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import NavArrow from '../../assets/arrow_white.png';
-import More from '../../assets/more_white.png';
+import Arrow from '../../assets/Arrow';
+import More from '../../assets/More';
 import { Link } from 'react-router-dom';
 
 const NavHeader = styled.nav`
@@ -22,11 +22,6 @@ const BackButton = styled.button`
   justify-content: flex-start;
 `;
 
-const Symbol = styled.img`
-  height: 23px;
-  width: 23px;
-`;
-
 const SettingsButton = styled.button`
   background: none;
   border: none;
@@ -39,13 +34,13 @@ export default function SettingsNavigation() {
     <NavHeader>
       <Link to="/">
         <BackButton>
-          <Symbol src={NavArrow} alt="Go Back" />
-          BACK
+          <Arrow />
+          &thinsp;BACK
         </BackButton>
       </Link>
       <Link to="/Settings">
         <SettingsButton>
-          <Symbol src={More} alt="Go to Settings" />
+          <More />
         </SettingsButton>
       </Link>
     </NavHeader>

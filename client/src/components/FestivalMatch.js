@@ -7,6 +7,7 @@ import quota from '../lib/Quota';
 import fadeIn from '../animation/fadein';
 import usePersistentState from '../hooks/usePersistentState';
 import calculateIconValue from '../lib/calculateIconValue';
+import Loading from './Loading';
 
 const CardContainer = styled.div`
   opacity: 0;
@@ -52,10 +53,10 @@ function compare(a, b) {
 
 function FestivalMatch() {
   const history = useHistory();
-  let { status, data: festivaldata } = useQuery('festivals', fetchFestivals);
+  let { status, data: festivaldata } = useQuery('festivals', getFestivals);
   const [selectedGenres] = usePersistentState('SelectedGenres', []);
 
-  async function fetchFestivals() {
+  async function getFestivals() {
     const fetchRoute =
       '/api/festivals?genres_like=' + selectedGenres.join('&genres_like=');
     const response = await fetch(fetchRoute);
@@ -63,7 +64,7 @@ function FestivalMatch() {
     return festivals;
   }
   if (status === 'loading') {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   if (status === 'error') {
@@ -92,7 +93,7 @@ function FestivalMatch() {
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
 
-    history.push('/details');
+    history.push('/festival/:festivalId');
   };
 
   for (const [index] of quotes.entries()) {

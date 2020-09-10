@@ -1,19 +1,12 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import getMatchedFestivals from '../api/getMatchedFestivals';
+import getFestival from '../api/getFestival';
 import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
-import SimpleNavigation from './navigation/SimpleNavigation';
-import fadeIn from '../animation/fadein';
 import calculateIconValue from '../lib/calculateIconValue';
-
-const FestivalContainer = styled.div`
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
-  margin-bottom: 50px;
-`;
+import Loading from './Loading';
+import { useParams } from 'react-router-dom';
 
 const Match = styled.div`
   padding-top: 20px;
@@ -22,7 +15,7 @@ const Match = styled.div`
   margin-bottom: 25px;
 `;
 
-const Festival = styled.div`
+const FestivalName = styled.div`
   text-align: center;
   margin-top: 25px;
   margin-bottom: 20px;
@@ -75,13 +68,11 @@ const Fill = styled.div`
   background: ${(props) => props.theme.colors.background};
 `;
 
-function GetFestivals() {
-  const { status, data: festivaldata } = useQuery(
-    'festivals',
-    getMatchedFestivals
-  );
+function Festival() {
+  const festivalId = useParams();
+  const { status, data: festivaldata } = useQuery('festivals', getFestival);
   if (status === 'loading') {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   if (status === 'error') {
@@ -96,6 +87,7 @@ function GetFestivals() {
       </span>
     );
   }
+  console.log(festivalId);
 
   if (festivaldata.length > 0) {
     Object.defineProperty(festivaldata[0], 'quote', {
@@ -106,36 +98,33 @@ function GetFestivals() {
 
   return (
     <div>
-      <FestivalContainer>
-        <SimpleNavigation />
-        {festivaldata.map((festival) => (
-          <div key={festival.id}>
-            <Match>
-              <CalcIcon color={calculateIconValue(festival.quote)}>
-                {festival.quote}
-              </CalcIcon>
-            </Match>
-            <Festival>{festival.name}</Festival>
-            <FestivalDetail>
-              {festival.date} <br /> {festival.venue}, {festival.place}
-            </FestivalDetail>
-            <FestivalIntroduction>{festival.description}</FestivalIntroduction>
-            <LineUpHeader>Line-Up</LineUpHeader>
-            <LineUp>
-              {festival.artists.map((artist) => (
-                <React.Fragment key={artist}>
-                  <Cell>
-                    <ArtistButton>{artist}</ArtistButton>
-                  </Cell>
-                  <Fill />
-                </React.Fragment>
-              ))}
-            </LineUp>
-          </div>
-        ))}
-      </FestivalContainer>
+      {festivaldata.map((festival) => (
+        <div key={festival.id}>
+          <Match>
+            <CalcIcon color={calculateIconValue(festival.quote)}>
+              {festival.quote}
+            </CalcIcon>
+          </Match>
+          <FestivalName>{festival.name}</FestivalName>
+          <FestivalDetail>
+            {festival.date} <br /> {festival.venue}, {festival.place}
+          </FestivalDetail>
+          <FestivalIntroduction>{festival.description}</FestivalIntroduction>
+          <LineUpHeader>Line-Up</LineUpHeader>
+          <LineUp>
+            {festival.artists.map((artist) => (
+              <React.Fragment key={artist}>
+                <Cell>
+                  <ArtistButton>{artist}</ArtistButton>
+                </Cell>
+                <Fill />
+              </React.Fragment>
+            ))}
+          </LineUp>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default GetFestivals;
+export default Festival;

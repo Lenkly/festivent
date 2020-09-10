@@ -1,15 +1,17 @@
-import React from 'react';
-import GenreButton from '../components/GenreButton';
-import styled from '@emotion/styled';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import getGenres from '../api/getGenres';
-import ConfirmGenreChoice from '../components/ConfirmGenreChoice';
 import { useHistory } from 'react-router-dom';
+import styled from '@emotion/styled';
+import getGenres from '../api/getGenres';
+import GenreButton from '../components/GenreButton';
+import ConfirmGenreChoice from '../components/ConfirmGenreChoice';
 import usePersistentState from '../hooks/usePersistentState';
+import Loading from './Loading';
 
-const GenreWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Genrechoice = styled.div`
@@ -39,10 +41,6 @@ const Cell = styled.div`
 const Fill = styled.div`
   background: ${(props) => props.theme.colors.background};
 `;
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 
 function ChooseGenres() {
   const { status, data: genredata } = useQuery('genres', getGenres);
@@ -50,11 +48,11 @@ function ChooseGenres() {
     'SelectedGenres',
     []
   );
-  const [matchable, setMatchable] = React.useState(false);
+  const [matchable, setMatchable] = useState(false);
   const history = useHistory();
 
   if (status === 'loading') {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   if (status === 'error') {
@@ -90,7 +88,7 @@ function ChooseGenres() {
 
   return (
     <div>
-      <GenreWrapper>
+      <Wrapper>
         <Genrechoice>
           {genredata.map((genre) => (
             <Cell key={genre}>
@@ -104,13 +102,11 @@ function ChooseGenres() {
           ))}
           <Fill />
         </Genrechoice>
-      </GenreWrapper>
-      <ButtonWrapper>
         <ConfirmGenreChoice
           disabled={!matchable}
           onGenreChoiceClick={handleGenreChoiceClick}
         />
-      </ButtonWrapper>
+      </Wrapper>
     </div>
   );
 }

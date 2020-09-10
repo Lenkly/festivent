@@ -49,24 +49,24 @@ const Button = styled.button`
 const buttonSize = {
   Small: {
     padding: '9px 0 8px 0',
-    fontsize: '1.25rem',
-    width: '13.56rem',
-    borderWidth: '13.7rem',
-    height: '2.4rem',
+    fontsize: '20px',
+    width: '219px',
+    borderWidth: '223px',
+    height: '39px',
   },
   Medium: {
     padding: '13px 0 12px 0',
-    fontsize: '1.56rem',
-    width: '17.5rem',
-    borderWidth: '17.75rem',
-    height: '3.25rem',
+    fontsize: '25px',
+    width: '280px',
+    borderWidth: '284px',
+    height: '52px',
   },
   Large: {
     padding: '9px 0 8px 0',
-    fontsize: '2.125rem',
-    width: '17.5rem',
-    borderWidth: '17.75rem',
-    height: '3.25rem',
+    fontsize: '34px',
+    width: '280px',
+    borderWidth: '284px',
+    height: '52px',
   },
 };
 

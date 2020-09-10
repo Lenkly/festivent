@@ -30,13 +30,13 @@ function App() {
             <Route exact path="/genres">
               <Genres />
             </Route>
-            <Route path="/details">
+            <Route path="/festival">
               <Details />
             </Route>
             <Route path="/matchlist">
               <Matchlist />
             </Route>
-            <Route path="/profile/:id">
+            <Route path="/profile">
               <Profile />
             </Route>
             <Route path="/settings">
