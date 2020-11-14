@@ -3,13 +3,7 @@ import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import ChooseGenres from '../components/ChooseGenres';
-import fadeIn from '../animation/fadein';
-
-const GenreWrapper = styled.div`
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
-`;
+import AnimationContainer from '../components/layout/AnimationContainer';
 
 const Text = styled.div`
   display: flex;
@@ -24,10 +18,10 @@ function Genres() {
   return (
     <Content>
       <Form>
-        <GenreWrapper>
+        <AnimationContainer>
           <Text>Which Music Do You Like?</Text>
           <ChooseGenres />
-        </GenreWrapper>
+        </AnimationContainer>
       </Form>
     </Content>
   );

@@ -9,13 +9,7 @@ import SettingsInput from '../components/SettingsInput';
 import Button from '../components/Button';
 import SimpleNavigation from '../components/navigation/SimpleNavigation';
 import Icon from '../assets/festivent-profile.svg';
-import fadeIn from '../animation/fadein';
-
-const Container = styled.div`
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
-`;
+import AnimationContainer from '../components/layout/AnimationContainer';
 
 const Heading = styled.div`
   margin-top: 40px;
@@ -62,7 +56,7 @@ const ButtonContainer = styled.div`
 function Settings({ onThemeChange, theme }) {
   return (
     <Content>
-      <Container>
+      <AnimationContainer>
         <SimpleNavigation />
         <Heading>Settings</Heading>
         <IconContainer>
@@ -86,7 +80,7 @@ function Settings({ onThemeChange, theme }) {
         <ButtonContainer>
           <Button size="Small">Log Out</Button>
         </ButtonContainer>
-      </Container>
+      </AnimationContainer>
     </Content>
   );
 }

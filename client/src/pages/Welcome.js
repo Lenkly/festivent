@@ -5,7 +5,7 @@ import Input from '../components/Input';
 import { useHistory, Link } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
-import fadeIn from '../animation/fadein';
+import AnimationContainer from '../components/layout/AnimationContainer';
 import ThemeSwitch from '../components/ThemeSwitch';
 
 const Container = styled.div`
@@ -13,9 +13,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: 'Quicksand Light';
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
 
 const WelcomeText = styled.div`
@@ -75,28 +72,30 @@ function Welcome({ onThemeChange, theme }) {
 
   return (
     <Content>
-      <Container>
-        <Form>
-          <WelcomeText>Welcome</WelcomeText>
-          <Input
-            type="text"
-            size="Name"
-            maxLength={11}
-            value={nameUser}
-            onChange={onChange}
-            onKeyDown={(event) => keyboardEnter(event)}
-          />
-          <NameText>Enter Your Name</NameText>
-        </Form>
-        <SwitchContainer>
-          <SwitchText>Switch to Darkmode</SwitchText>
-          <ThemeSwitch onChange={onThemeChange} value={theme} />
-        </SwitchContainer>
-        <LoginLink>
-          <LoginText>Already have an Account?</LoginText>
-          <LoginToggle to="/signin">Log In</LoginToggle>
-        </LoginLink>
-      </Container>
+      <AnimationContainer>
+        <Container>
+          <Form>
+            <WelcomeText>Welcome</WelcomeText>
+            <Input
+              type="text"
+              size="Name"
+              maxLength={11}
+              value={nameUser}
+              onChange={onChange}
+              onKeyDown={(event) => keyboardEnter(event)}
+            />
+            <NameText>Enter Your Name</NameText>
+          </Form>
+          <SwitchContainer>
+            <SwitchText>Switch to Darkmode</SwitchText>
+            <ThemeSwitch onChange={onThemeChange} value={theme} />
+          </SwitchContainer>
+          <LoginLink>
+            <LoginText>Already have an Account?</LoginText>
+            <LoginToggle to="/signin">Log In</LoginToggle>
+          </LoginLink>
+        </Container>
+      </AnimationContainer>
     </Content>
   );
 }

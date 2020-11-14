@@ -5,7 +5,7 @@ import Form from '../components/layout/Form';
 import FestivalMatch from '../components/FestivalMatch';
 import Button from '../components/Button';
 import { useHistory } from 'react-router-dom';
-import fadeIn from '../animation/fadein';
+import AnimationContainer from '../components/layout/AnimationContainer';
 
 const Text = styled.div`
   display: flex;
@@ -14,9 +14,6 @@ const Text = styled.div`
   font-family: 'Quicksand Light';
   margin-top: 80px;
   margin-bottom: 25px;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
 
 const AgainText = styled.div`
@@ -28,17 +25,11 @@ const AgainText = styled.div`
   text-align: center;
   margin-top: 10px;
   margin-bottom: 25px;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 45px;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 1 forwards;
-  animation-delay: 0.25s;
 `;
 
 function Matchlist() {
@@ -54,19 +45,23 @@ function Matchlist() {
   return (
     <Content>
       <Form>
-        <Text>
-          {greetUser},
-          <br /> These are your matches
-        </Text>
+        <AnimationContainer>
+          <Text>
+            {greetUser},
+            <br /> These are your matches
+          </Text>
+        </AnimationContainer>
         <FestivalMatch />
-        <AgainText>
-          Still Haven&apos;t Found What You Were Looking&nbsp;For?
-        </AgainText>
-        <ButtonWrapper>
-          <Button onClick={handleAgainClick} size="Medium">
-            Match Me Again
-          </Button>
-        </ButtonWrapper>
+        <AnimationContainer>
+          <AgainText>
+            Still Haven&apos;t Found What You Were Looking&nbsp;For?
+          </AgainText>
+          <ButtonWrapper>
+            <Button onClick={handleAgainClick} size="Medium">
+              Match Me Again
+            </Button>
+          </ButtonWrapper>
+        </AnimationContainer>
       </Form>
     </Content>
   );
