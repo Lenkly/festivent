@@ -48,21 +48,21 @@ const Button = styled.button`
 
 const buttonSize = {
   Small: {
-    padding: '9px 0 8px 0',
+    padding: '9px 0',
     fontsize: '20px',
     width: '219px',
     borderWidth: '223px',
     height: '39px',
   },
   Medium: {
-    padding: '13px 0 12px 0',
+    padding: '13px 0',
     fontsize: '25px',
     width: '280px',
     borderWidth: '284px',
     height: '52px',
   },
   Large: {
-    padding: '9px 0 8px 0',
+    padding: '9px 0',
     fontsize: '34px',
     width: '280px',
     borderWidth: '284px',

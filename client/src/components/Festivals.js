@@ -5,8 +5,10 @@ import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
 import calculateIconValue from '../lib/calculateIconValue';
+import Error from './Error';
 import Loading from './Loading';
-import { useParams } from 'react-router-dom';
+import colorfulBackground from '../animation/colorfulBackground';
+// import { useParams } from 'react-router-dom';
 
 const Match = styled.div`
   padding-top: 20px;
@@ -58,6 +60,12 @@ const LineUp = styled.div`
     rgba(89, 255, 0, 0.5),
     rgba(255, 247, 0, 0.5)
   );
+  background-size: 400%;
+  animation: ${colorfulBackground} 10s ease infinite;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
 `;
 const Cell = styled.div`
   padding: 2px;
@@ -69,25 +77,16 @@ const Fill = styled.div`
 `;
 
 function Festival() {
-  const festivalId = useParams();
+  // const festivalId = useParams();
   const { status, data: festivaldata } = useQuery('festivals', getFestival);
+
   if (status === 'loading') {
     return <Loading />;
   }
 
   if (status === 'error') {
-    return (
-      <span>
-        Oh no, something bad happened
-        <span role="img" aria-label="sadface">
-          😢
-        </span>
-        <br />
-        Please try again.
-      </span>
-    );
+    return <Error />;
   }
-  console.log(festivalId);
 
   if (festivaldata.length > 0) {
     Object.defineProperty(festivaldata[0], 'quote', {
@@ -112,7 +111,7 @@ function Festival() {
           <FestivalIntroduction>{festival.description}</FestivalIntroduction>
           <LineUpHeader>Line-Up</LineUpHeader>
           <LineUp>
-            {festival.artists.map((artist) => (
+            {festival.artists.sort().map((artist) => (
               <React.Fragment key={artist}>
                 <Cell>
                   <ArtistButton>{artist}</ArtistButton>

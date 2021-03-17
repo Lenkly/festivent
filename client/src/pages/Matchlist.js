@@ -12,20 +12,16 @@ const Text = styled.div`
   line-height: 1.3;
   flex-wrap: wrap;
   font-family: 'Quicksand Light';
-  margin-top: 80px;
+  padding-top: 80px;
   margin-bottom: 25px;
 `;
 
-const AgainText = styled.div`
-  display: flex;
-  line-height: 1.3;
-  flex-wrap: wrap;
-  font-family: 'Quicksand Light';
+const AgainText = styled(Text)`
   font-size: 25px;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 25px;
+  padding-top: 10px;
 `;
+
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -35,7 +31,7 @@ const ButtonWrapper = styled.div`
 function Matchlist() {
   const history = useHistory();
 
-  const greetUser = sessionStorage.getItem('Name') || '[Name]';
+  const greetUser = sessionStorage.getItem('Name') || 'Stranger';
 
   const handleAgainClick = () => {
     sessionStorage.removeItem('SelectedGenres');

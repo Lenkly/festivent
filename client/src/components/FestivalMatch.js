@@ -8,6 +8,7 @@ import fadeIn from '../animation/fadein';
 import usePersistentState from '../hooks/usePersistentState';
 import calculateIconValue from '../lib/calculateIconValue';
 import Loading from './Loading';
+import Error from './Error';
 
 const CardContainer = styled.div`
   opacity: 0;
@@ -68,16 +69,7 @@ function FestivalMatch() {
   }
 
   if (status === 'error') {
-    return (
-      <span>
-        Oh no, something bad happened
-        <span role="img" aria-label="sadface">
-          😢
-        </span>
-        <br />
-        Please try again.
-      </span>
-    );
+    return <Error />;
   }
   const festivalGenres = festivaldata.reduce((newArray, festivalGenres) => {
     if (newArray.indexOf(festivalGenres.genres) === -1) {
@@ -93,7 +85,7 @@ function FestivalMatch() {
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
 
-    history.push('/festival/:festivalId');
+    history.push('/festival');
   };
 
   for (const [index] of quotes.entries()) {
