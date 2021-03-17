@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
@@ -11,10 +11,10 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import UserLogin from './pages/UserLogin';
 import Register from './pages/Register';
-import darkmode from './themes/darkmode';
+import { darkmode } from './themes/theme';
 
 function App() {
-  const [theme, setTheme] = React.useState(darkmode);
+  const [theme, setTheme] = useState(darkmode);
   return (
     <div>
       <ThemeProvider theme={theme}>

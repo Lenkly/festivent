@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
-import brightmode from '../src/themes/brightmode';
+import { brightmode } from '../src/themes/theme';
 
 const ThemeDecorator = (storyFn) => (
   <ThemeProvider theme={brightmode}>{storyFn()}</ThemeProvider>

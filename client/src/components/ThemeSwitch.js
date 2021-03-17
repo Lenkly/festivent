@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Switch from 'react-switch';
-import brightmode from '../themes/brightmode';
-import darkmode from '../themes/darkmode';
+import { brightmode, darkmode } from '../themes/theme';
 
 function ThemeSwitch({ onChange, value }) {
   const handleChange = () => {
