@@ -18,6 +18,7 @@ const Input = styled.input`
     color: #707070;
     text-align: center;
   }
+  outline: none;
 `;
 
 const inputText = {

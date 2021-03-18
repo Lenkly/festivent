@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import fadeIn from '../../animation/fadein';
+import { fadeIn } from '../../animation/fades';
 
 const AnimationContainer = styled.div`
   opacity: 0;

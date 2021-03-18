@@ -7,7 +7,7 @@ import CalcIcon from './CalcIcon';
 import calculateIconValue from '../lib/calculateIconValue';
 import Error from './Error';
 import Loading from './Loading';
-import colorfulBackground from '../animation/colorfulBackground';
+import { colorfulBackground } from '../animation/backgroundAnimation';
 // import { useParams } from 'react-router-dom';
 
 const Match = styled.div`

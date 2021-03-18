@@ -4,7 +4,7 @@ import CalcIcon from './CalcIcon';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import quota from '../lib/Quota';
-import fadeIn from '../animation/fadein';
+import { fadeIn } from '../animation/fades';
 import usePersistentState from '../hooks/usePersistentState';
 import calculateIconValue from '../lib/calculateIconValue';
 import Loading from './Loading';

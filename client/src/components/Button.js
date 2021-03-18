@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { linearBackground } from '../animation/backgroundAnimation';
 
 const disabledStyle = css`
   background: none;
@@ -9,7 +10,7 @@ const disabledStyle = css`
 `;
 
 const enabledStyle = (props) => css`
-  background-image: linear-gradient(
+  background: linear-gradient(
       ${props.theme.colors.background},
       ${props.theme.colors.background}
     ),
@@ -29,6 +30,9 @@ const enabledStyle = (props) => css`
     );
   background-origin: border-box;
   background-clip: padding-box, border-box;
+  :hover {
+    animation: ${linearBackground} 50s linear infinite;
+  }
   color: ${props.theme.colors.text};
   border: double 2px transparent;
   border-radius: 1rem;
@@ -44,6 +48,7 @@ const Button = styled.button`
   text-transform: uppercase;
   height: ${(props) => buttonSize[props.size].height};
   cursor: pointer;
+  outline: none;
 `;
 
 const buttonSize = {

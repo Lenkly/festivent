@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import fadeOut from '../animation/fadeout';
+import { fadeOut } from '../animation/fades';
 import Heart from '../assets/festivent-start.png';
 
 const AnimationContainer = styled.div`
