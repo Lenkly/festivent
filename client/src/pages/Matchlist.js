@@ -35,7 +35,7 @@ function Matchlist() {
 
   const handleAgainClick = () => {
     sessionStorage.removeItem('SelectedGenres');
-    history.push('/Genres');
+    history.push('/genres');
   };
 
   return (

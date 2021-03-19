@@ -4,7 +4,7 @@ import StartAnimation from '../components/StartAnimation';
 function Start() {
   React.useEffect(() => {
     const timeoutId = setTimeout(function () {
-      window.location = '/Welcome';
+      window.location = '/welcome';
     }, 3700);
 
     return () => {

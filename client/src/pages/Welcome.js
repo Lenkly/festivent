@@ -57,15 +57,13 @@ const LoginToggle = styled(Link)`
 
 function Welcome({ onThemeChange, theme }) {
   const history = useHistory();
-  const [nameUser, setNameUser] = useState(
-    sessionStorage.getItem('Name') || ''
-  );
+  const [user, setUser] = useState(sessionStorage.getItem('Name') || '');
 
-  const onChange = (event) => setNameUser(event.target.value);
+  const onChange = (event) => setUser(event.target.value);
 
   const keyboardEnter = (event) => {
     if (event.keyCode === 13) {
-      sessionStorage.setItem('Name', nameUser);
+      sessionStorage.setItem('Name', user);
       history.push('/genres');
     }
   };
@@ -80,7 +78,7 @@ function Welcome({ onThemeChange, theme }) {
               type="text"
               size="Name"
               maxLength={11}
-              value={nameUser}
+              value={user}
               onChange={onChange}
               onKeyDown={(event) => keyboardEnter(event)}
             />
