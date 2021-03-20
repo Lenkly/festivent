@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 function loadFromStorage(key) {
   try {
@@ -10,11 +10,9 @@ function loadFromStorage(key) {
 }
 
 function usePersistentState(key, initialValue) {
-  const [value, setValue] = React.useState(
-    loadFromStorage(key) || initialValue
-  );
+  const [value, setValue] = useState(loadFromStorage(key) || initialValue);
 
-  React.useEffect(() => {
+  useEffect(() => {
     sessionStorage.setItem(key, JSON.stringify(value));
   }, [value, key]);
 

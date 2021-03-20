@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { BreakpointProvider } from './hooks/useBreakpoints';
+import { queries } from './themes/mediaQueries';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BreakpointProvider queries={queries}>
+      <App />
+    </BreakpointProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

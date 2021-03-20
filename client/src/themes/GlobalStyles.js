@@ -1,8 +1,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import QuicksandLight from './assets/QuicksandLight.otf';
-import QuicksandBook from './assets/QuicksandBook.otf';
-import Rubik from './assets/Rubik.ttf';
+import QuicksandLight from '../assets/QuicksandLight.otf';
+import QuicksandBook from '../assets/QuicksandBook.otf';
+import Rubik from '../assets/Rubik.ttf';
 
 function GlobalStyles() {
   return (

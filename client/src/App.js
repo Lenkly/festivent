@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import GlobalStyles from './GlobalStyles';
+import GlobalStyles from './themes/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import Start from './pages/Start';
 import Welcome from './pages/Welcome';

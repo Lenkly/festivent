@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import StartAnimation from '../components/StartAnimation';
 
 function Start() {
-  React.useEffect(() => {
+  useEffect(() => {
     const timeoutId = setTimeout(function () {
       window.location = '/welcome';
     }, 3700);
