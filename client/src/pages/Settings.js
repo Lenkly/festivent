@@ -30,8 +30,9 @@ const ChangeIcon = styled.button`
   background: none;
   text-transform: uppercase;
   color: ${(props) => props.theme.colors.text};
-  font-family: 'Quicksand Light';
-  font-size: 20px;
+  font-family: 'Quicksand';
+  font-weight: 300;
+  font-size: 1.25rem;
   align-self: flex-end;
 `;
 
@@ -42,8 +43,9 @@ const SwitchContainer = styled.div`
 `;
 
 const SwitchText = styled.span`
-  font-family: 'Quicksand Light';
-  font-size: 20px;
+  font-family: 'Quicksand';
+  font-weight: 300;
+  font-size: 1.25rem;
   margin-right: 15px;
   padding-top: 5px;
 `;

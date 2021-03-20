@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { colorfulBackground } from '../animation/backgroundAnimation';
+import { linearBackground } from '../animation/backgroundAnimation';
 
 const Text = styled.p`
   text-transform: uppercase;
@@ -21,8 +21,8 @@ const Text = styled.p`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 45px;
-  animation: ${colorfulBackground} 100s linear infinite;
+  font-size: 3rem;
+  animation: ${linearBackground} 50s linear infinite;
 `;
 
 function Loading() {

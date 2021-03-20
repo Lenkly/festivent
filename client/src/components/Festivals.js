@@ -27,19 +27,21 @@ const FestivalName = styled.div`
 
 const FestivalDetail = styled.div`
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.5;
   margin-bottom: 30px;
 `;
 
 const FestivalIntroduction = styled.div`
-  font-size: 12px;
-  font-family: 'Quicksand Light';
-  line-height: 1.3;
+  font-size: 0.75rem;
+  font-family: 'Quicksand';
+  font-weight: 300;
+  line-height: 1.5;
   margin-bottom: 20px;
 `;
 
 const LineUpHeader = styled.div`
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-bottom: 20px;
 `;
 

@@ -9,7 +9,8 @@ const Text = styled.div`
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  font-family: 'Quicksand Light';
+  font-family: 'Quicksand';
+  font-weight: 300;
   margin-top: 80px;
   margin-bottom: 25px;
 `;
@@ -19,7 +20,7 @@ function Genres() {
     <Content>
       <Form>
         <AnimationContainer>
-          <Text>Which Music Do You Like?</Text>
+          <Text>What Kind of Music Do You Like?</Text>
           <ChooseGenres />
         </AnimationContainer>
       </Form>

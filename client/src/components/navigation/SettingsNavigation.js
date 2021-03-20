@@ -17,8 +17,9 @@ const BackButton = styled.button`
   border: none;
   cursor: pointer;
   color: #fff;
-  font-family: 'Quicksand Light';
-  font-size: 23px;
+  font-family: 'Quicksand';
+  font-weight: 300;
+  font-size: 1.5rem;
   justify-content: flex-start;
 `;
 

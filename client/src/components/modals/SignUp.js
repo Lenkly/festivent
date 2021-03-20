@@ -25,7 +25,7 @@ const Logo = styled.img`
 
 const TeaserText = styled.p`
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.3;
 `;
 
@@ -42,14 +42,16 @@ const LoginLink = styled.div`
 `;
 
 const LoginText = styled.p`
-  font-family: 'Quicksand Light';
-  font-size: 15px;
+  font-family: 'Quicksand';
+  font-weight: 300;
+  font-size: 1rem;
   margin-right: 10px;
 `;
 
 const LoginToggle = styled(Link)`
-  font-size: 15px;
-  font-family: 'Quicksand Light';
+  font-size: 1rem;
+  font-family: 'Quicksand';
+  font-weight: 300;
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
   cursor: pointer;

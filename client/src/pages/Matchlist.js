@@ -11,13 +11,14 @@ const Text = styled.div`
   display: flex;
   line-height: 1.3;
   flex-wrap: wrap;
-  font-family: 'Quicksand Light';
+  font-family: 'Quicksand';
+  font-weight: 300;
   padding-top: 80px;
   margin-bottom: 25px;
 `;
 
 const AgainText = styled(Text)`
-  font-size: 25px;
+  font-size: 1.5rem;
   text-align: center;
   padding-top: 10px;
 `;

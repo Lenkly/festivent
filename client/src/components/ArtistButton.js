@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const ArtistButton = styled.button`
-  font-size: 12px;
+  font-size: 0.75rem;
   background: transparent;
   padding: 9px 8px;
   color: ${(props) => props.theme.colors.text};

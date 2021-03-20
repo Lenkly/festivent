@@ -41,37 +41,41 @@ const enabledStyle = (props) => css`
 
 const Button = styled.button`
   ${(props) => (props.disabled ? disabledStyle : enabledStyle(props))};
-  font-family: 'Quicksand Book', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   padding: ${(props) => buttonSize[props.size].padding};
   font-size: ${(props) => buttonSize[props.size].fontsize};
+  font-weight: ${(props) => buttonSize[props.size].weight};
   width: ${(props) => buttonSize[props.size].width};
-  text-transform: uppercase;
   height: ${(props) => buttonSize[props.size].height};
+  text-transform: uppercase;
   cursor: pointer;
   outline: none;
 `;
 
 const buttonSize = {
   Small: {
-    padding: '9px 0',
-    fontsize: '20px',
+    padding: '0.5rem 0',
+    fontsize: '1.25rem',
+    weight: '400',
     width: '219px',
     borderWidth: '223px',
-    height: '39px',
+    height: 'auto',
   },
   Medium: {
-    padding: '13px 0',
-    fontsize: '25px',
+    padding: '0.875rem 0',
+    fontsize: '1.5rem',
+    weight: '400',
     width: '280px',
     borderWidth: '284px',
-    height: '52px',
+    height: 'auto',
   },
   Large: {
-    padding: '9px 0',
-    fontsize: '34px',
+    padding: '0.5rem 0',
+    fontsize: '2.125rem',
+    weight: '400',
     width: '280px',
     borderWidth: '284px',
-    height: '52px',
+    height: 'auto',
   },
 };
 

@@ -9,7 +9,7 @@ const CalcIcon = styled.button`
     }};
   border-width: 3px;
   border-radius: 100%;
-  font-size: 30px;
+  font-size: 1.875rem;
   color: ${(props) => calcColor[props.color].colors};
   background: none;
   font-family: 'Rubik', sans-serif;

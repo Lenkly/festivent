@@ -12,7 +12,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Quicksand Light';
+  font-family: 'Quicksand';
+  font-weight: 300;
 `;
 
 const WelcomeText = styled.div`
@@ -20,7 +21,7 @@ const WelcomeText = styled.div`
 `;
 
 const NameText = styled.span`
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-top: 8px;
 `;
 
@@ -31,7 +32,7 @@ const SwitchContainer = styled.div`
 `;
 
 const SwitchText = styled.span`
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-right: 15px;
   padding-top: 5px;
 `;
@@ -44,12 +45,12 @@ const LoginLink = styled.div`
 `;
 
 const LoginText = styled.span`
-  font-size: 15px;
+  font-size: 1rem;
   margin-right: 10px;
 `;
 
 const LoginToggle = styled(Link)`
-  font-size: 15px;
+  font-size: 1rem;
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
   cursor: pointer;

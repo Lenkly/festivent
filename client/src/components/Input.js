@@ -4,7 +4,7 @@ const Input = styled.input`
   display: flex;
   text-align: center;
   color: ${(props) => props.theme.colors.text};
-  font-family: 'Quicksand Light', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   text-transform: uppercase;
   background: none;
   width: ${(props) => inputText[props.size].width};
@@ -13,8 +13,10 @@ const Input = styled.input`
   cursor: text;
   padding-top: ${(props) => inputText[props.size].padding};
   font-size: ${(props) => inputText[props.size].fontsize};
+  font-weight: ${(props) => inputText[props.size].weight};
   &::placeholder {
-    font-family: 'Quicksand Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
     color: #707070;
     text-align: center;
   }
@@ -22,8 +24,8 @@ const Input = styled.input`
 `;
 
 const inputText = {
-  Name: { padding: '30px', fontsize: '34px', width: '100%' },
-  User: { padding: '30px', fontsize: '20px', width: '100%' },
+  Name: { padding: '30px', fontsize: '1.875rem', weight: '300', width: '100%' },
+  User: { padding: '30px', fontsize: '1.25rem', weight: '300', width: '100%' },
 };
 
 export default Input;

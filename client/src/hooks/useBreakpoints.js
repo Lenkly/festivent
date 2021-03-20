@@ -68,7 +68,7 @@ function useBreakpoints() {
 
 BreakpointProvider.propTypes = {
   children: PropTypes.node,
-  queries: PropTypes.string,
+  queries: PropTypes.object,
 };
 
 export { useBreakpoints, BreakpointProvider };

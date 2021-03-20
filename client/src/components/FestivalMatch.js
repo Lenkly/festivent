@@ -18,7 +18,7 @@ const CardContainer = styled.div`
 const Card = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin-bottom: 35px;
+  margin-bottom: 2.25rem;
   align-self: center;
   justify-self: start;
   cursor: pointer;
@@ -30,14 +30,15 @@ const Festival = styled.div`
 `;
 
 const FestivalTitle = styled.p`
-  font-size: 25px;
+  font-size: 1.5rem;
   margin: 0px;
   word-wrap: break-word;
+  word-break: break-word;
   hyphens: auto;
 `;
 const FestivalInfo = styled.p`
-  font-size: 12px;
-  line-height: 1.3;
+  font-size: 0.75rem;
+  line-height: 1.5;
   margin: 3px 0;
 `;
 
