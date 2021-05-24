@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import propTypes from 'prop-types';
 import Content from '../layout/Content';
 import Button from '../Button';
 import Input from '../Input';
 import Form from '../layout/Form';
 import Heart from '../../assets/festivent-start.png';
+import Close from '../../assets/Close';
 import { Link } from 'react-router-dom';
 
 const TeaserContainer = styled.div`
@@ -12,7 +14,7 @@ const TeaserContainer = styled.div`
   flex-wrap: wrap;
   flew-direction: column;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 155px;
   margin-bottom: 54px;
 `;
 
@@ -50,35 +52,64 @@ const LoginToggle = styled(Link)`
   cursor: pointer;
 `;
 
-function SignIn() {
+const CloseButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 45px;
+`;
+
+const CloseButton = styled.button`
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+function SignIn({ closeModal }) {
   async function handleSignInSubmit(event) {
     event.preventDefault();
     alert('Hello back, handsome!');
   }
 
   return (
-    <Content>
-      <TeaserContainer>
-        <Logo src={Heart} alt="festivent logo" />
-      </TeaserContainer>
-      <Form onSubmit={handleSignInSubmit}>
-        <Input
-          type="text"
-          size="User"
-          placeholder="Username"
-          maxLength={11}
-          required
-        />
-        <Input type="password" size="User" placeholder="Password" required />
-        <ButtonContainer>
-          <Button size="Small">Log In</Button>
-        </ButtonContainer>
-      </Form>
-      <LoginLink>
-        <LoginText>Don&apos;t have an Account?</LoginText>
-        <LoginToggle to="/register">Sign Up</LoginToggle>
-      </LoginLink>
-    </Content>
+    <>
+      <Content>
+        <CloseButtonContainer>
+          <CloseButton onClick={closeModal}>
+            <Close />
+          </CloseButton>
+        </CloseButtonContainer>
+        <TeaserContainer>
+          <Logo src={Heart} alt="festivent logo" />
+        </TeaserContainer>
+        <Form onSubmit={handleSignInSubmit}>
+          <Input
+            type="text"
+            size="User"
+            placeholder="Username"
+            maxLength={11}
+            required
+          />
+          <Input type="password" size="User" placeholder="Password" required />
+          <ButtonContainer>
+            <Button type="submit" size="Small" onClick={handleSignInSubmit}>
+              Log In
+            </Button>
+          </ButtonContainer>
+        </Form>
+        <LoginLink>
+          <LoginText>Don&apos;t have an Account?</LoginText>
+          <LoginToggle to="/register">Sign Up</LoginToggle>
+        </LoginLink>
+      </Content>
+    </>
   );
 }
+
+SignIn.propTypes = {
+  closeModal: propTypes.func,
+};
+
 export default SignIn;

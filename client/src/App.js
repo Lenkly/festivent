@@ -40,7 +40,7 @@ function App() {
               <Profile />
             </Route>
             <Route path="/settings">
-              <Settings />
+              <Settings onThemeChange={setTheme} theme={theme} />
             </Route>
             <Route path="/register">
               <Register />

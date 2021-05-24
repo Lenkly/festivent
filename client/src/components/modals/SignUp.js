@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import propTypes from 'prop-types';
 import Content from '../layout/Content';
 import Button from '../Button';
 import Input from '../Input';
 import Form from '../layout/Form';
 import Heart from '../../assets/festivent-start.png';
+import Close from '../../assets/Close';
 import { useHistory, Link } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { addUser } from '../../api/getUser';
@@ -14,8 +16,7 @@ const TeaserContainer = styled.div`
   flex-wrap: wrap;
   flew-direction: column;
   justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 0;
+  margin-top: 55px;
 `;
 
 const Logo = styled.img`
@@ -57,7 +58,22 @@ const LoginToggle = styled(Link)`
   cursor: pointer;
 `;
 
-function SignUp() {
+const CloseButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 45px;
+`;
+
+const CloseButton = styled.button`
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+function SignUp({ closeModal }) {
   const history = useHistory();
   const [userName, setUserName] = React.useState('');
   const [userEmail, setUserEmail] = React.useState('');
@@ -73,6 +89,11 @@ function SignUp() {
 
   return (
     <Content>
+      <CloseButtonContainer>
+        <CloseButton onClick={closeModal}>
+          <Close />
+        </CloseButton>
+      </CloseButtonContainer>
       <TeaserContainer>
         <Logo src={Heart} alt="festivent logo" />
         <TeaserText>
@@ -117,7 +138,7 @@ function SignUp() {
           required
         />
         <ButtonContainer>
-          <Button type="submit" size="Small">
+          <Button type="submit" size="Small" onClick={handleSignUpSubmit}>
             Sign Up
           </Button>
         </ButtonContainer>
@@ -129,4 +150,9 @@ function SignUp() {
     </Content>
   );
 }
+
+SignUp.propTypes = {
+  closeModal: propTypes.func,
+};
+
 export default SignUp;
