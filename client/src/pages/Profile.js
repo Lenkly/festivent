@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
-import SettingsNavigation from '../components/navigation/SettingsNavigation';
+import NavigationBar from '../components/NavigationBar';
 import ProfileIcon from '../components/ProfileIcon';
 import Icon from '../assets/festivent-profile.svg';
 // import { useParams } from 'react-router-dom';
@@ -31,7 +31,7 @@ function Profile() {
   // const { userId } = useParams();
   return (
     <Content>
-      <SettingsNavigation />
+      <NavigationBar onProfile />
       <ProfilePicture>
         <ProfileIcon size="Profile" src={Icon} />
       </ProfilePicture>

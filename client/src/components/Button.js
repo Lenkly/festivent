@@ -70,7 +70,7 @@ const buttonSize = {
     height: 'auto',
   },
   Large: {
-    padding: '2.125rem 0 0.5rem',
+    padding: '1rem 0 0.5rem',
     fontsize: '2.125rem',
     weight: '400',
     width: '280px',

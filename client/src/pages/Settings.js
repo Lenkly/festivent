@@ -7,7 +7,7 @@ import Form from '../components/layout/Form';
 import ProfileIcon from '../components/ProfileIcon';
 import SettingsInput from '../components/SettingsInput';
 import Button from '../components/Button';
-import SimpleNavigation from '../components/navigation/SimpleNavigation';
+import NavigationBar from '../components/NavigationBar';
 import Icon from '../assets/festivent-profile.svg';
 import AnimationContainer from '../components/layout/AnimationContainer';
 
@@ -59,7 +59,7 @@ function Settings({ onThemeChange, theme }) {
   return (
     <Content>
       <AnimationContainer>
-        <SimpleNavigation />
+        <NavigationBar loggedIn />
         <Heading>Settings</Heading>
         <IconContainer>
           <ProfileIcon size="Profile" src={Icon} />

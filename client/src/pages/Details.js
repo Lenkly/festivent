@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
-import SimpleNavigation from '../components/navigation/SimpleNavigation';
+import NavigationBar from '../components/NavigationBar';
 import Festival from '../components/Festivals';
 import AnimationContainer from '../components/layout/AnimationContainer';
+import Button from '../components/Button';
 
 const Container = styled.div`
   margin-bottom: 50px;
@@ -14,9 +15,12 @@ export default function Details() {
     <Content>
       <AnimationContainer>
         <Container>
-          <SimpleNavigation />
+          <NavigationBar />
           <Festival />
         </Container>
+        <Button size="Small" onClick={() => alert('added to favourites')}>
+          Favourite
+        </Button>
       </AnimationContainer>
     </Content>
   );
