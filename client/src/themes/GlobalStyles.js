@@ -14,20 +14,20 @@ function GlobalStyles() {
           box-sizing: border-box;
         }
         @font-face {
-            font-family: 'Quicksand';
-            font-weight: 300;
-            src: url('${QuicksandLight}') format('opentype');
-          }
-          @font-face {
-            font-family: 'Quicksand';
-            font-weight: 400;
-            src: url('${QuicksandBook}') format('opentype');
-          }
-      
-          @font-face {
-            font-family: 'Rubik';
-            src: url('${Rubik}') format('truetype');
-          }
+          font-family: 'Quicksand';
+          font-weight: 300;
+          src: url('${QuicksandLight}') format('opentype');
+        }
+        @font-face {
+          font-family: 'Quicksand';
+          font-weight: 400;
+          src: url('${QuicksandBook}') format('opentype');
+        }
+
+        @font-face {
+          font-family: 'Rubik';
+          src: url('${Rubik}') format('truetype');
+        }
         body {
           font-family: 'Quicksand';
           font-weight: 400;
