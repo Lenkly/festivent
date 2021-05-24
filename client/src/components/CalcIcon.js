@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import pulse from '../animation/pulse';
 
 const CalcIcon = styled.button`
   height: 90px;
@@ -14,6 +15,9 @@ const CalcIcon = styled.button`
   background: none;
   font-family: 'Rubik', sans-serif;
   box-shadow: 0 0 0.25em ${(props) => calcColor[props.color].colors};
+  :hover {
+    animation: ${pulse} 5s ease infinite;
+  }
 `;
 
 const calcColor = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { linearBackground } from '../animation/backgroundAnimation';
+import { linearBackground } from '../animation/backgrounds';
 
 const Text = styled.p`
   text-transform: uppercase;
