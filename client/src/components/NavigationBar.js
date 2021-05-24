@@ -5,7 +5,7 @@ import Arrow from '../assets/Arrow';
 import { Link } from 'react-router-dom';
 import More from '../assets/More';
 import ProfileIcon from './ProfileIcon';
-import Icon from '../../assets/festivent-profile.svg';
+import Icon from '../assets/festivent-profile.svg';
 
 const NavHeader = styled.nav`
   display: flex;
