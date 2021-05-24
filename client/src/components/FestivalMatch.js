@@ -13,6 +13,7 @@ import Error from './Error';
 const CardContainer = styled.div`
   opacity: 0;
   animation: ${fadeIn} 0.8s ease-in-out forwards 0.5s;
+  cursor: pointer;
 `;
 
 const Card = styled.div`

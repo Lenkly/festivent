@@ -6,5 +6,5 @@ export default {
 };
 
 export const HeartCheckbox = () => {
-  <Checkbox />;
+  <Checkbox type="checkbox" />;
 };
