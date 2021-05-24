@@ -44,7 +44,6 @@ const Button = styled.button`
   font-family: 'Quicksand', sans-serif;
   padding: ${(props) => buttonSize[props.size].padding};
   font-size: ${(props) => buttonSize[props.size].fontsize};
-  padding-top: ${(props) => buttonSize[props.size].paddingtop};
   font-weight: ${(props) => buttonSize[props.size].weight};
   width: ${(props) => buttonSize[props.size].width};
   height: ${(props) => buttonSize[props.size].height};
@@ -55,27 +54,24 @@ const Button = styled.button`
 
 const buttonSize = {
   Small: {
-    padding: '0.5rem 0',
+    padding: '0.75rem 0 0.5rem',
     fontsize: '1.25rem',
-    paddingtop: '0.75rem',
     weight: '400',
     width: '219px',
     borderWidth: '223px',
     height: 'auto',
   },
   Medium: {
-    padding: '0.875rem 0',
+    padding: '1.125rem 0 0.875rem',
     fontsize: '1.5rem',
-    paddingtop: '1.125rem',
     weight: '400',
     width: '280px',
     borderWidth: '284px',
     height: 'auto',
   },
   Large: {
-    padding: '0.5rem 0',
+    padding: '2.125rem 0 0.5rem',
     fontsize: '2.125rem',
-    paddingtop: '1rem',
     weight: '400',
     width: '280px',
     borderWidth: '284px',
