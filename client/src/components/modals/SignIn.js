@@ -5,23 +5,8 @@ import Content from '../layout/Content';
 import Button from '../Button';
 import Input from '../Input';
 import Form from '../layout/Form';
-import Heart from '../../assets/festivent-start.png';
-import Close from '../../assets/Close';
-import { Link } from 'react-router-dom';
-
-const TeaserContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flew-direction: column;
-  justify-content: center;
-  margin-top: 155px;
-  margin-bottom: 54px;
-`;
-
-const Logo = styled.img`
-  height: 30%;
-  width: 30%;
-`;
+import ModalHeader from './ModalHeader';
+import ModalFooter from './ModalFooter';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -29,45 +14,9 @@ const ButtonContainer = styled.div`
   margin-top: 40px;
 `;
 
-const LoginLink = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-`;
-
-const LoginText = styled.p`
-  font-family: 'Quicksand';
-  font-weight: 300;
-  font-size: 1rem;
-  margin-right: 10px;
-`;
-
-const LoginToggle = styled(Link)`
-  font-size: 1rem;
-  font-family: 'Quicksand';
-  font-weight: 300;
-  text-decoration: none;
-  color: ${(props) => props.theme.colors.texthighlight};
-  cursor: pointer;
-`;
-
-const CloseButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 45px;
-`;
-
-const CloseButton = styled.button`
-  width: 20px;
-  height: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-`;
-
 function SignIn({ closeModal }) {
+  const loginText = `Don't have an Account?`;
+
   async function handleSignInSubmit(event) {
     event.preventDefault();
     alert('Hello back, handsome!');
@@ -76,14 +25,7 @@ function SignIn({ closeModal }) {
   return (
     <>
       <Content>
-        <CloseButtonContainer>
-          <CloseButton onClick={closeModal}>
-            <Close />
-          </CloseButton>
-        </CloseButtonContainer>
-        <TeaserContainer>
-          <Logo src={Heart} alt="festivent logo" />
-        </TeaserContainer>
+        <ModalHeader closeModal={closeModal} />
         <Form onSubmit={handleSignInSubmit}>
           <Input
             type="text"
@@ -99,10 +41,11 @@ function SignIn({ closeModal }) {
             </Button>
           </ButtonContainer>
         </Form>
-        <LoginLink>
-          <LoginText>Don&apos;t have an Account?</LoginText>
-          <LoginToggle to="/register">Sign Up</LoginToggle>
-        </LoginLink>
+        <ModalFooter
+          loginText={loginText}
+          toggleLink="/register"
+          toggleText="Sign Up"
+        />
       </Content>
     </>
   );
