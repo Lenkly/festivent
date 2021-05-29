@@ -11,13 +11,22 @@ import { addUser } from '../../api/getUser';
 import ModalHeader from './ModalHeader';
 import ModalFooter from './ModalFooter';
 
+const Overlay = styled.div`
+  width: 100vw;
+  height: 100vh;
+  border: 3px solid green;
+  display: flex;
+  justify-content: center;
+  background: ${(props) => props.theme.colors.backgroundSignup};
+`;
+
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 40px;
 `;
 
-function SignUp({ closeModal }) {
+function SignUp({ closeModal, showModal }) {
   const history = useHistory();
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
@@ -34,61 +43,68 @@ function SignUp({ closeModal }) {
   }
 
   return (
-    <Content>
-      <ModalHeader onSignUp closeModal={closeModal} />
-      <Form onSubmit={handleSignUpSubmit}>
-        {error && (
-          <span>
-            Oh no, something bad happened
-            <span role="img" aria-label="sadface">
-              😢
-            </span>
-            <br />
-            Please try again.
-          </span>
-        )}
-        <Input
-          type="text"
-          size="User"
-          value={userName}
-          placeholder="Username"
-          onChange={(event) => setUserName(event.target.value)}
-          maxLength={11}
-          required
-        />
-        <Input
-          type="email"
-          size="User"
-          value={userEmail}
-          placeholder="E-Mail"
-          onChange={(event) => setUserEmail(event.target.value)}
-          required
-        />
-        <Input
-          type="password"
-          size="User"
-          value={userPassword}
-          placeholder="Password"
-          onChange={(event) => setUserPassword(event.target.value)}
-          required
-        />
-        <ButtonContainer>
-          <Button type="submit" size="Small" onClick={handleSignUpSubmit}>
-            Sign Up
-          </Button>
-        </ButtonContainer>
-      </Form>
-      <ModalFooter
-        loginText={loginText}
-        toggleLink="/signin"
-        toggleText="Log In"
-      />
-    </Content>
+    <>
+      {showModal && (
+        <Overlay>
+          <Content>
+            <ModalHeader onSignUp closeModal={closeModal} />
+            <Form onSubmit={handleSignUpSubmit}>
+              {error && (
+                <span>
+                  Oh no, something bad happened
+                  <span role="img" aria-label="sadface">
+                    😢
+                  </span>
+                  <br />
+                  Please try again.
+                </span>
+              )}
+              <Input
+                type="text"
+                size="User"
+                value={userName}
+                placeholder="Username"
+                onChange={(event) => setUserName(event.target.value)}
+                maxLength={11}
+                required
+              />
+              <Input
+                type="email"
+                size="User"
+                value={userEmail}
+                placeholder="E-Mail"
+                onChange={(event) => setUserEmail(event.target.value)}
+                required
+              />
+              <Input
+                type="password"
+                size="User"
+                value={userPassword}
+                placeholder="Password"
+                onChange={(event) => setUserPassword(event.target.value)}
+                required
+              />
+              <ButtonContainer>
+                <Button type="submit" size="Small" onClick={handleSignUpSubmit}>
+                  Sign Up
+                </Button>
+              </ButtonContainer>
+            </Form>
+            <ModalFooter
+              loginText={loginText}
+              toggleLink="/signin"
+              toggleText="Log In"
+            />
+          </Content>
+        </Overlay>
+      )}
+    </>
   );
 }
 
 SignUp.propTypes = {
   closeModal: propTypes.func,
+  showModal: propTypes.bool,
 };
 
 export default SignUp;
