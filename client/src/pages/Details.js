@@ -4,7 +4,6 @@ import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
 import Festival from '../components/Festivals';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import Button from '../components/Button';
 import SignUp from '../components/modals/SignUp';
 
 const Container = styled.div`
@@ -28,11 +27,13 @@ export default function Details() {
         <AnimationContainer>
           <Container>
             <NavigationBar />
-            <Festival />
+            <Festival
+              onFavouriteClick={openModal}
+              onTicketClick={() =>
+                console.log('Tried to escape, the little snitch')
+              }
+            />
           </Container>
-          <Button size="Small" onClick={openModal}>
-            Favourite
-          </Button>
         </AnimationContainer>
       </Content>
       <SignUp showModal={isShowing} closeModal={closeModal} />

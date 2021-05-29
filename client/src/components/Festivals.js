@@ -8,6 +8,9 @@ import calculateIconValue from '../lib/calculateIconValue';
 import Error from './Error';
 import Loading from './Loading';
 import { colorfulBackground } from '../animation/backgrounds';
+import Ticket from '../assets/Ticket';
+import Favourite from '../assets/Favourite';
+import propTypes from 'prop-types';
 // import { useParams } from 'react-router-dom';
 
 const Match = styled.div`
@@ -78,7 +81,22 @@ const Fill = styled.div`
   background: ${(props) => props.theme.colors.background};
 `;
 
-function Festival() {
+const CTAButton = styled.button`
+  width: auto;
+  height: 20px;
+  background: none;
+  text-align: center;
+  font-family: 'Quicksand';
+  font-weight: 300;
+  font-size: 1.25rem;
+  color: ${(props) => props.theme.colors.text};
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 25px;
+`;
+
+function Festival({ onFavouriteClick, onTicketClick }) {
   // const festivalId = useParams();
   const { status, data: festivaldata } = useQuery('festivals', getFestival);
 
@@ -124,8 +142,23 @@ function Festival() {
           </LineUp>
         </div>
       ))}
+      <div style={{ paddingTop: '43px' }}>
+        <CTAButton onClick={onFavouriteClick}>
+          <Favourite />
+          &ensp;Add to Favourites
+        </CTAButton>
+        <CTAButton onClick={onTicketClick}>
+          <Ticket />
+          &ensp;Buy Tickets
+        </CTAButton>
+      </div>
     </div>
   );
 }
+
+Festival.propTypes = {
+  onFavouriteClick: propTypes.func,
+  onTicketClick: propTypes.func,
+};
 
 export default Festival;

@@ -11,10 +11,10 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import UserLogin from './pages/UserLogin';
 import Register from './pages/Register';
-import { brightmode } from './themes/theme';
+import { darkmode } from './themes/theme';
 
 function App() {
-  const [theme, setTheme] = useState(brightmode);
+  const [theme, setTheme] = useState(darkmode);
   return (
     <div>
       <ThemeProvider theme={theme}>
