@@ -1,7 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 
 const useModal = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   function toggleModal() {
     setShowModal(!showModal);

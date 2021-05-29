@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import Content from '../layout/Content';
@@ -19,9 +19,9 @@ const ButtonContainer = styled.div`
 
 function SignUp({ closeModal }) {
   const history = useHistory();
-  const [userName, setUserName] = React.useState('');
-  const [userEmail, setUserEmail] = React.useState('');
-  const [userPassword, setUserPassword] = React.useState('');
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
   const [newUser, { error }] = useMutation(addUser);
 
   const loginText = `Already have an Account?`;
