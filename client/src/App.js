@@ -6,7 +6,7 @@ import Start from './pages/Start';
 import Welcome from './pages/Welcome';
 import Genres from './pages/Genres';
 import Details from './pages/festival';
-import Matchlist from './pages/Matchlist';
+import Matchlist from './pages/matches';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import UserLogin from './pages/UserLogin';
@@ -30,10 +30,10 @@ function App() {
             <Route exact path="/genres">
               <Genres />
             </Route>
-            <Route path="/festival">
+            <Route path="/festival/:name">
               <Details />
             </Route>
-            <Route path="/matchlist">
+            <Route path="/matches">
               <Matchlist />
             </Route>
             <Route path="/profile">

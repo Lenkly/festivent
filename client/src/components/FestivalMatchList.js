@@ -54,7 +54,7 @@ function compare(a, b) {
   return 0;
 }
 
-function FestivalMatch() {
+function FestivalMatchList() {
   const history = useHistory();
   let { status, data: festivaldata } = useQuery('festivals', getFestivals);
   const [selectedGenres] = usePersistentState('SelectedGenres', []);
@@ -87,7 +87,7 @@ function FestivalMatch() {
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
 
-    history.push('/festival');
+    history.push(`/festival/${selectedFestival}`); //should be the name
   };
 
   for (const [index] of quotes.entries()) {
@@ -124,4 +124,4 @@ function FestivalMatch() {
   );
 }
 
-export default FestivalMatch;
+export default FestivalMatchList;

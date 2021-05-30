@@ -83,7 +83,7 @@ function ChooseGenres() {
   };
 
   const handleGenreChoiceClick = () => {
-    history.push('/matchlist');
+    history.push('/matches');
   };
 
   return (

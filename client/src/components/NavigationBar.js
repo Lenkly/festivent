@@ -35,7 +35,7 @@ const SecondButton = styled.button`
 function NavigationBar({ loggedIn, onProfile }) {
   return (
     <NavHeader>
-      <Link to="/matchlist">
+      <Link to="/matches">
         <BackButton>
           <Arrow />
           &thinsp;BACK

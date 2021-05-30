@@ -2,10 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
-import FestivalMatch from '../components/FestivalMatch';
+import FestivalMatchList from '../components/FestivalMatchList';
 import Button from '../components/Button';
-import { useHistory } from 'react-router-dom';
 import AnimationContainer from '../components/layout/AnimationContainer';
+import { useHistory } from 'react-router-dom';
 
 const Text = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ function Matchlist() {
             <br /> These are your matches
           </Text>
         </AnimationContainer>
-        <FestivalMatch />
+        <FestivalMatchList />
         <AnimationContainer>
           <AgainText>
             Still Haven&apos;t Found What You Were Looking&nbsp;For?

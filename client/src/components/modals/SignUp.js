@@ -26,7 +26,7 @@ const ButtonContainer = styled.div`
   margin-top: 40px;
 `;
 
-function SignUp({ closeModal, showModal }) {
+function SignUp({ renderOnModal, closeModal, showModal }) {
   const history = useHistory();
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
@@ -47,7 +47,11 @@ function SignUp({ closeModal, showModal }) {
       {showModal && (
         <Overlay>
           <Content>
-            <ModalHeader onSignUp closeModal={closeModal} />
+            <ModalHeader
+              renderOnModal={renderOnModal}
+              onSignUp
+              closeModal={closeModal}
+            />
             <Form onSubmit={handleSignUpSubmit}>
               {error && (
                 <span>
@@ -103,6 +107,7 @@ function SignUp({ closeModal, showModal }) {
 }
 
 SignUp.propTypes = {
+  renderOnModal: propTypes.bool,
   closeModal: propTypes.func,
   showModal: propTypes.bool,
 };

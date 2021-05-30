@@ -23,7 +23,7 @@ const ButtonContainer = styled.div`
   margin-top: 40px;
 `;
 
-function SignIn({ closeModal, showModal }) {
+function SignIn({ renderOnModal, closeModal, showModal }) {
   const loginText = `Don't have an Account?`;
 
   async function handleSignInSubmit(event) {
@@ -36,7 +36,10 @@ function SignIn({ closeModal, showModal }) {
       {showModal && (
         <Overlay>
           <Content>
-            <ModalHeader closeModal={closeModal} />
+            <ModalHeader
+              renderOnModal={renderOnModal}
+              closeModal={closeModal}
+            />
             <Form onSubmit={handleSignInSubmit}>
               <Input
                 type="text"
@@ -70,6 +73,7 @@ function SignIn({ closeModal, showModal }) {
 }
 
 SignIn.propTypes = {
+  renderOnModal: propTypes.bool,
   closeModal: propTypes.func,
   showModal: propTypes.bool,
 };

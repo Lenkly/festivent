@@ -41,7 +41,7 @@ export default function Details() {
           </Container>
         </AnimationContainer>
       </Content>
-      <SignUp showModal={isShowing} closeModal={closeModal} />
+      <SignUp renderOnModal showModal={isShowing} closeModal={closeModal} />
     </>
   );
 }
