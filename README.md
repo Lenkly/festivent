@@ -38,4 +38,4 @@ npm run build
 npm start
 ```
 
-## This app has also been deployed on [heroku](https://festivent.herokuapp.com) 🎉
+## This app has also been staged on [heroku](https://festivent.herokuapp.com) 🎉
