@@ -5,7 +5,7 @@ import { ThemeProvider } from 'emotion-theming';
 import Start from './pages/Start';
 import Welcome from './pages/Welcome';
 import Genres from './pages/Genres';
-import Details from './pages/Details';
+import Details from './pages/festival';
 import Matchlist from './pages/Matchlist';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';

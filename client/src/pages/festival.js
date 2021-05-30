@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
-import Festival from '../components/Festivals';
+import FestivalDetail from '../components/FestivalDetail';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import SignUp from '../components/modals/SignUp';
 
@@ -34,7 +34,7 @@ export default function Details() {
         <AnimationContainer>
           <Container>
             <NavigationBar />
-            <Festival
+            <FestivalDetail
               onFavouriteClick={openModal}
               onTicketClick={ticketmockup}
             />

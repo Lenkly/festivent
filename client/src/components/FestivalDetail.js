@@ -28,7 +28,7 @@ const FestivalName = styled.div`
   hyphens: auto;
 `;
 
-const FestivalDetail = styled.div`
+const FestivalData = styled.div`
   text-align: center;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -96,7 +96,7 @@ const CTAButton = styled.button`
   margin-bottom: 25px;
 `;
 
-function Festival({ onFavouriteClick, onTicketClick }) {
+function FestivalDetail({ onFavouriteClick, onTicketClick }) {
   // const festivalId = useParams();
   const { status, data: festivaldata } = useQuery('festivals', getFestival);
 
@@ -125,9 +125,9 @@ function Festival({ onFavouriteClick, onTicketClick }) {
             </CalcIcon>
           </Match>
           <FestivalName>{festival.name}</FestivalName>
-          <FestivalDetail>
+          <FestivalData>
             {festival.date} <br /> {festival.venue}, {festival.place}
-          </FestivalDetail>
+          </FestivalData>
           <FestivalIntroduction>{festival.description}</FestivalIntroduction>
           <LineUpHeader>Line-Up</LineUpHeader>
           <LineUp>
@@ -156,9 +156,9 @@ function Festival({ onFavouriteClick, onTicketClick }) {
   );
 }
 
-Festival.propTypes = {
+FestivalDetail.propTypes = {
   onFavouriteClick: propTypes.func,
   onTicketClick: propTypes.func,
 };
 
-export default Festival;
+export default FestivalDetail;
