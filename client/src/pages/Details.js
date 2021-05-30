@@ -21,6 +21,13 @@ export default function Details() {
     setShowing(!isShowing);
   };
 
+  const ticketmockup = () => {
+    console.log('This needs to Link to external source');
+    alert(
+      'Look, this is awkward, but... did you really think there are tickets sold for festivals in 2020?'
+    );
+  };
+
   return (
     <>
       <Content>
@@ -29,9 +36,7 @@ export default function Details() {
             <NavigationBar />
             <Festival
               onFavouriteClick={openModal}
-              onTicketClick={() =>
-                console.log('Tried to escape, the little snitch')
-              }
+              onTicketClick={ticketmockup}
             />
           </Container>
         </AnimationContainer>

@@ -12,7 +12,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Quicksand';
   font-weight: 300;
 `;
 
@@ -73,8 +72,8 @@ function Welcome({ onThemeChange, theme }) {
     <Content>
       <AnimationContainer>
         <Container>
+          <WelcomeText>Welcome</WelcomeText>
           <Form>
-            <WelcomeText>Welcome</WelcomeText>
             <Input
               type="text"
               size="Name"
