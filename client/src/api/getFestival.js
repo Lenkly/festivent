@@ -1,4 +1,4 @@
-async function getFestival() {
+export async function getFestivalbyId() {
   const response = await fetch(
     '/api/festivals?id=' + sessionStorage.getItem('selectedFestival')
   );
@@ -6,4 +6,8 @@ async function getFestival() {
   return festivals;
 }
 
-export default getFestival;
+export async function getFestivalbyName(festivalName) {
+  const response = await fetch(`/api/festivals?name=${festivalName}`);
+  const festivalbyName = await response.json();
+  return festivalbyName;
+}

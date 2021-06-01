@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Input from '../components/Input';
@@ -58,6 +58,7 @@ const LoginToggle = styled(Link)`
 function Welcome({ onThemeChange, theme }) {
   const history = useHistory();
   const [user, setUser] = useState(sessionStorage.getItem('Name') || '');
+  const inputRef = useRef();
 
   const onChange = (event) => setUser(event.target.value);
 
@@ -67,6 +68,10 @@ function Welcome({ onThemeChange, theme }) {
       history.push('/genres');
     }
   };
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return (
     <Content>
@@ -81,6 +86,7 @@ function Welcome({ onThemeChange, theme }) {
               value={user}
               onChange={onChange}
               onKeyDown={(event) => keyboardEnter(event)}
+              ref={inputRef}
             />
             <NameText>Enter Your Name</NameText>
           </Form>

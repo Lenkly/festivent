@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import getFestival from '../api/getFestival';
+import { getFestivalbyId } from '../api/getFestival';
 import styled from '@emotion/styled';
 import ArtistButton from './ArtistButton';
 import CalcIcon from './CalcIcon';
@@ -97,8 +97,9 @@ const CTAButton = styled.button`
 `;
 
 function FestivalDetail({ onFavouriteClick, onTicketClick }) {
-  // const festivalId = useParams();
-  const { status, data: festivaldata } = useQuery('festivals', getFestival);
+  // const festivalName = useParams();
+  // const { status, data: festival } = useQuery(festivalName, getFestival(festivalName));
+  const { status, data: festivaldata } = useQuery('festivals', getFestivalbyId);
 
   if (status === 'loading') {
     return <Loading />;
@@ -117,31 +118,33 @@ function FestivalDetail({ onFavouriteClick, onTicketClick }) {
 
   return (
     <div>
-      {festivaldata.map((festival) => (
-        <div key={festival.id}>
-          <Match>
-            <CalcIcon color={calculateIconValue(festival.quote)}>
-              {festival.quote}
-            </CalcIcon>
-          </Match>
-          <FestivalName>{festival.name}</FestivalName>
-          <FestivalData>
-            {festival.date} <br /> {festival.venue}, {festival.place}
-          </FestivalData>
-          <FestivalIntroduction>{festival.description}</FestivalIntroduction>
-          <LineUpHeader>Line-Up</LineUpHeader>
-          <LineUp>
-            {festival.artists.sort().map((artist) => (
-              <React.Fragment key={artist}>
-                <Cell>
-                  <ArtistButton>{artist}</ArtistButton>
-                </Cell>
-                <Fill />
-              </React.Fragment>
-            ))}
-          </LineUp>
-        </div>
-      ))}
+      {festivaldata
+        // .filter((festival) => festival.id === festivalId)
+        .map((festival) => (
+          <div key={festival.id}>
+            <Match>
+              <CalcIcon color={calculateIconValue(festival.quote)}>
+                {festival.quote}
+              </CalcIcon>
+            </Match>
+            <FestivalName>{festival.name}</FestivalName>
+            <FestivalData>
+              {festival.date} <br /> {festival.venue}, {festival.place}
+            </FestivalData>
+            <FestivalIntroduction>{festival.description}</FestivalIntroduction>
+            <LineUpHeader>Line-Up</LineUpHeader>
+            <LineUp>
+              {festival.artists.sort().map((artist) => (
+                <React.Fragment key={artist}>
+                  <Cell>
+                    <ArtistButton>{artist}</ArtistButton>
+                  </Cell>
+                  <Fill />
+                </React.Fragment>
+              ))}
+            </LineUp>
+          </div>
+        ))}
       <div style={{ paddingTop: '43px' }}>
         <CTAButton onClick={onFavouriteClick}>
           <Favourite />
