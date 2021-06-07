@@ -14,7 +14,6 @@ import ModalFooter from './ModalFooter';
 const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
-  border: 3px solid green;
   display: flex;
   justify-content: center;
   background: ${(props) => props.theme.colors.backgroundSignup};
@@ -96,7 +95,7 @@ function SignUp({ renderOnModal, closeModal, showModal }) {
             </Form>
             <ModalFooter
               loginText={loginText}
-              toggleLink="/signin"
+              toggleLink="#"
               toggleText="Log In"
             />
           </Content>

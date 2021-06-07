@@ -1,6 +1,7 @@
+import React from 'react';
 import styled from '@emotion/styled';
 
-const Input = styled.input`
+const StyledInput = styled.input`
   display: flex;
   text-align: center;
   color: ${(props) => props.theme.colors.text};
@@ -27,5 +28,9 @@ const inputText = {
   Name: { padding: '30px', fontsize: '1.875rem', weight: '300', width: '100%' },
   User: { padding: '30px', fontsize: '1.25rem', weight: '300', width: '100%' },
 };
+
+const Input = React.forwardRef(function Input(props, ref) {
+  return <StyledInput ref={ref} {...props} />;
+});
 
 export default Input;
