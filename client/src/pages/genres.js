@@ -4,8 +4,8 @@ import { useQuery } from 'react-query';
 import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import getGenres from '../api/getGenres';
+import Button from '../components/Button';
 import GenreButton from '../components/GenreButton';
-import ConfirmGenreChoice from '../components/ConfirmGenreChoice';
 import usePersistentState from '../hooks/usePersistentState';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
@@ -114,10 +114,14 @@ function Genres() {
               ))}
               <Fill />
             </Genrechoice>
-            <ConfirmGenreChoice
+            <Button
+              type="submit"
+              size="Large"
               disabled={!matchable}
-              onGenreChoiceClick={handleGenreChoiceClick}
-            />
+              onClick={handleGenreChoiceClick}
+            >
+              Match Me
+            </Button>
           </Wrapper>
         </AnimationContainer>
       </Form>

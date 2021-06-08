@@ -4,7 +4,7 @@ import GlobalStyles from './themes/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import Start from './pages/Start';
 import Welcome from './pages/Welcome';
-import Genres from './pages/genre';
+import Genres from './pages/genres';
 import Details from './pages/festival';
 import Matchlist from './pages/matches';
 import Profile from './pages/Profile';
