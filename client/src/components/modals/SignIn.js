@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import Content from '../layout/Content';
 import Button from '../Button';
-import Input from '../Input';
+import { Input } from '../Input';
 import Form from '../layout/Form';
 import ModalHeader from './ModalHeader';
 import ModalFooter from './ModalFooter';

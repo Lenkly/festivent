@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../components/Input';
+import { Input, SettingsInput } from '../components/Input';
 
 export default {
   title: 'Input',
@@ -17,4 +17,8 @@ export const Email = () => (
 
 export const Password = () => (
   <Input type="password" size="User" placeholder="Password" />
+);
+
+export const Settings = () => (
+  <SettingsInput type="text" size="User" placeholder="settings" />
 );

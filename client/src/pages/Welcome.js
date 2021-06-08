@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import Input from '../components/Input';
+import { Input } from '../components/Input';
 import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';

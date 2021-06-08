@@ -4,13 +4,11 @@ import GlobalStyles from './themes/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import Start from './pages/Start';
 import Welcome from './pages/Welcome';
-import Genres from './pages/Genres';
+import Genres from './pages/genre';
 import Details from './pages/festival';
 import Matchlist from './pages/matches';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
-import UserLogin from './pages/UserLogin';
-import Register from './pages/Register';
 import { darkmode } from './themes/theme';
 
 function App() {
@@ -41,12 +39,6 @@ function App() {
             </Route>
             <Route path="/settings">
               <Settings onThemeChange={setTheme} theme={theme} />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route exact path="/signin">
-              <UserLogin />
             </Route>
           </Switch>
         </Router>

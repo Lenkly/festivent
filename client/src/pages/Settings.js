@@ -5,7 +5,7 @@ import ThemeSwitch from '../components/ThemeSwitch';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import ProfileIcon from '../components/ProfileIcon';
-import SettingsInput from '../components/SettingsInput';
+import { SettingsInput } from '../components/Input';
 import Button from '../components/Button';
 import NavigationBar from '../components/NavigationBar';
 import Icon from '../assets/festivent-profile.svg';

@@ -91,7 +91,7 @@ function Matchlist() {
 
   const quotes = quota(festivalGenres, selectedGenres);
 
-  const handleDetailsClick = (event, festivalId, index) => {
+  const handleDetailsClick = (festivalId, index) => {
     const selectedFestival = festivalId;
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
@@ -126,9 +126,7 @@ function Matchlist() {
             .map((festival, index) => (
               <FestivalCard
                 key={festival.id}
-                onClick={(event) =>
-                  handleDetailsClick(event, festival.id, index)
-                }
+                onClick={() => handleDetailsClick(festival.id, index)}
                 color={calculateIconValue(festival.quote)}
                 quote={festival.quote}
                 name={festival.name}

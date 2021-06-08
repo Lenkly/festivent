@@ -29,8 +29,15 @@ const inputText = {
   User: { padding: '30px', fontsize: '1.25rem', weight: '300', width: '100%' },
 };
 
-const Input = React.forwardRef(function Input(props, ref) {
+export const Input = React.forwardRef(function Input(props, ref) {
   return <StyledInput ref={ref} {...props} />;
 });
 
-export default Input;
+export const SettingsInput = styled(Input)`
+  display: flex;
+  width: 100%;
+  text-align: left;
+  &::placeholder {
+    text-align: left;
+  }
+`;
