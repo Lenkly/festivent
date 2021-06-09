@@ -6,44 +6,20 @@ export default {
   title: 'Button',
 };
 
-export const Signup = () => (
+export const Small = () => (
   <Button size="Small" type="submit" onClick={action('clicked')}>
-    Sign Up
+    Small button
   </Button>
 );
 
-export const Login = () => (
-  <Button size="Small" type="submit" onClick={action('clicked')}>
-    Log In
-  </Button>
-);
-
-export const Logout = () => (
-  <Button size="Small" onClick={action('clicked')}>
-    Log Out
-  </Button>
-);
-
-export const Profile = () => (
-  <Button size="Small" onClick={action('clicked')}>
-    Profile
-  </Button>
-);
-
-export const Newmatch = () => (
-  <Button size="Small" onClick={action('clicked')}>
-    New Match
-  </Button>
-);
-
-export const Again = () => (
+export const Medium = () => (
   <Button size="Medium" onClick={action('clicked')}>
-    Match Me Again
+    Medium button
   </Button>
 );
 
-export const Match = () => (
+export const Large = () => (
   <Button size="Large" type="submit" onClick={action('clicked')}>
-    Match Me
+    large
   </Button>
 );

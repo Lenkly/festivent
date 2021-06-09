@@ -5,7 +5,7 @@ export default {
   title: 'Input',
 };
 
-export const Name = () => <Input type="text" size="Name" maxLength={14} />;
+export const Empty = () => <Input type="text" size="Name" maxLength={14} />;
 
 export const Username = () => (
   <Input type="text" size="User" placeholder="Username" maxLength={14} />
