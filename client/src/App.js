@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './themes/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
-import Start from './pages/Start';
+import SplashAnimation from './pages/splash';
 import Welcome from './pages/Welcome';
 import Genres from './pages/genres';
 import Details from './pages/festival';
@@ -20,7 +20,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Start />
+              <SplashAnimation />
             </Route>
             <Route exact path="/welcome">
               <Welcome onThemeChange={setTheme} theme={theme} />
