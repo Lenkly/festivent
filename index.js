@@ -27,7 +27,6 @@ server.post(
   async (request, response) => {
     try {
       const dataUriFile = toDataUri(request.file);
-      console.log(dataUriFile);
       const result = await cloudinary.uploader.upload(dataUriFile);
       response.json(result);
     } catch (error) {

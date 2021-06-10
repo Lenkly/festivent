@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import ThemeSwitch from '../components/ThemeSwitch';
@@ -23,7 +23,7 @@ const IconContainer = styled.div`
   margin: 30px 0 35px;
 `;
 
-const ChangeIcon = styled.button`
+const ChangeIconButton = styled.button`
   margin-left: 15px;
   margin-bottom: 0;
   border: none;
@@ -34,6 +34,7 @@ const ChangeIcon = styled.button`
   font-weight: 300;
   font-size: 1.25rem;
   align-self: flex-end;
+  cursor: pointer;
 `;
 
 const SwitchContainer = styled.div`
@@ -56,6 +57,15 @@ const ButtonContainer = styled.div`
 `;
 
 function Settings({ onThemeChange, theme }) {
+  const [files, setFiles] = useState(null);
+  const hiddenFileInput = React.useRef(null);
+
+  console.log('Files:', files);
+
+  const handleUpload = () => {
+    hiddenFileInput.current.click();
+  };
+
   return (
     <Content>
       <AnimationContainer>
@@ -63,7 +73,13 @@ function Settings({ onThemeChange, theme }) {
         <Heading>Settings</Heading>
         <IconContainer>
           <ProfileIcon size="Profile" src={Icon} />
-          <ChangeIcon>Edit Photo</ChangeIcon>
+          <ChangeIconButton onClick={handleUpload}>Edit Photo</ChangeIconButton>
+          <input
+            type="file"
+            onChange={(event) => setFiles(event.target.files[0])}
+            style={{ display: 'none' }}
+            ref={hiddenFileInput}
+          />
         </IconContainer>
         <Form>
           <SettingsInput
