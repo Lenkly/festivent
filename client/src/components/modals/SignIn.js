@@ -3,18 +3,22 @@ import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import Content from '../layout/Content';
 import Button from '../Button';
-import Input from '../Input';
+import { Input } from '../Input';
 import Form from '../layout/Form';
 import ModalHeader from './ModalHeader';
 import ModalFooter from './ModalFooter';
+import AnimationContainer from '../layout/AnimationContainer';
 
 const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
-  border: 3px solid green;
   display: flex;
   justify-content: center;
   background: ${(props) => props.theme.colors.backgroundLogin};
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const ButtonContainer = styled.div`
@@ -23,7 +27,7 @@ const ButtonContainer = styled.div`
   margin-top: 40px;
 `;
 
-function SignIn({ closeModal, showModal }) {
+function SignIn({ renderOnModal, closeModal, showModal }) {
   const loginText = `Don't have an Account?`;
 
   async function handleSignInSubmit(event) {
@@ -35,34 +39,43 @@ function SignIn({ closeModal, showModal }) {
     <>
       {showModal && (
         <Overlay>
-          <Content>
-            <ModalHeader closeModal={closeModal} />
-            <Form onSubmit={handleSignInSubmit}>
-              <Input
-                type="text"
-                size="User"
-                placeholder="Username"
-                maxLength={11}
-                required
+          <AnimationContainer>
+            <Content>
+              <ModalHeader
+                renderOnModal={renderOnModal}
+                closeModal={closeModal}
               />
-              <Input
-                type="password"
-                size="User"
-                placeholder="Password"
-                required
+              <Form onSubmit={handleSignInSubmit}>
+                <Input
+                  type="text"
+                  size="User"
+                  placeholder="Username"
+                  maxLength={11}
+                  required
+                />
+                <Input
+                  type="password"
+                  size="User"
+                  placeholder="Password"
+                  required
+                />
+                <ButtonContainer>
+                  <Button
+                    type="submit"
+                    size="Small"
+                    onClick={handleSignInSubmit}
+                  >
+                    Log In
+                  </Button>
+                </ButtonContainer>
+              </Form>
+              <ModalFooter
+                loginText={loginText}
+                toggleLink="#"
+                toggleText="Sign Up"
               />
-              <ButtonContainer>
-                <Button type="submit" size="Small" onClick={handleSignInSubmit}>
-                  Log In
-                </Button>
-              </ButtonContainer>
-            </Form>
-            <ModalFooter
-              loginText={loginText}
-              toggleLink="/register"
-              toggleText="Sign Up"
-            />
-          </Content>
+            </Content>
+          </AnimationContainer>
         </Overlay>
       )}
     </>
@@ -70,6 +83,7 @@ function SignIn({ closeModal, showModal }) {
 }
 
 SignIn.propTypes = {
+  renderOnModal: propTypes.bool,
   closeModal: propTypes.func,
   showModal: propTypes.bool,
 };

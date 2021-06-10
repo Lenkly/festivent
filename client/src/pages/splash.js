@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import StartAnimation from '../components/StartAnimation';
 
-function Start() {
+function SplashAnimation() {
   useEffect(() => {
     const timeoutId = setTimeout(function () {
       window.location = '/welcome';
@@ -15,4 +15,4 @@ function Start() {
   return <StartAnimation />;
 }
 
-export default Start;
+export default SplashAnimation;

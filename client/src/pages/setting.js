@@ -1,29 +1,26 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import ThemeSwitch from '../components/ThemeSwitch';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import ProfileIcon from '../components/ProfileIcon';
-import SettingsInput from '../components/SettingsInput';
+import { SettingsInput } from '../components/Input';
 import Button from '../components/Button';
 import NavigationBar from '../components/NavigationBar';
 import Icon from '../assets/festivent-profile.svg';
 import AnimationContainer from '../components/layout/AnimationContainer';
 
-const Heading = styled.div`
-  margin-top: 40px;
-`;
+/* STYLES */
 
 const IconContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-end;
-  padding-left: 25px;
-  margin: 30px 0 35px;
+  padding: 30px 0 35px 25px;
 `;
 
-const ChangeIcon = styled.button`
+const ChangeIconButton = styled.button`
   margin-left: 15px;
   margin-bottom: 0;
   border: none;
@@ -34,11 +31,12 @@ const ChangeIcon = styled.button`
   font-weight: 300;
   font-size: 1.25rem;
   align-self: flex-end;
+  cursor: pointer;
 `;
 
 const SwitchContainer = styled.div`
   display: flex;
-  margin: 45px 0 50px;
+  padding: 45px 0 50px;
   justify-content: space-between;
 `;
 
@@ -50,20 +48,33 @@ const SwitchText = styled.span`
   padding-top: 5px;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+/* CONTENT */
 
 function Settings({ onThemeChange, theme }) {
+  const [files, setFiles] = useState(null);
+  const hiddenFileInput = useRef(null);
+
+  console.log('Files:', files);
+
+  const handleUpload = () => {
+    hiddenFileInput.current.click();
+  };
+
   return (
     <Content>
       <AnimationContainer>
         <NavigationBar loggedIn />
-        <Heading>Settings</Heading>
+        <div style={{ paddingTop: '40px' }}>Settings</div>
         <IconContainer>
           <ProfileIcon size="Profile" src={Icon} />
-          <ChangeIcon>Edit Photo</ChangeIcon>
+          <ChangeIconButton onClick={handleUpload}>Edit Photo</ChangeIconButton>
+          <input
+            type="file"
+            onChange={(event) => setFiles(event.target.files[0])}
+            accept=".png, .jpg, .jpeg"
+            style={{ display: 'none' }}
+            ref={hiddenFileInput}
+          />
         </IconContainer>
         <Form>
           <SettingsInput
@@ -79,9 +90,9 @@ function Settings({ onThemeChange, theme }) {
           <SwitchText>Use Darkmode</SwitchText>
           <ThemeSwitch onChange={onThemeChange} value={theme} />
         </SwitchContainer>
-        <ButtonContainer>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button size="Small">Log Out</Button>
-        </ButtonContainer>
+        </div>
       </AnimationContainer>
     </Content>
   );

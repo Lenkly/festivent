@@ -12,6 +12,7 @@ const NavHeader = styled.nav`
   width: 100%;
   height: 75px;
   align-items: flex-end;
+  justify-content: space-between;
 `;
 
 const BackButton = styled.button`
@@ -22,20 +23,18 @@ const BackButton = styled.button`
   font-family: 'Quicksand';
   font-weight: 300;
   font-size: 1.5rem;
-  justify-content: flex-start;
 `;
 
 const SecondButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  justify-content: flex-end;
 `;
 
 function NavigationBar({ loggedIn, onProfile }) {
   return (
     <NavHeader>
-      <Link to="/matchlist">
+      <Link to="/matches">
         <BackButton>
           <Arrow />
           &thinsp;BACK

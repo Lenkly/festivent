@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const ArtistButton = styled.button`
+export const ArtistButton = styled.button`
   font-size: 0.75rem;
   background: transparent;
   padding: 9px 8px;
@@ -11,4 +13,26 @@ const ArtistButton = styled.button`
   box-shadow: 0 0 0px 100px ${(props) => props.theme.colors.background};
 `;
 
-export default ArtistButton;
+const Cell = styled.div`
+  padding: 2px;
+  overflow: hidden;
+`;
+const Fill = styled.div`
+  flex-grow: 1;
+  background: ${(props) => props.theme.colors.background};
+`;
+
+export const LineUpArtistButton = ({ artist }) => {
+  return (
+    <React.Fragment>
+      <Cell>
+        <ArtistButton>{artist}</ArtistButton>
+      </Cell>
+      <Fill />
+    </React.Fragment>
+  );
+};
+
+LineUpArtistButton.propTypes = {
+  artist: PropTypes.string,
+};

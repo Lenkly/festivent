@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import Input from '../components/Input';
-import { useHistory, Link } from 'react-router-dom';
+import { Input } from '../components/Input';
+import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import ThemeSwitch from '../components/ThemeSwitch';
+import SignIn from '../components/modals/SignIn';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Quicksand';
   font-weight: 300;
 `;
 
@@ -49,16 +49,34 @@ const LoginText = styled.span`
   margin-right: 10px;
 `;
 
-const LoginToggle = styled(Link)`
+const LoginToggle = styled.button`
+  width: auto;
+  padding: 0;
+  background: none;
+  text-align: center;
+  font-family: 'Quicksand';
+  font-weight: 300;
   font-size: 1rem;
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
+  text-transform: uppercase;
+  border: none;
   cursor: pointer;
 `;
 
 function Welcome({ onThemeChange, theme }) {
   const history = useHistory();
   const [user, setUser] = useState(sessionStorage.getItem('Name') || '');
+  const inputRef = useRef(null);
+  const [isShowing, setShowing] = useState(false);
+
+  const closeModal = () => {
+    setShowing(false);
+  };
+
+  const openModal = () => {
+    setShowing(!isShowing);
+  };
 
   const onChange = (event) => setUser(event.target.value);
 
@@ -69,33 +87,41 @@ function Welcome({ onThemeChange, theme }) {
     }
   };
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
-    <Content>
-      <AnimationContainer>
-        <Container>
-          <Form>
+    <>
+      <Content>
+        <AnimationContainer>
+          <Container>
             <WelcomeText>Welcome</WelcomeText>
-            <Input
-              type="text"
-              size="Name"
-              maxLength={11}
-              value={user}
-              onChange={onChange}
-              onKeyDown={(event) => keyboardEnter(event)}
-            />
-            <NameText>Enter Your Name</NameText>
-          </Form>
-          <SwitchContainer>
-            <SwitchText>Switch to Darkmode</SwitchText>
-            <ThemeSwitch onChange={onThemeChange} value={theme} />
-          </SwitchContainer>
-          <LoginLink>
-            <LoginText>Already have an Account?</LoginText>
-            <LoginToggle to="/signin">Log In</LoginToggle>
-          </LoginLink>
-        </Container>
-      </AnimationContainer>
-    </Content>
+            <Form>
+              <Input
+                type="text"
+                size="Name"
+                maxLength={11}
+                value={user}
+                onChange={onChange}
+                onKeyDown={(event) => keyboardEnter(event)}
+                ref={inputRef}
+              />
+              <NameText>Enter Your Name</NameText>
+            </Form>
+            <SwitchContainer>
+              <SwitchText>Switch to Darkmode</SwitchText>
+              <ThemeSwitch onChange={onThemeChange} value={theme} />
+            </SwitchContainer>
+            <LoginLink>
+              <LoginText>Already have an Account?</LoginText>
+              <LoginToggle onClick={openModal}>Log In</LoginToggle>
+            </LoginLink>
+          </Container>
+        </AnimationContainer>
+      </Content>
+      <SignIn renderOnModal showModal={isShowing} closeModal={closeModal} />
+    </>
   );
 }
 

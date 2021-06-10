@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './themes/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
-import Start from './pages/Start';
+import SplashAnimation from './pages/splash';
 import Welcome from './pages/Welcome';
-import Genres from './pages/Genres';
-import Details from './pages/Details';
-import Matchlist from './pages/Matchlist';
+import Genres from './pages/genres';
+import Details from './pages/festival';
+import Matchlist from './pages/matches';
 import Profile from './pages/Profile';
-import Settings from './pages/Settings';
-import UserLogin from './pages/UserLogin';
-import Register from './pages/Register';
+import Settings from './pages/setting';
 import { darkmode } from './themes/theme';
 
 function App() {
@@ -22,7 +20,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Start />
+              <SplashAnimation />
             </Route>
             <Route exact path="/welcome">
               <Welcome onThemeChange={setTheme} theme={theme} />
@@ -30,10 +28,10 @@ function App() {
             <Route exact path="/genres">
               <Genres />
             </Route>
-            <Route path="/festival">
+            <Route path="/festival/:name">
               <Details />
             </Route>
-            <Route path="/matchlist">
+            <Route path="/matches">
               <Matchlist />
             </Route>
             <Route path="/profile">
@@ -41,12 +39,6 @@ function App() {
             </Route>
             <Route path="/settings">
               <Settings onThemeChange={setTheme} theme={theme} />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route exact path="/signin">
-              <UserLogin />
             </Route>
           </Switch>
         </Router>

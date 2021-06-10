@@ -3,6 +3,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import Heart from '../../assets/festivent-start.png';
 import Close from '../../assets/Close';
+import NavigationBar from '../NavigationBar';
 
 const CloseButtonContainer = styled.div`
   display: flex;
@@ -39,14 +40,18 @@ const TeaserText = styled.p`
   line-height: 1.3;
 `;
 
-function ModalHeader({ onSignUp, closeModal }) {
+function ModalHeader({ renderOnModal, onSignUp, closeModal }) {
   return (
     <>
-      <CloseButtonContainer>
-        <CloseButton onClick={closeModal}>
-          <Close />
-        </CloseButton>
-      </CloseButtonContainer>
+      {renderOnModal ? (
+        <CloseButtonContainer>
+          <CloseButton onClick={closeModal}>
+            <Close />
+          </CloseButton>
+        </CloseButtonContainer>
+      ) : (
+        <NavigationBar />
+      )}
       {onSignUp ? (
         <TeaserContainer forSignUp>
           <Logo src={Heart} alt="festivent logo" />
@@ -66,6 +71,7 @@ function ModalHeader({ onSignUp, closeModal }) {
 
 ModalHeader.propTypes = {
   onSignUp: propTypes.bool,
+  renderOnModal: propTypes.bool,
   closeModal: propTypes.func,
 };
 
