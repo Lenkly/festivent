@@ -10,6 +10,7 @@ import { useMutation } from 'react-query';
 import { addUser } from '../../api/getUser';
 import ModalHeader from './ModalHeader';
 import ModalFooter from './ModalFooter';
+import AnimationContainer from '../layout/AnimationContainer';
 
 const Overlay = styled.div`
   width: 100vw;
@@ -17,6 +18,10 @@ const Overlay = styled.div`
   display: flex;
   justify-content: center;
   background: ${(props) => props.theme.colors.backgroundSignup};
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const ButtonContainer = styled.div`
@@ -45,60 +50,66 @@ function SignUp({ renderOnModal, closeModal, showModal }) {
     <>
       {showModal && (
         <Overlay>
-          <Content>
-            <ModalHeader
-              renderOnModal={renderOnModal}
-              onSignUp
-              closeModal={closeModal}
-            />
-            <Form onSubmit={handleSignUpSubmit}>
-              {error && (
-                <span>
-                  Oh no, something bad happened
-                  <span role="img" aria-label="sadface">
-                    😢
+          <AnimationContainer>
+            <Content>
+              <ModalHeader
+                renderOnModal={renderOnModal}
+                onSignUp
+                closeModal={closeModal}
+              />
+              <Form onSubmit={handleSignUpSubmit}>
+                {error && (
+                  <span>
+                    Oh no, something bad happened
+                    <span role="img" aria-label="sadface">
+                      😢
+                    </span>
+                    <br />
+                    Please try again.
                   </span>
-                  <br />
-                  Please try again.
-                </span>
-              )}
-              <Input
-                type="text"
-                size="User"
-                value={userName}
-                placeholder="Username"
-                onChange={(event) => setUserName(event.target.value)}
-                maxLength={11}
-                required
+                )}
+                <Input
+                  type="text"
+                  size="User"
+                  value={userName}
+                  placeholder="Username"
+                  onChange={(event) => setUserName(event.target.value)}
+                  maxLength={11}
+                  required
+                />
+                <Input
+                  type="email"
+                  size="User"
+                  value={userEmail}
+                  placeholder="E-Mail"
+                  onChange={(event) => setUserEmail(event.target.value)}
+                  required
+                />
+                <Input
+                  type="password"
+                  size="User"
+                  value={userPassword}
+                  placeholder="Password"
+                  onChange={(event) => setUserPassword(event.target.value)}
+                  required
+                />
+                <ButtonContainer>
+                  <Button
+                    type="submit"
+                    size="Small"
+                    onClick={handleSignUpSubmit}
+                  >
+                    Sign Up
+                  </Button>
+                </ButtonContainer>
+              </Form>
+              <ModalFooter
+                loginText={loginText}
+                toggleLink="#"
+                toggleText="Log In"
               />
-              <Input
-                type="email"
-                size="User"
-                value={userEmail}
-                placeholder="E-Mail"
-                onChange={(event) => setUserEmail(event.target.value)}
-                required
-              />
-              <Input
-                type="password"
-                size="User"
-                value={userPassword}
-                placeholder="Password"
-                onChange={(event) => setUserPassword(event.target.value)}
-                required
-              />
-              <ButtonContainer>
-                <Button type="submit" size="Small" onClick={handleSignUpSubmit}>
-                  Sign Up
-                </Button>
-              </ButtonContainer>
-            </Form>
-            <ModalFooter
-              loginText={loginText}
-              toggleLink="#"
-              toggleText="Log In"
-            />
-          </Content>
+            </Content>
+          </AnimationContainer>
         </Overlay>
       )}
     </>
