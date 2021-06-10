@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import ArtistButton from '../components/ArtistButton';
+import { LineUpArtistButton } from '../components/ArtistButton';
 import calculateIconValue from '../lib/calculateIconValue';
 import SignUp from '../components/modals/SignUp';
 import Error from '../components/Error';
@@ -14,14 +14,10 @@ import { colorfulBackground } from '../animation/backgrounds';
 import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
+import CTAButton from '../components/CTAButton';
 // import { useParams } from 'react-router-dom';
 
 /* STYLES */
-
-const LineUpHeader = styled.div`
-  font-size: 1.25rem;
-  margin-bottom: 20px;
-`;
 
 const LineUp = styled.div`
   display: flex;
@@ -46,29 +42,6 @@ const LineUp = styled.div`
   animation-direction: normal;
   animation-fill-mode: none;
   animation-play-state: running;
-`;
-const Cell = styled.div`
-  padding: 2px;
-  overflow: hidden;
-`;
-const Fill = styled.div`
-  flex-grow: 1;
-  background: ${(props) => props.theme.colors.background};
-`;
-
-const CTAButton = styled.button`
-  width: auto;
-  height: 20px;
-  background: none;
-  text-align: center;
-  font-family: 'Quicksand';
-  font-weight: 300;
-  font-size: 1.25rem;
-  color: ${(props) => props.theme.colors.text};
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 25px;
 `;
 
 /* CONTENT */
@@ -128,15 +101,12 @@ export default function Details() {
                     place={festival.place}
                     description={festival.description}
                   />
-                  <LineUpHeader>Line-Up</LineUpHeader>
+                  <div style={{ fontSize: '1.25rem', marginBottom: '20px' }}>
+                    Line-Up
+                  </div>
                   <LineUp>
                     {festival.artists.sort().map((artist) => (
-                      <React.Fragment key={artist}>
-                        <Cell>
-                          <ArtistButton>{artist}</ArtistButton>
-                        </Cell>
-                        <Fill />
-                      </React.Fragment>
+                      <LineUpArtistButton key={artist} artist={artist} />
                     ))}
                   </LineUp>
                 </div>

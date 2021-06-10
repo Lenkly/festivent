@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import ThemeSwitch from '../components/ThemeSwitch';
@@ -11,16 +11,13 @@ import NavigationBar from '../components/NavigationBar';
 import Icon from '../assets/festivent-profile.svg';
 import AnimationContainer from '../components/layout/AnimationContainer';
 
-const Heading = styled.div`
-  margin-top: 40px;
-`;
+/* STYLES */
 
 const IconContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-end;
-  padding-left: 25px;
-  margin: 30px 0 35px;
+  padding: 30px 0 35px 25px;
 `;
 
 const ChangeIconButton = styled.button`
@@ -39,7 +36,7 @@ const ChangeIconButton = styled.button`
 
 const SwitchContainer = styled.div`
   display: flex;
-  margin: 45px 0 50px;
+  padding: 45px 0 50px;
   justify-content: space-between;
 `;
 
@@ -51,14 +48,11 @@ const SwitchText = styled.span`
   padding-top: 5px;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+/* CONTENT */
 
 function Settings({ onThemeChange, theme }) {
   const [files, setFiles] = useState(null);
-  const hiddenFileInput = React.useRef(null);
+  const hiddenFileInput = useRef(null);
 
   console.log('Files:', files);
 
@@ -70,13 +64,14 @@ function Settings({ onThemeChange, theme }) {
     <Content>
       <AnimationContainer>
         <NavigationBar loggedIn />
-        <Heading>Settings</Heading>
+        <div style={{ paddingTop: '40px' }}>Settings</div>
         <IconContainer>
           <ProfileIcon size="Profile" src={Icon} />
           <ChangeIconButton onClick={handleUpload}>Edit Photo</ChangeIconButton>
           <input
             type="file"
             onChange={(event) => setFiles(event.target.files[0])}
+            accept=".png, .jpg, .jpeg"
             style={{ display: 'none' }}
             ref={hiddenFileInput}
           />
@@ -95,9 +90,9 @@ function Settings({ onThemeChange, theme }) {
           <SwitchText>Use Darkmode</SwitchText>
           <ThemeSwitch onChange={onThemeChange} value={theme} />
         </SwitchContainer>
-        <ButtonContainer>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button size="Small">Log Out</Button>
-        </ButtonContainer>
+        </div>
       </AnimationContainer>
     </Content>
   );

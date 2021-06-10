@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const nonselectedStyle = (props) => css`
   background: ${props.theme.colors.buttonBackground};
@@ -9,7 +11,7 @@ const selectedStyle = css`
   background: transparent;
 `;
 
-const GenreButton = styled.button`
+export const GenreButton = styled.button`
   width: 133px;
   height: 44px;
   border: none;
@@ -25,4 +27,25 @@ const GenreButton = styled.button`
   cursor: pointer;
 `;
 
-export default GenreButton;
+const Cell = styled.div`
+  padding: 10px;
+  overflow: hidden;
+`;
+
+export const ChooseGenreButton = ({ onGenreButtonClick, selected, genre }) => {
+  return (
+    <>
+      <Cell>
+        <GenreButton onClick={onGenreButtonClick} selected={selected}>
+          {genre}
+        </GenreButton>
+      </Cell>
+    </>
+  );
+};
+
+ChooseGenreButton.propTypes = {
+  onGenreButtonClick: PropTypes.func,
+  selected: PropTypes.string,
+  genre: PropTypes.string,
+};

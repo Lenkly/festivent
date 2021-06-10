@@ -55,8 +55,8 @@ function FestivalDetailHeader({
 }
 
 FestivalDetailHeader.propTypes = {
-  color: PropTypes.func,
-  quote: PropTypes.number,
+  color: PropTypes.string,
+  quote: PropTypes.string,
   name: PropTypes.string,
   venue: PropTypes.string,
   place: PropTypes.string,

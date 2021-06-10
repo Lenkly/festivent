@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import getGenres from '../api/getGenres';
 import Button from '../components/Button';
-import GenreButton from '../components/GenreButton';
+import { ChooseGenreButton } from '../components/GenreButton';
 import usePersistentState from '../hooks/usePersistentState';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
@@ -13,12 +13,6 @@ import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
 
 /* STYLES */
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const Genrechoice = styled.div`
   display: grid;
@@ -40,10 +34,7 @@ const Genrechoice = styled.div`
   );
   max-width: 306px;
 `;
-const Cell = styled.div`
-  padding: 10px;
-  overflow: hidden;
-`;
+
 const Fill = styled.div`
   background: ${(props) => props.theme.colors.background};
 `;
@@ -100,17 +91,21 @@ function Genres() {
       <Form>
         <AnimationContainer>
           <Text>What Kind of Music Do You Like?</Text>
-          <Wrapper>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
             <Genrechoice>
               {genredata.map((genre) => (
-                <Cell key={genre}>
-                  <GenreButton
-                    onClick={(event) => handleClick(event, genre)}
-                    selected={selectedGenres.includes(genre)}
-                  >
-                    {genre}
-                  </GenreButton>
-                </Cell>
+                <ChooseGenreButton
+                  key={genre}
+                  onGenreButtonClick={(event) => handleClick(event, genre)}
+                  selected={selectedGenres.includes(genre)}
+                  genre={genre}
+                />
               ))}
               <Fill />
             </Genrechoice>
@@ -122,7 +117,7 @@ function Genres() {
             >
               Match Me
             </Button>
-          </Wrapper>
+          </div>
         </AnimationContainer>
       </Form>
     </Content>

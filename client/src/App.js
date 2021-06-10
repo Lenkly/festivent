@@ -8,7 +8,7 @@ import Genres from './pages/genres';
 import Details from './pages/festival';
 import Matchlist from './pages/matches';
 import Profile from './pages/Profile';
-import Settings from './pages/Settings';
+import Settings from './pages/setting';
 import { darkmode } from './themes/theme';
 
 function App() {
