@@ -5,7 +5,7 @@ const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
-const Datauri = require('datauri');
+const Datauri = require('datauri/parser');
 
 const middlewares = jsonServer.defaults({
   static: path.join(__dirname, 'client/build'),
