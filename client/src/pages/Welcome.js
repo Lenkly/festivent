@@ -51,7 +51,6 @@ const LoginText = styled.span`
 
 const LoginToggle = styled.button`
   width: auto;
-  padding: 0;
   background: none;
   text-align: center;
   font-family: 'Quicksand';

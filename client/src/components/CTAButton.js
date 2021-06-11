@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 const CTAButton = styled.button`
   width: auto;
-  height: 20px;
   background: none;
   text-align: center;
   font-family: 'Quicksand';

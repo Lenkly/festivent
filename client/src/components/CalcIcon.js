@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 
-const CalcIcon = styled.button`
+const CalcIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 90px;
   width: 90px;
   border: solid
