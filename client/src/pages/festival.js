@@ -44,6 +44,13 @@ const LineUp = styled.div`
   animation-play-state: running;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 43px;
+`;
+
 /* CONTENT */
 
 export default function Details() {
@@ -111,7 +118,7 @@ export default function Details() {
                   </LineUp>
                 </div>
               ))}
-            <div style={{ paddingTop: '43px' }}>
+            <ButtonContainer>
               <CTAButton onClick={openModal}>
                 <Favourite />
                 &ensp;Add to Favourites
@@ -120,7 +127,7 @@ export default function Details() {
                 <Ticket />
                 &ensp;Buy Tickets
               </CTAButton>
-            </div>
+            </ButtonContainer>
           </div>
         </AnimationContainer>
       </Content>

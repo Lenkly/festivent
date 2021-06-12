@@ -5,7 +5,7 @@ import Content from '../layout/Content';
 import Button from '../Button';
 import { Input } from '../Input';
 import Form from '../layout/Form';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { addUser } from '../../api/getUser';
 import ModalHeader from './ModalHeader';
@@ -31,7 +31,7 @@ const ButtonContainer = styled.div`
 `;
 
 function SignUp({ renderOnModal, closeModal, showModal }) {
-  const history = useHistory();
+  // const history = useHistory();
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -42,7 +42,7 @@ function SignUp({ renderOnModal, closeModal, showModal }) {
   async function handleSignUpSubmit(event) {
     event.preventDefault();
     await newUser({ userName, userEmail, userPassword });
-    history.push(`/profile/${newUser.id}`);
+    // history.push(`/profile/${newUser.id}`);
     alert('a new User has been created:' + userName);
   }
 

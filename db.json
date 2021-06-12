@@ -29,6 +29,12 @@
       "userEmail": "aoshfiha@dshkf.com",
       "userPassword": "landb<",
       "id": 5
+    },
+    {
+      "userName": "duderette",
+      "userEmail": "no@mail.ccc",
+      "userPassword": "mailandistda",
+      "id": 6
     }
   ],
   "festivals": [
@@ -81,11 +87,7 @@
         "WALKING ON CARS",
         "YOU ME AT SIX"
       ],
-      "genres": [
-        "Electronic",
-        "Rock",
-        "Pop"
-      ]
+      "genres": ["Electronic", "Rock", "Pop"]
     },
     {
       "id": 2,
@@ -117,9 +119,7 @@
         "JEREMIAS",
         "SYMBA"
       ],
-      "genres": [
-        "Alternative"
-      ]
+      "genres": ["Alternative"]
     },
     {
       "id": 3,
@@ -169,11 +169,7 @@
         "Unzucht",
         "VNV Nation Classical"
       ],
-      "genres": [
-        "Gothik",
-        "Metal",
-        "Rock"
-      ]
+      "genres": ["Gothik", "Metal", "Rock"]
     },
     {
       "id": 4,
@@ -244,10 +240,7 @@
         "ZUGEZOGEN MASKULIN",
         "ZUNA"
       ],
-      "genres": [
-        "Hip Hop",
-        "Raggae"
-      ]
+      "genres": ["Hip Hop", "Raggae"]
     },
     {
       "id": 5,
@@ -341,12 +334,7 @@
         "Yu Su",
         "Zebra Katz"
       ],
-      "genres": [
-        "Electronic",
-        "Alternative",
-        "Indie",
-        "Rock"
-      ]
+      "genres": ["Electronic", "Alternative", "Indie", "Rock"]
     },
     {
       "id": 6,
@@ -466,10 +454,7 @@
         "Wolves In The Throne Room",
         "Wormrot "
       ],
-      "genres": [
-        "Metal",
-        "Rock"
-      ]
+      "genres": ["Metal", "Rock"]
     },
     {
       "id": 7,
@@ -546,12 +531,7 @@
         "Weezer",
         "Yungblud"
       ],
-      "genres": [
-        "Rock",
-        "Punk",
-        "Alternative",
-        "Metal"
-      ]
+      "genres": ["Rock", "Punk", "Alternative", "Metal"]
     },
     {
       "id": 8,
@@ -632,11 +612,7 @@
         "While She Sleeps",
         "Wolf Alice"
       ],
-      "genres": [
-        "Alternative",
-        "Electronic",
-        "Rock"
-      ]
+      "genres": ["Alternative", "Electronic", "Rock"]
     },
     {
       "id": 9,
@@ -672,11 +648,7 @@
         "SDP",
         "While She Sleeps"
       ],
-      "genres": [
-        "Indie",
-        "Punk",
-        "Rock"
-      ]
+      "genres": ["Indie", "Punk", "Rock"]
     },
     {
       "id": 10,
@@ -730,9 +702,7 @@
         "Vini Vici",
         "Wehbba"
       ],
-      "genres": [
-        "Electronic"
-      ]
+      "genres": ["Electronic"]
     }
   ]
 }
