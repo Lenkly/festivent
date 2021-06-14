@@ -25,6 +25,10 @@ export const GenreButton = styled.button`
   margin-top: 10px;
   box-shadow: 0 0 0px 50px ${(props) => props.theme.colors.background};
   cursor: pointer;
+  :hover {
+    background: transparent;
+    transition: background 0.5s ease;
+  }
 `;
 
 const Cell = styled.div`

@@ -12,6 +12,10 @@ const CTAButton = styled.button`
   border: none;
   cursor: pointer;
   margin-bottom: 25px;
+  :hover {
+    color: ${(props) => props.theme.colors.texthighlight};
+    transition: background 0.5s ease;
+  }
 `;
 
 export default CTAButton;

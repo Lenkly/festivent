@@ -11,6 +11,7 @@ import { addUser } from '../../api/getUser';
 import ModalHeader from './ModalHeader';
 import ModalFooter from './ModalFooter';
 import AnimationContainer from '../layout/AnimationContainer';
+import Error from '../Error';
 
 const Overlay = styled.div`
   width: 100%;
@@ -58,16 +59,7 @@ function SignUp({ renderOnModal, closeModal, showModal }) {
                 closeModal={closeModal}
               />
               <Form onSubmit={handleSignUpSubmit}>
-                {error && (
-                  <span>
-                    Oh no, something bad happened
-                    <span role="img" aria-label="sadface">
-                      😢
-                    </span>
-                    <br />
-                    Please try again.
-                  </span>
-                )}
+                {error && <Error />}
                 <Input
                   type="text"
                   size="User"
@@ -94,11 +86,7 @@ function SignUp({ renderOnModal, closeModal, showModal }) {
                   required
                 />
                 <ButtonContainer>
-                  <Button
-                    type="submit"
-                    size="Small"
-                    onClick={handleSignUpSubmit}
-                  >
+                  <Button type="submit" size="Small">
                     Sign Up
                   </Button>
                 </ButtonContainer>
