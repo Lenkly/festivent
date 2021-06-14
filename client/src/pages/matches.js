@@ -113,39 +113,54 @@ function Matchlist() {
 
   return (
     <Content>
-      <Form>
+      {selectedGenres.length > 1 ? (
+        <Form>
+          <AnimationContainer>
+            <Text>
+              {greetUser},
+              <br /> These are your matches
+            </Text>
+          </AnimationContainer>
+          <CardContainer>
+            {festivaldata
+              .sort((a, b) => compare(a, b))
+              .map((festival, index) => (
+                <FestivalCard
+                  key={festival.id}
+                  onClick={() => handleDetailsClick(festival.id, index)}
+                  color={calculateIconValue(festival.quote)}
+                  quote={festival.quote}
+                  name={festival.name}
+                  venue={festival.venue}
+                  place={festival.place}
+                />
+              ))}
+          </CardContainer>
+          <AnimationContainer>
+            <AgainText>
+              Still Haven&apos;t Found What You Were Looking&nbsp;For?
+            </AgainText>
+            <ButtonWrapper>
+              <Button onClick={handleAgainClick} size="Medium">
+                Match Me Again
+              </Button>
+            </ButtonWrapper>
+          </AnimationContainer>
+        </Form>
+      ) : (
         <AnimationContainer>
-          <Text>
-            {greetUser},
-            <br /> These are your matches
-          </Text>
+          <div style={{ paddingTop: '200px' }}>
+            <AgainText>
+              This supposedly wasn&apos;t what you were trying to do?
+            </AgainText>
+            <ButtonWrapper>
+              <Button onClick={handleAgainClick} size="Medium">
+                Find some matches
+              </Button>
+            </ButtonWrapper>
+          </div>
         </AnimationContainer>
-        <CardContainer>
-          {festivaldata
-            .sort((a, b) => compare(a, b))
-            .map((festival, index) => (
-              <FestivalCard
-                key={festival.id}
-                onClick={() => handleDetailsClick(festival.id, index)}
-                color={calculateIconValue(festival.quote)}
-                quote={festival.quote}
-                name={festival.name}
-                venue={festival.venue}
-                place={festival.place}
-              />
-            ))}
-        </CardContainer>
-        <AnimationContainer>
-          <AgainText>
-            Still Haven&apos;t Found What You Were Looking&nbsp;For?
-          </AgainText>
-          <ButtonWrapper>
-            <Button onClick={handleAgainClick} size="Medium">
-              Match Me Again
-            </Button>
-          </ButtonWrapper>
-        </AnimationContainer>
-      </Form>
+      )}
     </Content>
   );
 }
