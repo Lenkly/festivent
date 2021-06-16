@@ -19,24 +19,20 @@ function App() {
         <GlobalStyles />
         <Router>
           <Switch>
-            <Route exact path="/">
-              <SplashAnimation />
-            </Route>
+            <Route exact path="/" component={SplashAnimation} />
+
             <Route exact path="/welcome">
               <Welcome onThemeChange={setTheme} theme={theme} />
             </Route>
-            <Route exact path="/genres">
-              <Genres />
-            </Route>
-            <Route path="/festival/:name">
-              <Details />
-            </Route>
-            <Route path="/matches">
-              <Matchlist />
-            </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
+
+            <Route exact path="/genres" component={Genres} />
+
+            <Route path="/festival/:festivalname" component={Details} />
+
+            <Route path="/matches" component={Matchlist} />
+
+            <Route path="/profile" component={Profile} />
+
             <Route path="/settings">
               <Settings onThemeChange={setTheme} theme={theme} />
             </Route>

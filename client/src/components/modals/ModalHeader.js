@@ -10,11 +10,10 @@ const CloseButtonContainer = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   height: 45px;
+  width: 100%;
 `;
 
 const CloseButton = styled.button`
-  width: 20px;
-  height: 20px;
   background: none;
   border: none;
   cursor: pointer;
