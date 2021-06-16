@@ -108,6 +108,8 @@ function Matchlist() {
 
   const handleAgainClick = () => {
     sessionStorage.removeItem('SelectedGenres');
+    sessionStorage.removeItem('selectedFestival');
+    sessionStorage.removeItem('selectedFestivalQuote');
     history.push('/genres');
   };
 
