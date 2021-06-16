@@ -96,7 +96,7 @@ function Matchlist() {
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
 
-    history.push(`/festival/${selectedFestival}`); //should be the name
+    history.push(`/festivals/${selectedFestival}`); //should be the name
   };
 
   for (const [index] of quotes.entries()) {
@@ -113,7 +113,7 @@ function Matchlist() {
 
   return (
     <Content>
-      {selectedGenres.length > 1 ? (
+      {selectedGenres.length > 0 ? (
         <Form>
           <AnimationContainer>
             <Text>

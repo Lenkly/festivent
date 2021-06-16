@@ -27,9 +27,9 @@ function App() {
 
             <Route exact path="/genres" component={Genres} />
 
-            <Route exact path="/festival/:festivalId" component={Details} />
+            <Route exact path="/festivals/:festivalId" component={Details} />
 
-            <Route path="/matches" component={Matchlist} />
+            <Route exact path="/festivals" component={Matchlist} />
 
             <Route path="/profile" component={Profile} />
 

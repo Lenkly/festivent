@@ -97,29 +97,27 @@ export default function Details() {
         <AnimationContainer>
           <div style={{ marginBottom: '50px' }}>
             <NavigationBar />
-            {festivaldata
-              // .filter((festival) => festival.id === festivalId)
-              .map((festival) => (
-                <div key={festival.id}>
-                  <FestivalDetailHeader
-                    color={calculateIconValue(festival.quote)}
-                    quote={festival.quote}
-                    name={festival.name}
-                    date={festival.date}
-                    venue={festival.venue}
-                    place={festival.place}
-                    description={festival.description}
-                  />
-                  <div style={{ fontSize: '1.25rem', marginBottom: '20px' }}>
-                    Line-Up
-                  </div>
-                  <LineUp>
-                    {festival.artists.sort().map((artist) => (
-                      <LineUpArtistButton key={artist} artist={artist} />
-                    ))}
-                  </LineUp>
+            {festivaldata.map((festival) => (
+              <div key={festival.id}>
+                <FestivalDetailHeader
+                  color={calculateIconValue(festival.quote)}
+                  quote={festival.quote}
+                  name={festival.name}
+                  date={festival.date}
+                  venue={festival.venue}
+                  place={festival.place}
+                  description={festival.description}
+                />
+                <div style={{ fontSize: '1.25rem', marginBottom: '20px' }}>
+                  Line-Up
                 </div>
-              ))}
+                <LineUp>
+                  {festival.artists.sort().map((artist) => (
+                    <LineUpArtistButton key={artist} artist={artist} />
+                  ))}
+                </LineUp>
+              </div>
+            ))}
             <ButtonContainer>
               <CTAButton onClick={openModal}>
                 <Favourite />

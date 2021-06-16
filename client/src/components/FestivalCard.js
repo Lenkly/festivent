@@ -47,7 +47,7 @@ function FestivalCard({ onClick, color, quote, name, venue, place }) {
 FestivalCard.propTypes = {
   onClick: PropTypes.func,
   color: PropTypes.string,
-  quote: PropTypes.number,
+  quote: PropTypes.string,
   name: PropTypes.string,
   venue: PropTypes.string,
   place: PropTypes.string,
