@@ -15,7 +15,7 @@ import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
 import CTAButton from '../components/CTAButton';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 /* STYLES */
 
@@ -55,9 +55,11 @@ const ButtonContainer = styled.div`
 
 export default function Details() {
   const [isShowing, setShowing] = useState(false);
-  // const festivalName = useParams();
+  const { festivalId } = useParams();
   // const { status, data: festival } = useQuery(festivalName, getFestival(festivalName));
   const { status, data: festivaldata } = useQuery('festivals', getFestivalbyId);
+
+  console.log('params:' + festivalId);
 
   if (status === 'loading') {
     return <Loading />;
