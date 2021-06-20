@@ -49,6 +49,6 @@ export const ChooseGenreButton = ({ onGenreButtonClick, selected, genre }) => {
 
 ChooseGenreButton.propTypes = {
   onGenreButtonClick: PropTypes.func,
-  selected: PropTypes.string,
+  selected: PropTypes.bool,
   genre: PropTypes.string,
 };
