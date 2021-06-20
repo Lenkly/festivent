@@ -39,11 +39,10 @@ const Fill = styled.div`
   background: ${(props) => props.theme.colors.background};
 `;
 
-const Text = styled.div`
+const Text = styled.h2`
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  font-family: 'Quicksand';
   font-weight: 300;
   margin-top: 80px;
   margin-bottom: 25px;

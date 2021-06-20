@@ -37,7 +37,7 @@ function FestivalLineup({ ...props }) {
 
   return (
     <>
-      <div style={{ fontSize: '1.25rem', marginBottom: '20px' }}>Line-Up</div>
+      <h3 style={{ marginBottom: '20px' }}>Line-Up</h3>
       <LineUp>{artistList}</LineUp>
     </>
   );

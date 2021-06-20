@@ -53,7 +53,6 @@ const LoginToggle = styled.button`
   width: auto;
   background: none;
   text-align: center;
-  font-family: 'Quicksand';
   font-weight: 300;
   font-size: 1rem;
   text-decoration: none;

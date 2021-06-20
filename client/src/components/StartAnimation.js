@@ -21,7 +21,6 @@ const AnimatedHeart = styled.img`
 `;
 
 const AnimatedTitle = styled.h1`
-  font-family: 'Quicksand';
   font-size: 3rem;
   letter-spacing: 0.2em;
   text-align: center;

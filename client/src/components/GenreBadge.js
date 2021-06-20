@@ -15,7 +15,6 @@ export const StyledBadge = styled.button`
       ? props.theme.colors.texthighlight
       : props.theme.colors.text};
   background: none;
-  font-family: 'Quicksand', sans-serif;
   font-size: 0.75rem;
   text-transform: uppercase;
   border-radius: 20px;

@@ -47,7 +47,7 @@ function FestivalCard({ onClick, color, quote, name, venue, place }) {
 FestivalCard.propTypes = {
   onClick: PropTypes.func,
   color: PropTypes.string,
-  quote: PropTypes.string,
+  quote: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   venue: PropTypes.string,
   place: PropTypes.string,
