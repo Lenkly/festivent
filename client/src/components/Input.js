@@ -11,6 +11,7 @@ const StyledInput = styled.input`
   border: none;
   border-bottom: 1px solid #707070;
   cursor: text;
+  line-height: ${(props) => inputText[props.size].lineheight};
   padding-top: ${(props) => inputText[props.size].padding};
   font-size: ${(props) => inputText[props.size].fontsize};
   font-weight: ${(props) => inputText[props.size].weight};
@@ -23,8 +24,20 @@ const StyledInput = styled.input`
 `;
 
 const inputText = {
-  Name: { padding: '30px', fontsize: '1.875rem', weight: '300', width: '100%' },
-  User: { padding: '30px', fontsize: '1.25rem', weight: '300', width: '100%' },
+  Name: {
+    padding: '25px',
+    fontsize: '1.875rem',
+    weight: '300',
+    width: '100%',
+    lineheight: '1.3',
+  },
+  User: {
+    padding: '20px',
+    fontsize: '1.25rem',
+    weight: '300',
+    width: '100%',
+    lineheight: '1.5',
+  },
 };
 
 export const Input = React.forwardRef(function Input(props, ref) {
