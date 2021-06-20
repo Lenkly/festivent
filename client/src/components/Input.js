@@ -5,7 +5,6 @@ const StyledInput = styled.input`
   display: flex;
   text-align: center;
   color: ${(props) => props.theme.colors.text};
-  font-family: 'Quicksand', sans-serif;
   text-transform: uppercase;
   background: none;
   width: ${(props) => inputText[props.size].width};
@@ -16,7 +15,6 @@ const StyledInput = styled.input`
   font-size: ${(props) => inputText[props.size].fontsize};
   font-weight: ${(props) => inputText[props.size].weight};
   &::placeholder {
-    font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     color: #707070;
     text-align: center;

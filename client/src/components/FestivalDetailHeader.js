@@ -4,23 +4,20 @@ import CalcIcon from './CalcIcon';
 import PropTypes from 'prop-types';
 import GenreBadge from './GenreBadge';
 
-const FestivalName = styled.div`
+const FestivalName = styled.h2`
   text-align: center;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   word-wrap: break-word;
   hyphens: auto;
 `;
 
-const FestivalData = styled.div`
+const FestivalData = styled.h3`
   text-align: center;
-  font-size: 1.25rem;
-  line-height: 1.5;
   margin-bottom: 20px;
 `;
 
 const FestivalIntroduction = styled.div`
   font-size: 0.75rem;
-  font-family: 'Quicksand';
   font-weight: 300;
   line-height: 1.5;
   margin-bottom: 40px;

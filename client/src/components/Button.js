@@ -36,7 +36,6 @@ const enabledStyle = (props) => css`
   color: ${props.theme.colors.text};
   border: double 2px transparent;
   border-radius: 1rem;
-  color: ${props.theme.colors.text};
 `;
 
 const loginStyle = (props) => css`
@@ -66,7 +65,6 @@ const loginStyle = (props) => css`
   color: ${props.theme.colors.text};
   border: double 2px transparent;
   border-radius: 1rem;
-  color: ${props.theme.colors.text};
 `;
 
 const Button = styled.button`
@@ -76,7 +74,6 @@ const Button = styled.button`
       : props.loginbutton
       ? loginStyle(props)
       : enabledStyle(props)};
-  font-family: 'Quicksand', sans-serif;
   padding: ${(props) => buttonSize[props.size].padding};
   font-size: ${(props) => buttonSize[props.size].fontsize};
   font-weight: ${(props) => buttonSize[props.size].weight};

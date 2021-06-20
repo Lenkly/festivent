@@ -16,7 +16,6 @@ export const GenreButton = styled.button`
   height: 44px;
   border: none;
   color: ${(props) => props.theme.colors.text};
-  font-family: 'Quicksand', sans-serif;
   font-size: 0.875rem;
   text-transform: uppercase;
   ${(props) => (props.selected ? selectedStyle : nonselectedStyle(props))}

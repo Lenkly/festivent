@@ -21,7 +21,6 @@ const UserName = styled.div`
 
 const UserDetail = styled.div`
   text-align: center;
-  font-family: 'Quicksand';
   font-weight: 300;
   font-size: 0.875rem;
   margin-bottom: 30px;

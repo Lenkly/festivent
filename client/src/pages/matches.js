@@ -22,11 +22,9 @@ const CardContainer = styled.div`
   cursor: pointer;
 `;
 
-const Text = styled.div`
+const Text = styled.h2`
   display: flex;
-  line-height: 1.3;
   flex-wrap: wrap;
-  font-family: 'Quicksand';
   font-weight: 300;
   padding-top: 80px;
   margin-bottom: 25px;

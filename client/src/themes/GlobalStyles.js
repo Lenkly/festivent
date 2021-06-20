@@ -4,9 +4,10 @@ import QuicksandLight from '../assets/QuicksandLight.otf';
 import QuicksandBook from '../assets/QuicksandBook.otf';
 import Rubik from '../assets/Rubik.ttf';
 
-function GlobalStyles() {
+function GlobalStyles(props) {
   return (
     <Global
+      {...props}
       styles={(theme) => css`
         *,
         *::before,
@@ -28,6 +29,13 @@ function GlobalStyles() {
           font-family: 'Rubik';
           src: url('${Rubik}') format('truetype');
         }
+
+        html {
+          -ms-text-size-adjust: 100%;
+          -webkit-text-size-adjust: 100%;
+          text-rendering: optimizeLegibility;
+        }
+
         body {
           font-family: 'Quicksand';
           font-weight: 400;
@@ -40,6 +48,25 @@ function GlobalStyles() {
           background: ${theme.colors.background};
           margin: 0;
           transition: all 0.25s linear;
+        }
+
+        h2,
+        h3,
+        button,
+        input {
+          font-family: 'Quicksand';
+          font-weight: 400;
+          margin: 0;
+        }
+
+        h2 {
+          font-size: 1.875rem;
+          line-height: 1.3;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          line-height: 1.5;
         }
       `}
     />

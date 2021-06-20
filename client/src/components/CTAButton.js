@@ -4,7 +4,6 @@ const CTAButton = styled.button`
   width: auto;
   background: none;
   text-align: center;
-  font-family: 'Quicksand';
   font-weight: 300;
   font-size: 1.25rem;
   color: ${(props) => props.theme.colors.text};
