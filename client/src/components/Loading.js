@@ -26,7 +26,11 @@ const Text = styled.p`
 `;
 
 function Loading() {
-  return <Text>Loading...</Text>;
+  return (
+    <div style={{ paddingTop: '200px' }}>
+      <Text>Loading...</Text>
+    </div>
+  );
 }
 
 export default Loading;
