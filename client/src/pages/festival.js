@@ -5,45 +5,18 @@ import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import { LineUpArtistButton } from '../components/ArtistButton';
 import calculateIconValue from '../lib/calculateIconValue';
 import SignUp from '../components/modals/SignUp';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
-import { colorfulBackground } from '../animation/backgrounds';
 import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
 import CTAButton from '../components/CTAButton';
 import { useParams } from 'react-router-dom';
+import FestivalLineup from '../components/FestivalDetailLineup';
 
 /* STYLES */
-
-const LineUp = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  background-image: linear-gradient(
-    145deg,
-    rgba(255, 247, 0, 0.5),
-    rgba(255, 145, 0, 0.5),
-    rgba(255, 0, 132, 0.5),
-    rgba(255, 0, 242, 0.5),
-    rgba(187, 0, 255, 0.5),
-    rgba(85, 0, 255, 0.5),
-    rgba(0, 106, 255, 0.5),
-    rgba(0, 204, 255, 0.5),
-    rgba(0, 255, 106, 0.5),
-    rgba(89, 255, 0, 0.5),
-    rgba(255, 247, 0, 0.5)
-  );
-  background-size: 400%;
-  animation: ${colorfulBackground} 10s ease infinite;
-  animation-delay: 0s;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  animation-play-state: running;
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -107,15 +80,9 @@ export default function Details() {
                   venue={festival.venue}
                   place={festival.place}
                   description={festival.description}
+                  genres={festival.genres}
                 />
-                <div style={{ fontSize: '1.25rem', marginBottom: '20px' }}>
-                  Line-Up
-                </div>
-                <LineUp>
-                  {festival.artists.sort().map((artist) => (
-                    <LineUpArtistButton key={artist} artist={artist} />
-                  ))}
-                </LineUp>
+                <FestivalLineup artists={festival.artists} />
               </div>
             ))}
             <ButtonContainer>

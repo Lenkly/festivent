@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import CalcIcon from './CalcIcon';
 import PropTypes from 'prop-types';
+import GenreBadge from './GenreBadge';
 
 const FestivalName = styled.div`
   text-align: center;
@@ -14,7 +15,7 @@ const FestivalData = styled.div`
   text-align: center;
   font-size: 1.25rem;
   line-height: 1.5;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 const FestivalIntroduction = styled.div`
@@ -22,7 +23,7 @@ const FestivalIntroduction = styled.div`
   font-family: 'Quicksand';
   font-weight: 300;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 function FestivalDetailHeader({
@@ -33,7 +34,13 @@ function FestivalDetailHeader({
   venue,
   place,
   description,
+  ...props
 }) {
+  const badgeItems = props.genres;
+  const genresList = badgeItems.sort().map((item, index) => {
+    return <GenreBadge genre={item} key={index} />;
+  });
+
   return (
     <>
       <div
@@ -49,6 +56,15 @@ function FestivalDetailHeader({
       <FestivalData>
         {date} <br /> {venue}, {place}
       </FestivalData>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '30px',
+        }}
+      >
+        {genresList}
+      </div>
       <FestivalIntroduction>{description}</FestivalIntroduction>
     </>
   );
@@ -61,6 +77,7 @@ FestivalDetailHeader.propTypes = {
   venue: PropTypes.string,
   place: PropTypes.string,
   date: PropTypes.string,
+  genres: PropTypes.array,
   description: PropTypes.string,
 };
 
