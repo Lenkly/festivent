@@ -35,7 +35,9 @@ function FestivalDetailHeader({
 }) {
   const badgeItems = props.genres;
   const genresList = badgeItems.sort().map((item, index) => {
-    return <GenreBadge genre={item} key={index} />;
+    return (
+      <GenreBadge selected={item.selected} genre={item.name} key={index} />
+    );
   });
 
   return (
@@ -76,6 +78,7 @@ FestivalDetailHeader.propTypes = {
   date: PropTypes.string,
   genres: PropTypes.array,
   description: PropTypes.string,
+  selected: PropTypes.bool,
 };
 
 export default FestivalDetailHeader;

@@ -13,10 +13,12 @@ import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
 import CTAButton from '../components/CTAButton';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
+import usePersistentState from '../hooks/usePersistentState';
 
 /* STYLES */
+
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,11 +30,10 @@ const ButtonContainer = styled.div`
 
 export default function Details() {
   const [isShowing, setShowing] = useState(false);
-  const { festivalId } = useParams();
+  // const { festivalId } = useParams();
   // const { status, data: festival } = useQuery(festivalName, getFestival(festivalName));
   const { status, data: festivaldata } = useQuery('festivals', getFestivalbyId);
-
-  console.log('params:' + festivalId);
+  const [selectedGenres] = usePersistentState('SelectedGenres', []);
 
   if (status === 'loading') {
     return <Loading />;
@@ -64,6 +65,17 @@ export default function Details() {
     );
   };
 
+  const allGenres = festivaldata.map((festival) =>
+    festival.genres.map((item) => item)
+  );
+
+  const selects = allGenres[0].map((item) => {
+    const temp = new Object();
+    temp.name = item;
+    temp.selected = selectedGenres.includes(item);
+    return temp;
+  });
+
   return (
     <>
       <Content>
@@ -80,7 +92,7 @@ export default function Details() {
                   venue={festival.venue}
                   place={festival.place}
                   description={festival.description}
-                  genres={festival.genres}
+                  genres={selects}
                 />
                 <FestivalLineup artists={festival.artists} />
               </div>
