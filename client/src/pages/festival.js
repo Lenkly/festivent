@@ -13,6 +13,7 @@ import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
 import CTAButton from '../components/CTAButton';
+import Checkbox from '../components/Checkbox';
 // import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
 import usePersistentState from '../hooks/usePersistentState';
@@ -98,10 +99,11 @@ export default function Details() {
               </div>
             ))}
             <ButtonContainer>
-              <CTAButton onClick={openModal}>
-                <Favourite />
-                &ensp;Add to Favourites
-              </CTAButton>
+              <Checkbox
+                label="Add to Favourites"
+                icon={<Favourite />}
+                onClick={openModal}
+              />
               <CTAButton onClick={ticketmockup}>
                 <Ticket />
                 &ensp;Buy Tickets

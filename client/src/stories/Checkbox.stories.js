@@ -1,10 +1,10 @@
-// import React from 'react';
-// import Checkbox from '../components/Checkbox';
+import React from 'react';
+import Checkbox from '../components/Checkbox';
 
-// export default {
-//   title: 'Checkbox',
-// };
+export default {
+  title: 'Checkbox',
+};
 
-// export const HeartCheckbox = () => {
-//   <Checkbox type="checkbox" />;
-// };
+export const HeartCheckbox = () => {
+  <Checkbox label="Testi McTestface" />;
+};
