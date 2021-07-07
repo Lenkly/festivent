@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import { getFestivalbyId } from '../api/getFestival';
 import styled from '@emotion/styled';
@@ -29,7 +30,7 @@ const ButtonContainer = styled.div`
 
 /* CONTENT */
 
-export default function Details() {
+function Details({ userLoggedIn }) {
   const [isShowing, setShowing] = useState(false);
   // const { festivalId } = useParams();
   // const { status, data: festival } = useQuery(festivalName, getFestival(festivalName));
@@ -99,11 +100,18 @@ export default function Details() {
               </div>
             ))}
             <ButtonContainer>
-              <Checkbox
-                label="Add to Favourites"
-                icon={<Favourite />}
-                onClick={openModal}
-              />
+              {userLoggedIn ? (
+                <Checkbox
+                  label="Add to Favourites"
+                  icon={<Favourite />}
+                  onClick={openModal}
+                />
+              ) : (
+                <CTAButton onClick={openModal}>
+                  <Favourite />
+                  &ensp;Add to Favourites
+                </CTAButton>
+              )}
               <CTAButton onClick={ticketmockup}>
                 <Ticket />
                 &ensp;Buy Tickets
@@ -116,3 +124,9 @@ export default function Details() {
     </>
   );
 }
+
+Details.propTypes = {
+  userLoggedIn: PropTypes.bool,
+};
+
+export default Details;
