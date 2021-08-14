@@ -5,6 +5,10 @@ const SVG = styled.svg`
   width: 20px;
   height: 20px;
   fill: ${(props) => props.theme.colors.text};
+  :hover {
+    fill: ${(props) => props.theme.colors.texthighlight};
+    transition: background 0.5s ease;
+  }
 `;
 
 const Ticket = () => {
