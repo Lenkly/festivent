@@ -61,7 +61,6 @@ function Details({ userLoggedIn }) {
   };
 
   const ticketmockup = () => {
-    console.log('This needs to Link to external source');
     alert(
       'Look, this is awkward, but... did you really think there are tickets sold for festivals in 2020?'
     );
@@ -72,10 +71,10 @@ function Details({ userLoggedIn }) {
   );
 
   const selects = allGenres[0].map((item) => {
-    const temp = new Object();
-    temp.name = item;
-    temp.selected = selectedGenres.includes(item);
-    return temp;
+    const range = {};
+    range.name = item;
+    range.selected = selectedGenres.includes(item);
+    return range;
   });
 
   return (
