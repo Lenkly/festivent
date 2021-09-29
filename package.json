@@ -4,16 +4,20 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "dependencies": {
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0",
+    "axios": "^0.21.4",
     "cloudinary": "^1.26.0",
     "datauri": "^3.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "graphql": "^15.6.0",
     "json-server": "^0.16.3",
-    "mongodb": "^3.6.9",
-    "mongoose": "^5.12.14",
     "multer": "^1.4.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "concurrently": "^5.1.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.10.1",
@@ -23,6 +27,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
     "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0"
   },
   "husky": {
@@ -42,7 +47,10 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\" \"npm run storybook\"",
     "dev:server": "npm run build && cd .. && npm start",
     "server": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "gql": "npm-run-all --parallel gql:*",
+    "gql:api": "nodemon --exec 'babel-node server.js' --ignore db.json",
+    "gql:json": "json-server --watch -p 4000 db.json"
   },
   "repository": {
     "type": "git",
