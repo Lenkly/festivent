@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { useQuery } from 'react-query';
+import { getUser } from '../api/getUser';
 import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
 import ProfileIcon from '../components/ProfileIcon';
 import Icon from '../assets/festivent-profile.svg';
-// import { useParams } from 'react-router-dom';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
 
 const ProfilePicture = styled.div`
   padding-top: 20px;
@@ -27,15 +30,35 @@ const UserDetail = styled.div`
 `;
 
 function Profile() {
-  // const { userId } = useParams();
+  const { status, data: userdata } = useQuery('users', getUser);
+
+  if (status === 'loading') {
+    return <Loading />;
+  }
+
+  if (status === 'error') {
+    return <Error />;
+  }
+
+  let currentDate;
+  let currentDay = currentDate.getDate();
+  let currentMonth = currentDate.getDate();
+  let currentYear = currentDate.getDate();
+
   return (
     <Content>
       <NavigationBar onProfile />
       <ProfilePicture>
         <ProfileIcon size="Profile" src={Icon} />
       </ProfilePicture>
-      <UserName>Keanefan</UserName>
-      <UserDetail>Member since: 06/04/2020</UserDetail>
+      {userdata.map((user) => (
+        <div key={user.id}>
+          <UserName>{user.userName}</UserName>
+          <UserDetail>
+            Member since: {currentDay}/{currentMonth}/{currentYear}
+          </UserDetail>
+        </div>
+      ))}
     </Content>
   );
 }

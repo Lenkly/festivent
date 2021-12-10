@@ -31,6 +31,8 @@ function GlobalStyles(props) {
         }
 
         html {
+          color: ${theme.colors.text};
+          background: ${theme.colors.background};
           -ms-text-size-adjust: 100%;
           -webkit-text-size-adjust: 100%;
           text-rendering: optimizeLegibility;
