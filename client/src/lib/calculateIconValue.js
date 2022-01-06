@@ -21,7 +21,7 @@ function calculateIconValue(quoteValue) {
     case quoteValue > 95 && quoteValue <= 100:
       return 'perfect';
     default:
-      return '???';
+      return 'unknown';
   }
 }
 

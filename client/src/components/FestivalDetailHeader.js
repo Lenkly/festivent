@@ -43,15 +43,19 @@ function FestivalDetailHeader({
 
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          padding: '20px 0 25px 0',
-        }}
-      >
-        <CalcIcon color={color}>{quote}</CalcIcon>
-      </div>
+      {color === 'unknown' || !quote ? (
+        <div style={{ height: '45px' }} />
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            padding: '20px 0 25px 0',
+          }}
+        >
+          <CalcIcon color={color}>{quote}</CalcIcon>
+        </div>
+      )}
       <FestivalName>{name}</FestivalName>
       <FestivalData>
         {date} <br /> {venue}, {place}
