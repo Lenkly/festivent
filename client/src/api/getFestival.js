@@ -1,3 +1,4 @@
+//deprecated
 export async function getFestivalbyId() {
   const response = await fetch(
     '/api/festivals?id=' + sessionStorage.getItem('selectedFestival')

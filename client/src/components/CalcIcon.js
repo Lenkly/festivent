@@ -30,6 +30,7 @@ const calcColor = {
   low: { colors: '#006aff' },
   verylow: { colors: '#bb00ff' },
   almostnone: { colors: '#7700ff' },
+  unknown: { colors: 'white' }, //this needs to work with theme colors
 };
 
 export default CalcIcon;

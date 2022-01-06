@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
-import { getFestivalbyId } from '../api/getFestival';
 import styled from '@emotion/styled';
 import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
@@ -15,7 +14,7 @@ import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
 import CTAButton from '../components/CTAButton';
 import Checkbox from '../components/Checkbox';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
 import usePersistentState from '../hooks/usePersistentState';
 
@@ -32,10 +31,15 @@ const ButtonContainer = styled.div`
 
 function Details({ userLoggedIn }) {
   const [isShowing, setShowing] = useState(false);
-  // const { festivalId } = useParams();
-  // const { status, data: festival } = useQuery(festivalName, getFestival(festivalName));
-  const { status, data: festivaldata } = useQuery('festivals', getFestivalbyId);
+  const { festivalId } = useParams();
+  const { status, data: festivaldata } = useQuery('festival', getFestivalbyId);
   const [selectedGenres] = usePersistentState('SelectedGenres', []);
+
+  async function getFestivalbyId() {
+    const response = await fetch(`/api/festivals?id=${festivalId}`);
+    const festival = await response.json();
+    return festival;
+  }
 
   if (status === 'loading') {
     return <Loading />;
@@ -45,12 +49,13 @@ function Details({ userLoggedIn }) {
     return <Error />;
   }
 
-  if (festivaldata.length > 0) {
+  if (festivaldata) {
     Object.defineProperty(festivaldata[0], 'quote', {
       value: sessionStorage.getItem('selectedFestivalQuote'),
       writable: true,
     });
   }
+  // if there is no data for quote, color becomes "unknown" --> which occasionally created an error before
 
   const closeModal = () => {
     setShowing(false);
@@ -58,12 +63,6 @@ function Details({ userLoggedIn }) {
 
   const openModal = () => {
     setShowing(!isShowing);
-  };
-
-  const ticketmockup = () => {
-    alert(
-      'Look, this is awkward, but... did you really think there are tickets sold for festivals in 2020?'
-    );
   };
 
   const allGenres = festivaldata.map((festival) =>
@@ -103,7 +102,7 @@ function Details({ userLoggedIn }) {
                 <Checkbox
                   label="Add to Favourites"
                   icon={<Favourite />}
-                  onClick={openModal}
+                  onClick={() => alert('Saved!')}
                 />
               ) : (
                 <CTAButton onClick={openModal}>
@@ -111,7 +110,13 @@ function Details({ userLoggedIn }) {
                   &ensp;Add to Favourites
                 </CTAButton>
               )}
-              <CTAButton onClick={ticketmockup}>
+              <CTAButton
+                onClick={() =>
+                  alert(
+                    'Look, this is awkward, but... did you really think there are tickets sold for festivals in 2020?'
+                  )
+                }
+              >
                 <Ticket />
                 &ensp;Buy Tickets
               </CTAButton>
