@@ -1,11 +1,3 @@
 {
-  "presets": [
-    [
-      "next/babel",
-      {
-        "preset-react": { "throwIfNamespace": false }
-      }
-    ]
-  ],
-  "plugins": []
-}
+    "presets": ["env"]
+  }
