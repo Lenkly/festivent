@@ -55,7 +55,7 @@ function Details({ userLoggedIn }) {
       writable: true,
     });
   }
-  // if there is no data for quote, color becomes "unknown" --> which occasionally created an error before
+  // if there is no data for quote, color becomes "unknown" --> which occasionally created an error, because it wasn't defined
 
   const closeModal = () => {
     setShowing(false);
