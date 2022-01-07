@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function loadFromStorage(key) {
+function loadFromSessionStorage(key) {
   try {
     const value = sessionStorage.getItem(key);
     return JSON.parse(value);
@@ -9,8 +9,19 @@ function loadFromStorage(key) {
   }
 }
 
+function loadFromLocalStorage(key) {
+  try {
+    const value = localStorage.getItem(key);
+    return JSON.parse(value);
+  } catch (error) {
+    return null;
+  }
+}
+
 function usePersistentState(key, initialValue) {
-  const [value, setValue] = useState(loadFromStorage(key) || initialValue);
+  const [value, setValue] = useState(
+    loadFromSessionStorage(key) || initialValue
+  );
 
   useEffect(() => {
     sessionStorage.setItem(key, JSON.stringify(value));

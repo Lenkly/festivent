@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './themes/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
+import AuthProvider from './contexts/AuthProvider';
 import SplashAnimation from './pages/splash';
 import Welcome from './pages/Welcome';
 import Genres from './pages/genres';
@@ -14,8 +15,9 @@ import { darkmode } from './themes/theme';
 
 function App() {
   const [theme, setTheme] = useState(darkmode);
+
   return (
-    <div>
+    <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Router>
@@ -39,11 +41,10 @@ function App() {
             </Route>
 
             <Route component={ErrorState} />
-
           </Switch>
         </Router>
       </ThemeProvider>
-    </div>
+    </>
   );
 }
 

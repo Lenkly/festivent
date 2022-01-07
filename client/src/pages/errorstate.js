@@ -12,6 +12,7 @@ const AnimatedCalcIcon = styled(CalcIcon)`
   height: 150px;
   width: 150px;
   font-size: 3.125rem;
+  box-shadow: 0 0 0.42em;
   animation: ${colorChange} 20s infinite alternate;
 `;
 
