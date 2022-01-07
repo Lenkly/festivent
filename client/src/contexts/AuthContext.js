@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
 
 function noop() {}
 
@@ -9,7 +9,3 @@ export const AuthContext = createContext({
   logout: noop,
   isLoggedIn: false,
 });
-
-export function useAuth() {
-  return useContext(AuthContext);
-}

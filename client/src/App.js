@@ -12,12 +12,18 @@ import Profile from './pages/Profile';
 import Settings from './pages/settings';
 import ErrorState from './pages/errorstate';
 import { darkmode } from './themes/theme';
+import { AuthContext } from './contexts/AuthContext';
+import { useAuth } from './hooks/useAuth';
+import { AuthRoutes } from './AuthRoutes';
 
 function App() {
   const [theme, setTheme] = useState(darkmode);
+  const { token, userId, login, logout } = useAuth();
+  const isLoggedIn = !!token;
 
   return (
     <>
+      {/* <AuthContext.Provider value={{token, login, logout, userId, isLoggedIn}}> */}
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Router>
@@ -42,8 +48,14 @@ function App() {
 
             <Route component={ErrorState} />
           </Switch>
+          {/* <AuthRoutes
+            isLoggedIn={isLoggedIn}
+            theme={theme}
+            setTheme={setTheme}
+          /> */}
         </Router>
       </ThemeProvider>
+      {/* </AuthContext.Provider> */}
     </>
   );
 }
