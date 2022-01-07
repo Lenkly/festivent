@@ -81,7 +81,8 @@ function Genres() {
     setMatchable(newSelectedGenres.length > 0);
   };
 
-  const handleGenreChoiceClick = () => {
+  const handleGenreSubmit = (e) => {
+    e.preventDefault();
     history.push('/festivals');
   };
 
@@ -112,7 +113,7 @@ function Genres() {
               type="submit"
               size="Large"
               disabled={!matchable}
-              onClick={handleGenreChoiceClick}
+              onClick={handleGenreSubmit}
             >
               Match Me
             </Button>

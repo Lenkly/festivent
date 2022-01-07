@@ -9,6 +9,7 @@ import Details from './pages/festival';
 import Matchlist from './pages/matches';
 import Profile from './pages/Profile';
 import Settings from './pages/settings';
+import ErrorState from './pages/errorstate';
 import { darkmode } from './themes/theme';
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
             <Route path="/settings">
               <Settings onThemeChange={setTheme} theme={theme} />
             </Route>
+
+            <Route component={ErrorState} />
+
           </Switch>
         </Router>
       </ThemeProvider>

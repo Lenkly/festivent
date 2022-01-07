@@ -20,3 +20,39 @@ to {
   background-position: 10000px;
 }
 `;
+
+export const colorChange = keyframes`
+0% {        
+  color: #fff700;
+}
+10% {
+  color: #ff9100;
+}
+20% {
+  color: #ff0084;
+}
+30% {
+  color: #ff00f2;
+}
+40% {
+  color: #bb00ff;
+}
+50% {
+  color: #7700ff;
+}  
+60% {       
+  color: #006aff;
+}
+70% {       
+  color: #00ccff;
+}
+80% {    
+  color: #00ff6a;
+}      
+90% {    
+  color: #59ff00;
+}
+100% {      
+  color: #fff700;
+}
+`;

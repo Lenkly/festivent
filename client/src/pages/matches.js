@@ -30,13 +30,13 @@ const Text = styled.h2`
   margin-bottom: 25px;
 `;
 
-const AgainText = styled(Text)`
+export const AgainText = styled(Text)`
   font-size: 1.5rem;
   text-align: center;
   padding-top: 10px;
 `;
 
-const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 45px;
@@ -80,6 +80,7 @@ function Matchlist() {
   if (status === 'error') {
     return <Error />;
   }
+
   const festivalGenres = festivaldata.reduce((newArray, festivalGenres) => {
     if (newArray.indexOf(festivalGenres.genres) === -1) {
       newArray.push(festivalGenres.genres);
@@ -110,7 +111,7 @@ function Matchlist() {
     sessionStorage.removeItem('selectedFestivalQuote');
     history.push('/genres');
   };
-
+//maybe rethink the usage of form in this context
   return (
     <Content>
       {selectedGenres.length > 0 ? (
@@ -155,7 +156,7 @@ function Matchlist() {
             </AgainText>
             <ButtonWrapper>
               <Button onClick={handleAgainClick} size="Medium">
-                Find some matches
+                Start Matching!
               </Button>
             </ButtonWrapper>
           </div>

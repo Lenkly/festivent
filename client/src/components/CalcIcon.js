@@ -6,17 +6,16 @@ const CalcIcon = styled.div`
   align-items: center;
   height: 90px;
   width: 90px;
-  border: solid
-    ${(props) => {
-      return calcColor[props.color].colors;
-    }};
-  border-width: 3px;
+  border-color: ${(props) => {
+    return calcColor[props.color].colors;
+  }};
+  border: solid 3px;
   border-radius: 100%;
   font-size: 1.875rem;
   color: ${(props) => calcColor[props.color].colors};
   background: none;
   font-family: 'Rubik', sans-serif;
-  box-shadow: 0 0 0.25em ${(props) => calcColor[props.color].colors};
+  box-shadow: 0 0 0.25em;
 `;
 
 const calcColor = {
