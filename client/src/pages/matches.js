@@ -111,7 +111,7 @@ function Matchlist() {
     sessionStorage.removeItem('selectedFestivalQuote');
     history.push('/genres');
   };
-//maybe rethink the usage of form in this context
+  //maybe rethink the usage of form in this context
   return (
     <Content>
       {selectedGenres.length > 0 ? (
