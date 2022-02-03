@@ -16,7 +16,7 @@ import CTAButton from '../components/CTAButton';
 import Checkbox from '../components/Checkbox';
 import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
-import usePersistentState from '../hooks/usePersistentState';
+import { usePersistentSessionState } from '../hooks/usePersistentState';
 
 /* STYLES */
 
@@ -33,7 +33,7 @@ function Details({ userLoggedIn }) {
   const [isShowing, setShowing] = useState(false);
   const { festivalId } = useParams();
   const { status, data: festivaldata } = useQuery('festival', getFestivalbyId);
-  const [selectedGenres] = usePersistentState('SelectedGenres', []);
+  const [selectedGenres] = usePersistentSessionState('SelectedGenres', []);
 
   async function getFestivalbyId() {
     const response = await fetch(`/api/festivals?id=${festivalId}`);
@@ -76,12 +76,17 @@ function Details({ userLoggedIn }) {
     return range;
   });
 
+  const handleBackClick = () => {
+    sessionStorage.removeItem('selectedFestival');
+    sessionStorage.removeItem('selectedFestivalQuote');
+  };
+
   return (
     <>
       <Content>
         <AnimationContainer>
           <div style={{ marginBottom: '50px' }}>
-            <NavigationBar />
+            <NavigationBar onBackButtonClick={handleBackClick} />
             {festivaldata.map((festival) => (
               <div key={festival.id}>
                 <FestivalDetailHeader

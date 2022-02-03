@@ -6,7 +6,7 @@ import Content from '../components/layout/Content';
 import getGenres from '../api/getGenres';
 import Button from '../components/Button';
 import { ChooseGenreButton } from '../components/GenreButton';
-import usePersistentState from '../hooks/usePersistentState';
+import { usePersistentSessionState } from '../hooks/usePersistentState';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import Form from '../components/layout/Form';
@@ -54,7 +54,7 @@ function Genres() {
   const [matchable, setMatchable] = useState(false);
   const history = useHistory();
   const { status, data: genredata } = useQuery('genres', getGenres);
-  const [selectedGenres, setSelectedGenres] = usePersistentState(
+  const [selectedGenres, setSelectedGenres] = usePersistentSessionState(
     'SelectedGenres',
     []
   );
