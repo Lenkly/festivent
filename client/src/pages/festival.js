@@ -6,7 +6,7 @@ import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import calculateIconValue from '../lib/calculateIconValue';
-import SignUp from '../components/modals/SignUp';
+import CreateModal from '../components/modals/CreateModal';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
 import Ticket from '../assets/Ticket';
@@ -34,6 +34,7 @@ function Details({ userLoggedIn }) {
   const { festivalId } = useParams();
   const { status, data: festivaldata } = useQuery('festival', getFestivalbyId);
   const [selectedGenres] = usePersistentSessionState('SelectedGenres', []);
+  const [loginSwitch, setLoginSwitch] = useState(false);
 
   async function getFestivalbyId() {
     const response = await fetch(`/api/festivals?id=${festivalId}`);
@@ -59,10 +60,19 @@ function Details({ userLoggedIn }) {
 
   const closeModal = () => {
     setShowing(false);
+    setLoginSwitch(false);
   };
 
   const openModal = () => {
     setShowing(!isShowing);
+  };
+
+  const handleLogin = () => {
+    if (loginSwitch == false) {
+      setLoginSwitch(true);
+    } else {
+      setLoginSwitch(false);
+    }
   };
 
   const allGenres = festivaldata.map((festival) =>
@@ -129,7 +139,13 @@ function Details({ userLoggedIn }) {
           </div>
         </AnimationContainer>
       </Content>
-      <SignUp renderOnModal showModal={isShowing} closeModal={closeModal} />
+      <CreateModal
+        renderOnModal
+        showModal={isShowing}
+        closeModal={closeModal}
+        loginState={loginSwitch}
+        handleSwitch={handleLogin}
+      />
     </>
   );
 }
