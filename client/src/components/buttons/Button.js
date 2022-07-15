@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { linearBackground } from '../animation/backgrounds';
+import { linearBackground } from '../../animation/backgrounds';
 
 const disabledStyle = css`
   background: none;

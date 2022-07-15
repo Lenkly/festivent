@@ -12,7 +12,7 @@ import Loading from '../components/Loading';
 import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
-import CTAButton from '../components/CTAButton';
+import CTAButton from '../components/buttons/CTAButton';
 import Checkbox from '../components/Checkbox';
 import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';

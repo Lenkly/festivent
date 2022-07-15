@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import Content from '../components/layout/Content';
 import { AgainText, ButtonWrapper } from './matches';
-import Button from '../components/Button';
+import Button from '../components/buttons/Button';
 import CalcIcon from '../components/CalcIcon';
 import { colorChange } from '../animation/backgrounds';
 

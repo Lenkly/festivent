@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import Content from '../layout/Content';
-import Button from '../Button';
+import Button from '../buttons/Button';
 import { Input } from '../Input';
 import Form from '../layout/Form';
 import { useHistory } from 'react-router-dom';
