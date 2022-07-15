@@ -37,13 +37,11 @@ const Cell = styled.div`
 
 export const ChooseGenreButton = ({ onGenreButtonClick, selected, genre }) => {
   return (
-    <>
-      <Cell>
-        <GenreButton onClick={onGenreButtonClick} selected={selected}>
-          {genre}
-        </GenreButton>
-      </Cell>
-    </>
+    <Cell>
+      <GenreButton onClick={onGenreButtonClick} selected={selected}>
+        {genre}
+      </GenreButton>
+    </Cell>
   );
 };
 

@@ -30,11 +30,11 @@ const SecondButton = styled.button`
   cursor: pointer;
 `;
 
-function NavigationBar({ loggedIn, onProfile }) {
+function NavigationBar({ loggedIn, onProfile, onBackButtonClick }) {
   return (
     <NavHeader>
       <Link to="/festivals">
-        <BackButton>
+        <BackButton onClick={onBackButtonClick}>
           <Arrow />
           &thinsp;BACK
         </BackButton>
@@ -59,6 +59,7 @@ function NavigationBar({ loggedIn, onProfile }) {
 NavigationBar.propTypes = {
   loggedIn: propTypes.bool,
   onProfile: propTypes.bool,
+  onBackButtonClick: propTypes.func,
 };
 
 export default NavigationBar;

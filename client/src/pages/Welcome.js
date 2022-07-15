@@ -7,7 +7,7 @@ import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import ThemeSwitch from '../components/ThemeSwitch';
-import SignIn from '../components/modals/SignIn';
+import CreateModal from '../components/modals/CreateModal';
 
 const Container = styled.div`
   display: flex;
@@ -67,13 +67,23 @@ function Welcome({ onThemeChange, theme }) {
   const [user, setUser] = useState(sessionStorage.getItem('Name') || '');
   const inputRef = useRef(null);
   const [isShowing, setShowing] = useState(false);
+  const [loginSwitch, setLoginSwitch] = useState(true);
 
   const closeModal = () => {
     setShowing(false);
+    setLoginSwitch(true);
   };
 
   const openModal = () => {
     setShowing(!isShowing);
+  };
+
+  const handleLogin = () => {
+    if (loginSwitch == false) {
+      setLoginSwitch(true);
+    } else {
+      setLoginSwitch(false);
+    }
   };
 
   const onChange = (event) => setUser(event.target.value);
@@ -118,7 +128,11 @@ function Welcome({ onThemeChange, theme }) {
           </Container>
         </AnimationContainer>
       </Content>
-      <SignIn renderOnModal showModal={isShowing} closeModal={closeModal} />
+      <CreateModal
+        renderOnModal
+        showModal={isShowing}
+        closeModal={closeModal}
+      />
     </>
   );
 }
