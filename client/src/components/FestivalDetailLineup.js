@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { LineUpArtistButton } from '../components/ArtistButton';
+import { LineUpArtistButton } from '../components/buttons/ArtistButton';
 import { colorfulBackground } from '../animation/backgrounds';
 import PropTypes from 'prop-types';
 

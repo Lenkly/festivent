@@ -22,8 +22,9 @@ const CloseButton = styled.button`
 const TeaserContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flew-direction: column;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-top: ${(props) => (props.forSignUp ? '55px' : '155px')};
   padding-bottom: ${(props) => (props.forSignUp ? '0' : '54px')};
 `;

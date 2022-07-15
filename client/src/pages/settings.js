@@ -6,7 +6,7 @@ import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import ProfileIcon from '../components/ProfileIcon';
 import { SettingsInput } from '../components/Input';
-import Button from '../components/Button';
+import Button from '../components/buttons/Button';
 import NavigationBar from '../components/NavigationBar';
 import Icon from '../assets/festivent-profile.svg';
 import AnimationContainer from '../components/layout/AnimationContainer';

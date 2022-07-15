@@ -6,13 +6,13 @@ import Content from '../components/layout/Content';
 import NavigationBar from '../components/NavigationBar';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import calculateIconValue from '../lib/calculateIconValue';
-import SignUp from '../components/modals/SignUp';
+import CreateModal from '../components/modals/CreateModal';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
 import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
-import CTAButton from '../components/CTAButton';
+import CTAButton from '../components/buttons/CTAButton';
 import Checkbox from '../components/Checkbox';
 import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
@@ -34,6 +34,7 @@ function Details({ userLoggedIn }) {
   const { festivalId } = useParams();
   const { status, data: festivaldata } = useQuery('festival', getFestivalbyId);
   const [selectedGenres] = usePersistentState('SelectedGenres', []);
+  const [loginSwitch, setLoginSwitch] = useState(false);
 
   async function getFestivalbyId() {
     const response = await fetch(`/api/festivals?id=${festivalId}`);
@@ -59,10 +60,19 @@ function Details({ userLoggedIn }) {
 
   const closeModal = () => {
     setShowing(false);
+    setLoginSwitch(false);
   };
 
   const openModal = () => {
     setShowing(!isShowing);
+  };
+
+  const handleLogin = () => {
+    if (loginSwitch == false) {
+      setLoginSwitch(true);
+    } else {
+      setLoginSwitch(false);
+    }
   };
 
   const allGenres = festivaldata.map((festival) =>
@@ -76,12 +86,17 @@ function Details({ userLoggedIn }) {
     return range;
   });
 
+  const handleBackClick = () => {
+    sessionStorage.removeItem('selectedFestival');
+    sessionStorage.removeItem('selectedFestivalQuote');
+  };
+
   return (
     <>
       <Content>
         <AnimationContainer>
           <div style={{ marginBottom: '50px' }}>
-            <NavigationBar />
+            <NavigationBar onBackButtonClick={handleBackClick} />
             {festivaldata.map((festival) => (
               <div key={festival.id}>
                 <FestivalDetailHeader
@@ -124,7 +139,13 @@ function Details({ userLoggedIn }) {
           </div>
         </AnimationContainer>
       </Content>
-      <SignUp renderOnModal showModal={isShowing} closeModal={closeModal} />
+      <CreateModal
+        renderOnModal
+        showModal={isShowing}
+        closeModal={closeModal}
+        loginState={loginSwitch}
+        handleSwitch={handleLogin}
+      />
     </>
   );
 }

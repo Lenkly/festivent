@@ -6,7 +6,7 @@ import usePersistentState from '../hooks/usePersistentState';
 import { fadeIn } from '../animation/fades';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
-import Button from '../components/Button';
+import Button from '../components/buttons/Button';
 import FestivalCard from '../components/FestivalCard';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import Loading from '../components/Loading';
@@ -111,7 +111,7 @@ function Matchlist() {
     sessionStorage.removeItem('selectedFestivalQuote');
     history.push('/genres');
   };
-//maybe rethink the usage of form in this context
+  //maybe rethink the usage of form in this context
   return (
     <Content>
       {selectedGenres.length > 0 ? (
