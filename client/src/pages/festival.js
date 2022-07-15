@@ -110,32 +110,28 @@ function Details({ userLoggedIn }) {
                   genres={selects}
                 />
                 <FestivalLineup artists={festival.artists} />
+                <ButtonContainer>
+                  {userLoggedIn ? (
+                    <Checkbox
+                      label="Add to Favourites"
+                      icon={<Favourite />}
+                      onClick={() => alert('Saved!')}
+                    />
+                  ) : (
+                    <CTAButton onClick={openModal}>
+                      <Favourite />
+                      &ensp;Add to Favourites
+                    </CTAButton>
+                  )}
+                  <a href={festival.link} rel="noreferrer" target="_blank">
+                    <CTAButton>
+                      <Ticket />
+                      &ensp;Buy Tickets
+                    </CTAButton>
+                  </a>
+                </ButtonContainer>
               </div>
             ))}
-            <ButtonContainer>
-              {userLoggedIn ? (
-                <Checkbox
-                  label="Add to Favourites"
-                  icon={<Favourite />}
-                  onClick={() => alert('Saved!')}
-                />
-              ) : (
-                <CTAButton onClick={openModal}>
-                  <Favourite />
-                  &ensp;Add to Favourites
-                </CTAButton>
-              )}
-              <CTAButton
-                onClick={() =>
-                  alert(
-                    'Look, this is awkward, but... did you really think there are tickets sold for festivals in 2020?'
-                  )
-                }
-              >
-                <Ticket />
-                &ensp;Buy Tickets
-              </CTAButton>
-            </ButtonContainer>
           </div>
         </AnimationContainer>
       </Content>
