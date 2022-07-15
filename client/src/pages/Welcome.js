@@ -132,6 +132,8 @@ function Welcome({ onThemeChange, theme }) {
         renderOnModal
         showModal={isShowing}
         closeModal={closeModal}
+        loginState={loginSwitch}
+        handleSwitch={handleLogin}
       />
     </>
   );
