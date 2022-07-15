@@ -79,7 +79,7 @@ function Welcome({ onThemeChange, theme }) {
   };
 
   const handleLogin = () => {
-    if (loginSwitch == false) {
+    if (loginSwitch === false) {
       setLoginSwitch(true);
     } else {
       setLoginSwitch(false);

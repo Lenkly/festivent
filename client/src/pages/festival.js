@@ -68,7 +68,7 @@ function Details({ userLoggedIn }) {
   };
 
   const handleLogin = () => {
-    if (loginSwitch == false) {
+    if (loginSwitch === false) {
       setLoginSwitch(true);
     } else {
       setLoginSwitch(false);

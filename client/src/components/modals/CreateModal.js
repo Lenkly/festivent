@@ -72,7 +72,7 @@ function CreateModal({
         <Overlay hasAccount={loginState}>
           <AnimationContainer>
             <Content>
-              {loginState == true ? (
+              {loginState === true ? (
                 <>
                   <ModalHeader
                     renderOnModal={renderOnModal}
