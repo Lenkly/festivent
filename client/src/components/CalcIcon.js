@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import calcColor from '../lib/calcColor';
 
 const CalcIcon = styled.div`
   display: flex;
@@ -17,19 +18,5 @@ const CalcIcon = styled.div`
   font-family: 'Rubik', sans-serif;
   box-shadow: 0 0 0.25em;
 `;
-
-const calcColor = {
-  perfect: { colors: '#ff0084' },
-  veryhigh: { colors: '#ff00f2' },
-  high: { colors: '#ff9100' },
-  moderate: { colors: '#ffd800' },
-  average: { colors: '#59ff00' },
-  okay: { colors: '#00ff6a' },
-  substandard: { colors: '#00ccff' },
-  low: { colors: '#006aff' },
-  verylow: { colors: '#bb00ff' },
-  almostnone: { colors: '#7700ff' },
-  unknown: { colors: 'white' }, //this needs to work with theme colors
-};
 
 export default CalcIcon;
