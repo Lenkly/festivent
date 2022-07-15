@@ -17,6 +17,7 @@ import Checkbox from '../components/Checkbox';
 import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
 import usePersistentState from '../hooks/usePersistentState';
+import Toast from '../components/Toast';
 
 /* STYLES */
 
@@ -35,6 +36,7 @@ function Details({ userLoggedIn }) {
   const { status, data: festivaldata } = useQuery('festival', getFestivalbyId);
   const [selectedGenres] = usePersistentState('SelectedGenres', []);
   const [loginSwitch, setLoginSwitch] = useState(false);
+  const [toastOpen, setToastOpen] = useState(false);
 
   async function getFestivalbyId() {
     const response = await fetch(`/api/festivals?id=${festivalId}`);
@@ -65,6 +67,14 @@ function Details({ userLoggedIn }) {
 
   const openModal = () => {
     setShowing(!isShowing);
+  };
+
+  const triggerToast = () => {
+    setToastOpen(true);
+  };
+
+  const hideToast = () => {
+    setToastOpen(false);
   };
 
   const handleLogin = () => {
@@ -115,7 +125,7 @@ function Details({ userLoggedIn }) {
                     <Checkbox
                       label="Add to Favourites"
                       icon={<Favourite />}
-                      onClick={() => alert('Saved!')}
+                      onClick={triggerToast}
                     />
                   ) : (
                     <CTAButton onClick={openModal}>
@@ -130,6 +140,12 @@ function Details({ userLoggedIn }) {
                     </CTAButton>
                   </a>
                 </ButtonContainer>
+                <Toast
+                  isOpen={toastOpen}
+                  borderColor={calculateIconValue(festival.quote)}
+                  hideToast={hideToast}
+                  text="Saved as Favourite!"
+                />
               </div>
             ))}
           </div>
