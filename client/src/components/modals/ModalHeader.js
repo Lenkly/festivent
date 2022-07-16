@@ -3,6 +3,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import Heart from '../../assets/festivent-start.png';
 import Close from '../../assets/Close';
+import CloseButton from '../buttons/CloseButton';
 import NavigationBar from '../NavigationBar';
 
 const CloseButtonContainer = styled.div`
@@ -11,12 +12,6 @@ const CloseButtonContainer = styled.div`
   align-items: flex-end;
   height: 45px;
   width: 100%;
-`;
-
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
 `;
 
 const TeaserContainer = styled.div`
