@@ -49,5 +49,5 @@
     "@storybook/theming": "^6.2.9",
     "storybook-addon-themes": "^5.4.1"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:3001"
 }

@@ -25,7 +25,7 @@ function toDataUri(file) {
     .content;
 }
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3001;
 
 server.post(
   '/api/uploads',

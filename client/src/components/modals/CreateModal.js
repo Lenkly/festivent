@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import propTypes from 'prop-types';
 import Content from '../layout/Content';
-import Button from '../Button';
+import Button from '../buttons/Button';
 import { Input } from '../Input';
 import Form from '../layout/Form';
 import { useHistory } from 'react-router-dom';
@@ -27,7 +27,7 @@ const Overlay = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  ${(props) => (props.hasAccount ? loginStyle(props) : registerStyle(props))}
+  ${(props) => (props.hasAccount ? loginStyle(props) : registerStyle(props))};
   position: fixed;
   top: 50%;
   left: 50%;
@@ -57,7 +57,7 @@ function CreateModal({
   async function handleSignUpSubmit(event) {
     event.preventDefault();
     await newUser({ userName, userEmail, userPassword });
-    history.push(`/profile/${newUser.userName}`);
+    history.push(`/profile/${newUser.id}`);
     // alert('a new User has been created:' + userName);
   }
 
@@ -72,7 +72,7 @@ function CreateModal({
         <Overlay hasAccount={loginState}>
           <AnimationContainer>
             <Content>
-              {loginState == true ? (
+              {loginState === true ? (
                 <>
                   <ModalHeader
                     renderOnModal={renderOnModal}
@@ -104,8 +104,8 @@ function CreateModal({
                     </ButtonContainer>
                   </Form>
                   <ModalFooter
-                    onClick={handleSwitch}
-                    loginText="Don't have an Account?"
+                    buttonClick={handleSwitch}
+                    loginText={`Don't have an Account?`}
                     toggleLink="#"
                     toggleText="Sign Up"
                   />
@@ -151,7 +151,7 @@ function CreateModal({
                     </ButtonContainer>
                   </Form>
                   <ModalFooter
-                    onClick={handleSwitch}
+                    buttonClick={handleSwitch}
                     loginText="Already have an Account?"
                     toggleLink="#"
                     toggleText="Log In"

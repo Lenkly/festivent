@@ -3,6 +3,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import Heart from '../../assets/festivent-start.png';
 import Close from '../../assets/Close';
+import CloseButton from '../buttons/CloseButton';
 import NavigationBar from '../NavigationBar';
 
 const CloseButtonContainer = styled.div`
@@ -13,17 +14,12 @@ const CloseButtonContainer = styled.div`
   width: 100%;
 `;
 
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-`;
-
 const TeaserContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flew-direction: column;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-top: ${(props) => (props.forSignUp ? '55px' : '155px')};
   padding-bottom: ${(props) => (props.forSignUp ? '0' : '54px')};
 `;

@@ -34,9 +34,9 @@ const LoginToggle = styled(Link)`
   flex-shrink: 0;
 `;
 
-function ModalFooter({ onClick, loginText, toggleLink, toggleText }) {
+function ModalFooter({ buttonClick, loginText, toggleLink, toggleText }) {
   return (
-    <InvisibleButton onClick={onClick}>
+    <InvisibleButton onClick={buttonClick}>
       <LoginLink>
         <LoginText>{loginText}</LoginText>
         <LoginToggle to={toggleLink}>{toggleText}</LoginToggle>
@@ -46,7 +46,7 @@ function ModalFooter({ onClick, loginText, toggleLink, toggleText }) {
 }
 
 ModalFooter.propTypes = {
-  onClick: propTypes.func,
+  buttonClick: propTypes.func,
   loginText: propTypes.string,
   toggleLink: propTypes.string,
   toggleText: propTypes.string,

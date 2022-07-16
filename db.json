@@ -93,11 +93,8 @@
         "WALKING ON CARS",
         "YOU ME AT SIX"
       ],
-      "genres": [
-        "Electronic",
-        "Rock",
-        "Pop"
-      ]
+      "genres": ["Electronic", "Rock", "Pop"],
+      "link": "https://www.lollapaloozade.com/"
     },
     {
       "id": 2,
@@ -129,9 +126,8 @@
         "JEREMIAS",
         "SYMBA"
       ],
-      "genres": [
-        "Alternative"
-      ]
+      "genres": ["Alternative"],
+      "link": "https://www.msdockville.de/"
     },
     {
       "id": 3,
@@ -181,11 +177,8 @@
         "Unzucht",
         "VNV Nation Classical"
       ],
-      "genres": [
-        "Gothik",
-        "Metal",
-        "Rock"
-      ]
+      "genres": ["Gothik", "Metal", "Rock"],
+      "link": "https://meraluna.de/de/"
     },
     {
       "id": 4,
@@ -256,10 +249,8 @@
         "ZUGEZOGEN MASKULIN",
         "ZUNA"
       ],
-      "genres": [
-        "Hip Hop",
-        "Raggae"
-      ]
+      "genres": ["Hip Hop", "Raggae"],
+      "link": "https://splash-festival.de/"
     },
     {
       "id": 5,
@@ -353,12 +344,8 @@
         "Yu Su",
         "Zebra Katz"
       ],
-      "genres": [
-        "Electronic",
-        "Alternative",
-        "Indie",
-        "Rock"
-      ]
+      "genres": ["Electronic", "Alternative", "Indie", "Rock"],
+      "link": "https://www.meltfestival.de/"
     },
     {
       "id": 6,
@@ -478,10 +465,8 @@
         "Wolves In The Throne Room",
         "Wormrot "
       ],
-      "genres": [
-        "Metal",
-        "Rock"
-      ]
+      "genres": ["Metal", "Rock"],
+      "link": "https://www.wacken.com/de/"
     },
     {
       "id": 7,
@@ -558,12 +543,8 @@
         "Weezer",
         "Yungblud"
       ],
-      "genres": [
-        "Rock",
-        "Punk",
-        "Alternative",
-        "Metal"
-      ]
+      "genres": ["Rock", "Punk", "Alternative", "Metal"],
+      "link": "https://www.rock-am-ring.com/"
     },
     {
       "id": 8,
@@ -644,11 +625,8 @@
         "While She Sleeps",
         "Wolf Alice"
       ],
-      "genres": [
-        "Alternative",
-        "Electronic",
-        "Rock"
-      ]
+      "genres": ["Alternative", "Electronic", "Rock"],
+      "link": "https://hurricane.de/de/"
     },
     {
       "id": 9,
@@ -684,11 +662,8 @@
         "SDP",
         "While She Sleeps"
       ],
-      "genres": [
-        "Indie",
-        "Punk",
-        "Rock"
-      ]
+      "genres": ["Indie", "Punk", "Rock"],
+      "link": "https://taubertal-festival.de/"
     },
     {
       "id": 10,
@@ -742,9 +717,8 @@
         "Vini Vici",
         "Wehbba"
       ],
-      "genres": [
-        "Electronic"
-      ]
+      "genres": ["Electronic"],
+      "link": "https://sonnemondsterne.de/"
     }
   ]
 }

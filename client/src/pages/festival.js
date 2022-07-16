@@ -12,11 +12,12 @@ import Loading from '../components/Loading';
 import Ticket from '../assets/Ticket';
 import Favourite from '../assets/Favourite';
 import FestivalDetailHeader from '../components/FestivalDetailHeader';
-import CTAButton from '../components/CTAButton';
+import CTAButton from '../components/buttons/CTAButton';
 import Checkbox from '../components/Checkbox';
 import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
 import { usePersistentSessionState } from '../hooks/usePersistentState';
+import Toast from '../components/Toast';
 
 /* STYLES */
 
@@ -35,6 +36,7 @@ function Details({ userLoggedIn }) {
   const { status, data: festivaldata } = useQuery('festival', getFestivalbyId);
   const [selectedGenres] = usePersistentSessionState('SelectedGenres', []);
   const [loginSwitch, setLoginSwitch] = useState(false);
+  const [toastOpen, setToastOpen] = useState(false);
 
   async function getFestivalbyId() {
     const response = await fetch(`/api/festivals?id=${festivalId}`);
@@ -67,8 +69,16 @@ function Details({ userLoggedIn }) {
     setShowing(!isShowing);
   };
 
+  const triggerToast = () => {
+    setToastOpen(true);
+  };
+
+  const hideToast = () => {
+    setToastOpen(false);
+  };
+
   const handleLogin = () => {
-    if (loginSwitch == false) {
+    if (loginSwitch === false) {
       setLoginSwitch(true);
     } else {
       setLoginSwitch(false);
@@ -110,32 +120,34 @@ function Details({ userLoggedIn }) {
                   genres={selects}
                 />
                 <FestivalLineup artists={festival.artists} />
+                <ButtonContainer>
+                  {userLoggedIn ? (
+                    <Checkbox
+                      label="Add to Favourites"
+                      icon={<Favourite />}
+                      onClick={triggerToast}
+                    />
+                  ) : (
+                    <CTAButton onClick={openModal}>
+                      <Favourite />
+                      &ensp;Add to Favourites
+                    </CTAButton>
+                  )}
+                  <a href={festival.link} rel="noreferrer" target="_blank">
+                    <CTAButton>
+                      <Ticket />
+                      &ensp;Buy Tickets
+                    </CTAButton>
+                  </a>
+                </ButtonContainer>
+                <Toast
+                  isOpen={toastOpen}
+                  borderColor={calculateIconValue(festival.quote)}
+                  hideToast={hideToast}
+                  text="Saved as Favourite!"
+                />
               </div>
             ))}
-            <ButtonContainer>
-              {userLoggedIn ? (
-                <Checkbox
-                  label="Add to Favourites"
-                  icon={<Favourite />}
-                  onClick={() => alert('Saved!')}
-                />
-              ) : (
-                <CTAButton onClick={openModal}>
-                  <Favourite />
-                  &ensp;Add to Favourites
-                </CTAButton>
-              )}
-              <CTAButton
-                onClick={() =>
-                  alert(
-                    'Look, this is awkward, but... did you really think there are tickets sold for festivals in 2020?'
-                  )
-                }
-              >
-                <Ticket />
-                &ensp;Buy Tickets
-              </CTAButton>
-            </ButtonContainer>
           </div>
         </AnimationContainer>
       </Content>
