@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './themes/GlobalStyles';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import SplashAnimation from './pages/splash';
 import Welcome from './pages/Welcome';
 import Genres from './pages/genres';
@@ -39,7 +39,6 @@ function App() {
             </Route>
 
             <Route component={ErrorState} />
-
           </Switch>
         </Router>
       </ThemeProvider>
