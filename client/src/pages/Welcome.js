@@ -6,8 +6,8 @@ import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import ThemeSwitch from '../components/ThemeSwitch';
 import CreateModal from '../components/modals/CreateModal';
+import Toggle from '../components/Toggle';
 
 const Container = styled.div`
   display: flex;
@@ -119,7 +119,7 @@ function Welcome({ onThemeChange, theme }) {
             </Form>
             <SwitchContainer>
               <SwitchText>Switch to Darkmode</SwitchText>
-              <ThemeSwitch onChange={onThemeChange} value={theme} />
+              <Toggle checked={theme} toggleHandler={onThemeChange} />
             </SwitchContainer>
             <LoginLink>
               <LoginText>Already have an Account?</LoginText>

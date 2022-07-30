@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
+import { brightmode, darkmode } from '../themes/theme';
 
 const ToggleContainer = styled.div`
   position: relative;
@@ -38,10 +39,18 @@ const HiddenInput = styled.input`
 `;
 
 const Toggle = ({ checked, toggleHandler }) => {
+  const handleClick = () => {
+    if (checked === brightmode) {
+      toggleHandler(darkmode);
+    } else {
+      toggleHandler(brightmode);
+    }
+  };
+
   return (
-    <ToggleContainer onClick={toggleHandler}>
-      <ToggleBody checked={checked} />
-      <ToggleCircle checked={checked} />
+    <ToggleContainer onClick={handleClick}>
+      <ToggleBody checked={checked === darkmode} />
+      <ToggleCircle checked={checked === darkmode} />
       <HiddenInput
         type="button"
         role="switch"
