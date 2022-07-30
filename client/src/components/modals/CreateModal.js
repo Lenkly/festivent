@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import propTypes from 'prop-types';
 import Content from '../layout/Content';
 import Button from '../buttons/Button';
