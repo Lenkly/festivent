@@ -133,7 +133,11 @@ function Details({ userLoggedIn }) {
                       &ensp;Add to Favourites
                     </CTAButton>
                   )}
-                  <a href={festival.link} rel="noreferrer" target="_blank">
+                  <a
+                    href={festival.link}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <CTAButton>
                       <Ticket />
                       &ensp;Buy Tickets
