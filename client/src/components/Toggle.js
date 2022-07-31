@@ -61,7 +61,7 @@ const Toggle = ({ checked, toggleHandler }) => {
 };
 
 Toggle.propTypes = {
-  checked: PropTypes.bool,
+  checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   toggleHandler: PropTypes.func,
 };
 
