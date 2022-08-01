@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import ThemeSwitch from '../components/ThemeSwitch';
+import Toggle from '../components/Toggle';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import ProfileIcon from '../components/ProfileIcon';
@@ -86,7 +86,7 @@ function Settings({ onThemeChange, theme }) {
         </Form>
         <SwitchContainer>
           <SwitchText>Use Darkmode</SwitchText>
-          <ThemeSwitch onChange={onThemeChange} value={theme} />
+          <Toggle checked={theme} toggleHandler={onThemeChange} />
         </SwitchContainer>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button size="Small">Log Out</Button>
