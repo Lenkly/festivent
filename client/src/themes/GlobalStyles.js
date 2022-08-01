@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Global } from '@emotion/core';
 import { Global, css } from '@emotion/react';
 import QuicksandLight from '../assets/QuicksandLight.otf';
 import QuicksandBook from '../assets/QuicksandBook.otf';

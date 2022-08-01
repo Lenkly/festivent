@@ -3,7 +3,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import React from 'react';
 import GlobalStyles from '../src/themes/GlobalStyles';
 import styled from '@emotion/styled';
-import themeDecorator from '../.storybook/themeDecorator';
+import themeDecorator from './themeDecorator';
 
 const Main = styled.div`
   margin: 20px;
