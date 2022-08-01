@@ -49,8 +49,8 @@ const Toggle = ({ checked, toggleHandler }) => {
 
   return (
     <ToggleContainer onClick={handleClick}>
-      <ToggleBody checked={checked} />
-      <ToggleCircle checked={checked} />
+      <ToggleBody checked={checked === darkmode} />
+      <ToggleCircle checked={checked === darkmode} />
       <HiddenInput
         type="button"
         role="switch"

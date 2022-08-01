@@ -6,8 +6,8 @@ import { useHistory } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import Toggle from '../components/Toggle';
 import CreateModal from '../components/modals/CreateModal';
+import Toggle from '../components/Toggle';
 
 const Container = styled.div`
   display: flex;

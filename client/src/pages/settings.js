@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import Toggle from '../components/Toggle';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import ProfileIcon from '../components/ProfileIcon';
@@ -10,6 +9,7 @@ import Button from '../components/buttons/Button';
 import NavigationBar from '../components/NavigationBar';
 import Icon from '../assets/festivent-profile.svg';
 import AnimationContainer from '../components/layout/AnimationContainer';
+import Toggle from '../components/Toggle';
 
 /* STYLES */
 
