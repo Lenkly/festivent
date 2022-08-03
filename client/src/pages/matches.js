@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import usePersistentState from '../hooks/usePersistentState';
 import { fadeIn } from '../animation/fades';
@@ -58,7 +58,7 @@ function compare(a, b) {
 /* CONTENT */
 
 function Matchlist() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const greetUser = sessionStorage.getItem('Name') || 'Stranger';
 
@@ -95,7 +95,7 @@ function Matchlist() {
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
 
-    history.push(`/festivals/${selectedFestival}`); //should be the name
+    navigate(`/festivals/${selectedFestival}`); //should be the name
   };
 
   for (const [index] of quotes.entries()) {
@@ -109,7 +109,7 @@ function Matchlist() {
     sessionStorage.removeItem('SelectedGenres');
     sessionStorage.removeItem('selectedFestival');
     sessionStorage.removeItem('selectedFestivalQuote');
-    history.push('/genres');
+    navigate('/genres');
   };
   //maybe rethink the usage of form in this context
   return (
