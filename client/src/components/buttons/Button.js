@@ -79,13 +79,12 @@ const Button = styled.button`
   font-weight: ${(props) => buttonSize[props.size].weight};
   width: ${(props) => buttonSize[props.size].width};
   height: ${(props) => buttonSize[props.size].height};
-  text-transform: uppercase;
   outline: none;
 `;
 
 const buttonSize = {
   Small: {
-    padding: '0.75rem 0 0.5rem',
+    padding: '0.75rem 0',
     fontsize: '1.25rem',
     weight: '400',
     width: '219px',
@@ -93,7 +92,7 @@ const buttonSize = {
     height: 'auto',
   },
   Medium: {
-    padding: '1.125rem 0 0.875rem',
+    padding: '0.875rem 0',
     fontsize: '1.5rem',
     weight: '400',
     width: '280px',
@@ -101,7 +100,7 @@ const buttonSize = {
     height: 'auto',
   },
   Large: {
-    padding: '1rem 0 0.5rem',
+    padding: '1rem 0',
     fontsize: '2.125rem',
     weight: '400',
     width: '280px',

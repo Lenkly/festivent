@@ -57,7 +57,6 @@ const LoginToggle = styled.button`
   font-size: 1rem;
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
-  text-transform: uppercase;
   border: none;
   cursor: pointer;
 `;

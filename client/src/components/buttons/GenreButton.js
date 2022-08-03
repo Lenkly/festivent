@@ -17,7 +17,6 @@ export const GenreButton = styled.button`
   border: none;
   color: ${(props) => props.theme.colors.text};
   font-size: 0.875rem;
-  text-transform: uppercase;
   ${(props) => (props.selected ? selectedStyle : nonselectedStyle(props))}
   border-radius: 16px;
   padding-top: 5px;

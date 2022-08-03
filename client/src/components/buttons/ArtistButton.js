@@ -9,7 +9,6 @@ export const ArtistButton = styled.button`
   color: ${(props) => props.theme.colors.text};
   border: none;
   border-radius: 9px;
-  text-transform: uppercase;
   box-shadow: 0 0 0px 100px ${(props) => props.theme.colors.background};
 `;
 

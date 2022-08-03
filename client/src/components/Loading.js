@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { linearBackground } from '../animation/backgrounds';
 
 const Text = styled.p`
-  text-transform: uppercase;
   background: linear-gradient(
     to right,
     #fff700 0,

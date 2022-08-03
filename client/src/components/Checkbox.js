@@ -16,7 +16,6 @@ const CheckboxLabel = styled.label`
   font-weight: 300;
   font-size: 1.25rem;
   color: ${(props) => props.theme.colors.text};
-  text-transform: uppercase;
   cursor: pointer;
   :hover {
     color: ${(props) => props.theme.colors.texthighlight};

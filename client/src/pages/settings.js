@@ -25,7 +25,6 @@ const ChangeIconButton = styled.button`
   margin-bottom: 0;
   border: none;
   background: none;
-  text-transform: uppercase;
   color: ${(props) => props.theme.colors.text};
   font-weight: 300;
   font-size: 1.25rem;

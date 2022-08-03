@@ -5,7 +5,6 @@ const StyledInput = styled.input`
   display: flex;
   text-align: center;
   color: ${(props) => props.theme.colors.text};
-  text-transform: uppercase;
   background: none;
   width: ${(props) => inputText[props.size].width};
   border: none;
