@@ -1,8 +1,5 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-import QuicksandLight from '../assets/QuicksandLight.otf';
-import QuicksandBook from '../assets/QuicksandBook.otf';
-import Rubik from '../assets/Rubik.ttf';
 
 function GlobalStyles(props) {
   return (
@@ -13,21 +10,6 @@ function GlobalStyles(props) {
         *::before,
         *::after {
           box-sizing: border-box;
-        }
-        @font-face {
-          font-family: 'Quicksand';
-          font-weight: 300;
-          src: url('${QuicksandLight}') format('opentype');
-        }
-        @font-face {
-          font-family: 'Quicksand';
-          font-weight: 400;
-          src: url('${QuicksandBook}') format('opentype');
-        }
-
-        @font-face {
-          font-family: 'Rubik';
-          src: url('${Rubik}') format('truetype');
         }
 
         html {
@@ -58,6 +40,7 @@ function GlobalStyles(props) {
         input {
           font-family: 'Quicksand';
           font-weight: 400;
+          text-transform: uppercase;
           margin: 0;
         }
 

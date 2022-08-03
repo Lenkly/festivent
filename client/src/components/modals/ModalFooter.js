@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 
 const InvisibleButton = styled.button`
-  text-transform: uppercase;
   border: none;
   background: transparent;
   padding: 0;
