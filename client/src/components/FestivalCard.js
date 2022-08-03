@@ -18,14 +18,14 @@ const Festival = styled.div`
 `;
 
 const FestivalTitle = styled.p`
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontsize.l};
   margin: 0px;
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
 `;
 const FestivalInfo = styled.p`
-  font-size: 0.75rem;
+  font-size: ${(props) => props.theme.fontsize.xxs};
   line-height: 1.5;
   margin: 3px 0;
 `;

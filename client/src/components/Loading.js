@@ -20,7 +20,7 @@ const Text = styled.p`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 3rem;
+  font-size: ${(props) => props.theme.fontsize.xxxl};
   animation: ${linearBackground} 50s linear infinite;
 `;
 

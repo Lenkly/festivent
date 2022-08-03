@@ -27,7 +27,7 @@ const ChangeIconButton = styled.button`
   background: none;
   color: ${(props) => props.theme.colors.text};
   font-weight: 300;
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.fontsize.m};
   align-self: flex-end;
   cursor: pointer;
 `;
@@ -40,7 +40,7 @@ const SwitchContainer = styled.div`
 
 const SwitchText = styled.span`
   font-weight: 300;
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.fontsize.m};
   margin-right: 15px;
   padding-top: 5px;
 `;

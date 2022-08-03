@@ -21,7 +21,7 @@ const BackButton = styled.button`
   cursor: pointer;
   color: ${(props) => props.theme.colors.text};
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontsize.l};
 `;
 
 const SecondButton = styled.button`

@@ -26,7 +26,7 @@ function GlobalStyles(props) {
           height: 100vh;
           display: flex;
           justify-content: center;
-          font-size: 1.875rem;
+          font-size: ${theme.fontsize.xl};
           text-transform: uppercase;
           color: ${theme.colors.text};
           background: ${theme.colors.background};
@@ -45,12 +45,12 @@ function GlobalStyles(props) {
         }
 
         h2 {
-          font-size: 1.875rem;
+          font-size: ${theme.fontsize.xl};
           line-height: 1.3;
         }
 
         h3 {
-          font-size: 1.25rem;
+          font-size: ${theme.fontsize.m};
           line-height: 1.5;
         }
       `}

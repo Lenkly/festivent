@@ -21,7 +21,7 @@ const AnimatedHeart = styled.img`
 `;
 
 const AnimatedTitle = styled.h1`
-  font-size: 3rem;
+  font-size: ${(props) => props.theme.fontsize.xxxl};
   letter-spacing: 0.2em;
   text-align: center;
   opacity: 1;

@@ -21,7 +21,7 @@ const WelcomeText = styled.div`
 `;
 
 const NameText = styled.span`
-  font-size: 0.875rem;
+  font-size: ${(props) => props.theme.fontsize.xs};
   margin-top: 8px;
 `;
 
@@ -32,7 +32,7 @@ const SwitchContainer = styled.div`
 `;
 
 const SwitchText = styled.span`
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.fontsize.m};
   margin-right: 15px;
   padding-top: 5px;
 `;
@@ -45,7 +45,7 @@ const LoginLink = styled.div`
 `;
 
 const LoginText = styled.span`
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontsize.s};
   margin-right: 10px;
 `;
 
@@ -54,7 +54,7 @@ const LoginToggle = styled.button`
   background: none;
   text-align: center;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontsize.s};
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
   border: none;
