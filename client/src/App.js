@@ -14,8 +14,9 @@ import { darkmode } from './themes/theme';
 
 function App() {
   const [theme, setTheme] = useState(darkmode);
+
   return (
-    <div>
+    <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Router>
@@ -38,7 +39,7 @@ function App() {
           </Routes>
         </Router>
       </ThemeProvider>
-    </div>
+    </>
   );
 }
 
