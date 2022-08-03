@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Input } from '../components/Input';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
@@ -63,7 +63,7 @@ const LoginToggle = styled.button`
 `;
 
 function Welcome({ onThemeChange, theme }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [user, setUser] = useState(sessionStorage.getItem('Name') || '');
   const inputRef = useRef(null);
   const [isShowing, setShowing] = useState(false);
@@ -91,7 +91,7 @@ function Welcome({ onThemeChange, theme }) {
   const keyboardEnter = (event) => {
     if (event.keyCode === 13) {
       sessionStorage.setItem('Name', user);
-      history.push('/genres');
+      navigate('/genres');
     }
   };
 

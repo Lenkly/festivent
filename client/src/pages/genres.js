@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Content from '../components/layout/Content';
 import getGenres from '../api/getGenres';
 import Button from '../components/buttons/Button';
@@ -52,7 +52,7 @@ const Text = styled.h2`
 
 function Genres() {
   const [matchable, setMatchable] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const { status, data: genredata } = useQuery('genres', getGenres);
   const [selectedGenres, setSelectedGenres] = usePersistentState(
     'SelectedGenres',
@@ -83,7 +83,7 @@ function Genres() {
 
   const handleGenreSubmit = (e) => {
     e.preventDefault();
-    history.push('/festivals');
+    navigate('/festivals');
   };
 
   return (

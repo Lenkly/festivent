@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import Content from '../components/layout/Content';
 import { AgainText, ButtonWrapper } from './matches';
@@ -17,10 +17,10 @@ const AnimatedCalcIcon = styled(CalcIcon)`
 `;
 
 function Errorstate() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleReset = () => {
-    history.push('/welcome');
+    navigate('/welcome');
   };
 
   return (
