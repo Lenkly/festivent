@@ -12,7 +12,7 @@ const CalcIcon = styled.div`
   }};
   border: solid 3px;
   border-radius: 100%;
-  font-size: 1.875rem;
+  font-size: ${(props) => props.theme.fontsize.xl};
   color: ${(props) => calcColor[props.color].colors};
   background: none;
   font-family: 'Rubik', sans-serif;

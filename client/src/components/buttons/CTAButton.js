@@ -5,7 +5,7 @@ const CTAButton = styled.button`
   background: none;
   text-align: center;
   font-weight: 300;
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.fontsize.m};
   color: ${(props) => props.theme.colors.text};
   border: none;
   cursor: pointer;

@@ -31,7 +31,7 @@ const Text = styled.h2`
 `;
 
 export const AgainText = styled(Text)`
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontsize.l};
   text-align: center;
   padding-top: 10px;
 `;

@@ -18,14 +18,14 @@ const LoginLink = styled.div`
 
 const LoginText = styled.p`
   font-weight: 300;
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontsize.s};
   color: ${(props) => props.theme.colors.text};
   margin-right: 10px;
   flex-shrink: 0;
 `;
 
 const LoginToggle = styled(Link)`
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontsize.s};
   font-weight: 300;
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};

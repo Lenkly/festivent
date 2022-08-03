@@ -17,7 +17,7 @@ const FestivalData = styled.h3`
 `;
 
 const FestivalIntroduction = styled.div`
-  font-size: 0.75rem;
+  font-size: ${(props) => props.theme.fontsize.xxs};
   font-weight: 300;
   line-height: 1.5;
   margin-bottom: 40px;

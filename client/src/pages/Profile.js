@@ -25,7 +25,7 @@ const UserName = styled.div`
 const UserDetail = styled.div`
   text-align: center;
   font-weight: 300;
-  font-size: 0.875rem;
+  font-size: ${(props) => props.theme.fontsize.xs};
   margin-bottom: 30px;
 `;
 

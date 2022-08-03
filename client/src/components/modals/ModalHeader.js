@@ -31,7 +31,7 @@ const Logo = styled.img`
 
 const TeaserText = styled.p`
   text-align: center;
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.fontsize.m};
   line-height: 1.3;
 `;
 
