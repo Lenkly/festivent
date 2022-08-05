@@ -46,6 +46,7 @@
     "@storybook/preset-create-react-app": "2.1.1",
     "@storybook/react": "5.3.18",
     "@storybook/theming": "6.2.9",
+    "react-error-overlay": "^6.0.9",
     "storybook-addon-themes": "5.4.1"
   },
   "proxy": "http://localhost:8080"
