@@ -31,7 +31,7 @@ const ToastText = styled.span`
   display: inline-block;
   font-size: ${(props) => props.theme.fontsize.s};
   color: ${(props) => props.theme.colors.text};
-  font-weight: 400;
+  font-weight: ${(props) => props.theme.fontweight.normal};
   margin-right: 20px;
 `;
 

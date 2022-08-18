@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   font-size: ${(props) => inputText[props.size].fontsize};
   font-weight: ${(props) => inputText[props.size].weight};
   &::placeholder {
-    font-weight: 300;
+    font-weight: ${(props) => props.theme.fontweight.light};
     color: #707070;
     text-align: center;
   }

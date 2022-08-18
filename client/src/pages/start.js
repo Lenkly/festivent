@@ -10,7 +10,7 @@ import { shiftUp } from '../animation/shifts';
 
 const WelcomeText = styled.h2`
   font-size: ${(props) => props.theme.fontsize.xxl};
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
 `;
 
 const UserText = styled.h2`
@@ -47,7 +47,7 @@ const LoginToggle = styled.button`
   text-align: center;
   background: transparent;
   border: none;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.s};
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};

@@ -45,7 +45,7 @@ const LoginToggle = styled.button`
   width: auto;
   background: none;
   text-align: center;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.s};
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};

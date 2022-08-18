@@ -20,7 +20,7 @@ const BackButton = styled.button`
   border: none;
   cursor: pointer;
   color: ${(props) => props.theme.colors.text};
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.l};
 `;
 

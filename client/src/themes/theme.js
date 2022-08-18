@@ -19,6 +19,10 @@ export const brightmode = {
     xxxl: '3rem',
     xxxxl: '3.125rem',
   },
+  fontweight: {
+    light: '300',
+    normal: '400',
+  },
 };
 
 export const darkmode = {
@@ -41,5 +45,9 @@ export const darkmode = {
     xxl: '2.125rem',
     xxxl: '3rem',
     xxxxl: '3.125rem',
+  },
+  fontweight: {
+    light: '300',
+    normal: '400',
   },
 };

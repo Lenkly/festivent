@@ -24,7 +24,7 @@ const CardContainer = styled.div`
 const Text = styled.h2`
   display: flex;
   flex-wrap: wrap;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   padding-top: 80px;
   margin-bottom: 25px;
 `;

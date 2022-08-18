@@ -42,7 +42,7 @@ const Text = styled.h2`
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-top: 80px;
   margin-bottom: 25px;
 `;
