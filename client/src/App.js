@@ -9,6 +9,7 @@ import Details from './pages/festival';
 import Matchlist from './pages/matches';
 import Profile from './pages/Profile';
 import Settings from './pages/settings';
+import Start from './pages/start';
 import ErrorState from './pages/errorstate';
 import { darkmode } from './themes/theme';
 
@@ -26,6 +27,11 @@ function App() {
               exact
               path="welcome"
               element={<Welcome onThemeChange={setTheme} theme={theme} />}
+            />
+            <Route
+              exact
+              path="start"
+              element={<Start onThemeChange={setTheme} theme={theme} />}
             />
             <Route exact path="genres" element={<Genres />} />
             <Route exact path="festivals/:festivalId" element={<Details />} />

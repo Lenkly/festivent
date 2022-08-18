@@ -17,7 +17,7 @@ const LoginLink = styled.div`
 `;
 
 const LoginText = styled.p`
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.s};
   color: ${(props) => props.theme.colors.text};
   margin-right: 10px;
@@ -26,7 +26,7 @@ const LoginText = styled.p`
 
 const LoginToggle = styled(Link)`
   font-size: ${(props) => props.theme.fontsize.s};
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
   cursor: pointer;

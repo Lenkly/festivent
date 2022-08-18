@@ -1,8 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import Content from '../components/layout/Content';
-import Form from '../components/layout/Form';
+import { Content, Form } from '../components/layout/Containers';
 import ProfileIcon from '../components/ProfileIcon';
 import { SettingsInput } from '../components/Input';
 import Button from '../components/buttons/Button';
@@ -26,7 +25,7 @@ const ChangeIconButton = styled.button`
   border: none;
   background: none;
   color: ${(props) => props.theme.colors.text};
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.m};
   align-self: flex-end;
   cursor: pointer;
@@ -39,7 +38,7 @@ const SwitchContainer = styled.div`
 `;
 
 const SwitchText = styled.span`
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.m};
   margin-right: 15px;
   padding-top: 5px;

@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import Content from '../components/layout/Content';
+import { Content, Form } from '../components/layout/Containers';
 import getGenres from '../api/getGenres';
 import Button from '../components/buttons/Button';
 import { ChooseGenreButton } from '../components/buttons/GenreButton';
 import usePersistentState from '../hooks/usePersistentState';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
-import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
 
 /* STYLES */
@@ -43,7 +42,7 @@ const Text = styled.h2`
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-top: 80px;
   margin-bottom: 25px;
 `;

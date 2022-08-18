@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
 import { getUser } from '../api/getUser';
-import Content from '../components/layout/Content';
+import { Content } from '../components/layout/Containers';
 import NavigationBar from '../components/NavigationBar';
 import ProfileIcon from '../components/ProfileIcon';
 import Icon from '../assets/festivent-profile.svg';
@@ -24,7 +24,7 @@ const UserName = styled.div`
 
 const UserDetail = styled.div`
   text-align: center;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.xs};
   margin-bottom: 30px;
 `;

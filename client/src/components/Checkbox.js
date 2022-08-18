@@ -13,7 +13,7 @@ const CheckboxWrapper = styled.button`
 
 const CheckboxLabel = styled.label`
   text-align: center;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   font-size: ${(props) => props.theme.fontsize.m};
   color: ${(props) => props.theme.colors.text};
   cursor: pointer;

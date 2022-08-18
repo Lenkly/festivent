@@ -22,7 +22,7 @@ function GlobalStyles(props) {
 
         body {
           font-family: 'Quicksand';
-          font-weight: 400;
+          font-weight: ${theme.fontweight.normal};
           height: 100vh;
           display: flex;
           justify-content: center;
@@ -39,7 +39,7 @@ function GlobalStyles(props) {
         button,
         input {
           font-family: 'Quicksand';
-          font-weight: 400;
+          font-weight: ${theme.fontweight.normal};
           text-transform: uppercase;
           margin: 0;
         }

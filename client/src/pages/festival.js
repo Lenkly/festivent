@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import styled from '@emotion/styled';
-import Content from '../components/layout/Content';
+import { Content } from '../components/layout/Containers';
 import NavigationBar from '../components/NavigationBar';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import calculateIconValue from '../lib/calculateIconValue';

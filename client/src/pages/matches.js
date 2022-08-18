@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import usePersistentState from '../hooks/usePersistentState';
 import { fadeIn } from '../animation/fades';
-import Content from '../components/layout/Content';
-import Form from '../components/layout/Form';
+import { Content, Form } from '../components/layout/Containers';
 import Button from '../components/buttons/Button';
 import FestivalCard from '../components/FestivalCard';
 import AnimationContainer from '../components/layout/AnimationContainer';
@@ -25,7 +24,7 @@ const CardContainer = styled.div`
 const Text = styled.h2`
   display: flex;
   flex-wrap: wrap;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   padding-top: 80px;
   margin-bottom: 25px;
 `;
