@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import Content from '../components/layout/Content';
+import { Content } from '../components/layout/Containers';
 import { AgainText, ButtonWrapper } from './matches';
 import Button from '../components/buttons/Button';
 import CalcIcon from '../components/CalcIcon';

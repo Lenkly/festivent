@@ -1,8 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import Content from '../components/layout/Content';
-import Form from '../components/layout/Form';
+import { Content, Form } from '../components/layout/Containers';
 import ProfileIcon from '../components/ProfileIcon';
 import { SettingsInput } from '../components/Input';
 import Button from '../components/buttons/Button';

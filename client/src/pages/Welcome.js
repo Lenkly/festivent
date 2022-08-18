@@ -3,18 +3,10 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Input } from '../components/Input';
 import { useNavigate } from 'react-router-dom';
-import Content from '../components/layout/Content';
-import Form from '../components/layout/Form';
+import { Content, Form, Container } from '../components/layout/Containers';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import CreateModal from '../components/modals/CreateModal';
 import Toggle from '../components/Toggle';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 300;
-`;
 
 const WelcomeText = styled.div`
   padding-top: 255px;

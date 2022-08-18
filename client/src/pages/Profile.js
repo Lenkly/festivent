@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
 import { getUser } from '../api/getUser';
-import Content from '../components/layout/Content';
+import { Content } from '../components/layout/Containers';
 import NavigationBar from '../components/NavigationBar';
 import ProfileIcon from '../components/ProfileIcon';
 import Icon from '../assets/festivent-profile.svg';
