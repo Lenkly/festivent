@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import styled from '@emotion/styled';
-import { Content } from '../components/layout/Containers';
+import { FlexColumn, Content } from '../components/layout/Containers';
 import NavigationBar from '../components/NavigationBar';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import calculateIconValue from '../lib/calculateIconValue';
@@ -21,10 +21,7 @@ import Toast from '../components/Toast';
 
 /* STYLES */
 
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+const ButtonContainer = styled(FlexColumn)`
   padding-top: 43px;
 `;
 
@@ -120,7 +117,7 @@ function Details({ userLoggedIn }) {
                   genres={selects}
                 />
                 <FestivalLineup artists={festival.artists} />
-                <ButtonContainer>
+                <ButtonContainer align="Start">
                   {userLoggedIn ? (
                     <Checkbox
                       label="Add to Favourites"

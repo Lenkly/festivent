@@ -2,14 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { fadeOut } from '../animation/fades';
 import Heart from '../assets/festivent-start.png';
+import { FlexColumn } from './layout/Containers';
 
-const AnimationContainer = styled.div`
+const AnimationContainer = styled(FlexColumn)`
   margin-top: 110px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 `;
 
 const AnimatedHeart = styled.img`
@@ -31,7 +29,7 @@ const AnimatedTitle = styled.h1`
 
 const StartAnimation = () => {
   return (
-    <AnimationContainer>
+    <AnimationContainer align="Center">
       <AnimatedHeart src={Heart} />
       <AnimatedTitle>FESTIVENT</AnimatedTitle>
     </AnimationContainer>

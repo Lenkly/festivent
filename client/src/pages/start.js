@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-import { Content, Container } from '../components/layout/Containers';
+import { Content, FlexColumn } from '../components/layout/Containers';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import Button from '../components/buttons/Button';
 import { fadeIn } from '../animation/fades';
@@ -18,22 +18,20 @@ const UserText = styled.h2`
   padding-top: 10px;
 `;
 
-const AnimatedGreetings = styled(Container)`
+const AnimatedGreetings = styled(FlexColumn)`
   padding-top: 300px;
   height: 45vh;
   animation: ${shiftUp} 1s ease-in-out forwards 0.5s;
 `;
 
-const AnimatedContainer = styled(Container)`
+const AnimatedContainer = styled(FlexColumn)`
   opacity: 0;
   animation: ${fadeIn} 3s ease-in-out forwards 0.5s;
   cursor: pointer;
 `;
 
-const ButtonSection = styled.section`
+const ButtonSection = styled(FlexColumn)`
   margin: 65px 0 100px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   height: 112px;
 `;
@@ -67,13 +65,13 @@ function Start() {
     <>
       <Content>
         <AnimationContainer>
-          <Container>
-            <AnimatedGreetings>
+          <FlexColumn align="Center">
+            <AnimatedGreetings align="Center">
               <WelcomeText>Welcome</WelcomeText>
               <UserText>{user}</UserText>
             </AnimatedGreetings>
-            <AnimatedContainer>
-              <ButtonSection>
+            <AnimatedContainer align="Center">
+              <ButtonSection align="Center">
                 <Link to="/profile">
                   <Button size="Small">Profile</Button>
                 </Link>
@@ -86,7 +84,7 @@ function Start() {
                 <LoginToggle onClick={handleLogoutClick}>Log Out</LoginToggle>
               </div>
             </AnimatedContainer>
-          </Container>
+          </FlexColumn>
         </AnimationContainer>
       </Content>
     </>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import usePersistentState from '../hooks/usePersistentState';
 import { fadeIn } from '../animation/fades';
-import { Content, Form } from '../components/layout/Containers';
+import { Content, FlexRow, Form } from '../components/layout/Containers';
 import Button from '../components/buttons/Button';
 import FestivalCard from '../components/FestivalCard';
 import AnimationContainer from '../components/layout/AnimationContainer';
@@ -35,8 +35,7 @@ export const AgainText = styled(Text)`
   padding-top: 10px;
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
+export const ButtonWrapper = styled(FlexRow)`
   justify-content: center;
   margin-bottom: 45px;
 `;
@@ -140,7 +139,7 @@ function Matchlist() {
             <AgainText>
               Still Haven&apos;t Found What You Were Looking&nbsp;For?
             </AgainText>
-            <ButtonWrapper>
+            <ButtonWrapper align="Start">
               <Button onClick={handleAgainClick} size="Medium">
                 Match Me Again
               </Button>
@@ -148,18 +147,7 @@ function Matchlist() {
           </AnimationContainer>
         </Form>
       ) : (
-        <AnimationContainer>
-          <div style={{ paddingTop: '200px' }}>
-            <AgainText>
-              This supposedly wasn&apos;t what you were trying to do?
-            </AgainText>
-            <ButtonWrapper>
-              <Button onClick={handleAgainClick} size="Medium">
-                Start Matching!
-              </Button>
-            </ButtonWrapper>
-          </div>
-        </AnimationContainer>
+        <Error />
       )}
     </Content>
   );

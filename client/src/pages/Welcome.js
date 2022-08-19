@@ -3,7 +3,12 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Input } from '../components/Input';
 import { useNavigate } from 'react-router-dom';
-import { Content, Form, Container } from '../components/layout/Containers';
+import {
+  Content,
+  Form,
+  FlexColumn,
+  FlexRow,
+} from '../components/layout/Containers';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import CreateModal from '../components/modals/CreateModal';
 import Toggle from '../components/Toggle';
@@ -20,9 +25,7 @@ const NameText = styled.span`
   margin-top: 8px;
 `;
 
-const SwitchContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+const SwitchContainer = styled(FlexRow)`
   margin-top: 200px;
 `;
 
@@ -32,9 +35,7 @@ const SwitchText = styled.span`
   padding-top: 5px;
 `;
 
-const LoginLink = styled.div`
-  display: flex;
-  align-items: center;
+const LoginLink = styled(FlexRow)`
   justify-content: center;
   margin-top: 20px;
 `;
@@ -98,7 +99,7 @@ function Welcome({ onThemeChange, theme }) {
     <>
       <Content>
         <AnimationContainer>
-          <Container>
+          <FlexColumn align="Center">
             <WelcomeText>Welcome</WelcomeText>
             <Form>
               <Input
@@ -112,15 +113,15 @@ function Welcome({ onThemeChange, theme }) {
               />
               <NameText>Enter Your Name</NameText>
             </Form>
-            <SwitchContainer>
+            <SwitchContainer align="Start">
               <SwitchText>Switch to Darkmode</SwitchText>
               <Toggle checked={theme} toggleHandler={onThemeChange} />
             </SwitchContainer>
-            <LoginLink>
+            <LoginLink align="Center">
               <LoginText>Already have an Account?</LoginText>
               <LoginToggle onClick={openModal}>Log In</LoginToggle>
             </LoginLink>
-          </Container>
+          </FlexColumn>
         </AnimationContainer>
       </Content>
       <CreateModal
