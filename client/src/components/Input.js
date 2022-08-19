@@ -25,7 +25,7 @@ const StyledInput = styled.input`
 const inputText = {
   Name: {
     padding: '25px',
-    fontsize: '1.875rem',
+    fontsize: '2.125rem',
     weight: '300',
     width: '100%',
     lineheight: '1.3',

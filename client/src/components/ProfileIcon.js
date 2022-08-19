@@ -5,7 +5,7 @@ const ProfileIcon = styled.img`
   width: ${(props) => iconSize[props.size].width};
   border: solid #707070;
   border-width: ${(props) => iconSize[props.size].border};
-  border-radius: 100%;
+  border-radius: ${(props) => props.theme.borderradius.round};
   box-shadow: 0 0 0.25em ${(props) => iconSize[props.size].shadowcolor};
 `;
 

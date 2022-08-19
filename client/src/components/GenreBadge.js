@@ -16,7 +16,7 @@ export const StyledBadge = styled.button`
       : props.theme.colors.text};
   background: none;
   font-size: ${(props) => props.theme.fontsize.xxs};
-  border-radius: 20px;
+  border-radius: ${(props) => props.theme.borderradius.medium};
   padding: 5px 10px;
   margin-right: 10px;
   :last-child {

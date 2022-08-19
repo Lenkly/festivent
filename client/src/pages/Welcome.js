@@ -8,12 +8,15 @@ import AnimationContainer from '../components/layout/AnimationContainer';
 import CreateModal from '../components/modals/CreateModal';
 import Toggle from '../components/Toggle';
 
-const WelcomeText = styled.div`
+const WelcomeText = styled.h2`
+  font-size: ${(props) => props.theme.fontsize.xxl};
+  font-weight: ${(props) => props.theme.fontweight.light};
   padding-top: 255px;
 `;
 
 const NameText = styled.span`
   font-size: ${(props) => props.theme.fontsize.xs};
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-top: 8px;
 `;
 
@@ -38,6 +41,7 @@ const LoginLink = styled.div`
 
 const LoginText = styled.span`
   font-size: ${(props) => props.theme.fontsize.s};
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-right: 10px;
 `;
 

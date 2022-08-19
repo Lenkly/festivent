@@ -23,6 +23,14 @@ export const brightmode = {
     light: '300',
     normal: '400',
   },
+  borderradius: {
+    round: '100%',
+    half: '50%',
+    extrasmall: '9px',
+    small: '1rem',
+    medium: '1.25rem',
+    large: '1.875rem',
+  },
 };
 
 export const darkmode = {
@@ -49,5 +57,13 @@ export const darkmode = {
   fontweight: {
     light: '300',
     normal: '400',
+  },
+  borderradius: {
+    round: '100%',
+    half: '50%',
+    extrasmall: '9px',
+    small: '1rem',
+    medium: '1.25rem',
+    large: '1.875rem',
   },
 };
