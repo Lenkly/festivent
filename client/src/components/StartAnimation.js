@@ -2,13 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { fadeOut } from '../animation/fades';
 import Heart from '../assets/festivent-start.png';
-import { FlexColumn } from './layout/Containers';
-
-const AnimationContainer = styled(FlexColumn)`
-  margin-top: 110px;
-  width: 100%;
-  justify-content: center;
-`;
+import { FlexContainer } from './layout/Containers';
 
 const AnimatedHeart = styled.img`
   width: 80%;
@@ -29,10 +23,16 @@ const AnimatedTitle = styled.h1`
 
 const StartAnimation = () => {
   return (
-    <AnimationContainer align="Center">
+    <FlexContainer
+      column
+      alignItems="center"
+      justifyContent="center"
+      width="100%"
+      m="110px 0 0"
+    >
       <AnimatedHeart src={Heart} />
       <AnimatedTitle>FESTIVENT</AnimatedTitle>
-    </AnimationContainer>
+    </FlexContainer>
   );
 };
 

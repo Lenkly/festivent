@@ -2,8 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import { Content } from '../components/layout/Containers';
-import { AgainText, ButtonWrapper } from './matches';
+import { Content, FlexContainer } from '../components/layout/Containers';
+import { AgainText } from './matches';
 import Button from '../components/buttons/Button';
 import CalcIcon from '../components/CalcIcon';
 import { colorChange } from '../animation/backgrounds';
@@ -39,11 +39,11 @@ function Errorstate() {
           <AgainText style={{ marginBottom: '50px' }}>
             Oh no, the page you tried to reach isn&apos;t available!
           </AgainText>
-          <ButtonWrapper>
+          <FlexContainer justifyContent="center" m="0 0 45px">
             <Button onClick={handleReset} size="Medium">
               Bring me back
             </Button>
-          </ButtonWrapper>
+          </FlexContainer>
         </div>
       </AnimationContainer>
     </Content>

@@ -5,15 +5,9 @@ import Heart from '../../assets/festivent-start.png';
 import Close from '../../assets/Close';
 import CloseButton from '../buttons/CloseButton';
 import NavigationBar from '../NavigationBar';
-import { FlexColumn } from '../layout/Containers';
+import { FlexContainer } from '../layout/Containers';
 
-const CloseButtonContainer = styled(FlexColumn)`
-  justify-content: flex-end;
-  height: 45px;
-  width: 100%;
-`;
-
-const TeaserContainer = styled(FlexColumn)`
+const TeaserContainer = styled(FlexContainer)`
   flex-wrap: wrap;
   justify-content: center;
   padding-top: ${(props) => (props.forSignUp ? '55px' : '155px')};
@@ -35,11 +29,16 @@ function ModalHeader({ renderOnModal, onSignUp, closeModal }) {
   return (
     <>
       {renderOnModal ? (
-        <CloseButtonContainer align="End">
+        <FlexContainer
+          alignItems="flex-end"
+          justifyContent="flex-end"
+          width="100%"
+          height="45px"
+        >
           <CloseButton onClick={closeModal}>
             <Close />
           </CloseButton>
-        </CloseButtonContainer>
+        </FlexContainer>
       ) : (
         <NavigationBar />
       )}

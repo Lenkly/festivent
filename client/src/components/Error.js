@@ -1,15 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from '@emotion/styled';
 import AnimationContainer from './layout/AnimationContainer';
 import Button from './buttons/Button';
 import { AgainText } from '../pages/matches';
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 45px;
-`;
+import { FlexContainer } from './layout/Containers';
 
 function Error() {
   const navigate = useNavigate();
@@ -33,11 +27,11 @@ function Error() {
         <AgainText>
           This supposedly wasn&apos;t what you were trying to do?
         </AgainText>
-        <ButtonWrapper>
+        <FlexContainer justifyContent="center" m="0 0 45px">
           <Button onClick={handleAgainClick} size="Medium">
             Start Matching!
           </Button>
-        </ButtonWrapper>
+        </FlexContainer>
       </div>
     </AnimationContainer>
   );

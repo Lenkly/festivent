@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-import { Content, FlexColumn } from '../components/layout/Containers';
+import { Content, FlexContainer } from '../components/layout/Containers';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import Button from '../components/buttons/Button';
 import { fadeIn } from '../animation/fades';
@@ -18,22 +18,14 @@ const UserText = styled.h2`
   padding-top: 10px;
 `;
 
-const AnimatedGreetings = styled(FlexColumn)`
-  padding-top: 300px;
-  height: 45vh;
+const AnimatedGreetings = styled(FlexContainer)`
   animation: ${shiftUp} 1s ease-in-out forwards 0.5s;
 `;
 
-const AnimatedContainer = styled(FlexColumn)`
+const AnimatedContainer = styled(FlexContainer)`
   opacity: 0;
   animation: ${fadeIn} 3s ease-in-out forwards 0.5s;
   cursor: pointer;
-`;
-
-const ButtonSection = styled(FlexColumn)`
-  margin: 65px 0 100px;
-  justify-content: space-between;
-  height: 112px;
 `;
 
 const LoginText = styled.span`
@@ -65,26 +57,37 @@ function Start() {
     <>
       <Content>
         <AnimationContainer>
-          <FlexColumn align="Center">
-            <AnimatedGreetings align="Center">
+          <FlexContainer column alignItems="center">
+            <AnimatedGreetings
+              column
+              alignItems="center"
+              height="45vh"
+              p="300px 0 0"
+            >
               <WelcomeText>Welcome</WelcomeText>
               <UserText>{user}</UserText>
             </AnimatedGreetings>
-            <AnimatedContainer align="Center">
-              <ButtonSection align="Center">
+            <AnimatedContainer column alignItems="center">
+              <FlexContainer
+                column
+                alignItems="center"
+                m="65px 0 100px"
+                height="112px"
+                justifyContent="space-between"
+              >
                 <Link to="/profile">
                   <Button size="Small">Profile</Button>
                 </Link>
                 <Link to="/genres">
                   <Button size="Small">New Match</Button>
                 </Link>
-              </ButtonSection>
+              </FlexContainer>
               <div style={{ paddingTop: '20px' }}>
                 <LoginText>Not you?</LoginText>
                 <LoginToggle onClick={handleLogoutClick}>Log Out</LoginToggle>
               </div>
             </AnimatedContainer>
-          </FlexColumn>
+          </FlexContainer>
         </AnimationContainer>
       </Content>
     </>

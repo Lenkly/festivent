@@ -3,12 +3,7 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Input } from '../components/Input';
 import { useNavigate } from 'react-router-dom';
-import {
-  Content,
-  Form,
-  FlexColumn,
-  FlexRow,
-} from '../components/layout/Containers';
+import { Content, Form, FlexContainer } from '../components/layout/Containers';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import CreateModal from '../components/modals/CreateModal';
 import Toggle from '../components/Toggle';
@@ -25,19 +20,10 @@ const NameText = styled.span`
   margin-top: 8px;
 `;
 
-const SwitchContainer = styled(FlexRow)`
-  margin-top: 200px;
-`;
-
 const SwitchText = styled.span`
   font-size: ${(props) => props.theme.fontsize.m};
   margin-right: 15px;
   padding-top: 5px;
-`;
-
-const LoginLink = styled(FlexRow)`
-  justify-content: center;
-  margin-top: 20px;
 `;
 
 const LoginText = styled.span`
@@ -99,7 +85,7 @@ function Welcome({ onThemeChange, theme }) {
     <>
       <Content>
         <AnimationContainer>
-          <FlexColumn align="Center">
+          <FlexContainer column alignItems="center">
             <WelcomeText>Welcome</WelcomeText>
             <Form>
               <Input
@@ -113,15 +99,19 @@ function Welcome({ onThemeChange, theme }) {
               />
               <NameText>Enter Your Name</NameText>
             </Form>
-            <SwitchContainer align="Start">
+            <FlexContainer m="200px 0 0">
               <SwitchText>Switch to Darkmode</SwitchText>
               <Toggle checked={theme} toggleHandler={onThemeChange} />
-            </SwitchContainer>
-            <LoginLink align="Center">
+            </FlexContainer>
+            <FlexContainer
+              alignItems="center"
+              justifyContent="center"
+              m="20px 0 0"
+            >
               <LoginText>Already have an Account?</LoginText>
               <LoginToggle onClick={openModal}>Log In</LoginToggle>
-            </LoginLink>
-          </FlexColumn>
+            </FlexContainer>
+          </FlexContainer>
         </AnimationContainer>
       </Content>
       <CreateModal
