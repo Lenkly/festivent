@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { linearBackground } from '../../animation/backgrounds';
 
 const disabledStyle = css`
@@ -35,7 +35,7 @@ const enabledStyle = (props) => css`
   }
   color: ${props.theme.colors.text};
   border: double 2px transparent;
-  border-radius: 1rem;
+  border-radius: ${props.theme.borderradius.small};
 `;
 
 const loginStyle = (props) => css`
@@ -64,7 +64,7 @@ const loginStyle = (props) => css`
   }
   color: ${props.theme.colors.text};
   border: double 2px transparent;
-  border-radius: 1rem;
+  border-radius: ${props.theme.borderradius.small};
 `;
 
 const Button = styled.button`
@@ -79,13 +79,12 @@ const Button = styled.button`
   font-weight: ${(props) => buttonSize[props.size].weight};
   width: ${(props) => buttonSize[props.size].width};
   height: ${(props) => buttonSize[props.size].height};
-  text-transform: uppercase;
   outline: none;
 `;
 
 const buttonSize = {
   Small: {
-    padding: '0.75rem 0 0.5rem',
+    padding: '0.5rem 0',
     fontsize: '1.25rem',
     weight: '400',
     width: '219px',
@@ -93,7 +92,7 @@ const buttonSize = {
     height: 'auto',
   },
   Medium: {
-    padding: '1.125rem 0 0.875rem',
+    padding: '0.75rem 0',
     fontsize: '1.5rem',
     weight: '400',
     width: '280px',
@@ -101,7 +100,7 @@ const buttonSize = {
     height: 'auto',
   },
   Large: {
-    padding: '1rem 0 0.5rem',
+    padding: '0.5rem 0',
     fontsize: '2.125rem',
     weight: '400',
     width: '280px',

@@ -5,7 +5,6 @@ const StyledInput = styled.input`
   display: flex;
   text-align: center;
   color: ${(props) => props.theme.colors.text};
-  text-transform: uppercase;
   background: none;
   width: ${(props) => inputText[props.size].width};
   border: none;
@@ -16,7 +15,7 @@ const StyledInput = styled.input`
   font-size: ${(props) => inputText[props.size].fontsize};
   font-weight: ${(props) => inputText[props.size].weight};
   &::placeholder {
-    font-weight: 300;
+    font-weight: ${(props) => props.theme.fontweight.light};
     color: #707070;
     text-align: center;
   }
@@ -26,7 +25,7 @@ const StyledInput = styled.input`
 const inputText = {
   Name: {
     padding: '25px',
-    fontsize: '1.875rem',
+    fontsize: '2.125rem',
     weight: '300',
     width: '100%',
     lineheight: '1.3',

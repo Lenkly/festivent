@@ -6,7 +6,7 @@ import Close from '../assets/Close';
 import calcColor from '../lib/calcColor';
 
 const ToastContainer = styled.div`
-  border-radius: 20px;
+  border-radius: ${(props) => props.theme.borderradius.medium};
   border: 1px solid;
   border-color: ${(props) => calcColor[props.borderColor].colors};
   overflow: hidden;
@@ -29,9 +29,9 @@ const ToastBody = styled.div`
 
 const ToastText = styled.span`
   display: inline-block;
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontsize.s};
   color: ${(props) => props.theme.colors.text};
-  font-weight: 400;
+  font-weight: ${(props) => props.theme.fontweight.normal};
   margin-right: 20px;
 `;
 

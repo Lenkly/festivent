@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import Content from '../components/layout/Content';
-import { AgainText, ButtonWrapper } from './matches';
+import { Content, FlexContainer } from '../components/layout/Containers';
+import { AgainText } from './matches';
 import Button from '../components/buttons/Button';
 import CalcIcon from '../components/CalcIcon';
 import { colorChange } from '../animation/backgrounds';
@@ -11,16 +11,16 @@ import { colorChange } from '../animation/backgrounds';
 const AnimatedCalcIcon = styled(CalcIcon)`
   height: 150px;
   width: 150px;
-  font-size: 3.125rem;
+  font-size: ${(props) => props.theme.fontsize.xxxxl};
   box-shadow: 0 0 0.42em;
   animation: ${colorChange} 20s infinite alternate;
 `;
 
 function Errorstate() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleReset = () => {
-    history.push('/welcome');
+    navigate('/welcome');
   };
 
   return (
@@ -39,11 +39,11 @@ function Errorstate() {
           <AgainText style={{ marginBottom: '50px' }}>
             Oh no, the page you tried to reach isn&apos;t available!
           </AgainText>
-          <ButtonWrapper>
+          <FlexContainer justifyContent="center" m="0 0 45px">
             <Button onClick={handleReset} size="Medium">
               Bring me back
             </Button>
-          </ButtonWrapper>
+          </FlexContainer>
         </div>
       </AnimationContainer>
     </Content>

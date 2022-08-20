@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import propTypes from 'prop-types';
-import Content from '../layout/Content';
+import { Content, Form } from '../layout/Containers';
 import Button from '../buttons/Button';
 import { Input } from '../Input';
-import Form from '../layout/Form';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { addUser } from '../../api/getUser';
 import ModalHeader from './ModalHeader';
@@ -48,7 +47,7 @@ function CreateModal({
   loginState,
   handleSwitch,
 }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -57,7 +56,7 @@ function CreateModal({
   async function handleSignUpSubmit(event) {
     event.preventDefault();
     await newUser({ userName, userEmail, userPassword });
-    history.push(`/profile/${newUser.id}`);
+    navigate(`/profile/${newUser.id}`);
     // alert('a new User has been created:' + userName);
   }
 
@@ -106,7 +105,7 @@ function CreateModal({
                   <ModalFooter
                     buttonClick={handleSwitch}
                     loginText={`Don't have an Account?`}
-                    toggleLink="#"
+                    toggleLink="."
                     toggleText="Sign Up"
                   />
                 </>
@@ -153,7 +152,7 @@ function CreateModal({
                   <ModalFooter
                     buttonClick={handleSwitch}
                     loginText="Already have an Account?"
-                    toggleLink="#"
+                    toggleLink="."
                     toggleText="Log In"
                   />
                 </>

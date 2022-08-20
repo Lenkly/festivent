@@ -11,8 +11,8 @@ const CalcIcon = styled.div`
     return calcColor[props.color].colors;
   }};
   border: solid 3px;
-  border-radius: 100%;
-  font-size: 1.875rem;
+  border-radius: ${(props) => props.theme.borderradius.round};
+  font-size: ${(props) => props.theme.fontsize.xl};
   color: ${(props) => calcColor[props.color].colors};
   background: none;
   font-family: 'Rubik', sans-serif;

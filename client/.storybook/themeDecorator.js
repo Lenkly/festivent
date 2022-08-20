@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import { brightmode } from '../src/themes/theme';
 
 const ThemeDecorator = (storyFn) => (

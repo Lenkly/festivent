@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useQuery } from 'react-query';
-import { useHistory } from 'react-router-dom';
-import Content from '../components/layout/Content';
+import { useNavigate } from 'react-router-dom';
+import { Content, Form } from '../components/layout/Containers';
 import getGenres from '../api/getGenres';
 import Button from '../components/buttons/Button';
 import { ChooseGenreButton } from '../components/buttons/GenreButton';
 import { usePersistentSessionState } from '../hooks/usePersistentState';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
-import Form from '../components/layout/Form';
 import AnimationContainer from '../components/layout/AnimationContainer';
 
 /* STYLES */
@@ -43,7 +42,7 @@ const Text = styled.h2`
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-top: 80px;
   margin-bottom: 25px;
 `;
@@ -52,7 +51,7 @@ const Text = styled.h2`
 
 function Genres() {
   const [matchable, setMatchable] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const { status, data: genredata } = useQuery('genres', getGenres);
   const [selectedGenres, setSelectedGenres] = usePersistentSessionState(
     'SelectedGenres',
@@ -83,7 +82,7 @@ function Genres() {
 
   const handleGenreSubmit = (e) => {
     e.preventDefault();
-    history.push('/festivals');
+    navigate('/festivals');
   };
 
   return (

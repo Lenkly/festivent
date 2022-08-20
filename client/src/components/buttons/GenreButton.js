@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -16,11 +16,9 @@ export const GenreButton = styled.button`
   height: 44px;
   border: none;
   color: ${(props) => props.theme.colors.text};
-  font-size: 0.875rem;
-  text-transform: uppercase;
+  font-size: ${(props) => props.theme.fontsize.xs};
   ${(props) => (props.selected ? selectedStyle : nonselectedStyle(props))}
-  border-radius: 16px;
-  padding-top: 5px;
+  border-radius: ${(props) => props.theme.borderradius.small};
   margin-top: 10px;
   box-shadow: 0 0 0px 50px ${(props) => props.theme.colors.background};
   cursor: pointer;

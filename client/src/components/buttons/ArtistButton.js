@@ -3,13 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const ArtistButton = styled.button`
-  font-size: 0.75rem;
+  font-size: ${(props) => props.theme.fontsize.xxs};
   background: transparent;
   padding: 9px 8px;
   color: ${(props) => props.theme.colors.text};
   border: none;
-  border-radius: 9px;
-  text-transform: uppercase;
+  border-radius: ${(props) => props.theme.borderradius.extrasmall};
   box-shadow: 0 0 0px 100px ${(props) => props.theme.colors.background};
 `;
 

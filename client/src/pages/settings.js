@@ -1,15 +1,14 @@
 import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import ThemeSwitch from '../components/ThemeSwitch';
-import Content from '../components/layout/Content';
-import Form from '../components/layout/Form';
+import { Content, Form } from '../components/layout/Containers';
 import ProfileIcon from '../components/ProfileIcon';
 import { SettingsInput } from '../components/Input';
 import Button from '../components/buttons/Button';
 import NavigationBar from '../components/NavigationBar';
 import Icon from '../assets/festivent-profile.svg';
 import AnimationContainer from '../components/layout/AnimationContainer';
+import Toggle from '../components/Toggle';
 
 /* STYLES */
 
@@ -25,10 +24,9 @@ const ChangeIconButton = styled.button`
   margin-bottom: 0;
   border: none;
   background: none;
-  text-transform: uppercase;
   color: ${(props) => props.theme.colors.text};
-  font-weight: 300;
-  font-size: 1.25rem;
+  font-weight: ${(props) => props.theme.fontweight.light};
+  font-size: ${(props) => props.theme.fontsize.m};
   align-self: flex-end;
   cursor: pointer;
 `;
@@ -40,8 +38,8 @@ const SwitchContainer = styled.div`
 `;
 
 const SwitchText = styled.span`
-  font-weight: 300;
-  font-size: 1.25rem;
+  font-weight: ${(props) => props.theme.fontweight.light};
+  font-size: ${(props) => props.theme.fontsize.m};
   margin-right: 15px;
   padding-top: 5px;
 `;
@@ -86,7 +84,7 @@ function Settings({ onThemeChange, theme }) {
         </Form>
         <SwitchContainer>
           <SwitchText>Use Darkmode</SwitchText>
-          <ThemeSwitch onChange={onThemeChange} value={theme} />
+          <Toggle checked={theme} toggleHandler={onThemeChange} />
         </SwitchContainer>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button size="Small">Log Out</Button>

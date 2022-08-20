@@ -1,8 +1,5 @@
 import React from 'react';
-import { Global, css } from '@emotion/core';
-import QuicksandLight from '../assets/QuicksandLight.otf';
-import QuicksandBook from '../assets/QuicksandBook.otf';
-import Rubik from '../assets/Rubik.ttf';
+import { Global, css } from '@emotion/react';
 
 function GlobalStyles(props) {
   return (
@@ -13,21 +10,6 @@ function GlobalStyles(props) {
         *::before,
         *::after {
           box-sizing: border-box;
-        }
-        @font-face {
-          font-family: 'Quicksand';
-          font-weight: 300;
-          src: url('${QuicksandLight}') format('opentype');
-        }
-        @font-face {
-          font-family: 'Quicksand';
-          font-weight: 400;
-          src: url('${QuicksandBook}') format('opentype');
-        }
-
-        @font-face {
-          font-family: 'Rubik';
-          src: url('${Rubik}') format('truetype');
         }
 
         html {
@@ -40,11 +22,11 @@ function GlobalStyles(props) {
 
         body {
           font-family: 'Quicksand';
-          font-weight: 400;
+          font-weight: ${theme.fontweight.normal};
           height: 100vh;
           display: flex;
           justify-content: center;
-          font-size: 1.875rem;
+          font-size: ${theme.fontsize.xl};
           text-transform: uppercase;
           color: ${theme.colors.text};
           background: ${theme.colors.background};
@@ -57,17 +39,18 @@ function GlobalStyles(props) {
         button,
         input {
           font-family: 'Quicksand';
-          font-weight: 400;
+          font-weight: ${theme.fontweight.normal};
+          text-transform: uppercase;
           margin: 0;
         }
 
         h2 {
-          font-size: 1.875rem;
+          font-size: ${theme.fontsize.xl};
           line-height: 1.3;
         }
 
         h3 {
-          font-size: 1.25rem;
+          font-size: ${theme.fontsize.m};
           line-height: 1.5;
         }
       `}

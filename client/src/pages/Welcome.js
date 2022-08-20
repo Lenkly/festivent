@@ -2,50 +2,33 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Input } from '../components/Input';
-import { useHistory } from 'react-router-dom';
-import Content from '../components/layout/Content';
-import Form from '../components/layout/Form';
+import { useNavigate } from 'react-router-dom';
+import { Content, Form, FlexContainer } from '../components/layout/Containers';
 import AnimationContainer from '../components/layout/AnimationContainer';
-import ThemeSwitch from '../components/ThemeSwitch';
 import CreateModal from '../components/modals/CreateModal';
+import Toggle from '../components/Toggle';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 300;
-`;
-
-const WelcomeText = styled.div`
+const WelcomeText = styled.h2`
+  font-size: ${(props) => props.theme.fontsize.xxl};
+  font-weight: ${(props) => props.theme.fontweight.light};
   padding-top: 255px;
 `;
 
 const NameText = styled.span`
-  font-size: 0.875rem;
+  font-size: ${(props) => props.theme.fontsize.xs};
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-top: 8px;
 `;
 
-const SwitchContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 200px;
-`;
-
 const SwitchText = styled.span`
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.fontsize.m};
   margin-right: 15px;
   padding-top: 5px;
 `;
 
-const LoginLink = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-`;
-
 const LoginText = styled.span`
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontsize.s};
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-right: 10px;
 `;
 
@@ -53,17 +36,16 @@ const LoginToggle = styled.button`
   width: auto;
   background: none;
   text-align: center;
-  font-weight: 300;
-  font-size: 1rem;
+  font-weight: ${(props) => props.theme.fontweight.light};
+  font-size: ${(props) => props.theme.fontsize.s};
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
-  text-transform: uppercase;
   border: none;
   cursor: pointer;
 `;
 
 function Welcome({ onThemeChange, theme }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [user, setUser] = useState(sessionStorage.getItem('Name') || '');
   const inputRef = useRef(null);
   const [isShowing, setShowing] = useState(false);
@@ -91,7 +73,7 @@ function Welcome({ onThemeChange, theme }) {
   const keyboardEnter = (event) => {
     if (event.keyCode === 13) {
       sessionStorage.setItem('Name', user);
-      history.push('/genres');
+      navigate('/genres');
     }
   };
 
@@ -103,7 +85,7 @@ function Welcome({ onThemeChange, theme }) {
     <>
       <Content>
         <AnimationContainer>
-          <Container>
+          <FlexContainer column alignItems="center">
             <WelcomeText>Welcome</WelcomeText>
             <Form>
               <Input
@@ -117,15 +99,19 @@ function Welcome({ onThemeChange, theme }) {
               />
               <NameText>Enter Your Name</NameText>
             </Form>
-            <SwitchContainer>
+            <FlexContainer m="200px 0 0">
               <SwitchText>Switch to Darkmode</SwitchText>
-              <ThemeSwitch onChange={onThemeChange} value={theme} />
-            </SwitchContainer>
-            <LoginLink>
+              <Toggle checked={theme} toggleHandler={onThemeChange} />
+            </FlexContainer>
+            <FlexContainer
+              alignItems="center"
+              justifyContent="center"
+              m="20px 0 0"
+            >
               <LoginText>Already have an Account?</LoginText>
               <LoginToggle onClick={openModal}>Log In</LoginToggle>
-            </LoginLink>
-          </Container>
+            </FlexContainer>
+          </FlexContainer>
         </AnimationContainer>
       </Content>
       <CreateModal

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 
 const InvisibleButton = styled.button`
-  text-transform: uppercase;
   border: none;
   background: transparent;
   padding: 0;
@@ -18,16 +17,16 @@ const LoginLink = styled.div`
 `;
 
 const LoginText = styled.p`
-  font-weight: 300;
-  font-size: 1rem;
+  font-weight: ${(props) => props.theme.fontweight.light};
+  font-size: ${(props) => props.theme.fontsize.s};
   color: ${(props) => props.theme.colors.text};
   margin-right: 10px;
   flex-shrink: 0;
 `;
 
 const LoginToggle = styled(Link)`
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: ${(props) => props.theme.fontsize.s};
+  font-weight: ${(props) => props.theme.fontweight.light};
   text-decoration: none;
   color: ${(props) => props.theme.colors.texthighlight};
   cursor: pointer;

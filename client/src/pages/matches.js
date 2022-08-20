@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { usePersistentSessionState } from '../hooks/usePersistentState';
 import { fadeIn } from '../animation/fades';
-import Content from '../components/layout/Content';
-import Form from '../components/layout/Form';
+import { Content, FlexContainer, Form } from '../components/layout/Containers';
 import Button from '../components/buttons/Button';
 import FestivalCard from '../components/FestivalCard';
 import AnimationContainer from '../components/layout/AnimationContainer';
@@ -25,21 +24,15 @@ const CardContainer = styled.div`
 const Text = styled.h2`
   display: flex;
   flex-wrap: wrap;
-  font-weight: 300;
+  font-weight: ${(props) => props.theme.fontweight.light};
   padding-top: 80px;
   margin-bottom: 25px;
 `;
 
 export const AgainText = styled(Text)`
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontsize.l};
   text-align: center;
   padding-top: 10px;
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 45px;
 `;
 
 /* HELPER */
@@ -58,7 +51,7 @@ function compare(a, b) {
 /* CONTENT */
 
 function Matchlist() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const greetUser = sessionStorage.getItem('Name') || 'Stranger';
 
@@ -95,7 +88,7 @@ function Matchlist() {
     sessionStorage.setItem('selectedFestival', selectedFestival);
     sessionStorage.setItem('selectedFestivalQuote', quotes[index]);
 
-    history.push(`/festivals/${selectedFestival}`); //should be the name
+    navigate(`/festivals/${selectedFestival}`); //should be the name
   };
 
   for (const [index] of quotes.entries()) {
@@ -109,7 +102,7 @@ function Matchlist() {
     sessionStorage.removeItem('SelectedGenres');
     sessionStorage.removeItem('selectedFestival');
     sessionStorage.removeItem('selectedFestivalQuote');
-    history.push('/genres');
+    navigate('/genres');
   };
   //maybe rethink the usage of form in this context
   return (
@@ -141,26 +134,15 @@ function Matchlist() {
             <AgainText>
               Still Haven&apos;t Found What You Were Looking&nbsp;For?
             </AgainText>
-            <ButtonWrapper>
+            <FlexContainer justifyContent="center" m="0 0 45px">
               <Button onClick={handleAgainClick} size="Medium">
                 Match Me Again
               </Button>
-            </ButtonWrapper>
+            </FlexContainer>
           </AnimationContainer>
         </Form>
       ) : (
-        <AnimationContainer>
-          <div style={{ paddingTop: '200px' }}>
-            <AgainText>
-              This supposedly wasn&apos;t what you were trying to do?
-            </AgainText>
-            <ButtonWrapper>
-              <Button onClick={handleAgainClick} size="Medium">
-                Start Matching!
-              </Button>
-            </ButtonWrapper>
-          </div>
-        </AnimationContainer>
+        <Error />
       )}
     </Content>
   );

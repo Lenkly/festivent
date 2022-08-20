@@ -17,8 +17,8 @@ const FestivalData = styled.h3`
 `;
 
 const FestivalIntroduction = styled.div`
-  font-size: 0.75rem;
-  font-weight: 300;
+  font-size: ${(props) => props.theme.fontsize.xxs};
+  font-weight: ${(props) => props.theme.fontweight.light};
   line-height: 1.5;
   margin-bottom: 40px;
 `;
@@ -33,8 +33,6 @@ function FestivalDetailHeader({
   description,
   ...props
 }) {
-  // const badgeItems = props.genres;
-  // const genresList = badgeItems.sort().map((item, index) => {
   const genresList = props.genres.sort().map((item, index) => {
     return (
       <GenreBadge selected={item.selected} genre={item.name} key={index} />
