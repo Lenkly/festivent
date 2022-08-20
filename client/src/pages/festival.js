@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
-import styled from '@emotion/styled';
-import { Content } from '../components/layout/Containers';
+import { FlexContainer, Content } from '../components/layout/Containers';
 import NavigationBar from '../components/NavigationBar';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import calculateIconValue from '../lib/calculateIconValue';
@@ -18,17 +17,6 @@ import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
 import usePersistentState from '../hooks/usePersistentState';
 import Toast from '../components/Toast';
-
-/* STYLES */
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 43px;
-`;
-
-/* CONTENT */
 
 function Details({ userLoggedIn }) {
   const [isShowing, setShowing] = useState(false);
@@ -120,7 +108,7 @@ function Details({ userLoggedIn }) {
                   genres={selects}
                 />
                 <FestivalLineup artists={festival.artists} />
-                <ButtonContainer>
+                <FlexContainer column p="43px 0 0">
                   {userLoggedIn ? (
                     <Checkbox
                       label="Add to Favourites"
@@ -143,7 +131,7 @@ function Details({ userLoggedIn }) {
                       &ensp;Buy Tickets
                     </CTAButton>
                   </a>
-                </ButtonContainer>
+                </FlexContainer>
                 <Toast
                   isOpen={toastOpen}
                   borderColor={calculateIconValue(festival.quote)}

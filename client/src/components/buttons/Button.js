@@ -35,7 +35,7 @@ const enabledStyle = (props) => css`
   }
   color: ${props.theme.colors.text};
   border: double 2px transparent;
-  border-radius: 1rem;
+  border-radius: ${props.theme.borderradius.small};
 `;
 
 const loginStyle = (props) => css`
@@ -64,7 +64,7 @@ const loginStyle = (props) => css`
   }
   color: ${props.theme.colors.text};
   border: double 2px transparent;
-  border-radius: 1rem;
+  border-radius: ${props.theme.borderradius.small};
 `;
 
 const Button = styled.button`

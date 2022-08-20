@@ -1,9 +1,16 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const FlexContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: ${(props) => (props.column ? 'column' : 'row')};
+  align-items: ${(props) =>
+    props.alignItems ? props.alignItems : 'flex-start'};
+  justify-content: ${(props) =>
+    props.justifyContent ? props.justifyContent : 'flex-start'};
+  margin: ${(props) => props.m && props.m};
+  padding: ${(props) => props.p && props.p};
+  width: ${(props) => props.width && props.width};
+  height: ${(props) => props.height && props.height};
 `;
 
 export const Content = styled.div`

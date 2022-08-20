@@ -6,7 +6,7 @@ import Close from '../assets/Close';
 import calcColor from '../lib/calcColor';
 
 const ToastContainer = styled.div`
-  border-radius: 20px;
+  border-radius: ${(props) => props.theme.borderradius.medium};
   border: 1px solid;
   border-color: ${(props) => calcColor[props.borderColor].colors};
   overflow: hidden;

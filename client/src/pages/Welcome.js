@@ -3,24 +3,21 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Input } from '../components/Input';
 import { useNavigate } from 'react-router-dom';
-import { Content, Form, Container } from '../components/layout/Containers';
+import { Content, Form, FlexContainer } from '../components/layout/Containers';
 import AnimationContainer from '../components/layout/AnimationContainer';
 import CreateModal from '../components/modals/CreateModal';
 import Toggle from '../components/Toggle';
 
-const WelcomeText = styled.div`
+const WelcomeText = styled.h2`
+  font-size: ${(props) => props.theme.fontsize.xxl};
+  font-weight: ${(props) => props.theme.fontweight.light};
   padding-top: 255px;
 `;
 
 const NameText = styled.span`
   font-size: ${(props) => props.theme.fontsize.xs};
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-top: 8px;
-`;
-
-const SwitchContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 200px;
 `;
 
 const SwitchText = styled.span`
@@ -29,15 +26,9 @@ const SwitchText = styled.span`
   padding-top: 5px;
 `;
 
-const LoginLink = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-`;
-
 const LoginText = styled.span`
   font-size: ${(props) => props.theme.fontsize.s};
+  font-weight: ${(props) => props.theme.fontweight.light};
   margin-right: 10px;
 `;
 
@@ -94,7 +85,7 @@ function Welcome({ onThemeChange, theme }) {
     <>
       <Content>
         <AnimationContainer>
-          <Container>
+          <FlexContainer column alignItems="center">
             <WelcomeText>Welcome</WelcomeText>
             <Form>
               <Input
@@ -108,15 +99,19 @@ function Welcome({ onThemeChange, theme }) {
               />
               <NameText>Enter Your Name</NameText>
             </Form>
-            <SwitchContainer>
+            <FlexContainer m="200px 0 0">
               <SwitchText>Switch to Darkmode</SwitchText>
               <Toggle checked={theme} toggleHandler={onThemeChange} />
-            </SwitchContainer>
-            <LoginLink>
+            </FlexContainer>
+            <FlexContainer
+              alignItems="center"
+              justifyContent="center"
+              m="20px 0 0"
+            >
               <LoginText>Already have an Account?</LoginText>
               <LoginToggle onClick={openModal}>Log In</LoginToggle>
-            </LoginLink>
-          </Container>
+            </FlexContainer>
+          </FlexContainer>
         </AnimationContainer>
       </Content>
       <CreateModal

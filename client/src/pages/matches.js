@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import usePersistentState from '../hooks/usePersistentState';
 import { fadeIn } from '../animation/fades';
-import { Content, Form } from '../components/layout/Containers';
+import { Content, FlexContainer, Form } from '../components/layout/Containers';
 import Button from '../components/buttons/Button';
 import FestivalCard from '../components/FestivalCard';
 import AnimationContainer from '../components/layout/AnimationContainer';
@@ -33,12 +33,6 @@ export const AgainText = styled(Text)`
   font-size: ${(props) => props.theme.fontsize.l};
   text-align: center;
   padding-top: 10px;
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 45px;
 `;
 
 /* HELPER */
@@ -140,26 +134,15 @@ function Matchlist() {
             <AgainText>
               Still Haven&apos;t Found What You Were Looking&nbsp;For?
             </AgainText>
-            <ButtonWrapper>
+            <FlexContainer justifyContent="center" m="0 0 45px">
               <Button onClick={handleAgainClick} size="Medium">
                 Match Me Again
               </Button>
-            </ButtonWrapper>
+            </FlexContainer>
           </AnimationContainer>
         </Form>
       ) : (
-        <AnimationContainer>
-          <div style={{ paddingTop: '200px' }}>
-            <AgainText>
-              This supposedly wasn&apos;t what you were trying to do?
-            </AgainText>
-            <ButtonWrapper>
-              <Button onClick={handleAgainClick} size="Medium">
-                Start Matching!
-              </Button>
-            </ButtonWrapper>
-          </div>
-        </AnimationContainer>
+        <Error />
       )}
     </Content>
   );

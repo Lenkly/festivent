@@ -5,21 +5,11 @@ import Heart from '../../assets/festivent-start.png';
 import Close from '../../assets/Close';
 import CloseButton from '../buttons/CloseButton';
 import NavigationBar from '../NavigationBar';
+import { FlexContainer } from '../layout/Containers';
 
-const CloseButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 45px;
-  width: 100%;
-`;
-
-const TeaserContainer = styled.div`
-  display: flex;
+const TeaserContainer = styled(FlexContainer)`
   flex-wrap: wrap;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding-top: ${(props) => (props.forSignUp ? '55px' : '155px')};
   padding-bottom: ${(props) => (props.forSignUp ? '0' : '54px')};
 `;
@@ -39,16 +29,21 @@ function ModalHeader({ renderOnModal, onSignUp, closeModal }) {
   return (
     <>
       {renderOnModal ? (
-        <CloseButtonContainer>
+        <FlexContainer
+          alignItems="flex-end"
+          justifyContent="flex-end"
+          width="100%"
+          height="45px"
+        >
           <CloseButton onClick={closeModal}>
             <Close />
           </CloseButton>
-        </CloseButtonContainer>
+        </FlexContainer>
       ) : (
         <NavigationBar />
       )}
       {onSignUp ? (
-        <TeaserContainer forSignUp>
+        <TeaserContainer align="Center" forSignUp>
           <Logo src={Heart} alt="festivent logo" />
           <TeaserText>
             Add favourites to your list and discover many more features when
@@ -56,7 +51,7 @@ function ModalHeader({ renderOnModal, onSignUp, closeModal }) {
           </TeaserText>
         </TeaserContainer>
       ) : (
-        <TeaserContainer>
+        <TeaserContainer align="Center">
           <Logo src={Heart} alt="festivent logo" />
         </TeaserContainer>
       )}
