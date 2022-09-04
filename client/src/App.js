@@ -52,11 +52,7 @@ function App() {
               path="welcome"
               element={<Welcome onThemeChange={setTheme} theme={theme} />}
             />
-            <Route
-              exact
-              path="start"
-              element={<Start onThemeChange={setTheme} theme={theme} />}
-            />
+            <Route exact path="start" element={<Start />} />
             <Route exact path="genres" element={<Genres />} />
             <Route exact path="festivals/:festivalId" element={<Details />} />
             <Route exact path="festivals" element={<Matchlist />} />
