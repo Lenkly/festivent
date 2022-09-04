@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import GlobalStyles from './themes/GlobalStyles';
+// import { ThemeProvider } from 'emotion-theming';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GlobalStyles from './themes/GlobalStyles';
 import { ThemeProvider } from '@emotion/react';
@@ -12,9 +15,30 @@ import Settings from './pages/settings';
 import Start from './pages/start';
 import ErrorState from './pages/errorstate';
 import { darkmode } from './themes/theme';
+// import AuthContext from './contexts/AuthContext';
+// import useAuth from './hooks/useAuth';
+// import AuthRoutes from './AuthRoutes';
 
 function App() {
   const [theme, setTheme] = useState(darkmode);
+
+  // const { token, userId, login, logout } = useAuth();
+  // const isLoggedIn = !!token;
+
+  // <AuthContext.Provider
+  //   value={{ token, login, logout, userId, isLoggedIn }}
+  // >
+  //   <ThemeProvider theme={theme}>
+  //     <GlobalStyles />
+  //     <Router>
+  //       <AuthRoutes
+  //         isLoggedIn={isLoggedIn}
+  //         theme={theme}
+  //         setTheme={setTheme}
+  //       />
+  //     </Router>
+  //   </ThemeProvider>
+  // </AuthContext.Provider>
 
   return (
     <>
@@ -28,11 +52,7 @@ function App() {
               path="welcome"
               element={<Welcome onThemeChange={setTheme} theme={theme} />}
             />
-            <Route
-              exact
-              path="start"
-              element={<Start onThemeChange={setTheme} theme={theme} />}
-            />
+            <Route exact path="start" element={<Start />} />
             <Route exact path="genres" element={<Genres />} />
             <Route exact path="festivals/:festivalId" element={<Details />} />
             <Route exact path="festivals" element={<Matchlist />} />

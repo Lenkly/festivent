@@ -15,14 +15,14 @@ import CTAButton from '../components/buttons/CTAButton';
 import Checkbox from '../components/Checkbox';
 import { useParams } from 'react-router-dom';
 import FestivalLineup from '../components/FestivalDetailLineup';
-import usePersistentState from '../hooks/usePersistentState';
+import { usePersistentSessionState } from '../hooks/usePersistentState';
 import Toast from '../components/Toast';
 
 function Details({ userLoggedIn }) {
   const [isShowing, setShowing] = useState(false);
   const { festivalId } = useParams();
   const { status, data: festivaldata } = useQuery('festival', getFestivalbyId);
-  const [selectedGenres] = usePersistentState('SelectedGenres', []);
+  const [selectedGenres] = usePersistentSessionState('SelectedGenres', []);
   const [loginSwitch, setLoginSwitch] = useState(false);
   const [toastOpen, setToastOpen] = useState(false);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import usePersistentState from '../hooks/usePersistentState';
+import { usePersistentSessionState } from '../hooks/usePersistentState';
 import { fadeIn } from '../animation/fades';
 import { Content, FlexContainer, Form } from '../components/layout/Containers';
 import Button from '../components/buttons/Button';
@@ -57,7 +57,7 @@ function Matchlist() {
 
   let { status, data: festivaldata } = useQuery('festivals', getFestivals);
 
-  const [selectedGenres] = usePersistentState('SelectedGenres', []);
+  const [selectedGenres] = usePersistentSessionState('SelectedGenres', []);
 
   async function getFestivals() {
     const fetchRoute =

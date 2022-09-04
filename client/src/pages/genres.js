@@ -6,7 +6,7 @@ import { Content, Form } from '../components/layout/Containers';
 import getGenres from '../api/getGenres';
 import Button from '../components/buttons/Button';
 import { ChooseGenreButton } from '../components/buttons/GenreButton';
-import usePersistentState from '../hooks/usePersistentState';
+import { usePersistentSessionState } from '../hooks/usePersistentState';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import AnimationContainer from '../components/layout/AnimationContainer';
@@ -53,7 +53,7 @@ function Genres() {
   const [matchable, setMatchable] = useState(false);
   const navigate = useNavigate();
   const { status, data: genredata } = useQuery('genres', getGenres);
-  const [selectedGenres, setSelectedGenres] = usePersistentState(
+  const [selectedGenres, setSelectedGenres] = usePersistentSessionState(
     'SelectedGenres',
     []
   );
